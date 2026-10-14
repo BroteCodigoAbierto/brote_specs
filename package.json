@@ -1,0 +1,12 @@
+{
+  "name": "brote_specs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Specs, modelo de datos y contrato de Brote",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "contrato:copiar": "node scripts/contrato.mjs copiar",
+    "contrato:revisar": "node scripts/contrato.mjs revisar"
+  }
+}

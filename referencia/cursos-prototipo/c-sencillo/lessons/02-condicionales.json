@@ -1,0 +1,30 @@
+{
+  "title": "Condicionales y operadores",
+  "activities": [
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Qué operador se usa para comparar igualdad en C?",
+      "options": ["==", "=", "==="],
+      "answer": 0
+    },
+    {
+      "type": "reorder",
+      "prompt": "Ordena las líneas para formar un programa que imprima 'Hola' si x es mayor que 5.",
+      "items": ["if (x > 5) {", "    printf(\"Hola\");", "}"]
+    },
+    {
+      "type": "fill_blank",
+      "text": "if (x ___ 5) { printf(\"Mayor\"); }",
+      "blanks": [
+        { "accepted": [">"] }
+      ]
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Escribe una función 'esPar' en C que reciba un entero y devuelva 1 si es par, 0 si no.",
+      "language": "c",
+      "starter_code": "int esPar(int n) {\n  \n}",
+      "solution": "int esPar(int n) {\n  return n % 2 == 0;\n}"
+    }
+  ]
+}

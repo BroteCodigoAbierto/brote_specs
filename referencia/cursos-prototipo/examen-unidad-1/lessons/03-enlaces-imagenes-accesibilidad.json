@@ -1,0 +1,60 @@
+{
+  "title": "Enlaces, imágenes y accesibilidad",
+  "activities": [
+    {
+      "type": "content",
+      "title": "target=\"_blank\" y rel=\"noopener\"",
+      "body": "target=\"_blank\" hace que un enlace se abra en una pestaña nueva.\n\nCuando se usa target=\"_blank\" conviene agregar rel=\"noopener\": sin él, la página nueva tiene acceso a window.opener (la pestaña que abrió el enlace), lo que en teoría podría aprovecharse para redirigir la pestaña original a un sitio malicioso — un ataque conocido como tabnabbing. rel=\"noopener\" corta ese acceso.",
+      "code": "<a href=\"https://ejemplo.com\" target=\"_blank\" rel=\"noopener\">Ir al sitio</a>",
+      "glossary": [
+        { "term": "target=\"_blank\"", "definition": "Atributo de <a> que hace que el enlace se abra en una pestaña o ventana nueva." },
+        { "term": "rel=\"noopener\"", "definition": "Evita que la pestaña nueva abierta por target=\"_blank\" tenga acceso a window.opener, previniendo ataques de tabnabbing/phishing." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Por qué conviene agregar rel=\"noopener\" a un enlace con target=\"_blank\"?",
+      "options": [
+        "Evita que la pestaña nueva pueda acceder a window.opener y manipular la pestaña original (seguridad)",
+        "Hace que el enlace cargue más rápido",
+        "Es obligatorio para que target=\"_blank\" funcione"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "text": "<a href=\"https://ejemplo.com\" target=\"_blank\" ___=\"noopener\">Ir</a>",
+      "blanks": [
+        { "accepted": ["rel"] }
+      ]
+    },
+    {
+      "type": "content",
+      "title": "El atributo alt en <img>",
+      "body": "alt es un texto alternativo: se muestra si la imagen no llega a cargar, y lo usan los lectores de pantalla para describir la imagen a personas con discapacidad visual.\n\nTambién ayuda al SEO, porque los buscadores no pueden \"ver\" la imagen pero sí leen su alt.",
+      "glossary": [
+        { "term": "alt", "definition": "Atributo de <img> con un texto alternativo: se muestra si la imagen no carga, lo leen los lectores de pantalla, y ayuda al SEO." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Cuál de estas NO es una razón para usar el atributo alt en una imagen?",
+      "options": [
+        "Hace que la imagen cargue más rápido",
+        "Los lectores de pantalla lo usan para describir la imagen",
+        "Se muestra si la imagen no carga"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "flashcard",
+      "front": "alt",
+      "back": "Texto alternativo de una imagen: se muestra si la imagen no carga y lo usan los lectores de pantalla (accesibilidad); también ayuda al SEO."
+    },
+    {
+      "type": "open_question",
+      "prompt": "¿Qué le pasa a una persona que usa lector de pantalla si te olvidás el alt en una imagen importante (por ejemplo, el logo que también es un link a la home)?",
+      "solution": "El lector de pantalla no tiene un texto útil que leer para describir esa imagen (en el mejor de los casos lee el nombre del archivo, algo como \"logo guion final punto png\", que no aporta información) — la persona pierde el contexto de qué es ese elemento o hacia dónde lleva el enlace. En este ejemplo, no sabría que ese elemento la lleva a la página de inicio."
+    }
+  ]
+}

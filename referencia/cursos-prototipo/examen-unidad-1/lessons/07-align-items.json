@@ -1,0 +1,63 @@
+{
+  "title": "align-items: el eje cruzado",
+  "activities": [
+    {
+      "type": "content",
+      "title": "Alineando en perpendicular",
+      "body": "Mientras justify-content trabaja sobre el eje principal, align-items trabaja sobre el eje cruzado (el vertical, si usas flex-direction: row).\n\nEs la propiedad que responde a la típica pregunta \"¿cómo centro esto verticalmente?\" que antes de Flexbox era tan incómoda de resolver en CSS.",
+      "code": ".contenedor {\n  display: flex;\n  align-items: center;\n}",
+      "bullets": [
+        "stretch (por defecto): los elementos se estiran para llenar la altura del contenedor",
+        "flex-start: los elementos se alinean al inicio del eje cruzado",
+        "flex-end: los elementos se alinean al final del eje cruzado",
+        "center: los elementos se centran en el eje cruzado",
+        "baseline: los elementos se alinean por la línea base de su texto"
+      ],
+      "glossary": [
+        { "term": "align-items", "definition": "Propiedad que alinea los elementos de un contenedor flex a lo largo del eje cruzado, dentro de su propia línea. Valores: stretch (por defecto), flex-start, flex-end, center, baseline." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Cuál es el valor por defecto de align-items si no lo defines?",
+      "options": ["stretch", "center", "flex-start"],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "text": ".tarjeta {\n  display: flex;\n  ___: center;\n}",
+      "blanks": [
+        { "accepted": ["align-items"] }
+      ]
+    },
+    {
+      "type": "matching",
+      "pairs": [
+        { "left": "stretch", "right": "Estira los elementos para llenar la altura del contenedor (valor por defecto)" },
+        { "left": "center", "right": "Centra los elementos en el eje cruzado" },
+        { "left": "flex-end", "right": "Alinea los elementos al final del eje cruzado" },
+        { "left": "baseline", "right": "Alinea los elementos por la línea base de su texto" }
+      ]
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Una .tarjeta tiene un ícono y un texto como hijos directos, de distinta altura. Escribe el CSS para que sea un contenedor flex y ambos hijos queden centrados verticalmente entre sí.",
+      "language": "css",
+      "starter_code": ".tarjeta {\n  \n}",
+      "solution": ".tarjeta {\n  display: flex;\n  align-items: center;\n}"
+    },
+    {
+      "type": "flashcard",
+      "front": "align-self",
+      "back": "Se aplica a un elemento flex individual (no al contenedor) y sobreescribe, solo para ese elemento, el valor de align-items del contenedor padre. Útil cuando un elemento necesita alinearse distinto al resto.",
+      "glossary": [
+        { "term": "align-self", "definition": "Sobrescribe, solo para un elemento flex individual, el valor de align-items del contenedor padre. Útil cuando ese elemento necesita alinearse distinto al resto." }
+      ]
+    },
+    {
+      "type": "open_question",
+      "prompt": "Tienes flex-direction: column en tu contenedor. ¿Qué propiedad usarías ahora para centrar los elementos horizontalmente, y cuál para centrarlos verticalmente? ¿Por qué se invierten respecto a flex-direction: row?",
+      "solution": "Con flex-direction: column el eje principal pasa a ser el vertical, así que justify-content controla ahora la alineación vertical y align-items la horizontal — exactamente al revés que en row. Se invierten porque justify-content siempre actúa sobre el eje principal y align-items siempre sobre el eje cruzado, y flex-direction es la que decide cuál eje es cuál."
+    }
+  ]
+}

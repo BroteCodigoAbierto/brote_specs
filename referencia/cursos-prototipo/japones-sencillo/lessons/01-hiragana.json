@@ -1,0 +1,34 @@
+{
+  "title": "Hiragana: las vocales",
+  "activities": [
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Cuál hiragana se lee 'a'?",
+      "options": [
+        { "icon": "あ" },
+        { "icon": "い" },
+        { "icon": "う" }
+      ],
+      "answer": 0
+    },
+    {
+      "type": "matching",
+      "pairs": [
+        { "left": "あ", "right": "a" },
+        { "left": "い", "right": "i" },
+        { "left": "う", "right": "u" },
+        { "left": "え", "right": "e" }
+      ]
+    },
+    {
+      "type": "flashcard",
+      "front": "お",
+      "back": "Se lee 'o', como en 'oso'. Es la última de las cinco vocales del hiragana."
+    },
+    {
+      "type": "listen_and_repeat",
+      "expected_text": "あいうえお",
+      "lang": "ja-JP"
+    }
+  ]
+}

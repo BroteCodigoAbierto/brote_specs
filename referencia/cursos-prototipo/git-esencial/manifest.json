@@ -1,0 +1,38 @@
+{
+  "id": "git-esencial",
+  "title": "Git esencial",
+  "description": "Aprende Git desde cero: commits, ramas y remotos, con una terminal simulada y grafos de commits interactivos.",
+  "author": "pedro",
+  "language": "es",
+  "version": 1,
+  "lessons": [
+    {
+      "id": "01-que-es-control-de-versiones",
+      "title": "¿Qué es el control de versiones?"
+    },
+    {
+      "id": "02-tu-primer-commit",
+      "title": "Tu primer commit"
+    },
+    {
+      "id": "03-viajar-en-el-tiempo",
+      "title": "Viajar en el tiempo: historial y diffs"
+    },
+    {
+      "id": "04-ramas",
+      "title": "Ramas: trabajar en paralelo"
+    },
+    {
+      "id": "05-remotos",
+      "title": "Remotos: compartir tu trabajo"
+    },
+    {
+      "id": "06-conflictos",
+      "title": "Resolviendo conflictos"
+    }
+  ],
+  "gamification": {
+    "points": true,
+    "badges": true
+  }
+}

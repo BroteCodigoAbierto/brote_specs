@@ -1,0 +1,35 @@
+{
+  "title": "Arrays y punteros",
+  "activities": [
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Cómo se declara un array de 5 enteros en C?",
+      "options": ["int arr[5];", "array int(5);", "int[5] arr;"],
+      "answer": 0
+    },
+    {
+      "type": "categorize",
+      "categories": ["Válido", "Inválido"],
+      "items": [
+        { "text": "int arr[5];", "category": 0 },
+        { "text": "int[5] arr;", "category": 1 },
+        { "text": "int *p;", "category": 0 },
+        { "text": "int p*;", "category": 1 }
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "text": "Para obtener la dirección de memoria de una variable 'x' se usa el operador ___.",
+      "blanks": [
+        { "accepted": ["&"] }
+      ]
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Escribe una función 'suma' que reciba un array de enteros y su tamaño, y devuelva la suma de todos.",
+      "language": "c",
+      "starter_code": "int suma(int arr[], int tam) {\n  \n}",
+      "solution": "int suma(int arr[], int tam) {\n  int total = 0;\n  for (int i = 0; i < tam; i++) {\n    total += arr[i];\n  }\n  return total;\n}"
+    }
+  ]
+}

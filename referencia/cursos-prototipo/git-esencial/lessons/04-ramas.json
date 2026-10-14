@@ -1,0 +1,51 @@
+{
+  "title": "Ramas: trabajar en paralelo",
+  "activities": [
+    {
+      "type": "content",
+      "title": "¿Por qué ramas?",
+      "body": "Una rama (branch) es una línea de desarrollo independiente. La rama principal (main) normalmente contiene el código estable; cuando quieres construir algo nuevo sin arriesgar esa estabilidad, creas una rama aparte.\n\nCuando terminas, integras (merge) esa rama de vuelta a main."
+    },
+    {
+      "type": "terminal_sim",
+      "prompt": "Crea una nueva rama llamada \"feature-login\" y muévete a ella en un solo paso.",
+      "cwd": "~/proyectos/mi-app (main)",
+      "accepted": ["git checkout -b feature-login", "git switch -c feature-login"],
+      "success_output": "Switched to a new branch 'feature-login'",
+      "hint": "\"git checkout -b <nombre>\" o el más moderno \"git switch -c <nombre>\" crean y cambian de rama a la vez."
+    },
+    {
+      "type": "commit_graph",
+      "prompt": "Hiciste dos commits en main (c1, c2). Luego creaste la rama feature en c2 e hiciste ahí un commit más (c3). ¿A qué commit apunta main ahora mismo?",
+      "commits": [
+        { "id": "c1", "x": 60, "y": 110, "label": "c1", "parents": [] },
+        { "id": "c2", "x": 170, "y": 110, "label": "c2", "parents": ["c1"] },
+        { "id": "c3", "x": 280, "y": 50, "label": "c3", "parents": ["c2"] }
+      ],
+      "branches": [{ "name": "feature", "commit": "c3" }],
+      "answer": "c2",
+      "explanation": "Crear y moverte a una rama nueva no mueve main: se queda apuntando a c2, el commit desde el que creaste feature. El nuevo commit c3 solo existe en feature."
+    },
+    {
+      "type": "content",
+      "title": "Uniendo el trabajo: merge",
+      "body": "Cuando tu rama está lista, vuelves a main y ejecutas git merge feature-login. Si main no avanzó mientras tanto, Git hace un fast-forward: simplemente mueve el puntero de main hasta el último commit de la rama.\n\nSi ambas ramas avanzaron por separado, Git crea un commit de merge que une ambas historias."
+    },
+    {
+      "type": "terminal_sim",
+      "prompt": "Terminaste el trabajo en feature-login. Vuelve a main.",
+      "cwd": "~/proyectos/mi-app (feature-login)",
+      "accepted": ["git checkout main", "git switch main"],
+      "success_output": "Switched to branch 'main'",
+      "hint": "\"git checkout <rama>\" o \"git switch <rama>\" cambian de rama."
+    },
+    {
+      "type": "terminal_sim",
+      "prompt": "Ahora, desde main, integra los cambios de feature-login.",
+      "cwd": "~/proyectos/mi-app (main)",
+      "accepted": ["git merge feature-login"],
+      "success_output": "Updating a1b2c3d..d4e5f6g\nFast-forward\n index.html | 1 +",
+      "hint": "El comando es \"git merge <rama>\"."
+    }
+  ]
+}

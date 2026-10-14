@@ -1,0 +1,18 @@
+{
+  "id": "c-sencillo",
+  "title": "Programación en C sencilla",
+  "description": "Los fundamentos de C: variables, condicionales, funciones, arrays y punteros, con retos de código en cada lección.",
+  "author": "pedro",
+  "language": "es",
+  "version": 1,
+  "lessons": [
+    { "id": "01-primeros-pasos", "title": "Primeros pasos" },
+    { "id": "02-condicionales", "title": "Condicionales y operadores" },
+    { "id": "03-funciones", "title": "Funciones" },
+    { "id": "04-arrays-punteros", "title": "Arrays y punteros" }
+  ],
+  "gamification": {
+    "points": true,
+    "badges": false
+  }
+}

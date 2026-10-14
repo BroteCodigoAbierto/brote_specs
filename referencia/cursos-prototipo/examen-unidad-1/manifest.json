@@ -1,0 +1,25 @@
+{
+  "id": "examen-unidad-1",
+  "title": "Examen unidad 1",
+  "description": "Repaso de HTML semántico y formularios (label, input, alt, head, article/section) más el modelo de caja flexible de CSS: display: flex, justify-content, align-items, flex: 1, flex-wrap, order, gap y los patrones de layout más usados en la web moderna.",
+  "author": "pedro",
+  "language": "es",
+  "version": 1,
+  "lessons": [
+    { "id": "01-formularios-label-input", "title": "Formularios: label e input" },
+    { "id": "02-box-model-padding-gap-margin", "title": "Box model: padding, gap y margin" },
+    { "id": "03-enlaces-imagenes-accesibilidad", "title": "Enlaces, imágenes y accesibilidad" },
+    { "id": "04-estructura-semantica-html", "title": "Estructura semántica de HTML" },
+    { "id": "05-que-es-flexbox", "title": "¿Qué es Flexbox?" },
+    { "id": "06-justify-content", "title": "justify-content: el eje principal" },
+    { "id": "07-align-items", "title": "align-items: el eje cruzado" },
+    { "id": "08-flex-grow-shrink-basis", "title": "flex: 1 y el tamaño de los elementos" },
+    { "id": "09-flex-wrap-multilinea", "title": "flex-wrap y layouts multilínea" },
+    { "id": "10-order-y-gap", "title": "order y gap" },
+    { "id": "11-patrones-comunes", "title": "Patrones comunes con Flexbox" }
+  ],
+  "gamification": {
+    "points": true,
+    "badges": false
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "title": "Tu primer commit",
+  "activities": [
+    {
+      "type": "content",
+      "title": "De carpeta normal a repositorio",
+      "body": "Todo empieza con un comando: git init. Convierte la carpeta actual en un repositorio Git, creando una carpeta oculta .git donde vivirá todo el historial.\n\nDesde ahí, el flujo típico es: editas archivos, los agregas al staging area con git add, y los confirmas con git commit."
+    },
+    {
+      "type": "terminal_sim",
+      "prompt": "Estás en una carpeta con un proyecto nuevo. Conviértela en un repositorio Git.",
+      "cwd": "~/proyectos/mi-app",
+      "setup_output": "README.md\nindex.html",
+      "accepted": ["git init"],
+      "success_output": "Initialized empty Git repository in ~/proyectos/mi-app/.git/",
+      "hint": "El comando que inicializa un repositorio es \"git init\"."
+    },
+    {
+      "type": "terminal_sim",
+      "prompt": "Quieres ver qué archivos están sin trackear o modificados.",
+      "cwd": "~/proyectos/mi-app",
+      "accepted": ["git status"],
+      "success_output": "En la rama main\n\nNo hay commits todavía\n\nArchivos sin seguimiento:\n  (usa \"git add <archivo>...\" para incluirlo en lo que será confirmado)\n\tREADME.md\n\tindex.html",
+      "hint": "El comando para ver el estado del repositorio es \"git status\"."
+    },
+    {
+      "type": "terminal_sim",
+      "prompt": "Prepara todos los archivos para el próximo commit.",
+      "cwd": "~/proyectos/mi-app",
+      "accepted": ["git add .", "git add -A"],
+      "success_output": "(sin salida: así confirma \"git add\" que todo salió bien)",
+      "hint": "El comando que mueve archivos al staging area es \"git add\", seguido de los archivos o de \".\" para todos."
+    },
+    {
+      "type": "terminal_sim",
+      "prompt": "Confirma los cambios preparados con el mensaje \"Primer commit\".",
+      "cwd": "~/proyectos/mi-app",
+      "accepted": ["git commit -m \"Primer commit\"", "git commit -m 'Primer commit'"],
+      "success_output": "[main (root-commit) a1b2c3d] Primer commit\n 2 files changed, 10 insertions(+)",
+      "hint": "El comando es: git commit -m \"mensaje\""
+    },
+    {
+      "type": "categorize",
+      "prompt": "Clasifica cada comando según lo que afecta.",
+      "categories": ["Solo prepara (staging)", "Guarda en el historial"],
+      "items": [
+        { "text": "git add archivo.txt", "category": 0 },
+        { "text": "git commit -m \"mensaje\"", "category": 1 },
+        { "text": "git add .", "category": 0 },
+        { "text": "git commit -m \"otro\"", "category": 1 }
+      ]
+    }
+  ]
+}

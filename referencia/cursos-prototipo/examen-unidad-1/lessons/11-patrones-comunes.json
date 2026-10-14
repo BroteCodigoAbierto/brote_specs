@@ -1,0 +1,72 @@
+{
+  "title": "Patrones comunes con Flexbox",
+  "activities": [
+    {
+      "type": "content",
+      "title": "Recetas que vas a usar todo el tiempo",
+      "body": "Con display: flex, justify-content, align-items, flex: 1, flex-wrap, order y gap ya tenés todo lo necesario para resolver los layouts que más se repiten en la web. Esta lección junta esas piezas en patrones concretos, listos para copiar y adaptar.",
+      "bullets": [
+        "Centrado perfecto: display: flex; justify-content: center; align-items: center;",
+        "Navbar: display: flex; justify-content: space-between; align-items: center;",
+        "Sticky footer: flex-direction: column en el body + flex: 1 en el contenido principal",
+        "Holy grail: header y footer de ancho completo, y una fila central en flex con sidebar, contenido y aside"
+      ],
+      "glossary": [
+        { "term": "sticky footer", "definition": "Patrón de layout donde el footer queda pegado a la parte inferior de la ventana incluso si el contenido de la página es corto, típicamente logrado con flex-direction: column en el body y flex: 1 en el contenido principal." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Qué combinación de propiedades centra un elemento tanto horizontal como verticalmente dentro de su contenedor flex?",
+      "options": [
+        "justify-content: center; align-items: center;",
+        "justify-content: center; align-content: center;",
+        "align-items: center; align-self: center;"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Escribe el CSS para .pantalla (el contenedor) de modo que un único .modal hijo quede perfectamente centrado, tanto horizontal como verticalmente.",
+      "language": "css",
+      "starter_code": ".pantalla {\n  height: 100vh;\n  \n}",
+      "solution": ".pantalla {\n  height: 100vh;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}"
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Un .navbar tiene un .logo y una .lista-links como únicos hijos directos. Escribe el CSS para que queden en extremos opuestos (logo a la izquierda, links a la derecha) y ambos centrados verticalmente entre sí.",
+      "language": "css",
+      "starter_code": ".navbar {\n  \n}",
+      "solution": ".navbar {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}"
+    },
+    {
+      "type": "reorder",
+      "prompt": "Ordena los pasos para construir un \"sticky footer\" (un footer que queda pegado abajo incluso si el contenido es corto) usando Flexbox.",
+      "items": [
+        "Aplicar min-height: 100vh y display: flex; flex-direction: column; al body",
+        "Dejar que header y footer mantengan su altura natural",
+        "Aplicar flex: 1 al contenedor del contenido principal, para que ocupe todo el espacio sobrante y empuje el footer hacia abajo"
+      ]
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Completa el patrón de sticky footer: el body ya tiene min-height: 100vh y display: flex; flex-direction: column;. Escribe el CSS que falta para .main-content, de forma que crezca y ocupe todo el espacio sobrante entre el header y el footer.",
+      "language": "css",
+      "starter_code": ".main-content {\n  \n}",
+      "solution": ".main-content {\n  flex: 1;\n}"
+    },
+    {
+      "type": "flashcard",
+      "front": "Holy grail layout",
+      "back": "Un layout clásico con header y footer de ancho completo, y una fila central dividida en tres columnas: sidebar, contenido principal y aside. Con Flexbox se resuelve con flex-direction: column en el body (header, fila central, footer) y flex-direction: row dentro de la fila central, usando flex: 1 en el contenido principal para que ocupe el espacio sobrante mientras sidebar y aside mantienen un ancho fijo.",
+      "glossary": [
+        { "term": "holy grail layout", "definition": "Layout clásico con header y footer de ancho completo, y una fila central dividida en sidebar, contenido principal y aside." }
+      ]
+    },
+    {
+      "type": "open_question",
+      "prompt": "En el patrón de sticky footer, ¿por qué es necesario min-height: 100vh en el body además de display: flex; flex-direction: column;? ¿Qué pasaría si lo quitaras con una página de contenido corto?",
+      "solution": "Sin min-height: 100vh, el body solo mide tanto como su contenido (altura natural), así que flex: 1 en el contenido principal no tendría espacio sobrante que ocupar cuando la página es corta — el footer quedaría justo debajo del contenido, en medio de la pantalla, en vez de pegado al fondo. min-height: 100vh garantiza que el body (y por lo tanto el contenedor flex) mida al menos la altura completa de la ventana, dándole a flex: 1 espacio real para crecer y empujar el footer hasta abajo."
+    }
+  ]
+}

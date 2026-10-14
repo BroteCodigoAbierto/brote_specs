@@ -1,0 +1,49 @@
+{
+  "title": "Viajar en el tiempo: historial y diffs",
+  "activities": [
+    {
+      "type": "content",
+      "title": "Ver qué pasó",
+      "body": "Con el tiempo, un repositorio acumula muchos commits. git log te muestra el historial completo: quién hizo cada commit, cuándo y con qué mensaje.\n\nSi quieres saber exactamente qué líneas cambiaron entre dos versiones de un archivo, usas git diff. La salida se ve así:",
+      "code": "diff --git a/index.html b/index.html\n@@ -1,5 +1,6 @@\n <!DOCTYPE html>\n <html>\n-  <title>Mi app</title>\n+  <title>Mi app increíble</title>\n+  <meta charset=\"utf-8\">\n </html>"
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "En el diff de arriba, ¿qué línea se eliminó (marcada con -)?",
+      "code": "diff --git a/index.html b/index.html\n@@ -1,5 +1,6 @@\n <!DOCTYPE html>\n <html>\n-  <title>Mi app</title>\n+  <title>Mi app increíble</title>\n+  <meta charset=\"utf-8\">\n </html>",
+      "options": ["<title>Mi app</title>", "<title>Mi app increíble</title>", "<meta charset=\"utf-8\">"],
+      "answer": 0
+    },
+    {
+      "type": "terminal_sim",
+      "prompt": "Quieres ver el historial de commits en una sola línea por commit.",
+      "cwd": "~/proyectos/mi-app",
+      "accepted": ["git log --oneline"],
+      "success_output": "a1b2c3d Primer commit",
+      "hint": "Combina \"git log\" con la opción \"--oneline\"."
+    },
+    {
+      "type": "terminal_sim",
+      "prompt": "Te equivocaste editando index.html y quieres descartar los cambios sin confirmar, volviendo a la última versión guardada.",
+      "cwd": "~/proyectos/mi-app",
+      "accepted": ["git restore index.html", "git checkout -- index.html"],
+      "success_output": "(sin salida: index.html vuelve a como estaba en el último commit)",
+      "hint": "El comando moderno es \"git restore <archivo>\"; el clásico es \"git checkout -- <archivo>\"."
+    },
+    {
+      "type": "content",
+      "title": "revert vs. reset: dos formas de deshacer",
+      "body": "Si el error ya quedó guardado en un commit, tienes dos caminos:\n\ngit revert crea un commit nuevo que deshace los cambios del commit indicado, sin borrar el historial. Es la opción segura, sobre todo si ya compartiste tu trabajo con otras personas.\n\ngit reset mueve el puntero de la rama a un commit anterior, pudiendo borrar commits del historial. Es potente, pero conviene usarlo solo en trabajo que aún no has compartido.",
+      "bullets": [
+        "revert: seguro, deja rastro, ideal para historial compartido.",
+        "reset: reescribe el historial, ideal solo para trabajo local."
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "Ya empujaste (push) un commit con un error a un repositorio compartido con tu equipo. ¿Qué comando es más seguro para deshacerlo?",
+      "options": ["git revert", "git reset --hard", "borrar la carpeta y volver a clonar"],
+      "answer": 0
+    }
+  ]
+}

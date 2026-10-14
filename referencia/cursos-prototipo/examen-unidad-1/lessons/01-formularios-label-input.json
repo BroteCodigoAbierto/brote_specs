@@ -1,0 +1,65 @@
+{
+  "title": "Formularios: label e input",
+  "activities": [
+    {
+      "type": "content",
+      "title": "El atributo for de <label>",
+      "body": "<label> usa el atributo for para conectarse con un input específico, apuntando al id de ese input (no a su name).\n\nAl hacer clic en el label, el navegador enfoca automáticamente el input asociado — esto mejora la accesibilidad (los lectores de pantalla anuncian la etiqueta al enfocar el campo) y la usabilidad (amplía el área clickeable, muy útil en checkboxes y radios chicos).",
+      "code": "<label for=\"email\">Correo</label>\n<input id=\"email\" type=\"email\" name=\"email\">",
+      "glossary": [
+        { "term": "for (en label)", "definition": "Atributo de <label> que lo conecta con un input específico usando el id de ese input (no su name). Al hacer clic en el label, se enfoca el input asociado." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿A qué atributo del input apunta el for de un label?",
+      "options": ["id", "name", "type"],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "text": "<label ___=\"email\">Correo</label>\n<input id=\"email\" type=\"email\">",
+      "blanks": [
+        { "accepted": ["for"] }
+      ]
+    },
+    {
+      "type": "open_question",
+      "prompt": "¿Por qué conviene usar <label for=\"..\"> en vez de simplemente poner el texto al lado del input, sin etiqueta?",
+      "solution": "Porque conecta semánticamente el texto con el campo: mejora la accesibilidad (los lectores de pantalla anuncian la etiqueta al enfocar el input) y la usabilidad (al hacer clic en el label, el input se enfoca automáticamente, ampliando el área clickeable — muy útil sobre todo en checkboxes y radios, que son chicos y difíciles de clickear con precisión)."
+    },
+    {
+      "type": "content",
+      "title": "name vs. id en <input>",
+      "body": "name es el valor que se envía al servidor (o el que se usa para identificar el campo al procesar el formulario). id es para referencias dentro del propio HTML/CSS/JS, como el for de un label.\n\nSon atributos con propósitos distintos, aunque en la práctica muchas veces se les da el mismo valor por comodidad.",
+      "glossary": [
+        { "term": "name (atributo)", "definition": "Atributo de un campo de formulario cuyo valor se envía al servidor (o se usa para identificar el campo al procesar el formulario)." },
+        { "term": "id (atributo)", "definition": "Atributo usado para referenciar un elemento específico desde HTML, CSS o JS — por ejemplo, el for de un <label> apunta al id de su input." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Qué atributo de un input es el que se envía al servidor al enviar el formulario?",
+      "options": ["name", "id", "class"],
+      "answer": 0
+    },
+    {
+      "type": "content",
+      "title": "Atributos que se repiten vs. atributos que no",
+      "body": "type y name pueden repetirse entre varios inputs porque describen la naturaleza o la agrupación del campo: por ejemplo, varios radios comparten el mismo name para agruparse y comportarse como un conjunto de opciones mutuamente excluyentes.\n\nvalue, en cambio, es el dato específico de cada opción — si dos radios del mismo grupo tuvieran el mismo value, no podrías distinguir cuál eligió el usuario."
+    },
+    {
+      "type": "matching",
+      "pairs": [
+        { "left": "type", "right": "Describe qué clase de campo es (texto, radio, checkbox...); se repite entre inputs del mismo tipo" },
+        { "left": "name", "right": "Agrupa varios inputs (ej. radios) para que se comporten como un solo conjunto de opciones" },
+        { "left": "value", "right": "El dato específico de una opción; debe ser distinto en cada radio de un mismo grupo" }
+      ]
+    },
+    {
+      "type": "open_question",
+      "prompt": "Tenés 3 radios con name=\"plan\" y, por error, los tres tienen value=\"basico\". ¿Qué problema concreto vas a tener al leer el formulario enviado?",
+      "solution": "No vas a poder saber cuál de los tres radios eligió el usuario: como comparten el mismo name (correcto, los agrupa) pero también el mismo value (incorrecto), el valor enviado al servidor va a ser siempre \"basico\" sin importar cuál haya marcado — se pierde la información de cuál opción fue seleccionada."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "title": "Remotos: compartir tu trabajo",
+  "activities": [
+    {
+      "type": "content",
+      "title": "Tu repo no está solo",
+      "body": "Hasta ahora todo vivía en tu computadora. Un remoto es una copia del repositorio alojada en otro lugar (como GitHub o GitLab) con la que puedes sincronizarte. Por convención, el remoto principal se llama origin.\n\nLos comandos básicos: clone trae una copia completa de un remoto; push sube tus commits; pull trae y combina los commits nuevos del remoto; fetch solo los descarga sin combinarlos todavía."
+    },
+    {
+      "type": "matching",
+      "pairs": [
+        { "left": "git clone <url>", "right": "Descarga una copia completa de un repositorio remoto" },
+        { "left": "git push", "right": "Sube tus commits locales al remoto" },
+        { "left": "git pull", "right": "Descarga y combina los commits nuevos del remoto" },
+        { "left": "git fetch", "right": "Descarga los commits nuevos sin combinarlos todavía" }
+      ]
+    },
+    {
+      "type": "terminal_sim",
+      "prompt": "Tienes la URL de un repositorio en GitHub y quieres traer una copia completa a tu computadora.",
+      "cwd": "~/proyectos",
+      "accepted": ["git clone https://github.com/usuario/mi-app.git"],
+      "success_output": "Cloning into 'mi-app'...\nremote: Enumerating objects: 12, done.\nReceiving objects: 100% (12/12), done.",
+      "hint": "El comando es \"git clone\" seguido de la URL del repositorio."
+    },
+    {
+      "type": "terminal_sim",
+      "prompt": "Ya hiciste commits locales en main. Súbelos al remoto origin.",
+      "cwd": "~/proyectos/mi-app (main)",
+      "accepted": ["git push origin main", "git push"],
+      "success_output": "Enumerating objects: 5, done.\nTo https://github.com/usuario/mi-app.git\n   a1b2c3d..d4e5f6g  main -> main",
+      "hint": "El comando es \"git push origin main\" (o solo \"git push\" si ya está configurado el upstream)."
+    },
+    {
+      "type": "terminal_sim",
+      "prompt": "Un compañero subió cambios nuevos a origin/main. Tráelos y combínalos con tu rama local.",
+      "cwd": "~/proyectos/mi-app (main)",
+      "accepted": ["git pull", "git pull origin main"],
+      "success_output": "Updating d4e5f6g..h7i8j9k\nFast-forward\n styles.css | 3 ++-",
+      "hint": "El comando es \"git pull\"."
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Cuál es la diferencia principal entre git fetch y git pull?",
+      "options": [
+        "pull descarga y combina automáticamente; fetch solo descarga",
+        "fetch sube cambios; pull los descarga",
+        "no hay diferencia"
+      ],
+      "answer": 0
+    }
+  ]
+}

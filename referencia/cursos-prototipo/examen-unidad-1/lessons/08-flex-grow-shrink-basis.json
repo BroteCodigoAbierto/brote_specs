@@ -1,0 +1,68 @@
+{
+  "title": "flex: 1 y el tamaño de los elementos",
+  "activities": [
+    {
+      "type": "content",
+      "title": "flex-grow, flex-shrink y flex-basis",
+      "body": "Cada elemento flex tiene tres propiedades que controlan su tamaño dentro del contenedor:\n\nflex-grow define cuánto crece un elemento para ocupar el espacio libre sobrante, en proporción al valor de los demás. flex-shrink define cuánto se encoge un elemento cuando no hay espacio suficiente. flex-basis define el tamaño inicial del elemento antes de repartir espacio libre.\n\nEn la práctica casi nunca se escriben las tres por separado: se usa el atajo flex, que las combina en ese orden.",
+      "code": ".item {\n  flex: 1;\n}\n\n/* Equivale exactamente a: */\n.item {\n  flex-grow: 1;\n  flex-shrink: 1;\n  flex-basis: 0%;\n}",
+      "bullets": [
+        "flex: 1 hace que el elemento crezca para repartirse el espacio libre en partes iguales con sus hermanos",
+        "Si todos los hijos tienen flex: 1, todos terminan con el mismo ancho, sin importar su contenido",
+        "flex-basis: 0% le dice al elemento \"ignora tu tamaño natural, empieza en cero y crece desde ahí\""
+      ],
+      "glossary": [
+        { "term": "flex-grow", "definition": "Define cuánto crece un elemento flex para ocupar el espacio libre sobrante del contenedor, en proporción al valor de flex-grow de sus hermanos." },
+        { "term": "flex-shrink", "definition": "Define cuánto se encoge un elemento flex cuando el contenedor no tiene espacio suficiente para todos sus hijos." },
+        { "term": "flex-basis", "definition": "Define el tamaño inicial de un elemento flex antes de repartir el espacio libre sobrante." },
+        { "term": "flex (shorthand)", "definition": "Atajo que combina flex-grow, flex-shrink y flex-basis en ese orden. flex: 1 equivale a flex-grow: 1; flex-shrink: 1; flex-basis: 0%;." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "flex: 1 es un atajo equivalente a escribir, en ese orden:",
+      "options": [
+        "flex-grow: 1; flex-shrink: 1; flex-basis: 0%;",
+        "flex-grow: 1; flex-shrink: 0; flex-basis: auto;",
+        "flex-basis: 1; flex-grow: 0; flex-shrink: 0;"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "text": ".col {\n  ___: 1;\n}",
+      "blanks": [
+        { "accepted": ["flex"] }
+      ]
+    },
+    {
+      "type": "matching",
+      "pairs": [
+        { "left": "flex-grow", "right": "Cuánto crece el elemento para ocupar espacio libre sobrante" },
+        { "left": "flex-shrink", "right": "Cuánto se encoge el elemento cuando falta espacio" },
+        { "left": "flex-basis", "right": "El tamaño inicial del elemento antes de repartir espacio libre" }
+      ]
+    },
+    {
+      "type": "reorder",
+      "prompt": "Ordena los pasos para construir un layout de 3 columnas de igual ancho usando Flexbox.",
+      "items": [
+        "Envolver las tres columnas en un contenedor .layout",
+        "Aplicar display: flex a .layout",
+        "Aplicar flex: 1 a cada una de las tres columnas hijas"
+      ]
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Tienes un .layout con dos hijos directos: .sidebar (debe medir siempre 200px fijos) y .main (debe ocupar todo el espacio restante). Escribe el CSS necesario para las tres clases.",
+      "language": "css",
+      "starter_code": ".layout {\n  \n}\n\n.sidebar {\n  \n}\n\n.main {\n  \n}",
+      "solution": ".layout {\n  display: flex;\n}\n\n.sidebar {\n  width: 200px;\n}\n\n.main {\n  flex: 1;\n}"
+    },
+    {
+      "type": "open_question",
+      "prompt": "Si tienes tres columnas con flex: 1; flex: 1; flex: 2; respectivamente dentro del mismo contenedor flex, ¿cómo se reparte el espacio libre entre ellas?",
+      "solution": "El espacio libre se reparte en proporción a los valores de flex-grow: la tercera columna recibe el doble de espacio libre que cada una de las otras dos, porque su flex-grow (2) es el doble del de las otras (1). En total el espacio libre se divide en 4 partes iguales (1+1+2) y cada columna se lleva la cantidad de partes que le corresponde según su valor."
+    }
+  ]
+}

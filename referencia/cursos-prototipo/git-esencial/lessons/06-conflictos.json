@@ -1,0 +1,41 @@
+{
+  "title": "Resolviendo conflictos",
+  "activities": [
+    {
+      "type": "content",
+      "title": "¿Cuándo aparece un conflicto?",
+      "body": "Un conflicto ocurre cuando Git no puede combinar automáticamente dos cambios, normalmente porque dos personas modificaron las mismas líneas de un archivo de forma distinta. Git no adivina cuál es la versión \"correcta\": te pide que decidas tú.\n\nCuando pasa, marca el archivo con marcadores especiales:",
+      "code": "<<<<<<< HEAD\n<h1>Bienvenido a mi app</h1>\n=======\n<h1>Bienvenido a Mi Súper App</h1>\n>>>>>>> feature-titulo"
+    },
+    {
+      "type": "content",
+      "title": "Cómo se lee un conflicto",
+      "body": "Todo lo que está entre <<<<<<< HEAD y ======= es tu versión actual. Todo lo que está entre ======= y >>>>>>> nombre-rama es la versión que intentabas combinar.\n\nPara resolverlo, editas el archivo dejando el resultado que quieres, borras los tres marcadores, y confirmas un commit normal."
+    },
+    {
+      "type": "fill_blank",
+      "text": "<<<<<<< ___\n<h1>Bienvenido a mi app</h1>\n___\n<h1>Bienvenido a Mi Súper App</h1>\n>>>>>>> feature-titulo",
+      "blanks": [
+        { "accepted": ["HEAD"] },
+        { "accepted": ["======="] }
+      ]
+    },
+    {
+      "type": "categorize",
+      "prompt": "Clasifica cada paso del proceso de resolver un conflicto.",
+      "categories": ["Antes de resolver", "Después de resolver"],
+      "items": [
+        { "text": "Ver los marcadores <<<<<<< ======= >>>>>>>", "category": 0 },
+        { "text": "git status muestra el archivo como \"both modified\"", "category": 0 },
+        { "text": "Borrar los marcadores y dejar el código final", "category": 1 },
+        { "text": "git add del archivo ya resuelto", "category": 1 },
+        { "text": "git commit para cerrar el merge", "category": 1 }
+      ]
+    },
+    {
+      "type": "open_question",
+      "prompt": "¿Por qué crees que Git prefiere pedirte que decidas manualmente en vez de elegir una versión automáticamente?",
+      "solution": "Porque un conflicto normalmente significa que dos personas tuvieron intenciones distintas sobre el mismo código. Git no tiene forma de saber cuál es la decisión correcta a nivel de negocio o diseño — solo una persona puede evaluar eso, así que Git se detiene y te lo entrega a ti en vez de arriesgarse a perder trabajo silenciosamente."
+    }
+  ]
+}

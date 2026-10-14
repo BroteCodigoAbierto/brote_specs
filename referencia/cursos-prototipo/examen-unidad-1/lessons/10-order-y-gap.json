@@ -1,0 +1,71 @@
+{
+  "title": "order y gap",
+  "activities": [
+    {
+      "type": "content",
+      "title": "Reordenar sin tocar el HTML, espaciar sin usar márgenes",
+      "body": "order permite cambiar el orden visual de los elementos flex sin tocar el HTML. Por defecto todos los elementos tienen order: 0, y se muestran en el orden en que aparecen en el DOM. Un valor más chico se muestra antes; un valor más grande, después. Entre elementos con el mismo order, se respeta el orden original del HTML.\n\nEsto es distinto a reordenar el HTML directamente: order es puramente visual, así que herramientas como lectores de pantalla y la navegación por teclado (Tab) siguen el orden del DOM, no el visual — hay que usarlo con cuidado por accesibilidad.\n\ngap (y sus variantes row-gap, column-gap) agregan espacio entre elementos flex directamente, sin necesidad de márgenes manuales ni de lidiar con el margen sobrante en los bordes que hay que \"cancelar\". A diferencia de justify-content: space-between, gap no agrega espacio en los bordes del contenedor, solo entre los elementos.",
+      "code": ".barra {\n  display: flex;\n  gap: 1rem;\n}\n\n.barra .destacado {\n  order: -1;\n}",
+      "bullets": [
+        "order: 0 es el valor por defecto de todos los elementos flex",
+        "order cambia el orden visual, no el orden real del DOM",
+        "gap agrega espacio entre elementos, nunca en los bordes exteriores del contenedor"
+      ],
+      "glossary": [
+        { "term": "gap", "definition": "Agrega espacio entre los elementos de un contenedor flex (o grid), sin agregarlo en los bordes exteriores del contenedor. row-gap y column-gap lo controlan por separado en cada eje." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Cuál es el valor por defecto de la propiedad order en un elemento flex?",
+      "options": ["0", "1", "auto"],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "text": ".menu-principal {\n  ___: -1;\n}",
+      "blanks": [
+        { "accepted": ["order"] }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Qué diferencia clave hay entre gap y justify-content: space-between?",
+      "options": [
+        "gap nunca agrega espacio en los bordes del contenedor; space-between tampoco, pero space-around y space-evenly sí",
+        "gap y justify-content: space-between hacen exactamente lo mismo",
+        "gap solo funciona en CSS Grid, no en Flexbox"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "categorize",
+      "categories": ["Solo afecta el orden visual (DOM intacto)", "Cambia el contenido/orden real del HTML"],
+      "items": [
+        { "text": "Poner order: 1 en un elemento con CSS", "category": 0 },
+        { "text": "Mover la etiqueta <li> a otra posición en el HTML", "category": 1 },
+        { "text": "Poner order: -1 en un elemento con CSS", "category": 0 }
+      ]
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Un .lista-chips es un contenedor flex con varios .chip como hijos. Escribe el CSS para que haya 12px de espacio entre cada chip, sin usar margin.",
+      "language": "css",
+      "starter_code": ".lista-chips {\n  \n}",
+      "solution": ".lista-chips {\n  display: flex;\n  gap: 12px;\n}"
+    },
+    {
+      "type": "flashcard",
+      "front": "order",
+      "back": "Cambia el orden visual de un elemento flex sin modificar el HTML. Los elementos con el mismo valor de order mantienen entre sí el orden original del DOM. Ojo con la accesibilidad: la navegación por teclado sigue el orden del DOM, no el visual.",
+      "glossary": [
+        { "term": "order", "definition": "Cambia el orden visual de un elemento flex sin modificar el HTML. Por defecto vale 0; los elementos con el mismo valor mantienen entre sí el orden original del DOM." }
+      ]
+    },
+    {
+      "type": "open_question",
+      "prompt": "En un diseño responsivo, quieres que un botón \"Comprar\" aparezca primero visualmente en pantallas chicas, pero en el HTML esté al final por razones de accesibilidad (para que se lea después del contenido). ¿Cómo lo resolverías con lo visto en esta lección, y qué precaución deberías tener?",
+      "solution": "Se puede usar order (por ejemplo order: -1 en una media query para pantallas chicas) para que el botón aparezca visualmente primero sin mover su posición en el HTML. La precaución es que la navegación por teclado (Tab) y los lectores de pantalla van a seguir el orden del DOM, así que el foco podría \"saltar\" de forma que no coincide con lo que se ve en pantalla — conviene probarlo con teclado y no abusar de order para reordenamientos grandes."
+    }
+  ]
+}

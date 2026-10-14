@@ -1,0 +1,56 @@
+{
+  "title": "Box model: padding, gap y margin",
+  "activities": [
+    {
+      "type": "content",
+      "title": "padding y el ancho total de una caja",
+      "body": "padding es el espacio interno entre el contenido de un elemento y su borde.\n\nCon width: 200px; padding: 10px; border: 5px solid; (y box-sizing en su valor por defecto, content-box), el ancho total renderizado crece: 200 (contenido) + 10+10 (padding izquierdo/derecho) + 5+5 (border izquierdo/derecho) = 230px.\n\nSi querés que el width declarado ya incluya el padding y el border, hay que usar box-sizing: border-box.",
+      "code": ".caja {\n  width: 200px;\n  padding: 10px;\n  border: 5px solid;\n}\n/* Ancho total renderizado con content-box (por defecto): 230px */",
+      "glossary": [
+        { "term": "padding", "definition": "Espacio interno entre el contenido de un elemento y su borde. Con box-sizing: content-box (el valor por defecto), se suma al width declarado en vez de restarse de él." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "Una caja tiene width: 200px; padding: 10px; border: 5px solid; con box-sizing en su valor por defecto. ¿Cuál es su ancho total renderizado?",
+      "options": ["230px", "200px", "210px"],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "text": ".caja {\n  ___: 10px;\n}\n/* espacio interno entre el contenido y el borde */",
+      "blanks": [
+        { "accepted": ["padding"] }
+      ]
+    },
+    {
+      "type": "content",
+      "title": "gap vs. margin",
+      "body": "gap es el espacio entre elementos hijos de un contenedor flex o grid — no se aplica en los bordes exteriores del contenedor.\n\nmargin es el espacio alrededor de un elemento individual, y sí afecta también el exterior: por ejemplo, empuja el elemento lejos de los bordes del contenedor o de otros elementos, incluso fuera de un contexto flex o grid.",
+      "glossary": [
+        { "term": "gap", "definition": "Espacio entre elementos hijos de un contenedor flex o grid; no se aplica en los bordes exteriores del contenedor." },
+        { "term": "margin", "definition": "Espacio alrededor de un elemento individual; a diferencia de gap, sí afecta el exterior del contenedor." }
+      ]
+    },
+    {
+      "type": "categorize",
+      "categories": ["Espacio exterior de un elemento individual", "Espacio entre hijos de un contenedor flex/grid"],
+      "items": [
+        { "text": "margin", "category": 0 },
+        { "text": "gap", "category": 1 }
+      ]
+    },
+    {
+      "type": "open_question",
+      "prompt": "Tenés un contenedor flex con gap: 16px y 3 elementos hijos. ¿Ese gap agrega espacio antes del primer hijo y después del último? ¿Por qué sí o por qué no?",
+      "solution": "No. gap solo agrega espacio ENTRE los hijos (entre el 1º y el 2º, y entre el 2º y el 3º) — nunca en los bordes exteriores del contenedor. Si además se quiere espacio antes del primero o después del último, hay que agregarlo aparte, con padding en el contenedor o margin en esos hijos específicos."
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Tenés 3 elementos .chip dentro de .fila (display: flex). Escribe el CSS para que haya 8px de espacio entre cada chip, sin que se agregue espacio extra en los bordes izquierdo/derecho de .fila.",
+      "language": "css",
+      "starter_code": ".fila {\n  \n}",
+      "solution": ".fila {\n  display: flex;\n  gap: 8px;\n}"
+    }
+  ]
+}

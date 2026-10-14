@@ -1,0 +1,61 @@
+{
+  "title": "flex-wrap y layouts multilínea",
+  "activities": [
+    {
+      "type": "content",
+      "title": "Cuando una fila no alcanza",
+      "body": "Por defecto, flex-wrap vale nowrap: todos los elementos se aprietan en una sola línea, aunque tengan que encogerse (flex-shrink) más de lo que te gustaría, o incluso desbordar el contenedor.\n\nCon flex-wrap: wrap, en cambio, los elementos que no caben pasan a una nueva línea, como el texto normal de un párrafo. wrap-reverse hace lo mismo pero apilando las líneas en orden inverso.\n\nCuando hay varias líneas, aparece una pregunta nueva: ¿cómo se distribuye el espacio entre esas líneas en el eje cruzado? Esa es la responsabilidad de align-content, no de align-items — align-items alinea los elementos dentro de su propia línea; align-content distribuye el conjunto de líneas entre sí.",
+      "code": ".tarjetas {\n  display: flex;\n  flex-wrap: wrap;\n  align-content: flex-start;\n}",
+      "bullets": [
+        "nowrap (por defecto): todo en una sola línea, encogiendo si hace falta",
+        "wrap: los elementos que no caben pasan a una nueva línea",
+        "flex-flow es el atajo que combina flex-direction y flex-wrap: flex-flow: row wrap;",
+        "align-content solo tiene efecto si hay más de una línea (necesita flex-wrap: wrap)"
+      ],
+      "glossary": [
+        { "term": "flex-wrap", "definition": "Controla si los elementos de un contenedor flex se acomodan en una sola línea (nowrap, por defecto) o pasan a varias líneas cuando no caben (wrap, wrap-reverse)." },
+        { "term": "align-content", "definition": "Distribuye el espacio entre varias líneas de un contenedor flex en el eje cruzado, cuando hay flex-wrap: wrap y más de una línea. No debe confundirse con align-items, que alinea elementos dentro de su propia línea." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Cuál es el valor por defecto de flex-wrap?",
+      "options": ["nowrap", "wrap", "wrap-reverse"],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "text": ".contenedor {\n  display: flex;\n  flex-flow: row ___;\n}",
+      "blanks": [
+        { "accepted": ["wrap"] }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "Tienes un contenedor con flex-wrap: wrap y varias líneas de elementos. ¿Qué propiedad controla cómo se distribuyen esas líneas entre sí en el eje cruzado?",
+      "options": ["align-content", "align-items", "justify-content"],
+      "answer": 0
+    },
+    {
+      "type": "matching",
+      "pairs": [
+        { "left": "align-items", "right": "Alinea los elementos dentro de su propia línea, en el eje cruzado" },
+        { "left": "align-content", "right": "Distribuye el espacio entre varias líneas cuando hay wrap" },
+        { "left": "wrap-reverse", "right": "Envuelve a nueva línea, pero apila las líneas en orden inverso" },
+        { "left": "nowrap", "right": "Fuerza todo a una sola línea, encogiendo los elementos si es necesario" }
+      ]
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Un .catalogo tiene muchas .tarjeta como hijas, cada una con un ancho mínimo. Escribe el CSS para que sea un contenedor flex que las acomode en filas, pasando a una nueva línea cuando no quepan más en el ancho disponible.",
+      "language": "css",
+      "starter_code": ".catalogo {\n  \n}",
+      "solution": ".catalogo {\n  display: flex;\n  flex-wrap: wrap;\n}"
+    },
+    {
+      "type": "open_question",
+      "prompt": "Tienes 6 tarjetas de 200px cada una dentro de un contenedor de 500px con flex-wrap: nowrap. ¿Qué pasa visualmente, y cómo lo arreglarías con lo visto en esta lección?",
+      "solution": "Con nowrap, flex-shrink intenta encoger las 6 tarjetas para que quepan en los 500px, lo que las deja mucho más angostas que sus 200px originales (o directamente puede causar overflow si el contenido no puede encogerse más). La solución es agregar flex-wrap: wrap, para que las tarjetas que no quepan en la primera fila pasen a una segunda línea manteniendo su ancho."
+    }
+  ]
+}

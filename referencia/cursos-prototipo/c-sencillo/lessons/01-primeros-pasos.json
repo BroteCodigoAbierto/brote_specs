@@ -1,0 +1,35 @@
+{
+  "title": "Primeros pasos",
+  "activities": [
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Cuál es la forma correcta de declarar un entero en C?",
+      "options": ["int x;", "integer x;", "x: int;"],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "text": "___ main() {\n  return 0;\n}",
+      "blanks": [
+        { "accepted": ["int"] }
+      ]
+    },
+    {
+      "type": "categorize",
+      "categories": ["Tipo de dato", "Palabra clave"],
+      "items": [
+        { "text": "int", "category": 0 },
+        { "text": "if", "category": 1 },
+        { "text": "char", "category": 0 },
+        { "text": "while", "category": 1 },
+        { "text": "float", "category": 0 },
+        { "text": "return", "category": 1 }
+      ]
+    },
+    {
+      "type": "open_question",
+      "prompt": "¿Por qué en C hay que declarar el tipo de una variable antes de usarla?",
+      "solution": "Porque C es un lenguaje de tipado estático: el compilador necesita saber el tipo de cada variable para reservar la cantidad correcta de memoria y validar las operaciones antes de ejecutar el programa."
+    }
+  ]
+}

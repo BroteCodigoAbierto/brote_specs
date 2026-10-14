@@ -1,0 +1,46 @@
+{
+  "title": "¿Qué es el control de versiones?",
+  "activities": [
+    {
+      "type": "content",
+      "title": "El problema que resuelve Git",
+      "body": "Imagina que editas un archivo importante y, a mitad de camino, te das cuenta de que la versión de hace dos días era mejor. Sin un sistema de control de versiones, tu única opción es intentar recordar qué cambiaste... o tener carpetas como \"proyecto_final\", \"proyecto_final_v2\", \"proyecto_final_v2_de_verdad\".\n\nGit resuelve esto guardando \"fotografías\" (snapshots) completas de tu proyecto cada vez que tú decides, para que puedas volver a cualquiera de ellas cuando quieras.",
+      "bullets": [
+        "Sabes exactamente qué cambió y cuándo.",
+        "Puedes volver a cualquier punto anterior sin perder el trabajo actual.",
+        "Varias personas pueden trabajar sobre el mismo proyecto sin pisarse."
+      ]
+    },
+    {
+      "type": "flashcard",
+      "front": "¿Qué es un repositorio (repo)?",
+      "back": "La carpeta de tu proyecto una vez que Git empieza a llevar su historial. Vive junto a una carpeta oculta llamada .git."
+    },
+    {
+      "type": "flashcard",
+      "front": "¿Qué es un commit?",
+      "back": "Una fotografía guardada del proyecto en un momento dado, con un mensaje que describe qué cambió."
+    },
+    {
+      "type": "content",
+      "title": "Las tres áreas de Git",
+      "body": "Git organiza tu trabajo en tres zonas:\n\n1. Working directory (directorio de trabajo): los archivos tal como los ves y editas.\n2. Staging area (zona de preparación): una lista de cambios que preparaste para el próximo commit.\n3. Repository (repositorio): el historial de commits ya guardados.\n\nUn archivo pasa de una zona a otra con comandos: primero lo preparas (staging), luego lo confirmas (commit)."
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Cuál de estas afirmaciones es correcta?",
+      "options": [
+        "Un commit es una fotografía del proyecto en un momento dado",
+        "Un commit borra el historial anterior",
+        "Solo puede existir un commit por proyecto"
+      ],
+      "answer": 0
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Qué zona de Git contiene los cambios que ya preparaste pero aún no confirmaste?",
+      "options": ["Staging area", "Working directory", "Repository"],
+      "answer": 0
+    }
+  ]
+}

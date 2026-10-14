@@ -1,0 +1,28 @@
+{
+  "title": "Preséntate",
+  "activities": [
+    {
+      "type": "word_bank",
+      "text": "私は ___ です。",
+      "bank": ["学生", "先生", "医者"],
+      "blanks": [
+        { "accepted": ["学生"] }
+      ]
+    },
+    {
+      "type": "reorder",
+      "prompt": "Ordena las palabras para formar 'watashi wa gakusei desu' (soy estudiante).",
+      "items": ["私は", "学生", "です"]
+    },
+    {
+      "type": "flashcard",
+      "front": "です",
+      "back": "Partícula que equivale a 'ser/estar' en forma cortés. Siempre va al final de la oración."
+    },
+    {
+      "type": "open_question",
+      "prompt": "Preséntate en japonés usando la estructura 私は ___ です。",
+      "solution": "私は Pedro です。 (Watashi wa Pedro desu. — Soy Pedro.)"
+    }
+  ]
+}

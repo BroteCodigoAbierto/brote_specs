@@ -1,0 +1,29 @@
+{
+  "title": "Saludos",
+  "activities": [
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Cómo se dice 'gracias' en japonés?",
+      "options": ["ありがとう", "さようなら", "こんにちは"],
+      "answer": 0
+    },
+    {
+      "type": "word_bank",
+      "text": "こんにちは、___ ですか？",
+      "bank": ["元気", "忙しい", "学生"],
+      "blanks": [
+        { "accepted": ["元気"] }
+      ]
+    },
+    {
+      "type": "listen_and_repeat",
+      "expected_text": "こんにちは、元気ですか？",
+      "lang": "ja-JP"
+    },
+    {
+      "type": "open_question",
+      "prompt": "¿Cómo responderías 'estoy bien, gracias' en japonés? No te preocupes por ser 100% exacto.",
+      "solution": "元気です、ありがとう。 (Genki desu, arigatou.)"
+    }
+  ]
+}

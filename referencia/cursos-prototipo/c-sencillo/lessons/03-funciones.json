@@ -1,0 +1,31 @@
+{
+  "title": "Funciones",
+  "activities": [
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Qué palabra clave se usa para no devolver ningún valor desde una función?",
+      "options": ["void", "null", "empty"],
+      "answer": 0
+    },
+    {
+      "type": "word_bank",
+      "text": "___ suma(int a, int b) {",
+      "bank": ["int", "void", "char"],
+      "blanks": [
+        { "accepted": ["int"] }
+      ]
+    },
+    {
+      "type": "open_question",
+      "prompt": "¿Qué diferencia hay entre pasar un argumento por valor y por referencia (puntero) en C?",
+      "solution": "Por valor, la función recibe una copia del dato y no puede modificar la variable original. Por referencia (pasando un puntero), la función recibe la dirección de memoria y sí puede modificar el valor original a través de ese puntero."
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Escribe una función 'maximo' que reciba dos enteros y devuelva el mayor.",
+      "language": "c",
+      "starter_code": "int maximo(int a, int b) {\n  \n}",
+      "solution": "int maximo(int a, int b) {\n  return a > b ? a : b;\n}"
+    }
+  ]
+}

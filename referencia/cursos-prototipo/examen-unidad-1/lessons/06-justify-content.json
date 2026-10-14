@@ -1,0 +1,68 @@
+{
+  "title": "justify-content: el eje principal",
+  "activities": [
+    {
+      "type": "content",
+      "title": "Distribuyendo espacio en el eje principal",
+      "body": "justify-content controla cómo se reparte el espacio sobre el eje principal del contenedor flex (el horizontal, si usas flex-direction: row).\n\nSolo tiene efecto cuando los elementos, sumados, ocupan menos espacio que el contenedor — si lo llenan por completo, no hay espacio libre que repartir.",
+      "code": ".contenedor {\n  display: flex;\n  justify-content: center;\n}",
+      "bullets": [
+        "flex-start (por defecto): los elementos se agrupan al inicio",
+        "flex-end: los elementos se agrupan al final",
+        "center: los elementos se agrupan en el centro",
+        "space-between: el espacio libre se reparte entre los elementos, sin margen en los extremos",
+        "space-around: cada elemento recibe el mismo espacio a su alrededor (los extremos tienen la mitad de espacio que el hueco entre elementos)",
+        "space-evenly: el espacio libre se reparte en partes exactamente iguales, incluyendo los extremos"
+      ],
+      "glossary": [
+        { "term": "justify-content", "definition": "Propiedad que distribuye el espacio libre entre los elementos de un contenedor flex a lo largo del eje principal. Valores: flex-start, flex-end, center, space-between, space-around, space-evenly." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Qué valor de justify-content reparte espacio entre los elementos pero deja los extremos pegados a los bordes del contenedor, sin espacio ahí?",
+      "options": ["space-between", "space-evenly", "center"],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "text": ".contenedor {\n  display: flex;\n  ___: center;\n}",
+      "blanks": [
+        { "accepted": ["justify-content"] }
+      ]
+    },
+    {
+      "type": "matching",
+      "pairs": [
+        { "left": "flex-start", "right": "Agrupa los elementos al inicio del eje principal" },
+        { "left": "space-between", "right": "Reparte el espacio entre elementos, sin dejar hueco en los extremos" },
+        { "left": "space-evenly", "right": "Reparte el espacio en partes exactamente iguales, extremos incluidos" },
+        { "left": "center", "right": "Agrupa todos los elementos en el centro del contenedor" }
+      ]
+    },
+    {
+      "type": "categorize",
+      "categories": ["Deja espacio en los extremos", "No deja espacio en los extremos"],
+      "items": [
+        { "text": "flex-start", "category": 1 },
+        { "text": "flex-end", "category": 1 },
+        { "text": "center", "category": 1 },
+        { "text": "space-between", "category": 1 },
+        { "text": "space-around", "category": 0 },
+        { "text": "space-evenly", "category": 0 }
+      ]
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Un .navbar tiene un logo y tres links como hijos directos. Escribe el CSS para que sea un contenedor flex y los cuatro elementos queden con exactamente el mismo espacio entre ellos y también en los bordes del navbar.",
+      "language": "css",
+      "starter_code": ".navbar {\n  \n}",
+      "solution": ".navbar {\n  display: flex;\n  justify-content: space-evenly;\n}"
+    },
+    {
+      "type": "open_question",
+      "prompt": "Tienes un contenedor con 3 elementos y justify-content: space-between. Si le agregas un cuarto elemento hasta llenar todo el ancho del contenedor, ¿qué pasa visualmente con el efecto de justify-content?",
+      "solution": "Deja de notarse: justify-content solo reparte el espacio libre sobre el eje principal, y si los elementos ocupan todo el ancho disponible no queda espacio libre que repartir, así que los elementos simplemente quedan uno junto al otro sin huecos visibles."
+    }
+  ]
+}

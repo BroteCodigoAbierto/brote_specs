@@ -1,0 +1,70 @@
+{
+  "title": "Estructura semántica de HTML",
+  "activities": [
+    {
+      "type": "content",
+      "title": "¿Qué va dentro de <head>?",
+      "body": "El <head> de un documento HTML contiene metadatos: no se muestra en el contenido visible de la página.\n\nAhí van cosas como <title> (título de la pestaña), <meta charset> (codificación de caracteres), <meta viewport> (comportamiento en dispositivos móviles), enlaces a hojas de estilo (<link rel=\"stylesheet\">) y, opcionalmente, <script>.",
+      "code": "<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Mi página</title>\n  <link rel=\"stylesheet\" href=\"estilos.css\">\n</head>",
+      "bullets": [
+        "<title>: título de la pestaña/ventana del navegador",
+        "<meta charset>: codificación de caracteres",
+        "<meta viewport>: comportamiento responsivo en móviles",
+        "<link>: hojas de estilo externas",
+        "<script> (opcional): también puede ir dentro de head"
+      ],
+      "glossary": [
+        { "term": "<head>", "definition": "Sección del documento HTML que contiene metadatos (title, meta, link, script); no se muestra en el contenido visible de la página." },
+        { "term": "<title>", "definition": "Elemento dentro de <head> que define el título mostrado en la pestaña o ventana del navegador; no es un elemento visible dentro del <body>." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Cuál de estos elementos NO va dentro de <head>?",
+      "options": ["<footer>", "<title>", "<meta charset>"],
+      "answer": 0
+    },
+    {
+      "type": "categorize",
+      "categories": ["Va dentro de <head>", "Va dentro de <body>"],
+      "items": [
+        { "text": "<title>", "category": 0 },
+        { "text": "<meta charset>", "category": 0 },
+        { "text": "<article>", "category": 1 },
+        { "text": "<section>", "category": 1 }
+      ]
+    },
+    {
+      "type": "content",
+      "title": "<article> vs. <section>",
+      "body": "<article> representa contenido independiente y autocontenido, que tendría sentido por sí solo fuera de contexto — por ejemplo, un post de blog o una noticia.\n\n<section> agrupa contenido temáticamente relacionado dentro de una página o dentro de un artículo, pero no necesariamente tiene sentido de forma aislada.",
+      "glossary": [
+        { "term": "article", "definition": "Elemento semántico que representa contenido independiente y autocontenido (un post, una noticia), con sentido por sí solo fuera de contexto." },
+        { "term": "section", "definition": "Elemento semántico que agrupa contenido temáticamente relacionado dentro de una página o artículo." }
+      ]
+    },
+    {
+      "type": "matching",
+      "pairs": [
+        { "left": "article", "right": "Contenido independiente y autocontenido, como un post de blog o una noticia" },
+        { "left": "section", "right": "Agrupa contenido temáticamente relacionado dentro de una página o artículo" },
+        { "left": "title", "right": "Va en head; define el título de la pestaña, no es visible en el body" }
+      ]
+    },
+    {
+      "type": "open_question",
+      "prompt": "Una página de blog tiene un artículo completo, y dentro de ese artículo hay dos partes bien diferenciadas: \"Introducción\" y \"Conclusión\". ¿Qué etiquetas usarías para cada nivel, y por qué?",
+      "solution": "El post completo iría en un <article>, porque es contenido independiente y autocontenido (tendría sentido si se compartiera o leyera por separado). Dentro de ese <article>, \"Introducción\" y \"Conclusión\" irían cada una en su propio <section>, porque son agrupaciones temáticas relacionadas dentro del mismo artículo, pero no tendrían sentido como piezas de contenido totalmente independientes por sí solas."
+    },
+    {
+      "type": "reorder",
+      "prompt": "Ordena estas partes de un documento HTML de afuera hacia adentro.",
+      "items": [
+        "<html>",
+        "<head> y <body> (hermanos, dentro de <html>)",
+        "<article> (dentro de <body>)",
+        "<section> (dentro del <article>)"
+      ]
+    }
+  ]
+}

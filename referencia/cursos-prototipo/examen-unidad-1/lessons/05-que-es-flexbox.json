@@ -1,0 +1,61 @@
+{
+  "title": "¿Qué es Flexbox?",
+  "activities": [
+    {
+      "type": "content",
+      "title": "El modelo de caja flexible",
+      "body": "Flexbox es un modelo de layout de CSS pensado para distribuir espacio entre elementos dentro de un contenedor, incluso cuando su tamaño es desconocido o dinámico.\n\nTodo empieza declarando display: flex en un elemento. Ese elemento se convierte en un \"contenedor flex\", y todos sus hijos directos pasan a ser \"elementos flex\", sin importar si antes eran div, li o lo que sea.\n\nFlexbox trabaja sobre dos ejes: el eje principal (main axis) y el eje cruzado (cross axis). Por defecto, con flex-direction: row, el eje principal es horizontal y el cruzado es vertical. Esto es clave porque justify-content siempre actúa sobre el eje principal y align-items sobre el eje cruzado.",
+      "code": ".contenedor {\n  display: flex;\n}",
+      "bullets": [
+        "display: flex convierte al elemento en contenedor flex",
+        "Los hijos directos se vuelven elementos flex automáticamente",
+        "flex-direction decide cuál eje es el principal (row = horizontal, column = vertical)"
+      ],
+      "glossary": [
+        { "term": "display: flex", "definition": "Convierte un elemento en un contenedor flex: sus hijos directos pasan a ser elementos flex y se distribuyen según las reglas de Flexbox." },
+        { "term": "eje principal (main axis)", "definition": "La dirección en la que flex-direction alinea los elementos de un contenedor flex (horizontal en row, vertical en column). justify-content actúa sobre este eje." },
+        { "term": "eje cruzado (cross axis)", "definition": "El eje perpendicular al eje principal de un contenedor flex. align-items y align-content actúan sobre este eje." }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "¿Qué propiedad convierte a un elemento en un contenedor flex?",
+      "options": ["display: flex;", "position: flex;", "flex-container: true;"],
+      "answer": 0
+    },
+    {
+      "type": "fill_blank",
+      "text": ".navbar {\n  ___: flex;\n}",
+      "blanks": [
+        { "accepted": ["display"] }
+      ]
+    },
+    {
+      "type": "multiple_choice",
+      "prompt": "Con flex-direction: row (el valor por defecto), ¿cuál es el eje principal?",
+      "options": ["Horizontal", "Vertical", "No existe eje principal en row"],
+      "answer": 0
+    },
+    {
+      "type": "categorize",
+      "categories": ["Se vuelve contenedor flex", "Se vuelve elemento flex"],
+      "items": [
+        { "text": "El elemento con display: flex", "category": 0 },
+        { "text": "Cada hijo directo de ese elemento", "category": 1 },
+        { "text": "Un div con display: flex dentro de otro flex item", "category": 0 }
+      ]
+    },
+    {
+      "type": "code_challenge",
+      "prompt": "Escribe el CSS para que .lista sea un contenedor flex con sus elementos en columna (uno debajo del otro) en vez de en fila.",
+      "language": "css",
+      "starter_code": ".lista {\n  \n}",
+      "solution": ".lista {\n  display: flex;\n  flex-direction: column;\n}"
+    },
+    {
+      "type": "open_question",
+      "prompt": "¿Qué diferencia hay entre el eje principal y el eje cruzado, y por qué importa saber cuál es cuál antes de usar justify-content o align-items?",
+      "solution": "El eje principal es la dirección en la que flex-direction alinea los elementos (horizontal en row, vertical en column); el eje cruzado es perpendicular a ese. Importa porque justify-content siempre distribuye espacio sobre el eje principal y align-items siempre alinea sobre el eje cruzado — si cambias flex-direction a column, justify-content pasa a controlar la alineación vertical y align-items la horizontal."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "japones-sencillo",
+  "title": "Japonés sencillo",
+  "description": "Tus primeros pasos en japonés: hiragana, saludos, números y cómo presentarte. Sin conocimientos previos.",
+  "author": "pedro",
+  "language": "ja",
+  "version": 1,
+  "lessons": [
+    { "id": "01-hiragana", "title": "Hiragana: las vocales" },
+    { "id": "02-saludos", "title": "Saludos" },
+    { "id": "03-numeros", "title": "Números del 1 al 5" },
+    { "id": "04-presentarse", "title": "Preséntate" }
+  ],
+  "gamification": {
+    "points": true,
+    "badges": false
+  }
+}

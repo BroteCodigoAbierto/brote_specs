@@ -1,0 +1,66 @@
+schema_version: "1.0"
+
+preset:
+  id: "brote"
+  name: "Brote"
+  version: "1.0.0"
+  description: "Formato de specs de Brote: secciones del curso de SDD, IDs F01, todo en espanol y planes/tareas por repo."
+  author: "BroteCodigoAbierto"
+  repository: "https://github.com/BroteCodigoAbierto/brote_specs"
+  license: "MIT"
+
+requires:
+  speckit_version: ">=1.2.0"
+
+provides:
+  templates:
+    # Plantillas de los documentos que se generan por feature
+    - type: "template"
+      name: "spec-template"
+      file: "templates/spec-template.md"
+      description: "Spec con las secciones Objetivo, Actor, Precondiciones... Criterios de aceptacion"
+      replaces: "spec-template"
+
+    - type: "template"
+      name: "plan-template"
+      file: "templates/plan-template.md"
+      description: "Plan tecnico dividido por repo (backend, web, movil)"
+      replaces: "plan-template"
+
+    - type: "template"
+      name: "tasks-template"
+      file: "templates/tasks-template.md"
+      description: "Tareas agrupadas por repo, con validacion manual al final"
+      replaces: "tasks-template"
+
+    # Reglas de Brote que se agregan ANTES de las instrucciones del nucleo.
+    # Se usa prepend (no replace) para que actualizar Spec Kit siga trayendo
+    # las mejoras del nucleo sin tener que mantener una copia de cada comando.
+    - type: "command"
+      name: "speckit.specify"
+      file: "commands/speckit.specify.md"
+      description: "Numeracion F01 en specs/features/ y mapeo al formato de Brote"
+      strategy: "prepend"
+
+    - type: "command"
+      name: "speckit.plan"
+      file: "commands/speckit.plan.md"
+      description: "Plan multi-repo de Brote"
+      strategy: "prepend"
+
+    - type: "command"
+      name: "speckit.tasks"
+      file: "commands/speckit.tasks.md"
+      description: "Tareas por repo, sin tareas de pruebas automaticas"
+      strategy: "prepend"
+
+    - type: "command"
+      name: "speckit.implement"
+      file: "commands/speckit.implement.md"
+      description: "Ramas feature/F0X en cada repo, commits F0X y estilo de Brote"
+      strategy: "prepend"
+
+tags:
+  - "brote"
+  - "espanol"
+  - "multi-repo"

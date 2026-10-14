@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "../brote_backend_express",
+      "../brote_web_react",
+      "../brote_mobile_expo"
+    ]
+  }
+}

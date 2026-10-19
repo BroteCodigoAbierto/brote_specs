@@ -27,7 +27,7 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
 - [x] T002 [back] Preguntar al usuario y, con su visto bueno, integrar `base-sdd` en `dev` (hoy `dev` está en el commit inicial). Luego crear `feature/F01-crear-cuenta` desde `dev`
 - [x] T003 [P] [web] Igual que T002 en `brote_web_react`: con visto bueno del usuario, integrar `base-sdd` en `dev` y crear `feature/F01-crear-cuenta` desde `dev`
 - [x] T004 [P] [movil] `dev` tiene cambios sin commit (`src/app/_layout.tsx`, `src/app/curso/[id].tsx`, `src/app/index.tsx`, `src/app/inicio.tsx`, componentes, `src/datos/cursos.ts`, `src/tipos/tipos.ts`). Preguntar al usuario si hace commit o los descarta, y después crear `feature/F01-crear-cuenta` desde `dev`
-- [ ] T005 [specs] Copiar el contrato 0.2.0 a los tres repos: `npm run contrato:copiar` en brote_specs. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo
+- [x] T005 [specs] Copiar el contrato 0.2.0 a los tres repos: `npm run contrato:copiar` en brote_specs. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo
 
 ---
 

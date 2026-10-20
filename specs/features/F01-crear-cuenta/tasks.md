@@ -33,32 +33,32 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
 
 ## Fase 2: Backend (brote_backend_express)
 
-- [ ] T006 [back] Instalar dependencias: `npm install better-auth@^1.7 @prisma/client@^7.10 @prisma/adapter-pg@^7.10` (`package.json`, `package-lock.json`)
-- [ ] T007 [back] En `src/config/entorno.ts`, agregar:
+- [x] T006 [back] Instalar dependencias: `npm install better-auth@^1.7 @prisma/client@^7.10 @prisma/adapter-pg@^7.10` (`package.json`, `package-lock.json`)
+- [x] T007 [back] En `src/config/entorno.ts`, agregar:
   - `secretoAuth` (variable `SECRETO_AUTH`, obligatoria, sin valor por defecto; si tiene menos de 32 caracteres, lanzar un error al arrancar);
   - `urlApi` (variable `URL_API`, por defecto `http://localhost:${puerto}`).
 
   Documentar ambas en `.env.example`, con el comentario `openssl rand -base64 32` para generar el secreto
-- [ ] T008 [back] Escribir en `prisma/schema.prisma` los modelos `User`, `Session`, `Account` y `Verification` de [data-model.md](./data-model.md), con nombres y columnas de Better Auth en inglés (excepción del plan) y un comentario que lo diga:
+- [x] T008 [back] Escribir en `prisma/schema.prisma` los modelos `User`, `Session`, `Account` y `Verification` de [data-model.md](./data-model.md), con nombres y columnas de Better Auth en inglés (excepción del plan) y un comentario que lo diga:
   - `User.email` `@unique`; `emailVerified` `Boolean @default(false)`; `createdAt` `@default(now())`; `updatedAt` `@updatedAt`;
   - `Session.token` `@unique`; `Session.userId` y `Account.userId` → `User.id` con `onDelete: Cascade` y `@@index([userId])`;
   - `Verification` con `@@index([identifier])`;
   - `@@map("user")`, `@@map("session")`, `@@map("account")`, `@@map("verification")`.
 
   Después, `npm run bd:migrar -- --name f01_cuentas` (crea `prisma/migrations/<fecha>_f01_cuentas/`). Opcional: comparar contra la salida de `npx @better-auth/cli@1.7 generate`, sin instalar la CLI
-- [ ] T009 [back] Crear `src/config/bd.ts`: exporta `bd = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL }) })`, importando el cliente de `../generado/prisma/client.ts`. Correr `npm run bd:generar` antes si hace falta. Agregar `DATABASE_URL` a `entorno` (obligatoria) y usarla desde ahí
-- [ ] T010 [back] Crear `src/config/auth.ts` con `betterAuth({...})`:
+- [x] T009 [back] Crear `src/config/bd.ts`: exporta `bd = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL }) })`, importando el cliente de `../generado/prisma/client.ts`. Correr `npm run bd:generar` antes si hace falta. Agregar `DATABASE_URL` a `entorno` (obligatoria) y usarla desde ahí
+- [x] T010 [back] Crear `src/config/auth.ts` con `betterAuth({...})`:
   - `database: prismaAdapter(bd, { provider: "postgresql" })`, `secret: entorno.secretoAuth`, `baseURL: entorno.urlApi`, `trustedOrigins: entorno.origenesPermitidos`;
   - `emailAndPassword: { enabled: true, autoSignIn: true, minPasswordLength: 8, maxPasswordLength: 512 }`;
   - `session: { expiresIn: 60 * 60 * 24 * 30, updateAge: 60 * 60 * 24 }`, sin `cookieCache`;
   - `rateLimit: { enabled: false }` y `plugins: [bearer()]`.
 
   Poner al lado de cada opción no obvia un comentario corto con su porqué (research.md, puntos 3, 4 y 6)
-- [ ] T011 [P] [back] En `src/middleware/errores.ts`:
+- [x] T011 [P] [back] En `src/middleware/errores.ts`:
   - `ErrorApi` recibe un tercer parámetro opcional `campos?: Record<string, string>` y lo guarda;
   - `manejarErrores` responde `RespuestaError` (`{ error, campos }`, sin `campos` cuando no hay), tipado con el contrato;
   - el 500 sigue con `"Error interno del servidor"`
-- [ ] T012 [back] Crear `src/middleware/sesion.ts` con:
+- [x] T012 [back] Crear `src/middleware/sesion.ts` con:
   - `esMovil(req)`: `req.get(CABECERA_CLIENTE.nombre) === CABECERA_CLIENTE.movil`.
   - `cabecerasParaAuth(req)`: `fromNodeHeaders(req.headers)`; si `esMovil`, sin `cookie`.
   - `reenviarSesion(cabeceras: Headers, req, res)`:
@@ -69,7 +69,7 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
     - sin sesión, `throw new ErrorApi(401, MENSAJES_CUENTA.sesionTerminada)`;
     - con sesión, guarda el usuario en `res.locals.usuario`.
   - `usuarioDe(res)`: devuelve `res.locals.usuario` tipado como el `user` de Better Auth.
-- [ ] T013 [P] [back] Crear `src/validacion/cuenta.ts`:
+- [x] T013 [P] [back] Crear `src/validacion/cuenta.ts`:
   - `largo(texto)`: `Array.from(texto).length`.
   - `normalizarCorreo(texto)`: `trim().toLowerCase()`.
   - `validarCrearCuenta(cuerpo: unknown): CuerpoCrearCuenta`, con datos ya limpios:
@@ -79,7 +79,7 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
   - `validarEntrar(cuerpo: unknown): CuerpoEntrar`: correo como arriba; contraseña vacía → `contrasenaVaciaEntrar`, sin revisar longitud.
   - Un campo ausente o que no es texto cuenta como vacío.
   - Junta todos los errores y lanza `new ErrorApi(400, MENSAJES_CUENTA.datosInvalidos, campos)`.
-- [ ] T014 [back] Crear `src/servicios/cuentas.ts`:
+- [x] T014 [back] Crear `src/servicios/cuentas.ts`:
   - `aUsuario(user)` → `Usuario` (`name` → `nombre`, `email` → `correo`, `createdAt.toISOString()` → `creadoEn`).
   - `crearCuenta(datos, cabeceras)`:
     - si `bd.user.findUnique({ where: { email } })` existe → `ErrorApi(409, correoRepetido, { correo: correoRepetido })`;
@@ -91,17 +91,17 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
     - 401 al entrar → `ErrorApi(401, credencialesIncorrectas)` sin `campos`;
     - 400 por correo inválido → `ErrorApi(400, datosInvalidos, { correo: correoInvalido })`;
     - cualquier otro error se relanza (será un 500).
-- [ ] T015 [back] Crear `src/rutas/cuentas.ts` con `POST /` y montarlo en `src/rutas/index.ts` como `/cuentas`:
+- [x] T015 [back] Crear `src/rutas/cuentas.ts` con `POST /` y montarlo en `src/rutas/index.ts` como `/cuentas`:
   - valida con `validarCrearCuenta` y llama a `crearCuenta(datos, cabecerasParaAuth(req))`;
   - aplica `reenviarSesion` y responde `201` con `RespuestaUsuario`.
-- [ ] T016 [back] Crear `src/rutas/sesiones.ts` y montarlo en `src/rutas/index.ts` como `/sesiones`:
+- [x] T016 [back] Crear `src/rutas/sesiones.ts` y montarlo en `src/rutas/index.ts` como `/sesiones`:
   - `POST /`: `validarEntrar` → `entrar` → `reenviarSesion` → `200` con `RespuestaUsuario`;
   - `DELETE /actual`: `cerrarSesion` → `reenviarSesion` (borra la cookie en la web) → `204`.
 
   Comprobar con curl (quickstart B6) que `X-Cliente: movil` recibe `set-auth-token` y ningún `Set-Cookie`. Si `set-auth-token` no llega, tomar el token del `Set-Cookie` `better-auth.session_token`, como dice research.md punto 2
-- [ ] T017 [back] Crear `src/rutas/usuarios.ts` con `GET /yo` protegido por `requerirSesion` (responde `200` con `{ usuario: aUsuario(usuarioDe(res)) }`) y montarlo en `src/rutas/index.ts` como `/usuarios`
-- [ ] T018 [P] [back] Actualizar `CLAUDE.md`: en la estructura, `config/bd.ts`, `config/auth.ts`, `validacion/` y la nota de que las tablas de Better Auth van en inglés (única excepción). Actualizar también `README.md`: `SECRETO_AUTH` en "Arrancar en local"
-- [ ] T019 [back] `npm run tipos` y `npm run lint` sin errores
+- [x] T017 [back] Crear `src/rutas/usuarios.ts` con `GET /yo` protegido por `requerirSesion` (responde `200` con `{ usuario: aUsuario(usuarioDe(res)) }`) y montarlo en `src/rutas/index.ts` como `/usuarios`
+- [x] T018 [P] [back] Actualizar `CLAUDE.md`: en la estructura, `config/bd.ts`, `config/auth.ts`, `validacion/` y la nota de que las tablas de Better Auth van en inglés (única excepción). Actualizar también `README.md`: `SECRETO_AUTH` en "Arrancar en local"
+- [x] T019 [back] `npm run tipos` y `npm run lint` sin errores
 
 **Punto de control**: quickstart.md sección 2 (B1 a B9) da exactamente las respuestas de [contracts/api.md](./contracts/api.md).
 

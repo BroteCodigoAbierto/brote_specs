@@ -16,8 +16,9 @@ npm run contrato:copiar && npm run contrato:revisar
 # brote_backend_express
 npm install
 cp .env.example .env               # y llena SECRETO_AUTH: openssl rand -base64 32
-podman compose up -d               # PostgreSQL en :5432
+podman compose up -d               # PostgreSQL en :5432 (o tu PostgreSQL con el usuario y la base brote)
 npm run bd:migrar                  # aplica la migración de F01 (tablas user, session, account, verification)
+                                   # si el usuario no puede crear bases: npx prisma migrate deploy && npm run bd:generar
 npm run dev                        # API en http://localhost:3000
 
 # brote_web_react
@@ -29,16 +30,46 @@ cp .env.example .env               # EXPO_PUBLIC_URL_API=http://<IP-de-tu-comput
 npx expo start                     # abrir con Expo Go
 ```
 
-Atajos que se usan abajo (desde `brote_backend_express`):
+Atajos que se usan abajo. `bd` lee el SQL de la entrada estándar, así que las
+comillas simples del SQL no chocan con las de bash:
 
 ```bash
-# consultar la base
-alias bd='podman compose exec postgres psql -U brote -d brote -c'
-bd 'SELECT id, name, email, "createdAt" FROM "user";'
-bd 'SELECT "userId", "expiresAt", "userAgent" FROM session;'
+# con psql instalado (sirve con el contenedor o con un PostgreSQL propio)
+bd() { psql -X -q postgresql://brote:brote@localhost:5432/brote; }
+# o, sin psql, dentro del contenedor (desde brote_backend_express)
+# bd() { podman compose exec -T postgres psql -X -q -U brote -d brote; }
+
+bd <<< 'SELECT id, name, email, "createdAt" FROM "user";'
+bd <<< 'SELECT "userId", "expiresAt", "userAgent" FROM session;'
 
 # vaciar todo entre pruebas, si hace falta
-bd 'TRUNCATE "user" CASCADE;'
+bd <<< 'TRUNCATE "user" CASCADE;'
+```
+
+Las fechas de Prisma se guardan en UTC en columnas sin zona horaria: compáralas
+con `now() AT TIME ZONE 'UTC'`, no con `now()`. Consultas con nombre que se
+usan en las tablas de la sección 3:
+
+```bash
+# S1. Expirar todas las sesiones
+bd <<'SQL'
+UPDATE session SET "expiresAt" = (now() AT TIME ZONE 'UTC') - interval '1 minute';
+SQL
+
+# S2. Simular que la última renovación fue hace dos días
+bd <<'SQL'
+UPDATE session SET "expiresAt" = (now() AT TIME ZONE 'UTC') + interval '28 days';
+SQL
+
+# S3. Cuánto le falta a la sesión más reciente (~30 días al entrar)
+bd <<'SQL'
+SELECT "expiresAt" - (now() AT TIME ZONE 'UTC') AS falta FROM session ORDER BY "createdAt" DESC LIMIT 1;
+SQL
+
+# S4. Cuentas con un correo (cambia el correo)
+bd <<'SQL'
+SELECT count(*) FROM "user" WHERE email = 'ana@correo.com';
+SQL
 ```
 
 Datos de prueba:
@@ -65,12 +96,12 @@ curl -s -X POST $API/cuentas -H "$J" -d '{"nombre":"   ","correo":"","contrasena
 # B2. Correo inválido y contraseña de 7 → 400
 curl -s -X POST $API/cuentas -H "$J" -d '{"nombre":"Ana","correo":"ana@correo","contrasena":"abcdefg"}'
 # campos.correo = "Escribe un correo válido.", campos.contrasena = "La contraseña debe tener al menos 8 caracteres."
-bd 'SELECT count(*) FROM "user";'      # sigue en 0
+bd <<< 'SELECT count(*) FROM "user";'      # sigue en 0
 
 # B3. Crear cuenta → 201 + Set-Cookie (web)
 curl -i -X POST $API/cuentas -H "$J" -d '{"nombre":"  Ana López ","correo":" Ana@Correo.com","contrasena":"abcdefgh"}'
-bd 'SELECT name, email FROM "user";'   # "Ana López" | "ana@correo.com" (sin espacios, minúsculas)
-bd 'SELECT "providerId", password FROM account;'   # credential | hash (no "abcdefgh")
+bd <<< 'SELECT name, email FROM "user";'   # "Ana López" | "ana@correo.com" (sin espacios, minúsculas)
+bd <<< 'SELECT "providerId", password FROM account;'   # credential | hash (no "abcdefgh")
 
 # B4. Mismo correo con otra forma → 409
 curl -s -X POST $API/cuentas -H "$J" -d '{"nombre":"Otra","correo":" ANA@correo.com ","contrasena":"abcdefgh"}'
@@ -93,8 +124,7 @@ curl -s -w ' %{http_code}\n' $API/usuarios/yo          # {"error":"Tu sesión te
 curl -s -w '%{http_code}\n' -X DELETE $API/sesiones/actual -H 'X-Cliente: movil' -H "Authorization: Bearer $TOKEN"   # 204
 curl -s -w ' %{http_code}\n' $API/usuarios/yo -H 'X-Cliente: movil' -H "Authorization: Bearer $TOKEN"              # 401
 
-# B9. Duración: al entrar, expiresAt ≈ ahora + 30 días
-bd 'SELECT "expiresAt" - now() AS falta FROM session ORDER BY "createdAt" DESC LIMIT 1;'   # ~30 days
+# B9. Duración: al entrar, expiresAt ≈ ahora + 30 días → corre S3: ~30 days
 ```
 
 ## 3. Criterios de la spec
@@ -114,10 +144,10 @@ para empezar sin sesión, cierra sesión o borra los datos de Expo Go.
 
 | Criterio | Pasos | Esperado |
 |---|---|---|
-| [web, móvil] Datos válidos → inicio con sesión | Llena `Ana`, un correo nuevo y `abcdefgh`; pulsa "Crear cuenta" | Llegas al inicio con "Hola, Ana"; `bd 'SELECT email FROM "user";'` lo muestra |
+| [web, móvil] Datos válidos → inicio con sesión | Llena `Ana`, un correo nuevo y `abcdefgh`; pulsa "Crear cuenta" | Llegas al inicio con "Hola, Ana"; `bd <<< 'SELECT email FROM "user";'` lo muestra |
 | [web, móvil] Todo vacío | Pulsa "Crear cuenta" sin escribir | Los tres mensajes, cada uno bajo su campo |
 | [web, móvil] Nombre de solo espacios | Nombre `   `, lo demás válido | "Escribe tu nombre." |
-| [web, móvil] Nombre de 50 y de 51 | Nombre de 50 con dos espacios antes y después → crear; en otra cuenta, el de 51 | El de 50 se crea y `bd 'SELECT name FROM "user";'` lo muestra sin espacios; el de 51 muestra "El nombre puede tener hasta 50 caracteres." |
+| [web, móvil] Nombre de 50 y de 51 | Nombre de 50 con dos espacios antes y después → crear; en otra cuenta, el de 51 | El de 50 se crea y `bd <<< 'SELECT name FROM "user";'` lo muestra sin espacios; el de 51 muestra "El nombre puede tener hasta 50 caracteres." |
 | [web, móvil] Nombre repetido | Crea dos cuentas con nombre `Ana` y correos distintos | Las dos se crean |
 | [web, móvil] Correos inválidos | Correo `ana@correo`; luego `ana correo@x.com` | "Escribe un correo válido." en ambos |
 | [web, móvil] Correo repetido | Con `ana@correo.com` ya creada, usa ` ANA@Correo.com ` | "Ya existe una cuenta con ese correo." bajo el correo; nombre, correo y contraseña siguen escritos |
@@ -140,7 +170,7 @@ para empezar sin sesión, cierra sesión o borra los datos de Expo Go.
 
 | Criterio | Pasos | Esperado |
 |---|---|---|
-| [web, móvil] Un solo envío | Web: en DevTools → Red, limita a "3G lento"; pulsa "Crear cuenta" cinco veces y Enter. Móvil: con el backend en pausa (`kill -STOP <pid>` del `npm run dev`), toca varias veces y luego `kill -CONT <pid>` | El botón se ve deshabilitado mientras envía; `bd 'SELECT count(*) FROM "user" WHERE email = ''<correo>'';'` da 1 |
+| [web, móvil] Un solo envío | Web: en DevTools → Red, limita a "3G lento"; pulsa "Crear cuenta" cinco veces y Enter. Móvil: con el backend en pausa (`kill -STOP <pid>` del `npm run dev`), toca varias veces y luego `kill -CONT <pid>` | El botón se ve deshabilitado mientras envía; S4 con ese correo da 1 |
 | [web, móvil] Servidor apagado al enviar | Detén el backend (Ctrl+C); llena el formulario y envía | "No se pudo conectar con Brote. Inténtalo de nuevo en un momento."; los campos, contraseña incluida, siguen llenos |
 | [móvil] Sin conexión al enviar | Modo avión; envía | "Sin conexión. Revisa tu conexión e inténtalo de nuevo."; los campos siguen llenos |
 | [web, móvil] Sin parpadeo de "Entrar" | Con sesión, recarga la web (en "Red" con "3G lento") / cierra y abre la app | Indicador de carga (o splash) y luego el inicio; "Entrar" nunca aparece |
@@ -153,17 +183,16 @@ para empezar sin sesión, cierra sesión o borra los datos de Expo Go.
 |---|---|---|
 | [web] Sobrevive a cerrar el navegador | Entra (ventana normal), cierra todas las ventanas, abre de nuevo `localhost:5173` | Sigues con sesión |
 | [móvil] Sobrevive a cerrar la app | Entra, cierra la app desde el selector de apps, ábrela | Sigues con sesión |
-| [web, móvil] Dos dispositivos a la vez | Entra con la misma cuenta en web y móvil | `bd 'SELECT "userAgent" FROM session;'` muestra dos sesiones; las dos apps funcionan |
+| [web, móvil] Dos dispositivos a la vez | Entra con la misma cuenta en web y móvil | `bd <<< 'SELECT "userAgent" FROM session;'` muestra dos sesiones; las dos apps funcionan |
 | [web] Menú con el nombre | Con sesión, mira la barra superior y púlsala | Tu nombre; el menú tiene "Cerrar sesión" |
 | [móvil] Pestaña "Cuenta" | Abre la pestaña "Cuenta" | Nombre, correo y "Cerrar sesión" |
 | [web, móvil] Cerrar sesión solo aquí | Con sesión en ambos, cierra sesión en la web; recarga y usa "Atrás". Luego abre la app | Web: "Entrar" y sin sesión tras recargar o ir atrás. Móvil: sigue con sesión. Repite al revés |
-| [web, móvil] Sesión expirada → aviso | Con sesión en ambos: `bd 'UPDATE session SET "expiresAt" = now() - interval ''1 minute'';'`. Web: recarga. Móvil: cierra y abre la app | "Entrar" con "Tu sesión terminó. Vuelve a entrar." |
+| [web, móvil] Sesión expirada → aviso | Con sesión en ambos, corre S1. Web: recarga. Móvil: cierra y abre la app | "Entrar" con "Tu sesión terminó. Vuelve a entrar." |
 | [web] Regresar tras expirar | Estando en `/glosario`, expira la sesión como arriba y recarga; entra | Vuelves a `/glosario` |
 
 Comprobación extra de la renovación de 30 días (no es criterio, pero lo
-respalda): simula que la última renovación fue hace dos días con
-`bd 'UPDATE session SET "expiresAt" = now() + interval ''28 days'';'`,
-recarga la web y vuelve a correr B9: `falta` vuelve a ser de ~30 días.
+respalda): corre S2 para simular que la última renovación fue hace dos días,
+recarga la web y corre S3: `falta` vuelve a ser de ~30 días.
 
 ## 4. Antes del PR
 

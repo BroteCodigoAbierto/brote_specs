@@ -20,7 +20,9 @@ Todo error responde `RespuestaError`:
   `contrasena`). Si hay varios campos con error, vienen todos a la vez.
 
 El manejador central ya existente (`middleware/errores.ts`) responde así;
-`ErrorApi` recibe `campos` opcional.
+`ErrorApi` recibe `campos` opcional. Un cuerpo que no es JSON válido responde
+`400 { "error": "El cuerpo de la petición no es JSON válido." }` (antes era un
+500).
 
 ### Cómo viaja la sesión
 

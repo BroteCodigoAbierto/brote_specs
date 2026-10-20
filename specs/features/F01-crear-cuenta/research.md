@@ -103,11 +103,17 @@ Fuente: <https://www.better-auth.com/docs/authentication/email-password>.
 - **Correo**: `PATRON_CORREO = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/` cubre la
   regla de la spec (una sola `@`, algo antes, dominio con al menos un punto
   que no está al inicio ni al final, sin espacios). Better Auth valida el
-  correo otra vez con su propio esquema, más estricto. Si lo rechaza (400), la
-  ruta responde el mismo "Escribe un correo válido." en el campo `correo`.
+  correo otra vez con su propio esquema, más estricto (rechaza, por ejemplo,
+  `a@b.c`). Si lo rechaza, la ruta responde el mismo "Escribe un correo
+  válido." en el campo `correo`. *Comprobado al implementar*: ese rechazo no
+  llega como `INVALID_EMAIL` sino como `VALIDATION_ERROR` con el mensaje
+  `[body.email] Invalid email address`.
 - **Correo repetido**: el servicio busca el correo antes de crear la cuenta
-  y responde 409. Si dos registros llegan a la vez, Better Auth responde 422
-  y se traduce al mismo 409.
+  y responde 409. *Comprobado al implementar*: si dos registros llegan a la
+  vez, los dos pasan la revisión previa (la nuestra y la de Better Auth) y el
+  segundo choca con el índice único de `email`. Better Auth lo reporta como
+  422 `FAILED_TO_CREATE_USER`; el servicio comprueba entonces si el correo
+  existe y responde el mismo 409.
 
 ## 6. Límite de intentos
 
@@ -122,7 +128,13 @@ Fuente: <https://www.better-auth.com/docs/authentication/email-password>.
   driver adapter `PrismaPg` en `src/config/bd.ts`:
   `new PrismaClient({ adapter: new PrismaPg({ connectionString }) })`.
   Dependencias: `@prisma/client` (runtime del cliente generado) y
-  `@prisma/adapter-pg`.
+  `@prisma/adapter-pg`. El CLI `prisma` (devDependency) se subió a la misma
+  versión que `@prisma/client` (7.10.1); con la 7.10.0, `npm audit` marcaba 4
+  vulnerabilidades altas en sus dependencias.
+- `prisma migrate dev` necesita permiso para crear bases de datos (usa una
+  *shadow database*). Si el PostgreSQL local no lo da, la migración se genera
+  con `prisma migrate diff --from-empty --to-schema prisma/schema.prisma
+  --script` y se aplica con `prisma migrate deploy`. Así se creó la de F01.
 - Better Auth recibe ese cliente con `prismaAdapter(bd, { provider:
   "postgresql" })` y acepta Prisma 7 (`peerDependencies` de la 1.7).
 

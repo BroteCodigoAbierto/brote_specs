@@ -334,15 +334,15 @@ revisión más estricta del correo (ver abajo).
 
 ### Sesión
 
-- [ ] [web] Después de entrar, cierro el navegador por completo, lo vuelvo a
+- [x] [web] Después de entrar, cierro el navegador por completo, lo vuelvo a
   abrir y sigo con sesión.
-- [ ] [móvil] Después de entrar, cierro la app por completo (no solo la mando
+- [x] [móvil] Después de entrar, cierro la app por completo (no solo la mando
   al fondo), la vuelvo a abrir y sigo con sesión.
 - [ ] [web, móvil] Con la misma cuenta puedo tener sesión en la web y en el
   móvil al mismo tiempo.
-- [ ] [web] Con sesión, la barra superior muestra mi nombre y abre un menú
+- [x] [web] Con sesión, la barra superior muestra mi nombre y abre un menú
   con "Cerrar sesión".
-- [ ] [móvil] Con sesión, la pestaña "Cuenta" muestra mi nombre, mi correo y
+- [x] [móvil] Con sesión, la pestaña "Cuenta" muestra mi nombre, mi correo y
   "Cerrar sesión".
 - [ ] [web, móvil] Al pulsar "Cerrar sesión" llego a "Entrar"; al volver
   atrás o recargar no recupero la sesión; en el otro dispositivo sigo con

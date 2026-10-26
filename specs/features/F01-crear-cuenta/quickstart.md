@@ -52,7 +52,7 @@ con `now() AT TIME ZONE 'UTC'`, no con `now()`. Consultas con nombre que se
 usan en las tablas de la sección 3:
 
 ```bash
-# S1. Expirar todas las sesiones
+# S1. Expirar todas las sesiones (atajo: ./expirar [correo] desde brote_specs)
 bd <<'SQL'
 UPDATE session SET "expiresAt" = (now() AT TIME ZONE 'UTC') - interval '1 minute';
 SQL

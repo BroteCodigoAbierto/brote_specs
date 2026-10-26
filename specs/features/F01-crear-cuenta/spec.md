@@ -347,10 +347,10 @@ revisión más estricta del correo (ver abajo).
 - [x] [web, móvil] Al pulsar "Cerrar sesión" llego a "Entrar"; al volver
   atrás o recargar no recupero la sesión; en el otro dispositivo sigo con
   sesión.
-- [ ] [web, móvil] Dado que la sesión del dispositivo expiró, cuando hago
+- [x] [web, móvil] Dado que la sesión del dispositivo expiró, cuando hago
   cualquier acción que necesita al servidor, entonces llego a "Entrar" con el
   aviso "Tu sesión terminó. Vuelve a entrar.".
-- [ ] [web] Después de entrar tras una sesión expirada, regreso a la página
+- [x] [web] Después de entrar tras una sesión expirada, regreso a la página
   donde estaba.
 
 ## Datos que toca

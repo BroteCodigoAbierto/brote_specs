@@ -283,8 +283,8 @@ se marca también en spec.md.
 - [x] V29 [web] Con sesión, la barra superior muestra mi nombre y abre un menú con "Cerrar sesión".
 - [x] V30 [móvil] Con sesión, la pestaña "Cuenta" muestra mi nombre, mi correo y "Cerrar sesión".
 - [x] V31 [web, móvil] Al pulsar "Cerrar sesión" llego a "Entrar"; al volver atrás o recargar no recupero la sesión; en el otro dispositivo sigo con sesión.
-- [ ] V32 [web, móvil] Dado que la sesión del dispositivo expiró, cuando hago cualquier acción que necesita al servidor, entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar.".
-- [ ] V33 [web] Después de entrar tras una sesión expirada, regreso a la página donde estaba.
+- [x] V32 [web, móvil] Dado que la sesión del dispositivo expiró, cuando hago cualquier acción que necesita al servidor, entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar.".
+- [x] V33 [web] Después de entrar tras una sesión expirada, regreso a la página donde estaba.
 
 ---
 

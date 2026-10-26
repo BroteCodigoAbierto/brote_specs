@@ -279,33 +279,33 @@ revisión más estricta del correo (ver abajo).
 - [x] [web, móvil] Con todos los campos vacíos, al pulsar "Crear cuenta" veo
   "Escribe tu nombre.", "Escribe tu correo." y "Escribe una contraseña.", cada
   uno junto a su campo.
-- [ ] [web, móvil] Un nombre de solo espacios muestra "Escribe tu nombre.".
+- [x] [web, móvil] Un nombre de solo espacios muestra "Escribe tu nombre.".
 - [ ] [web, móvil] Un nombre de 50 caracteres con espacios al inicio y al
   final se acepta y se guarda sin esos espacios; uno de 51 caracteres muestra
   "El nombre puede tener hasta 50 caracteres.".
-- [ ] [web, móvil] Puedo crear una cuenta con un nombre que ya usa otra
+- [x] [web, móvil] Puedo crear una cuenta con un nombre que ya usa otra
   cuenta.
-- [ ] [web, móvil] `ana@correo` y `ana correo@x.com` muestran "Escribe un
+- [x] [web, móvil] `ana@correo` y `ana correo@x.com` muestran "Escribe un
   correo válido.".
-- [ ] [web, móvil] Si ya existe `ana@correo.com`, crear una cuenta con
+- [x] [web, móvil] Si ya existe `ana@correo.com`, crear una cuenta con
   ` ANA@Correo.com ` muestra "Ya existe una cuenta con ese correo." junto al
   correo y conserva lo capturado.
 - [ ] [web, móvil] Una contraseña de 7 caracteres muestra "La contraseña debe
   tener al menos 8 caracteres."; una de 8 se acepta; una de 129 muestra "La
   contraseña puede tener hasta 128 caracteres.".
-- [ ] [web, móvil] El botón "Mostrar" / "Ocultar" muestra y oculta la contraseña sin borrar
+- [x] [web, móvil] El botón "Mostrar" / "Ocultar" muestra y oculta la contraseña sin borrar
   lo escrito; no hay campo para repetir la contraseña.
-- [ ] [web, móvil] Corregir un campo con error quita su mensaje.
+- [x] [web, móvil] Corregir un campo con error quita su mensaje.
 - [x] [backend] Enviar al servidor, sin pasar por el cliente, un nombre vacío,
   un correo inválido o una contraseña de 7 caracteres se rechaza con el mismo
   mensaje que da el cliente y no crea la cuenta.
 
 ### Entrar
 
-- [ ] [web, móvil] Con el correo y la contraseña de una cuenta existente,
+- [x] [web, móvil] Con el correo y la contraseña de una cuenta existente,
   escribiendo el correo con mayúsculas y espacios alrededor, entro y llego al
   inicio.
-- [ ] [web, móvil] Con un correo que no existe veo "Correo o contraseña
+- [x] [web, móvil] Con un correo que no existe veo "Correo o contraseña
   incorrectos."; con un correo existente y otra contraseña veo exactamente el
   mismo mensaje.
 - [ ] [web] Dado que no hay sesión, cuando abro una dirección protegida (p. ej.

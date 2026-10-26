@@ -145,7 +145,8 @@ usuario (F04) y los cursos tienen autor (F05).
 ## Validaciones
 
 Las hace el cliente al pulsar el botón de enviar y las vuelve a hacer el
-servidor con las mismas reglas y los mismos mensajes.
+servidor con las mismas reglas y los mismos mensajes. El servidor agrega una
+revisión más estricta del correo (ver abajo).
 
 - Nombre:
   - Se le quitan los espacios al inicio y al final antes de validarlo y de
@@ -162,6 +163,11 @@ servidor con las mismas reglas y los mismos mensajes.
     ella, un dominio después con al menos un punto que no está ni al inicio ni
     al final, y ningún espacio. Si no: "Escribe un correo válido."
   - Más de 254 caracteres: "Escribe un correo válido."
+  - El servidor rechaza además algunos correos que cumplen la forma anterior
+    pero no son válidos en la práctica: un dominio que termina en una sola
+    letra (`ana@correo.c`), letras con acento (`ñandú@correo.com`) o un
+    dominio de solo números (`ana@123.45`). El mensaje es el mismo, "Escribe
+    un correo válido.", junto al campo de correo.
   - Al crear cuenta, si el correo ya tiene una cuenta: "Ya existe una cuenta
     con ese correo." (junto al campo de correo).
 - Contraseña:
@@ -185,7 +191,8 @@ servidor con las mismas reglas y los mismos mensajes.
 ### Al abrir Brote (web y móvil)
 
 - Cargando: mientras se comprueba si hay una sesión guardada, se muestra un
-  indicador de carga; no aparece "Entrar" ni la pantalla pedida.
+  indicador de carga (en el móvil, la pantalla de arranque de la app); no
+  aparece "Entrar" ni la pantalla pedida.
 - Con sesión: se muestra la pantalla pedida.
 - Sin sesión: se muestra "Entrar".
 - Sin conexión (móvil): si hay una sesión guardada, el usuario entra igual; si
@@ -230,7 +237,8 @@ servidor con las mismas reglas y los mismos mensajes.
 - Correo o contraseña no coinciden al entrar: "Correo o contraseña
   incorrectos."; lo capturado sigue ahí.
 - El servidor no responde o falla (web y móvil): "No se pudo conectar con
-  Brote. Inténtalo de nuevo en un momento."; lo capturado sigue ahí.
+  Brote. Inténtalo de nuevo en un momento."; lo capturado sigue ahí. En el
+  móvil, 15 segundos sin respuesta cuentan como que el servidor no responde.
 - Sin conexión en el móvil: "Sin conexión. Revisa tu conexión e inténtalo de
   nuevo."; lo capturado sigue ahí.
 - La sesión expiró mientras el usuario usaba Brote: la siguiente acción que

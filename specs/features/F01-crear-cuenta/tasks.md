@@ -236,14 +236,14 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
 
 ## Fase 5: Cierre
 
-- [ ] T052 [specs] Integrar [data-model.md](./data-model.md) a `specs/02-modelo-datos.md`: **Usuario** (tabla `user`) y **Sesion** (tabla `session`) en "Entidades definidas", con una nota sobre `account` y `verification` y la excepción de nombres en inglés; quitar Usuario de "Entidades previstas"
-- [ ] T053 [specs] Integrar a `specs/01-navegacion.md`:
+- [x] T052 [specs] Integrar [data-model.md](./data-model.md) a `specs/02-modelo-datos.md`: **Usuario** (tabla `user`) y **Sesion** (tabla `session`) en "Entidades definidas", con una nota sobre `account` y `verification` y la excepción de nombres en inglés; quitar Usuario de "Entidades previstas"
+- [x] T053 [specs] Integrar a `specs/01-navegacion.md`:
   - web: `/entrar`, `/registro`, que todas las demás rutas exigen sesión, y el menú de la cuenta;
   - móvil: `(auth)/entrar`, `(auth)/registro`, `(tabs)/index` (inicio provisional) y `(tabs)/cuenta` (nueva);
   - en "Qué viaja", `state.desde` hacia `/entrar` en la web.
-- [ ] T054 [P] [specs] Registrar en `docs/estilo-codigo.md` (sección Backend) la excepción: las tablas y columnas de Better Auth (`user`, `session`, `account`, `verification`) van en inglés, y es el único caso
-- [ ] T055 [specs] `npm run contrato:revisar`: todas las copias coinciden con la oficial (0.2.0)
-- [ ] T056 [specs] Revisar que `spec.md` coincide con lo que se construyó; si algo cambió, actualizarla en el mismo PR
+- [x] T054 [P] [specs] Registrar en `docs/estilo-codigo.md` (sección Backend) la excepción: las tablas y columnas de Better Auth (`user`, `session`, `account`, `verification`) van en inglés, y es el único caso
+- [x] T055 [specs] `npm run contrato:revisar`: todas las copias coinciden con la oficial (0.2.0)
+- [x] T056 [specs] Revisar que `spec.md` coincide con lo que se construyó; si algo cambió, actualizarla en el mismo PR
 
 ---
 

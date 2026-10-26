@@ -181,22 +181,22 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
 
 ## Fase 4: Móvil (brote_mobile_expo)
 
-- [ ] T037 [movil] Instalar con `npx expo install expo-secure-store expo-network` (`package.json`, `package-lock.json`). Correr `npm run doctor` sin avisos nuevos
-- [ ] T038 [P] [movil] Crear:
+- [x] T037 [movil] Instalar con `npx expo install expo-secure-store expo-network` (`package.json`, `package-lock.json`). Correr `npm run doctor` sin avisos nuevos
+- [x] T038 [P] [movil] Crear:
   - `src/constantes/almacenamiento.ts` con `CLAVES = { token: "sesion.token", usuario: "sesion.usuario" } as const`;
   - `src/servicios/almacenSesion.ts` sobre `expo-secure-store`, con `leerToken`, `guardarToken`, `leerUsuario` (JSON → `Usuario | null`), `guardarUsuario` y `borrarSesionGuardada`.
-- [ ] T039 [movil] En `src/servicios/api.ts`:
+- [x] T039 [movil] En `src/servicios/api.ts`:
   - token en memoria, con `fijarToken(token | null)`;
   - `pedir()` agrega siempre `X-Cliente: movil` (`CABECERA_CLIENTE`) y, si hay token, `Authorization: Bearer <token>`;
   - si la respuesta trae `set-auth-token` (`CABECERA_TOKEN`), lo fija y lo guarda con `guardarToken`;
   - `204` → `undefined`;
   - `alPerderSesion(fn)` como en la web (401 salvo `POST /sesiones`);
   - si `fetch` lanza, consulta `Network.getNetworkStateAsync()` y lanza `ErrorConexion` (clase nueva con `sinConexion: boolean`; `true` si `isConnected === false` o `isInternetReachable === false`).
-- [ ] T040 [P] [movil] Crear `src/validacion/cuenta.ts`, igual a la de la web (T022)
-- [ ] T041 [movil] Crear `src/servicios/sesion.ts` con `crearCuenta`, `entrar`, `cerrarSesion`, `traerYo` y `leerErrorDeEnvio`, como en la web (T023), con dos casos más:
+- [x] T040 [P] [movil] Crear `src/validacion/cuenta.ts`, igual a la de la web (T022)
+- [x] T041 [movil] Crear `src/servicios/sesion.ts` con `crearCuenta`, `entrar`, `cerrarSesion`, `traerYo` y `leerErrorDeEnvio`, como en la web (T023), con dos casos más:
   - `ErrorConexion` con `sinConexion` → `"Sin conexión. Revisa tu conexión e inténtalo de nuevo."`;
   - sin `sinConexion` o estado ≥ 500 → `"No se pudo conectar con Brote. Inténtalo de nuevo en un momento."`.
-- [ ] T042 [movil] Crear `src/contextos/SesionContext.tsx` con `useReducer`. Estados `cargando | conSesion | sinSesion`, más `usuario` y `aviso`.
+- [x] T042 [movil] Crear `src/contextos/SesionContext.tsx` con `useReducer`. Estados `cargando | conSesion | sinSesion`, más `usuario` y `aviso`.
   - Al montar:
     - sin token → `sinSesion`;
     - con token → `fijarToken` y `traerYo()`: 200 → `iniciada` y `guardarUsuario`; 401 → `borrarSesionGuardada`, `fijarToken(null)` y `terminada("sesionTerminada")`; `ErrorConexion` o 5xx → `iniciada(leerUsuario())`, o `sinSesion` si no hay usuario guardado.
@@ -207,28 +207,28 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
     3. `DELETE /sesiones/actual` con ese token, ignorando el error.
   - `alPerderSesion` → borrar la sesión guardada y `terminada("sesionTerminada")`.
   - Exponer `useSesion()`.
-- [ ] T043 [P] [movil] En `src/componentes/CampoTexto.tsx`:
+- [x] T043 [P] [movil] En `src/componentes/CampoTexto.tsx`:
   - agregar `error?` (texto en rojo debajo) y `tipo?` (`"texto" | "correo"`: `keyboardType="email-address"`, `autoComplete="email"`, `textContentType="emailAddress"`);
   - pasar `nativeID` y `accessibilityLabel`;
   - cambiar `colores.claro` por `useColores()`.
-- [ ] T044 [P] [movil] Crear `src/componentes/CampoContrasena.tsx`: campo con `secureTextEntry` y un `Pressable` "Mostrar" / "Ocultar" que lo alterna sin perder el valor; acepta `error?` y `autoComplete` (`"current-password" | "new-password"`)
-- [ ] T045 [P] [movil] En `src/componentes/Boton.tsx`, agregar `enviando?` (deshabilita y muestra `ActivityIndicator`) y pasar a `useColores()`. Crear `src/componentes/MensajeFormulario.tsx` (error o aviso, `accessibilityRole="alert"`)
-- [ ] T046 [movil] Crear `src/app/(auth)/_layout.tsx` (`Stack` sin encabezado, ruta inicial `entrar`) y `src/app/(auth)/entrar.tsx`:
+- [x] T044 [P] [movil] Crear `src/componentes/CampoContrasena.tsx`: campo con `secureTextEntry` y un `Pressable` "Mostrar" / "Ocultar" que lo alterna sin perder el valor; acepta `error?` y `autoComplete` (`"current-password" | "new-password"`)
+- [x] T045 [P] [movil] En `src/componentes/Boton.tsx`, agregar `enviando?` (deshabilita y muestra `ActivityIndicator`) y pasar a `useColores()`. Crear `src/componentes/MensajeFormulario.tsx` (error o aviso, `accessibilityRole="alert"`)
+- [x] T046 [movil] Crear `src/app/(auth)/_layout.tsx` (`Stack` sin encabezado, ruta inicial `entrar`) y `src/app/(auth)/entrar.tsx`:
   - mismo comportamiento que la web (T031), con `KeyboardAvoidingView` y `ScrollView` (`keyboardShouldPersistTaps="handled"`);
   - aviso de sesión terminada;
   - `router.push("/registro")`.
 
   No navega al entrar: el `Stack.Protected` cambia de pantalla solo
-- [ ] T047 [movil] Crear `src/app/(auth)/registro.tsx`: igual que T046 con nombre, correo y contraseña, `crearCuenta()` y un enlace para volver a "Entrar" (`router.back()` o `router.replace("/entrar")`)
-- [ ] T048 [movil] Crear `src/app/(tabs)/_layout.tsx` (`Tabs` con "Inicio" y "Cuenta", colores de `useColores()`) y `src/app/(tabs)/index.tsx`: "Hola, {nombre}" y que el catálogo llega pronto, con el comentario de que es provisional hasta F02
-- [ ] T049 [movil] Crear `src/app/(tabs)/cuenta.tsx`: nombre, correo y botón "Cerrar sesión" → `cerrarSesion()`
-- [ ] T050 [movil] Reescribir `src/app/_layout.tsx`:
+- [x] T047 [movil] Crear `src/app/(auth)/registro.tsx`: igual que T046 con nombre, correo y contraseña, `crearCuenta()` y un enlace para volver a "Entrar" (`router.back()` o `router.replace("/entrar")`)
+- [x] T048 [movil] Crear `src/app/(tabs)/_layout.tsx` (`Tabs` con "Inicio" y "Cuenta", colores de `useColores()`) y `src/app/(tabs)/index.tsx`: "Hola, {nombre}" y que el catálogo llega pronto, con el comentario de que es provisional hasta F02
+- [x] T049 [movil] Crear `src/app/(tabs)/cuenta.tsx`: nombre, correo y botón "Cerrar sesión" → `cerrarSesion()`
+- [x] T050 [movil] Reescribir `src/app/_layout.tsx`:
   - `SesionProvider`;
   - `SplashScreen.preventAutoHideAsync()` y `hideAsync()` cuando el estado deja `cargando`;
   - `Stack` con `<Stack.Protected guard={conSesion} redirectTo="/entrar">` para `(tabs)` y `<Stack.Protected guard={!conSesion} redirectTo="/">` para `(auth)` (SDK 58), siguiendo la guía de autenticación de expo-router.
 
   En el mismo commit, borrar la demo: `src/app/index.tsx`, `src/app/inicio.tsx`, `src/app/curso/[id].tsx`, `src/datos/cursos.ts`, `src/tipos/tipos.ts`, `src/componentes/TarjetaCurso.tsx` y `src/componentes/FilaLeccion.tsx`
-- [ ] T051 [movil] `npm run tipos` y `npm run lint` sin errores
+- [x] T051 [movil] `npm run tipos` y `npm run lint` sin errores
 
 **Punto de control**: con el backend corriendo y Expo Go, la sección "Móvil" de cada tabla de quickstart.md funciona.
 

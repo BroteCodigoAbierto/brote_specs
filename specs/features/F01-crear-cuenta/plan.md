@@ -182,9 +182,14 @@ Además estrena el formato único de error (`RespuestaError`) para toda la API.
     `cargando`. `Stack` con `Stack.Protected guard={conSesion}
     redirectTo="/entrar"` para `(tabs)` y `Stack.Protected
     guard={!conSesion} redirectTo="/"` para `(auth)` (SDK 58; research.md,
-    punto 9).
+    punto 9). *Al implementar*: el `Stack` vive en
+    `src/componentes/NavegacionRaiz.tsx` (tiene que leer la sesión dentro del
+    `SesionProvider`), que también oculta la pantalla de arranque un cuadro
+    después de saber si hay sesión.
   - `src/app/(auth)/_layout.tsx`, `(auth)/entrar.tsx` y `(auth)/registro.tsx`.
-  - `src/app/(tabs)/_layout.tsx`: `Tabs` con "Inicio" y "Cuenta".
+  - `src/app/(tabs)/_layout.tsx`: `Tabs` con "Inicio" y "Cuenta". *Al
+    implementar*: en el SDK 58 `Tabs` se importa de `expo-router/js-tabs`
+    (desde `expo-router` está obsoleto); sin íconos por ahora.
   - `(tabs)/index.tsx`: inicio provisional, "Hola, {nombre}".
   - `(tabs)/cuenta.tsx`: nombre, correo y "Cerrar sesión".
   - Se borra la demo: `src/app/index.tsx`, `src/app/inicio.tsx`,
@@ -201,12 +206,15 @@ Además estrena el formato único de error (`RespuestaError`) para toda la API.
     deshabilitado).
   - `MensajeFormulario` (nuevo).
   - Las pantallas usan `KeyboardAvoidingView` y un `ScrollView` con
-    `keyboardShouldPersistTaps="handled"`.
+    `keyboardShouldPersistTaps="handled"`. *Al implementar*: eso vive en
+    `FormularioCuenta`, y la lógica del formulario en `hooks/useFormulario.ts`,
+    como en la web.
 - **Almacenamiento local**: `expo-secure-store` con `sesion.token` y
   `sesion.usuario` (`Usuario` en JSON). Las claves van en
   `src/constantes/almacenamiento.ts`.
-- **Estado**: `src/contextos/SesionContext.tsx`, igual que en la web pero sin
-  `sinServidor`. Al arrancar:
+- **Estado**: igual que en la web pero sin `sinServidor`, en los mismos tres
+  archivos (`contextos/SesionContext.ts`, `contextos/SesionProvider.tsx`,
+  `hooks/useSesion.ts`). Al arrancar:
   - sin token → `sinSesion`;
   - con token, `traerYo()`: 200 → `conSesion` (y actualiza
     `sesion.usuario`); 401 → borra el token y queda `sinSesion` con el aviso;
@@ -221,6 +229,9 @@ Además estrena el formato único de error (`RespuestaError`) para toda la API.
   - Avisa los 401 con `alPerderSesion`.
   - Cuando `fetch` falla, lanza `ErrorConexion` con `sinConexion`
     (expo-network, research.md punto 9).
+  - *Al implementar*: si la API no responde en 15 s, también es
+    `ErrorConexion` (servidor caído); si no, una IP inalcanzable dejaba el
+    botón en "Enviando..." más de un minuto.
 
   Además, `src/servicios/sesion.ts` y `src/validacion/cuenta.ts`, como en la
   web.

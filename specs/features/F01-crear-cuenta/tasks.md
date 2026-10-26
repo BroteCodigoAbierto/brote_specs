@@ -252,9 +252,9 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
 Pasos de cada criterio en [quickstart.md](./quickstart.md). Al marcar uno aquí,
 se marca también en spec.md.
 
-- [ ] V01 [web] Dado que no hay sesión, cuando abro `/` o cualquier otra dirección de Brote que no sea "Entrar" ni "Crear cuenta", entonces veo "Entrar".
+- [x] V01 [web] Dado que no hay sesión, cuando abro `/` o cualquier otra dirección de Brote que no sea "Entrar" ni "Crear cuenta", entonces veo "Entrar".
 - [x] V02 [móvil] Dado que no hay sesión, cuando abro la app, entonces veo "Entrar" y no puedo llegar a ninguna otra pantalla salvo "Crear cuenta".
-- [ ] V03 [web, móvil] Desde "Entrar" puedo ir a "Crear cuenta" y desde "Crear cuenta" puedo volver a "Entrar".
+- [x] V03 [web, móvil] Desde "Entrar" puedo ir a "Crear cuenta" y desde "Crear cuenta" puedo volver a "Entrar".
 - [x] V04 [web, móvil] Con nombre, correo y contraseña válidos, al pulsar "Crear cuenta" llego al inicio con la sesión iniciada.
 - [x] V05 [web, móvil] Con todos los campos vacíos, al pulsar "Crear cuenta" veo "Escribe tu nombre.", "Escribe tu correo." y "Escribe una contraseña.", cada uno junto a su campo.
 - [x] V06 [web, móvil] Un nombre de solo espacios muestra "Escribe tu nombre.".
@@ -268,7 +268,7 @@ se marca también en spec.md.
 - [x] V14 [backend] Enviar al servidor, sin pasar por el cliente, un nombre vacío, un correo inválido o una contraseña de 7 caracteres se rechaza con el mismo mensaje que da el cliente y no crea la cuenta.
 - [x] V15 [web, móvil] Con el correo y la contraseña de una cuenta existente, escribiendo el correo con mayúsculas y espacios alrededor, entro y llego al inicio.
 - [x] V16 [web, móvil] Con un correo que no existe veo "Correo o contraseña incorrectos."; con un correo existente y otra contraseña veo exactamente el mismo mensaje.
-- [ ] V17 [web] Dado que no hay sesión, cuando abro una dirección protegida (p. ej. `/glosario`) y entro, entonces llego a esa misma dirección.
+- [x] V17 [web] Dado que no hay sesión, cuando abro una dirección protegida (p. ej. `/glosario`) y entro, entonces llego a esa misma dirección.
 - [x] V18 [móvil] Después de entrar llego al inicio.
 - [x] V19 [web, móvil] Con sesión iniciada, abrir "Entrar" o "Crear cuenta" me lleva al inicio.
 - [ ] V20 [web, móvil] Mientras se envía el formulario, el botón está deshabilitado; pulsarlo varias veces seguidas (o pulsar Enter) crea una sola cuenta o hace un solo intento de entrar.

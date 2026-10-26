@@ -265,11 +265,11 @@ revisión más estricta del correo (ver abajo).
 
 ### Acceso sin sesión
 
-- [ ] [web] Dado que no hay sesión, cuando abro `/` o cualquier otra dirección
+- [x] [web] Dado que no hay sesión, cuando abro `/` o cualquier otra dirección
   de Brote que no sea "Entrar" ni "Crear cuenta", entonces veo "Entrar".
 - [x] [móvil] Dado que no hay sesión, cuando abro la app, entonces veo
   "Entrar" y no puedo llegar a ninguna otra pantalla salvo "Crear cuenta".
-- [ ] [web, móvil] Desde "Entrar" puedo ir a "Crear cuenta" y desde "Crear
+- [x] [web, móvil] Desde "Entrar" puedo ir a "Crear cuenta" y desde "Crear
   cuenta" puedo volver a "Entrar".
 
 ### Crear cuenta
@@ -308,7 +308,7 @@ revisión más estricta del correo (ver abajo).
 - [x] [web, móvil] Con un correo que no existe veo "Correo o contraseña
   incorrectos."; con un correo existente y otra contraseña veo exactamente el
   mismo mensaje.
-- [ ] [web] Dado que no hay sesión, cuando abro una dirección protegida (p. ej.
+- [x] [web] Dado que no hay sesión, cuando abro una dirección protegida (p. ej.
   `/glosario`) y entro, entonces llego a esa misma dirección.
 - [x] [móvil] Después de entrar llego al inicio.
 - [x] [web, móvil] Con sesión iniciada, abrir "Entrar" o "Crear cuenta" me

@@ -109,22 +109,22 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
 
 ## Fase 3: Web (brote_web_react)
 
-- [ ] T020 [web] En `src/servicios/api.ts`:
+- [x] T020 [web] En `src/servicios/api.ts`:
   - `pedir()` devuelve `undefined` en una respuesta `204` (sin leer JSON);
   - agregar `alPerderSesion(fn: () => void)`, que guarda un solo oyente;
   - cuando una respuesta es `401` y la ruta no es `POST /sesiones`, llamar al oyente antes de lanzar `ErrorHttp`.
-- [ ] T021 [P] [web] Crear `src/constantes/almacenamiento.ts` con `CLAVES = { sesionActiva: "sesion.activa", cierrePendiente: "sesion.cierrePendiente" } as const` y funciones `leerMarca`, `ponerMarca` y `quitarMarca` sobre `localStorage`, envueltas en try/catch
-- [ ] T022 [P] [web] Crear `src/validacion/cuenta.ts`:
+- [x] T021 [P] [web] Crear `src/constantes/almacenamiento.ts` con `CLAVES = { sesionActiva: "sesion.activa", cierrePendiente: "sesion.cierrePendiente" } as const` y funciones `leerMarca`, `ponerMarca` y `quitarMarca` sobre `localStorage`, envueltas en try/catch
+- [x] T022 [P] [web] Crear `src/validacion/cuenta.ts`:
   - `validarCrearCuenta(valores)` y `validarEntrar(valores)` devuelven `Partial<Record<"nombre" | "correo" | "contrasena", string>>` (vacío = válido);
   - mismas reglas y orden que el backend (T013), con `Array.from(texto).length`;
   - mensajes de `MENSAJES_CUENTA`.
-- [ ] T023 [web] Crear `src/servicios/sesion.ts` sobre `pedir()`:
+- [x] T023 [web] Crear `src/servicios/sesion.ts` sobre `pedir()`:
   - `crearCuenta(cuerpo)` → `POST /cuentas`; `entrar(cuerpo)` → `POST /sesiones`;
   - `cerrarSesion()` → `DELETE /sesiones/actual`; `traerYo()` → `GET /usuarios/yo`;
   - `leerErrorDeEnvio(error)` → `{ general?: string; campos?: Record<string, string> }`:
     - `ErrorHttp` con `cuerpo.campos` → `campos` (y `general` si no hay campos);
     - `TypeError` o estado ≥ 500 → `general: "No se pudo conectar con Brote. Inténtalo de nuevo en un momento."`.
-- [ ] T024 [web] Crear `src/contextos/SesionContext.tsx` con `useReducer`. Estado y acciones como en plan.md.
+- [x] T024 [web] Crear `src/contextos/SesionContext.tsx` con `useReducer`. Estado y acciones como en plan.md.
   - Al montar:
     1. si existe la marca `cierrePendiente`, intentar `cerrarSesion()` y quitarla si responde;
     2. llamar a `traerYo()`: 200 → `iniciada`; 401 → `terminada` con aviso `"sesionTerminada"` solo si existía `sesionActiva` (y quitarla); error de red o 5xx → `sinServidor`.
@@ -134,21 +134,21 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
     - `reintentar`.
   - Registrar `alPerderSesion` para despachar `terminada("sesionTerminada")`.
   - Envolver el `RouterProvider` con `SesionProvider` en `src/main.tsx`.
-- [ ] T025 [P] [web] Crear `src/componentes/CampoTexto/CampoTexto.tsx` y `CampoTexto.module.css`:
+- [x] T025 [P] [web] Crear `src/componentes/CampoTexto/CampoTexto.tsx` y `CampoTexto.module.css`:
   - props `id`, `etiqueta`, `valor`, `alCambiar`, `error?`, `tipo?` (`"text" | "email" | "password"`) y `autoComplete?`;
   - el error va debajo con `id` propio, `aria-invalid` y `aria-describedby`;
   - colores con `var(--color-error)` y demás tokens.
-- [ ] T026 [P] [web] Crear `src/componentes/CampoContrasena/CampoContrasena.tsx` y `.module.css`: usa `CampoTexto` y alterna `password` ↔ `text` con un botón `type="button"` "Mostrar" / "Ocultar" (`aria-pressed`), sin perder el valor
-- [ ] T027 [P] [web] Crear `src/componentes/Boton/Boton.tsx` y `.module.css`: props `children`, `tipo?` (`"submit" | "button"`), `variante?` (`"primario" | "secundario"`), `enviando?` (deshabilita y muestra `textoEnviando`) y `alPulsar?`
-- [ ] T028 [P] [web] Crear `src/componentes/MensajeFormulario/MensajeFormulario.tsx` y `.module.css`: muestra un mensaje general con `variante` `"error" | "aviso"` y `role="alert"`
-- [ ] T029 [P] [web] Crear `src/componentes/PantallaCarga/PantallaCarga.tsx` (indicador centrado, `aria-busy`) y `src/componentes/PantallaSinServidor/PantallaSinServidor.tsx`: "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y el botón "Reintentar" → `reintentar()`. Cada uno con su `.module.css`
-- [ ] T030 [web] Crear `src/componentes/RutaProtegida/RutaProtegida.tsx` y `src/componentes/SoloSinSesion/SoloSinSesion.tsx`:
+- [x] T026 [P] [web] Crear `src/componentes/CampoContrasena/CampoContrasena.tsx` y `.module.css`: usa `CampoTexto` y alterna `password` ↔ `text` con un botón `type="button"` "Mostrar" / "Ocultar" (`aria-pressed`), sin perder el valor
+- [x] T027 [P] [web] Crear `src/componentes/Boton/Boton.tsx` y `.module.css`: props `children`, `tipo?` (`"submit" | "button"`), `variante?` (`"primario" | "secundario"`), `enviando?` (deshabilita y muestra `textoEnviando`) y `alPulsar?`
+- [x] T028 [P] [web] Crear `src/componentes/MensajeFormulario/MensajeFormulario.tsx` y `.module.css`: muestra un mensaje general con `variante` `"error" | "aviso"` y `role="alert"`
+- [x] T029 [P] [web] Crear `src/componentes/PantallaCarga/PantallaCarga.tsx` (indicador centrado, `aria-busy`) y `src/componentes/PantallaSinServidor/PantallaSinServidor.tsx`: "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y el botón "Reintentar" → `reintentar()`. Cada uno con su `.module.css`
+- [x] T030 [web] Crear `src/componentes/RutaProtegida/RutaProtegida.tsx` y `src/componentes/SoloSinSesion/SoloSinSesion.tsx`:
   - `RutaProtegida`:
     - `cargando` → `PantallaCarga`; `sinServidor` → `PantallaSinServidor`;
     - `sinSesion` → `<Navigate to="/entrar" replace state={motivo === "cerrada" ? undefined : { desde: location }} />`;
     - `conSesion` → `<Outlet />`.
   - `SoloSinSesion`: `cargando` → `PantallaCarga`; `conSesion` → `<Navigate to="/" replace />`; si no, `<Outlet />`.
-- [ ] T031 [web] Crear `src/paginas/Entrar/Entrar.tsx` y `Entrar.module.css`:
+- [x] T031 [web] Crear `src/paginas/Entrar/Entrar.tsx` y `Entrar.module.css`:
   - formulario `noValidate` con `CampoTexto` correo (`email`, `autoComplete="email"`), `CampoContrasena` (`current-password`) y `Boton` "Entrar";
   - al enviar:
     - `validarEntrar`; con errores, no envía;
@@ -158,22 +158,22 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
   - editar un campo borra su error;
   - si `aviso === "sesionTerminada"`, `MensajeFormulario` aviso con `MENSAJES_CUENTA.sesionTerminada`;
   - enlace a `/registro`.
-- [ ] T032 [web] Crear `src/paginas/Registro/Registro.tsx` y `Registro.module.css`. Igual que T031 con:
+- [x] T032 [web] Crear `src/paginas/Registro/Registro.tsx` y `Registro.module.css`. Igual que T031 con:
   - nombre (`autoComplete="name"`), correo y contraseña (`new-password`);
   - `validarCrearCuenta`, `crearCuenta()` y botón "Crear cuenta";
   - en éxito, siempre `navigate("/", { replace: true })`;
   - enlace a `/entrar`.
-- [ ] T033 [web] En `src/rutas.tsx`:
+- [x] T033 [web] En `src/rutas.tsx`:
   - `SoloSinSesion` con hijas `/entrar` (Entrar) y `/registro` (Registro);
   - `RutaProtegida` → `Layout` con hijas `/` (Inicio) y `*` (NoEncontrada).
-- [ ] T034 [web] Crear `src/componentes/MenuCuenta/MenuCuenta.tsx` y `.module.css`:
+- [x] T034 [web] Crear `src/componentes/MenuCuenta/MenuCuenta.tsx` y `.module.css`:
   - botón con el nombre del usuario (`aria-expanded`) que abre un menú con el correo y "Cerrar sesión";
   - se cierra con Escape o con un clic fuera;
   - "Cerrar sesión" llama a `cerrarSesion()`.
 
   Agregarlo a la derecha del encabezado en `src/componentes/Layout/Layout.tsx` (y su CSS)
-- [ ] T035 [web] En `src/paginas/Inicio/Inicio.tsx` (y su CSS), quitar el ping y mostrar "Hola, {nombre}" con el usuario de `useSesion()`, más un párrafo que diga que el catálogo llega pronto. El comentario dice que es provisional hasta F02
-- [ ] T036 [web] `npm run tipos` y `npm run lint` sin errores
+- [x] T035 [web] En `src/paginas/Inicio/Inicio.tsx` (y su CSS), quitar el ping y mostrar "Hola, {nombre}" con el usuario de `useSesion()`, más un párrafo que diga que el catálogo llega pronto. El comentario dice que es provisional hasta F02
+- [x] T036 [web] `npm run tipos` y `npm run lint` sin errores
 
 **Punto de control**: con el backend corriendo, la sección "Web" de cada tabla de quickstart.md funciona.
 

@@ -118,8 +118,10 @@ Además estrena el formato único de error (`RespuestaError`) para toda la API.
     `PantallaCarga`; si hay error de conexión, `PantallaSinServidor` con
     "Reintentar"; sin sesión, `<Navigate to="/entrar" replace state={{ desde
     }} />`. `desde` no se manda cuando el usuario cerró sesión.
-  - Después de entrar se navega a `state.desde` o a `/`. Después de crear
-    cuenta, siempre a `/`.
+  - Después de entrar se llega a `state.desde` o a `/`; después de crear
+    cuenta, siempre a `/`. *Al implementar*: no navegan las páginas, sino
+    `SoloSinSesion` en cuanto la sesión pasa a `conSesion` (así no compiten
+    dos redirecciones); a `/registro` se llega sin `desde`.
   - `Inicio.tsx`: deja de mostrar el ping y muestra "Hola, {nombre}" (es
     provisional hasta F02).
 - **Componentes** (`src/componentes/<Nombre>/<Nombre>.tsx + .module.css`):
@@ -133,16 +135,25 @@ Además estrena el formato único de error (`RespuestaError`) para toda la API.
     abre un menú con el correo y "Cerrar sesión". Se cierra con Escape o al
     hacer clic fuera.
   - `RutaProtegida`, `SoloSinSesion`, `PantallaCarga`, `PantallaSinServidor`.
-- **Estado**: `src/contextos/SesionContext.tsx` (decisión 0011), con
-  `useReducer`.
+  - *Al implementar*: `FormularioCuenta` (tarjeta, marca, título y pie
+    comunes a Entrar y Crear cuenta), para que las dos páginas no repitan CSS.
+- **Estado**: contexto de sesión (decisión 0011), con `useReducer`. *Al
+  implementar* quedó en tres archivos para cumplir "un componente por
+  archivo" y la regla `react-refresh` de ESLint: `src/contextos/SesionContext.ts`
+  (contexto y tipos), `src/contextos/SesionProvider.tsx` (reducer y
+  arranque) y `src/hooks/useSesion.ts`.
   - Estado: `{ estado: "cargando" | "conSesion" | "sinSesion" | "sinServidor",
     usuario, aviso: "sesionTerminada" | null, motivo }`.
-  - Acciones: `iniciada(usuario)`, `terminada(aviso)`, `cerrada`,
-    `sinServidor`, `reintentar`.
+  - Acciones: `iniciada(usuario)`, `terminada(aviso)`, `perdida` (401
+    durante el uso; se ignora si no había sesión), `cerrada`, `sinServidor`,
+    `reintentar`.
+  - La marca `sesion.activa` solo se borra con la respuesta vigente del
+    arranque: en desarrollo `StrictMode` arranca dos veces y, si la primera
+    vuelta la borraba, no aparecía el aviso de sesión terminada.
   - Hook `useSesion()` que expone `{ ...estado, crearCuenta, entrar,
     cerrarSesion, reintentar }`.
   - El estado local de cada formulario (valores, errores por campo,
-    `enviando`) vive en su página.
+    `enviando`) vive en su página, con el hook `src/hooks/useFormulario.ts`.
 - **Servicios y validación**:
   - `src/servicios/sesion.ts`: `crearCuenta`, `entrar`, `cerrarSesion`,
     `traerYo`, todos sobre `pedir()`.

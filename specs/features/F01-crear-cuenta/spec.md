@@ -296,7 +296,7 @@ revisión más estricta del correo (ver abajo).
 - [ ] [web, móvil] El botón "Mostrar" / "Ocultar" muestra y oculta la contraseña sin borrar
   lo escrito; no hay campo para repetir la contraseña.
 - [ ] [web, móvil] Corregir un campo con error quita su mensaje.
-- [ ] [backend] Enviar al servidor, sin pasar por el cliente, un nombre vacío,
+- [x] [backend] Enviar al servidor, sin pasar por el cliente, un nombre vacío,
   un correo inválido o una contraseña de 7 caracteres se rechaza con el mismo
   mensaje que da el cliente y no crea la cuenta.
 

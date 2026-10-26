@@ -265,7 +265,7 @@ se marca también en spec.md.
 - [ ] V11 [web, móvil] Una contraseña de 7 caracteres muestra "La contraseña debe tener al menos 8 caracteres."; una de 8 se acepta; una de 129 muestra "La contraseña puede tener hasta 128 caracteres.".
 - [ ] V12 [web, móvil] El botón "Mostrar" / "Ocultar" muestra y oculta la contraseña sin borrar lo escrito; no hay campo para repetir la contraseña.
 - [ ] V13 [web, móvil] Corregir un campo con error quita su mensaje.
-- [ ] V14 [backend] Enviar al servidor, sin pasar por el cliente, un nombre vacío, un correo inválido o una contraseña de 7 caracteres se rechaza con el mismo mensaje que da el cliente y no crea la cuenta.
+- [x] V14 [backend] Enviar al servidor, sin pasar por el cliente, un nombre vacío, un correo inválido o una contraseña de 7 caracteres se rechaza con el mismo mensaje que da el cliente y no crea la cuenta.
 - [ ] V15 [web, móvil] Con el correo y la contraseña de una cuenta existente, escribiendo el correo con mayúsculas y espacios alrededor, entro y llego al inicio.
 - [ ] V16 [web, móvil] Con un correo que no existe veo "Correo o contraseña incorrectos."; con un correo existente y otra contraseña veo exactamente el mismo mensaje.
 - [ ] V17 [web] Dado que no hay sesión, cuando abro una dirección protegida (p. ej. `/glosario`) y entro, entonces llego a esa misma dirección.

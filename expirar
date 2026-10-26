@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Atajo para validar a mano: expira sesiones en la base local del backend.
+#   ./expirar           todas las sesiones
+#   ./expirar correo    solo las de esa cuenta
+set -euo pipefail
+cd "$(dirname "$0")/../brote_backend_express"
+npm run -s sesiones:expirar -- "$@"

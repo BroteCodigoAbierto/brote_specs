@@ -55,11 +55,13 @@ feature está en `specs/`; por qué se eligió cada pieza está en
 - Los clientes solo hablan con la API; nunca con la base de datos.
 - La API es REST con JSON. Las rutas, cuerpos y errores de cada endpoint se
   documentan en el `contracts/api.md` de la feature que lo crea.
-- Los errores se responden con un formato único (se define en la primera
-  feature que lo necesite y se agrega al contrato).
-- La autenticación la maneja Better Auth en el backend. La web usa la cookie
-  de sesión; el móvil guarda la sesión en almacenamiento seguro del
-  dispositivo (detalle en el plan de F01).
+- Los errores se responden con un formato único: `RespuestaError`
+  (`{ error, campos? }`) del contrato, definido en F01.
+- La autenticación la maneja Better Auth dentro del backend, detrás de rutas
+  propias (`/cuentas`, `/sesiones`, `/usuarios/yo`); su handler no se expone.
+  La web usa una cookie de sesión `httpOnly`; el móvil manda `X-Cliente:
+  movil` y un token Bearer guardado en almacenamiento seguro (detalle en el
+  plan de F01).
 
 ## Contenido de los cursos
 

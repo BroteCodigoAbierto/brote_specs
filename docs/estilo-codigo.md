@@ -126,10 +126,18 @@ solo lugar por repo.
 - Capas: `rutas` (HTTP: leer la petición, responder) → `servicios` (reglas de
   negocio) → Prisma. Las rutas no hablan con Prisma directamente.
 - Toda entrada se valida en la ruta antes de llegar al servicio.
-- Los errores esperados se lanzan como `ErrorApi(estado, mensaje)` y los
-  responde un manejador central; los mensajes van en español.
+- Los errores esperados se lanzan como `ErrorApi(estado, mensaje, campos?)`
+  y los responde un manejador central con el tipo `RespuestaError` del
+  contrato; los mensajes van en español.
 - Tablas y columnas en español, en `snake_case` en la base
   (`@@map`/`@map` en Prisma) y `camelCase` en el código.
+- **Única excepción**: los modelos de Better Auth (`User`, `Session`,
+  `Account`, `Verification`; tablas `user`, `session`, `account`,
+  `verification`) y sus campos quedan en inglés, tal como los define la
+  librería, para no mantener un mapeo que se rompa con cada versión
+  (decidido en el plan de F01). El código propio no los expone: el contrato
+  habla de `Usuario` (`nombre`, `correo`) y los servicios traducen. Ninguna
+  otra tabla sigue esta excepción.
 
 ## Git
 

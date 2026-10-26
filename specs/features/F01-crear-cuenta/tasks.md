@@ -253,16 +253,16 @@ Pasos de cada criterio en [quickstart.md](./quickstart.md). Al marcar uno aquí,
 se marca también en spec.md.
 
 - [ ] V01 [web] Dado que no hay sesión, cuando abro `/` o cualquier otra dirección de Brote que no sea "Entrar" ni "Crear cuenta", entonces veo "Entrar".
-- [ ] V02 [móvil] Dado que no hay sesión, cuando abro la app, entonces veo "Entrar" y no puedo llegar a ninguna otra pantalla salvo "Crear cuenta".
+- [x] V02 [móvil] Dado que no hay sesión, cuando abro la app, entonces veo "Entrar" y no puedo llegar a ninguna otra pantalla salvo "Crear cuenta".
 - [ ] V03 [web, móvil] Desde "Entrar" puedo ir a "Crear cuenta" y desde "Crear cuenta" puedo volver a "Entrar".
 - [x] V04 [web, móvil] Con nombre, correo y contraseña válidos, al pulsar "Crear cuenta" llego al inicio con la sesión iniciada.
 - [x] V05 [web, móvil] Con todos los campos vacíos, al pulsar "Crear cuenta" veo "Escribe tu nombre.", "Escribe tu correo." y "Escribe una contraseña.", cada uno junto a su campo.
 - [x] V06 [web, móvil] Un nombre de solo espacios muestra "Escribe tu nombre.".
-- [ ] V07 [web, móvil] Un nombre de 50 caracteres con espacios al inicio y al final se acepta y se guarda sin esos espacios; uno de 51 caracteres muestra "El nombre puede tener hasta 50 caracteres.".
+- [x] V07 [web, móvil] Un nombre de 50 caracteres con espacios al inicio y al final se acepta y se guarda sin esos espacios; uno de 51 caracteres muestra "El nombre puede tener hasta 50 caracteres.".
 - [x] V08 [web, móvil] Puedo crear una cuenta con un nombre que ya usa otra cuenta.
 - [x] V09 [web, móvil] `ana@correo` y `ana correo@x.com` muestran "Escribe un correo válido.".
 - [x] V10 [web, móvil] Si ya existe `ana@correo.com`, crear una cuenta con ` ANA@Correo.com ` muestra "Ya existe una cuenta con ese correo." junto al correo y conserva lo capturado.
-- [ ] V11 [web, móvil] Una contraseña de 7 caracteres muestra "La contraseña debe tener al menos 8 caracteres."; una de 8 se acepta; una de 129 muestra "La contraseña puede tener hasta 128 caracteres.".
+- [x] V11 [web, móvil] Una contraseña de 7 caracteres muestra "La contraseña debe tener al menos 8 caracteres."; una de 8 se acepta; una de 129 muestra "La contraseña puede tener hasta 128 caracteres.".
 - [x] V12 [web, móvil] El botón "Mostrar" / "Ocultar" muestra y oculta la contraseña sin borrar lo escrito; no hay campo para repetir la contraseña.
 - [x] V13 [web, móvil] Corregir un campo con error quita su mensaje.
 - [x] V14 [backend] Enviar al servidor, sin pasar por el cliente, un nombre vacío, un correo inválido o una contraseña de 7 caracteres se rechaza con el mismo mensaje que da el cliente y no crea la cuenta.
@@ -270,7 +270,7 @@ se marca también en spec.md.
 - [x] V16 [web, móvil] Con un correo que no existe veo "Correo o contraseña incorrectos."; con un correo existente y otra contraseña veo exactamente el mismo mensaje.
 - [ ] V17 [web] Dado que no hay sesión, cuando abro una dirección protegida (p. ej. `/glosario`) y entro, entonces llego a esa misma dirección.
 - [x] V18 [móvil] Después de entrar llego al inicio.
-- [ ] V19 [web, móvil] Con sesión iniciada, abrir "Entrar" o "Crear cuenta" me lleva al inicio.
+- [x] V19 [web, móvil] Con sesión iniciada, abrir "Entrar" o "Crear cuenta" me lleva al inicio.
 - [ ] V20 [web, móvil] Mientras se envía el formulario, el botón está deshabilitado; pulsarlo varias veces seguidas (o pulsar Enter) crea una sola cuenta o hace un solo intento de entrar.
 - [ ] V21 [web, móvil] Con el servidor apagado, al enviar veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y lo capturado sigue en los campos, incluida la contraseña.
 - [ ] V22 [móvil] En modo avión, al enviar veo "Sin conexión. Revisa tu conexión e inténtalo de nuevo." y lo capturado sigue en los campos.

@@ -267,7 +267,7 @@ revisión más estricta del correo (ver abajo).
 
 - [ ] [web] Dado que no hay sesión, cuando abro `/` o cualquier otra dirección
   de Brote que no sea "Entrar" ni "Crear cuenta", entonces veo "Entrar".
-- [ ] [móvil] Dado que no hay sesión, cuando abro la app, entonces veo
+- [x] [móvil] Dado que no hay sesión, cuando abro la app, entonces veo
   "Entrar" y no puedo llegar a ninguna otra pantalla salvo "Crear cuenta".
 - [ ] [web, móvil] Desde "Entrar" puedo ir a "Crear cuenta" y desde "Crear
   cuenta" puedo volver a "Entrar".
@@ -280,7 +280,7 @@ revisión más estricta del correo (ver abajo).
   "Escribe tu nombre.", "Escribe tu correo." y "Escribe una contraseña.", cada
   uno junto a su campo.
 - [x] [web, móvil] Un nombre de solo espacios muestra "Escribe tu nombre.".
-- [ ] [web, móvil] Un nombre de 50 caracteres con espacios al inicio y al
+- [x] [web, móvil] Un nombre de 50 caracteres con espacios al inicio y al
   final se acepta y se guarda sin esos espacios; uno de 51 caracteres muestra
   "El nombre puede tener hasta 50 caracteres.".
 - [x] [web, móvil] Puedo crear una cuenta con un nombre que ya usa otra
@@ -290,7 +290,7 @@ revisión más estricta del correo (ver abajo).
 - [x] [web, móvil] Si ya existe `ana@correo.com`, crear una cuenta con
   ` ANA@Correo.com ` muestra "Ya existe una cuenta con ese correo." junto al
   correo y conserva lo capturado.
-- [ ] [web, móvil] Una contraseña de 7 caracteres muestra "La contraseña debe
+- [x] [web, móvil] Una contraseña de 7 caracteres muestra "La contraseña debe
   tener al menos 8 caracteres."; una de 8 se acepta; una de 129 muestra "La
   contraseña puede tener hasta 128 caracteres.".
 - [x] [web, móvil] El botón "Mostrar" / "Ocultar" muestra y oculta la contraseña sin borrar
@@ -311,7 +311,7 @@ revisión más estricta del correo (ver abajo).
 - [ ] [web] Dado que no hay sesión, cuando abro una dirección protegida (p. ej.
   `/glosario`) y entro, entonces llego a esa misma dirección.
 - [x] [móvil] Después de entrar llego al inicio.
-- [ ] [web, móvil] Con sesión iniciada, abrir "Entrar" o "Crear cuenta" me
+- [x] [web, móvil] Con sesión iniciada, abrir "Entrar" o "Crear cuenta" me
   lleva al inicio.
 
 ### Estados

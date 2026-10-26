@@ -274,9 +274,9 @@ revisión más estricta del correo (ver abajo).
 
 ### Crear cuenta
 
-- [ ] [web, móvil] Con nombre, correo y contraseña válidos, al pulsar "Crear
+- [x] [web, móvil] Con nombre, correo y contraseña válidos, al pulsar "Crear
   cuenta" llego al inicio con la sesión iniciada.
-- [ ] [web, móvil] Con todos los campos vacíos, al pulsar "Crear cuenta" veo
+- [x] [web, móvil] Con todos los campos vacíos, al pulsar "Crear cuenta" veo
   "Escribe tu nombre.", "Escribe tu correo." y "Escribe una contraseña.", cada
   uno junto a su campo.
 - [ ] [web, móvil] Un nombre de solo espacios muestra "Escribe tu nombre.".
@@ -310,7 +310,7 @@ revisión más estricta del correo (ver abajo).
   mismo mensaje.
 - [ ] [web] Dado que no hay sesión, cuando abro una dirección protegida (p. ej.
   `/glosario`) y entro, entonces llego a esa misma dirección.
-- [ ] [móvil] Después de entrar llego al inicio.
+- [x] [móvil] Después de entrar llego al inicio.
 - [ ] [web, móvil] Con sesión iniciada, abrir "Entrar" o "Crear cuenta" me
   lleva al inicio.
 

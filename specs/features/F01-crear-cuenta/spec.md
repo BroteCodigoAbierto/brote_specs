@@ -324,7 +324,7 @@ revisión más estricta del correo (ver abajo).
   campos, incluida la contraseña.
 - [ ] [móvil] En modo avión, al enviar veo "Sin conexión. Revisa tu conexión e
   inténtalo de nuevo." y lo capturado sigue en los campos.
-- [ ] [web, móvil] Al abrir Brote con una sesión guardada no se ve "Entrar" ni
+- [x] [web, móvil] Al abrir Brote con una sesión guardada no se ve "Entrar" ni
   por un instante.
 - [ ] [web] Con el servidor apagado, al recargar Brote veo "No se pudo conectar
   con Brote. Inténtalo de nuevo en un momento." y "Reintentar"; al encender el
@@ -338,13 +338,13 @@ revisión más estricta del correo (ver abajo).
   abrir y sigo con sesión.
 - [x] [móvil] Después de entrar, cierro la app por completo (no solo la mando
   al fondo), la vuelvo a abrir y sigo con sesión.
-- [ ] [web, móvil] Con la misma cuenta puedo tener sesión en la web y en el
+- [x] [web, móvil] Con la misma cuenta puedo tener sesión en la web y en el
   móvil al mismo tiempo.
 - [x] [web] Con sesión, la barra superior muestra mi nombre y abre un menú
   con "Cerrar sesión".
 - [x] [móvil] Con sesión, la pestaña "Cuenta" muestra mi nombre, mi correo y
   "Cerrar sesión".
-- [ ] [web, móvil] Al pulsar "Cerrar sesión" llego a "Entrar"; al volver
+- [x] [web, móvil] Al pulsar "Cerrar sesión" llego a "Entrar"; al volver
   atrás o recargar no recupero la sesión; en el otro dispositivo sigo con
   sesión.
 - [ ] [web, móvil] Dado que la sesión del dispositivo expiró, cuando hago

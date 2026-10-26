@@ -274,15 +274,15 @@ se marca también en spec.md.
 - [ ] V20 [web, móvil] Mientras se envía el formulario, el botón está deshabilitado; pulsarlo varias veces seguidas (o pulsar Enter) crea una sola cuenta o hace un solo intento de entrar.
 - [ ] V21 [web, móvil] Con el servidor apagado, al enviar veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y lo capturado sigue en los campos, incluida la contraseña.
 - [ ] V22 [móvil] En modo avión, al enviar veo "Sin conexión. Revisa tu conexión e inténtalo de nuevo." y lo capturado sigue en los campos.
-- [ ] V23 [web, móvil] Al abrir Brote con una sesión guardada no se ve "Entrar" ni por un instante.
+- [x] V23 [web, móvil] Al abrir Brote con una sesión guardada no se ve "Entrar" ni por un instante.
 - [ ] V24 [web] Con el servidor apagado, al recargar Brote veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar"; al encender el servidor y pulsar "Reintentar" veo la pantalla que corresponde.
 - [ ] V25 [móvil] Con una sesión iniciada, en modo avión cierro y abro la app y entro al inicio con mi nombre.
 - [x] V26 [web] Después de entrar, cierro el navegador por completo, lo vuelvo a abrir y sigo con sesión.
 - [x] V27 [móvil] Después de entrar, cierro la app por completo (no solo la mando al fondo), la vuelvo a abrir y sigo con sesión.
-- [ ] V28 [web, móvil] Con la misma cuenta puedo tener sesión en la web y en el móvil al mismo tiempo.
+- [x] V28 [web, móvil] Con la misma cuenta puedo tener sesión en la web y en el móvil al mismo tiempo.
 - [x] V29 [web] Con sesión, la barra superior muestra mi nombre y abre un menú con "Cerrar sesión".
 - [x] V30 [móvil] Con sesión, la pestaña "Cuenta" muestra mi nombre, mi correo y "Cerrar sesión".
-- [ ] V31 [web, móvil] Al pulsar "Cerrar sesión" llego a "Entrar"; al volver atrás o recargar no recupero la sesión; en el otro dispositivo sigo con sesión.
+- [x] V31 [web, móvil] Al pulsar "Cerrar sesión" llego a "Entrar"; al volver atrás o recargar no recupero la sesión; en el otro dispositivo sigo con sesión.
 - [ ] V32 [web, móvil] Dado que la sesión del dispositivo expiró, cuando hago cualquier acción que necesita al servidor, entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar.".
 - [ ] V33 [web] Después de entrar tras una sesión expirada, regreso a la página donde estaba.
 

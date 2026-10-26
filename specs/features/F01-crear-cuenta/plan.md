@@ -179,9 +179,10 @@ Además estrena el formato único de error (`RespuestaError`) para toda la API.
 
 - **Pantallas y rutas (expo-router)**:
   - `src/app/_layout.tsx`: `SesionProvider`; el splash sigue visible mientras
-    `cargando`. `Stack` con `Stack.Protected guard={conSesion}` para
-    `(tabs)` y `Stack.Protected guard={!conSesion}` para `(auth)`
-    (research.md, punto 9).
+    `cargando`. `Stack` con `Stack.Protected guard={conSesion}
+    redirectTo="/entrar"` para `(tabs)` y `Stack.Protected
+    guard={!conSesion} redirectTo="/"` para `(auth)` (SDK 58; research.md,
+    punto 9).
   - `src/app/(auth)/_layout.tsx`, `(auth)/entrar.tsx` y `(auth)/registro.tsx`.
   - `src/app/(tabs)/_layout.tsx`: `Tabs` con "Inicio" y "Cuenta".
   - `(tabs)/index.tsx`: inicio provisional, "Hola, {nombre}".
@@ -228,7 +229,8 @@ Además estrena el formato único de error (`RespuestaError`) para toda la API.
     nuevo." y "No se pudo conectar con Brote. Inténtalo de nuevo en un
     momento.".
   - Las dos dependencias nativas nuevas vienen en Expo Go: no hace falta
-    *development build*.
+    *development build*. Desde el 2026-10-26 la app usa el SDK 58, así que el
+    teléfono necesita Expo Go para el SDK 58.
 
 ## Cambios a la navegación
 

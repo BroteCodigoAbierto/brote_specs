@@ -225,7 +225,7 @@ description: "Lista de tareas de F01 Crear cuenta e iniciar sesión"
 - [ ] T050 [movil] Reescribir `src/app/_layout.tsx`:
   - `SesionProvider`;
   - `SplashScreen.preventAutoHideAsync()` y `hideAsync()` cuando el estado deja `cargando`;
-  - `Stack` con `<Stack.Protected guard={conSesion}>` para `(tabs)` y `<Stack.Protected guard={!conSesion}>` para `(auth)`, siguiendo la guía de autenticación de expo-router para SDK 57 (sin `redirectTo`).
+  - `Stack` con `<Stack.Protected guard={conSesion} redirectTo="/entrar">` para `(tabs)` y `<Stack.Protected guard={!conSesion} redirectTo="/">` para `(auth)` (SDK 58), siguiendo la guía de autenticación de expo-router.
 
   En el mismo commit, borrar la demo: `src/app/index.tsx`, `src/app/inicio.tsx`, `src/app/curso/[id].tsx`, `src/datos/cursos.ts`, `src/tipos/tipos.ts`, `src/componentes/TarjetaCurso.tsx` y `src/componentes/FilaLeccion.tsx`
 - [ ] T051 [movil] `npm run tipos` y `npm run lint` sin errores

@@ -6,8 +6,9 @@ Cómo levantar los tres repos y comprobar a mano cada criterio de aceptación de
 
 ## 1. Preparar
 
-Requisitos: Node 24, Podman (o Docker), Expo Go en un teléfono en la misma red
-que la computadora. Cada repo en su rama `feature/F01-crear-cuenta`.
+Requisitos: Node 24, Podman (o Docker), Expo Go **para el SDK 58** en un
+teléfono en la misma red que la computadora (el de la tienda solo abre un SDK;
+si dice que el proyecto es de otra versión, actualízalo desde expo.dev/go). Cada repo en su rama `feature/F01-crear-cuenta`.
 
 ```bash
 # brote_specs: copiar el contrato 0.2.0 y comprobar las copias

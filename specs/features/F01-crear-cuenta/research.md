@@ -7,7 +7,8 @@ useReducer y el contrato por copia ya están decididos en `docs/decisiones/`.
 
 Versiones consultadas (npm, 2026-10-19): `better-auth` 1.7.11,
 `@prisma/client` y `@prisma/adapter-pg` 7.10.1. En el móvil las versiones las
-elige `npx expo install` para el SDK 57.
+elige `npx expo install`. El móvil pasó del SDK 57 al **SDK 58** (React Native
+0.88) el 2026-10-26, antes de empezar su fase.
 
 ## 1. Cómo se integra Better Auth con Express
 
@@ -98,7 +99,7 @@ Fuente: <https://www.better-auth.com/docs/authentication/email-password>.
   (el contrato no lleva lógica) usando esas constantes.
 - **Contar caracteres**: `Array.from(texto).length` (puntos de código). Se
   descartó `Intl.Segmenter` porque no hay certeza de que Hermes lo soporte en
-  el SDK 57; con puntos de código, cliente y servidor cuentan igual en los
+  el SDK 58; con puntos de código, cliente y servidor cuentan igual en los
   tres entornos. La spec ya lo dice en "Supuestos".
 - **Correo**: `PATRON_CORREO = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/` cubre la
   regla de la spec (una sola `@`, algo antes, dominio con al menos un punto
@@ -162,9 +163,10 @@ Fuente: <https://www.better-auth.com/docs/concepts/database>.
 - **Rutas**: `Stack.Protected` de expo-router, con `guard` según el estado
   del `SesionContext`. Si el guard pasa a `false`, expo-router manda a la
   primera pantalla disponible y borra el historial de las protegidas. Eso hace
-  "Cerrar sesión" y "sesión expirada" sin navegar a mano. `redirectTo` es del
-  SDK 58; en el 57 el orden de las pantallas decide a dónde se llega. Hay que
-  seguir la guía de autenticación de la versión 57.
+  "Cerrar sesión" y "sesión expirada" sin navegar a mano. Con el SDK 58 cada
+  grupo dice a dónde manda con `redirectTo` (acepta el mismo href que `Link`):
+  `(tabs)` → `/entrar` y `(auth)` → `/`. Así no depende del orden de las
+  pantallas.
 - **Splash**: la pantalla de arranque (`expo-splash-screen`, ya instalado) se
   mantiene hasta que el contexto deja el estado `cargando`. Ese es el
   "Cargando" de la spec y evita que "Entrar" se vea un instante.

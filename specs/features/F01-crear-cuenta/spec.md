@@ -316,20 +316,20 @@ revisión más estricta del correo (ver abajo).
 
 ### Estados
 
-- [ ] [web, móvil] Mientras se envía el formulario, el botón está
+- [x] [web, móvil] Mientras se envía el formulario, el botón está
   deshabilitado; pulsarlo varias veces seguidas (o pulsar Enter) crea una sola
   cuenta o hace un solo intento de entrar.
-- [ ] [web, móvil] Con el servidor apagado, al enviar veo "No se pudo conectar
+- [x] [web, móvil] Con el servidor apagado, al enviar veo "No se pudo conectar
   con Brote. Inténtalo de nuevo en un momento." y lo capturado sigue en los
   campos, incluida la contraseña.
-- [ ] [móvil] En modo avión, al enviar veo "Sin conexión. Revisa tu conexión e
+- [x] [móvil] En modo avión, al enviar veo "Sin conexión. Revisa tu conexión e
   inténtalo de nuevo." y lo capturado sigue en los campos.
 - [x] [web, móvil] Al abrir Brote con una sesión guardada no se ve "Entrar" ni
   por un instante.
-- [ ] [web] Con el servidor apagado, al recargar Brote veo "No se pudo conectar
+- [x] [web] Con el servidor apagado, al recargar Brote veo "No se pudo conectar
   con Brote. Inténtalo de nuevo en un momento." y "Reintentar"; al encender el
   servidor y pulsar "Reintentar" veo la pantalla que corresponde.
-- [ ] [móvil] Con una sesión iniciada, en modo avión cierro y abro la app y
+- [x] [móvil] Con una sesión iniciada, en modo avión cierro y abro la app y
   entro al inicio con mi nombre.
 
 ### Sesión

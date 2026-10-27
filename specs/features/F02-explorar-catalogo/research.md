@@ -57,6 +57,14 @@ Router 8.4.0, Expo SDK 58.
   `postgresqlExtensions`, `prisma migrate` debería ignorar la extensión al
   comparar el esquema con la base. Si Prisma intentara quitarla, se declara
   con esa *preview feature*.
+- *Comprobado al implementar*:
+  - un segundo `prisma migrate dev` genera una migración vacía, así que
+    Prisma ignora la extensión y no hace falta la *preview feature*;
+  - en Prisma 7, `migrate dev` ya no regenera el cliente: después de migrar
+    hay que correr `npm run bd:generar`;
+  - `unaccent` convierte "¿" en "?" y "¡" en "!"; la clave de orden los quita
+    igual, porque no son letras ni números;
+  - el `%` y el `_` de la búsqueda se buscan literalmente.
 
 Fuente: <https://www.postgresql.org/docs/18/unaccent.html>.
 
@@ -100,6 +108,13 @@ Fuente: <https://www.postgresql.org/docs/18/unaccent.html>.
 - **Alternativa descartada**: el `cursor` de Prisma (`cursor: { id }`). Busca
   la fila del cursor en la base, así que falla si el curso se borró, y no
   funciona con una clave calculada.
+- *Comprobado al implementar*:
+  - `creado_en` es `timestamp(3)` sin zona horaria y guarda UTC, así que el
+    cursor se compara con `CAST(<ISO> AS timestamp(3))`, no con un `Date`.
+    Con la sesión de la base en `America/Tijuana`, 25 cursos con el mismo
+    título (5 de ellos con la misma fecha exacta) salen en 3 cargas, sin
+    repetir ninguno;
+  - retirar un curso de la primera carga no cambia la segunda.
 
 ## 5. Identificadores
 

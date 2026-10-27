@@ -26,22 +26,22 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
 ## Fase 1: Preparación
 
 - [X] T001 [specs] Agregar al final de `contrato/contrato.ts` el bloque "Catálogo de cursos (F02)" de [contracts/contrato.md](./contracts/contrato.md), copiado tal cual: `AutorCurso`, `ResumenCurso`, `ResumenLeccion`, `DetalleCurso`, `RespuestaCatalogo`, `RespuestaCurso`, `LIMITES_CATALOGO` y `MENSAJES_CATALOGO`. Subir `contrato/VERSION` de `0.2.0` a `0.3.0`
-- [ ] T002 [back] En `brote_backend_express`: `git switch dev && git pull --ff-only` (la `dev` local está atrás de `origin/dev`, que ya trae F01) y crear `feature/F02-explorar-catalogo` desde `dev`
-- [ ] T003 [P] [web] Igual que T002 en `brote_web_react`
-- [ ] T004 [P] [movil] Igual que T002 en `brote_mobile_expo`
-- [ ] T005 [specs] Copiar el contrato 0.3.0 a los tres repos: `npm run contrato:copiar` en brote_specs. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo
+- [X] T002 [back] En `brote_backend_express`: `git switch dev && git pull --ff-only` (la `dev` local está atrás de `origin/dev`, que ya trae F01) y crear `feature/F02-explorar-catalogo` desde `dev`
+- [X] T003 [P] [web] Igual que T002 en `brote_web_react`
+- [X] T004 [P] [movil] Igual que T002 en `brote_mobile_expo`
+- [X] T005 [specs] Copiar el contrato 0.3.0 a los tres repos: `npm run contrato:copiar` en brote_specs. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo
 
 ---
 
 ## Fase 2: Backend (brote_backend_express)
 
-- [ ] T006 [back] En `prisma/schema.prisma`, agregar los modelos de [data-model.md](./data-model.md), con el comentario de la feature arriba:
+- [X] T006 [back] En `prisma/schema.prisma`, agregar los modelos de [data-model.md](./data-model.md), con el comentario de la feature arriba:
   - `Curso` (`@@map("curso")`): `id String @id @default(uuid(7))`, `titulo String`, `descripcion String`, `publicado Boolean @default(false)`, `idAutor String @map("id_autor")` con `autor User @relation(fields: [idAutor], references: [id], onDelete: Restrict)` y `@@index([idAutor])`, `creadoEn DateTime @default(now()) @map("creado_en")`, `actualizadoEn DateTime @updatedAt @map("actualizado_en")` y `lecciones Leccion[]`;
   - `Leccion` (`@@map("leccion")`): `id String @id @default(uuid(7))`, `idCurso String @map("id_curso")` con `curso Curso @relation(fields: [idCurso], references: [id], onDelete: Cascade)`, `titulo String`, `posicion Int`, `creadoEn` y `actualizadoEn` como en `Curso`, y `@@unique([idCurso, posicion])`;
   - en `User`, el campo de relación `cursos Curso[]` (no crea columnas).
 
   Generar la migración `prisma/migrations/<fecha>_f02_cursos/migration.sql` con `npm run bd:migrar -- --create-only --name f02_cursos` (o, si no se puede crear la *shadow database*, con `prisma migrate diff` desde la base actual hacia el esquema, como en F01). Agregar a mano `CREATE EXTENSION IF NOT EXISTS unaccent;` como primera línea, aplicarla y correr `npm run bd:generar`. Comprobar que un segundo `prisma migrate dev` no intenta quitar la extensión (research.md, punto 2)
-- [ ] T007 [P] [back] Crear `src/validacion/catalogo.ts`:
+- [X] T007 [P] [back] Crear `src/validacion/catalogo.ts`:
   - `type PosicionCurso = { clave: string; creadoEn: Date; id: string }`.
   - `validarConsultaCatalogo(query: unknown): { palabras: string[]; despues: PosicionCurso | null }`:
     - `q`: si no es texto, cuenta como `""`. Se recorta. Si `Array.from(q).length > LIMITES_CATALOGO.busquedaMax`, lanzar `new ErrorApi(400, MENSAJES_CATALOGO.busquedaLarga)`. `palabras` es `[]` si queda vacío; si no, `q.split(/\s+/)`;
@@ -49,7 +49,7 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
     - cualquier otro parámetro se ignora.
   - `leerCursor(texto)`: `Buffer.from(texto, "base64url")` → JSON. Tiene que ser un arreglo de 3 textos, y el segundo una fecha válida. Si no (o si `JSON.parse` falla), `ErrorApi(400, MENSAJES_CATALOGO.cargaInvalida)`.
   - `crearCursor(posicion)`: `Buffer.from(JSON.stringify([clave, creadoEn.toISOString(), id])).toString("base64url")`.
-- [ ] T008 [back] Crear `src/servicios/cursos.ts` con `traerCatalogo({ palabras, despues }): Promise<RespuestaCatalogo>`, una sola consulta con `bd.$queryRaw` armada con `Prisma.sql`, `Prisma.join` y `Prisma.empty` (de `../generado/prisma/client.ts`). Ningún valor se concatena como texto:
+- [X] T008 [back] Crear `src/servicios/cursos.ts` con `traerCatalogo({ palabras, despues }): Promise<RespuestaCatalogo>`, una sola consulta con `bd.$queryRaw` armada con `Prisma.sql`, `Prisma.join` y `Prisma.empty` (de `../generado/prisma/client.ts`). Ningún valor se concatena como texto:
   - subconsulta sobre `curso c JOIN "user" u ON u.id = c.id_autor WHERE c.publicado`, que devuelve:
     - `id`, `titulo`, `descripcion`, `creado_en`, `u.id` y `u.name`;
     - `(SELECT count(*)::int FROM leccion l WHERE l.id_curso = c.id)`;
@@ -61,11 +61,11 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
   - se responden las primeras 10 filas, traducidas con `aResumenCurso(fila)` (`autor: { id, nombre: name }`). Si llegó la undécima, `siguiente = crearCursor(décima fila)`; si no, `null`.
 
   Comprobar con `psql` que la comparación de filas con `COLLATE` funciona como se espera (research.md, puntos 2 a 4)
-- [ ] T009 [back] En `src/servicios/cursos.ts`, agregar `traerCursoPublicado(id): Promise<DetalleCurso>`:
+- [X] T009 [back] En `src/servicios/cursos.ts`, agregar `traerCursoPublicado(id): Promise<DetalleCurso>`:
   - `bd.curso.findFirst({ where: { id, publicado: true } })`, con `autor` (`id`, `name`) y `lecciones` (`id`, `titulo`, `posicion`, ordenadas por `posicion`);
   - si no hay, `throw new ErrorApi(404, MENSAJES_CATALOGO.cursoNoDisponible)`, igual exista o no el curso;
   - si hay, `aDetalleCurso(curso)`: `ResumenCurso` + `lecciones`, con `cantidadLecciones = lecciones.length`.
-- [ ] T010 [back] Crear `src/rutas/cursos.ts` y montarlo en `src/rutas/index.ts` con `rutas.use("/cursos", rutasCursos)`:
+- [X] T010 [back] Crear `src/rutas/cursos.ts` y montarlo en `src/rutas/index.ts` con `rutas.use("/cursos", rutasCursos)`:
   - `GET /`: `requerirSesion` → `validarConsultaCatalogo(req.query)` → `traerCatalogo` → `200` con `RespuestaCatalogo`;
   - `GET /:idCurso`: `requerirSesion` → `traerCursoPublicado(req.params.idCurso)` → `200` con `RespuestaCurso` (`{ curso }`).
 

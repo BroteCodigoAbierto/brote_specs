@@ -394,8 +394,9 @@ búsqueda desde sus primeros 10 resultados.
   - descripción.
   - autor: el usuario que lo creó; se muestra su nombre para mostrar actual,
     y por ese nombre se le busca.
-  - estado: borrador, en revisión o publicado. Aquí solo se ven los
-    publicados.
+  - publicado: sí o no. Aquí solo se ven los publicados. Un curso en borrador
+    o en revisión es, para esta feature, uno no publicado; distinguir esos dos
+    estados le toca a F06.
   - portada: en el MVP no es un dato del curso ni una imagen; se genera a
     partir del título (ver "Validaciones").
   - lecciones, en orden.

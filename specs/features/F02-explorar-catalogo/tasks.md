@@ -25,7 +25,7 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
 
 ## Fase 1: Preparación
 
-- [ ] T001 [specs] Agregar al final de `contrato/contrato.ts` el bloque "Catálogo de cursos (F02)" de [contracts/contrato.md](./contracts/contrato.md), copiado tal cual: `AutorCurso`, `ResumenCurso`, `ResumenLeccion`, `DetalleCurso`, `RespuestaCatalogo`, `RespuestaCurso`, `LIMITES_CATALOGO` y `MENSAJES_CATALOGO`. Subir `contrato/VERSION` de `0.2.0` a `0.3.0`
+- [X] T001 [specs] Agregar al final de `contrato/contrato.ts` el bloque "Catálogo de cursos (F02)" de [contracts/contrato.md](./contracts/contrato.md), copiado tal cual: `AutorCurso`, `ResumenCurso`, `ResumenLeccion`, `DetalleCurso`, `RespuestaCatalogo`, `RespuestaCurso`, `LIMITES_CATALOGO` y `MENSAJES_CATALOGO`. Subir `contrato/VERSION` de `0.2.0` a `0.3.0`
 - [ ] T002 [back] En `brote_backend_express`: `git switch dev && git pull --ff-only` (la `dev` local está atrás de `origin/dev`, que ya trae F01) y crear `feature/F02-explorar-catalogo` desde `dev`
 - [ ] T003 [P] [web] Igual que T002 en `brote_web_react`
 - [ ] T004 [P] [movil] Igual que T002 en `brote_mobile_expo`

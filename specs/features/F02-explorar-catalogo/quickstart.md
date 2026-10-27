@@ -16,7 +16,8 @@ npm run contrato:copiar && npm run contrato:revisar
 # brote_backend_express
 npm install
 npm run bd:migrar          # tablas curso y leccion, y la extensión unaccent
-                           # si el usuario no puede crear bases: npx prisma migrate deploy && npm run bd:generar
+                           # si el usuario no puede crear bases: npx prisma migrate deploy
+npm run bd:generar         # cliente de Prisma con Curso y Leccion (Prisma 7 no lo genera al migrar)
 npm run bd:sembrar         # cuentas y cursos de prueba (sección 1.1)
 npm run dev                # API en http://localhost:3000
 

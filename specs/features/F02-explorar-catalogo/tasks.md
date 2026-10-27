@@ -70,7 +70,7 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
   - `GET /:idCurso`: `requerirSesion` → `traerCursoPublicado(req.params.idCurso)` → `200` con `RespuestaCurso` (`{ curso }`).
 
   La sesión va primero: sin sesión es 401 aunque los parámetros estén mal
-- [ ] T011 [P] [back] Crear `scripts/datos-prueba.ts`, que exporta las cuentas y los cursos de [quickstart.md](./quickstart.md), sección 1.1, sin leer `brote_specs`:
+- [X] T011 [P] [back] Crear `scripts/datos-prueba.ts`, que exporta las cuentas y los cursos de [quickstart.md](./quickstart.md), sección 1.1, sin leer `brote_specs`:
   - cuentas `autor@brote.test` y `autor2@brote.test`, las dos "Equipo Brote" con contraseña `brote12345`;
   - **publicados**: los cuatro cursos del prototipo, con `title`, `description` y los `lessons[].title` (en orden) copiados de `../brote_specs/referencia/cursos-prototipo/<carpeta>/manifest.json`;
   - **no publicados**, todos de `autor@`:
@@ -80,15 +80,15 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
   - **no publicado**, de `autor2@`: "Huerto en casa" (2 lecciones).
 
   Las descripciones y lecciones de los extra no usan las palabras de los criterios de búsqueda (`git`, `japones`, `programacion`, `flex`, `sencill`, `cocina`, `equipo`, `brote`)
-- [ ] T012 [back] Crear `scripts/sembrar-cursos.ts` y agregar `"bd:sembrar": "node --env-file-if-exists=.env scripts/sembrar-cursos.ts"` a `package.json`. El script:
+- [X] T012 [back] Crear `scripts/sembrar-cursos.ts` y agregar `"bd:sembrar": "node --env-file-if-exists=.env scripts/sembrar-cursos.ts"` a `package.json`. El script:
   1. crea cada cuenta de prueba que no exista con `auth.api.signUpEmail({ body: { name, email, password } })`;
   2. borra los cursos de autores con correo `@brote.test` (las lecciones se borran en cascada);
   3. crea los cursos de `datos-prueba.ts` con sus lecciones (`posicion` 1, 2, 3, ...) y su `publicado`;
   4. imprime cuántos cursos creó y cuántos quedaron publicados, y llama a `bd.$disconnect()`.
 
   Lleva un comentario de uso como el de `scripts/expirar-sesiones.ts`. Correrlo dos veces seguidas deja el mismo estado
-- [ ] T013 [P] [back] Actualizar `CLAUDE.md`: en la estructura, `scripts/` (herramientas de desarrollo: `expirar-sesiones.ts`, `sembrar-cursos.ts`). En `README.md`, `npm run bd:sembrar` en "Arrancar en local"
-- [ ] T014 [back] `npm run tipos` y `npm run lint` sin errores
+- [X] T013 [P] [back] Actualizar `CLAUDE.md`: en la estructura, `scripts/` (herramientas de desarrollo: `expirar-sesiones.ts`, `sembrar-cursos.ts`). En `README.md`, `npm run bd:sembrar` en "Arrancar en local"
+- [X] T014 [back] `npm run tipos` y `npm run lint` sin errores
 
 **Punto de control**: después de `npm run bd:sembrar`, quickstart.md sección 2 (B1 a B7) da exactamente las respuestas de [contracts/api.md](./contracts/api.md).
 

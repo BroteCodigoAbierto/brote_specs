@@ -291,7 +291,7 @@ búsqueda desde sus primeros 10 resultados.
   ningún botón, el catálogo muestra solo "Git esencial".
 - [ ] [web, móvil] "JAPONES" encuentra "Japonés sencillo" y "programacion"
   encuentra "Programación en C sencilla".
-- [ ] [web, móvil] "flexbox" encuentra "Examen unidad 1" (la palabra solo
+- [ ] [web, móvil] "flex" encuentra "Examen unidad 1" (la palabra solo
   está en su descripción).
 - [ ] [web, móvil] "sencill" encuentra "Japonés sencillo" y "Programación en
   C sencilla"; "sencillo japones" encuentra solo "Japonés sencillo".

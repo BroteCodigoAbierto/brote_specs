@@ -79,7 +79,7 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
     - "Curso de prueba 01" a "Curso de prueba 21", con la descripción "Curso genérico para probar la carga de 10 en 10." y de 1 a 3 lecciones;
   - **no publicado**, de `autor2@`: "Huerto en casa" (2 lecciones).
 
-  Las descripciones y lecciones de los extra no usan las palabras de los criterios de búsqueda (`git`, `japones`, `programacion`, `flexbox`, `sencill`, `cocina`, `equipo`, `brote`)
+  Las descripciones y lecciones de los extra no usan las palabras de los criterios de búsqueda (`git`, `japones`, `programacion`, `flex`, `sencill`, `cocina`, `equipo`, `brote`)
 - [ ] T012 [back] Crear `scripts/sembrar-cursos.ts` y agregar `"bd:sembrar": "node --env-file-if-exists=.env scripts/sembrar-cursos.ts"` a `package.json`. El script:
   1. crea cada cuenta de prueba que no exista con `auth.api.signUpEmail({ body: { name, email, password } })`;
   2. borra los cursos de autores con correo `@brote.test` (las lecciones se borran en cascada);
@@ -243,7 +243,7 @@ deja el estado inicial.
 - [ ] V08 [web, móvil] Un curso cuyo título y descripción contienen `<b>hola</b>` y `<script>` muestra esos textos tal cual en la tarjeta y en el detalle, sin negritas y sin ejecutar nada.
 - [ ] V09 [web, móvil] Al escribir "git" en el buscador, sin pulsar Enter ni ningún botón, el catálogo muestra solo "Git esencial".
 - [ ] V10 [web, móvil] "JAPONES" encuentra "Japonés sencillo" y "programacion" encuentra "Programación en C sencilla".
-- [ ] V11 [web, móvil] "flexbox" encuentra "Examen unidad 1" (la palabra solo está en su descripción).
+- [ ] V11 [web, móvil] "flex" encuentra "Examen unidad 1" (la palabra solo está en su descripción).
 - [ ] V12 [web, móvil] "sencill" encuentra "Japonés sencillo" y "Programación en C sencilla"; "sencillo japones" encuentra solo "Japonés sencillo".
 - [ ] V13 [web, móvil] El nombre del autor de los cursos de prueba encuentra sus cuatro cursos; "git" seguido de ese nombre encuentra solo "Git esencial". Si otra cuenta con el mismo nombre publica un curso, buscar ese nombre también lo encuentra.
 - [ ] V14 [web, móvil] Con "cocina" veo "No hay cursos que coincidan con «cocina»." y "Borrar búsqueda"; al pulsarlo, el buscador queda vacío y veo los cuatro cursos.

@@ -183,7 +183,7 @@ barra de direcciones).
 |---|---|---|
 | [web, móvil] Busca mientras escribes | Escribe `git` y no pulses nada más | La lista cambia sola: solo "Git esencial" |
 | [web, móvil] Sin mayúsculas ni acentos | Busca `JAPONES`; luego `programacion` | "Japonés sencillo"; luego "Programación en C sencilla" |
-| [web, móvil] Busca en la descripción | Busca `flexbox` | "Examen unidad 1" |
+| [web, móvil] Busca en la descripción | Busca `flex` | "Examen unidad 1" (su descripción dice "caja flexible" y "display: flex") |
 | [web, móvil] Parte de palabra y en desorden | Busca `sencill`; luego `sencillo japones` | "Japonés sencillo" y "Programación en C sencilla"; luego solo "Japonés sencillo" |
 | [web, móvil] Por nombre del autor | Busca `Equipo Brote`; luego `git equipo brote`. Corre C3 con "Huerto en casa" (es de `autor2@`, que también se llama "Equipo Brote"), recarga y busca `Equipo Brote` | Los cuatro cursos; luego solo "Git esencial"; al final, los cuatro más "Huerto en casa" |
 | [web, móvil] Sin resultados | Busca `cocina`; pulsa "Borrar búsqueda" | "No hay cursos que coincidan con «cocina»." y "Borrar búsqueda"; después, el buscador vacío y los cuatro cursos |

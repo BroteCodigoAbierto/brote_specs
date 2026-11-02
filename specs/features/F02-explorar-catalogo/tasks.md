@@ -262,9 +262,9 @@ deja el estado inicial.
 - [ ] V27 [web, móvil] Un curso publicado sin lecciones muestra "Este curso todavía no tiene lecciones." en su detalle.
 - [ ] V28 [web, móvil] Después de buscar "git" y abrir "Git esencial", al volver al catálogo el buscador sigue diciendo "git" y veo solo "Git esencial".
 - [ ] V29 [web, móvil] Con 20 cursos cargados, abro el vigésimo y vuelvo al catálogo: siguen los 20 cargados y la lista está en la misma posición.
-- [ ] V30 [web] Al recargar el catálogo con "git" en el buscador, sigo viendo "git" y solo "Git esencial"; con 20 cursos cargados, al recargar veo solo los primeros 10. Al recargar el detalle de un curso, sigo viendo ese curso.
-- [ ] V31 [web] Dado que no hay sesión, cuando abro la dirección del detalle de "Git esencial" y entro, entonces llego a ese detalle.
-- [ ] V32 [web] Una dirección de curso con un identificador que no existe muestra "Este curso no existe o ya no está disponible." y "Ver cursos", que lleva al catálogo.
+- [x] V30 [web] Al recargar el catálogo con "git" en el buscador, sigo viendo "git" y solo "Git esencial"; con 20 cursos cargados, al recargar veo solo los primeros 10. Al recargar el detalle de un curso, sigo viendo ese curso.
+- [x] V31 [web] Dado que no hay sesión, cuando abro la dirección del detalle de "Git esencial" y entro, entonces llego a ese detalle.
+- [x] V32 [web] Una dirección de curso con un identificador que no existe muestra "Este curso no existe o ya no está disponible." y "Ver cursos", que lleva al catálogo.
 - [ ] V33 [web, móvil] Si un curso deja de estar publicado después de cargar el catálogo, al pulsar su tarjeta veo "Este curso no existe o ya no está disponible."; al recargar el catálogo, ya no aparece.
 - [ ] V34 [web, móvil] Mientras carga el catálogo o el detalle de un curso se ve un indicador de carga, y "Todavía no hay cursos publicados." no aparece ni por un instante.
 - [ ] V35 [web, móvil] Con el catálogo abierto, apago el servidor; al buscar o al abrir un curso veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar", y lo escrito en el buscador sigue ahí. Al encender el servidor y pulsar "Reintentar" veo los cursos o el detalle.

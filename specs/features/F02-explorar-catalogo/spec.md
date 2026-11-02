@@ -353,13 +353,13 @@ búsqueda desde sus primeros 10 resultados.
   al catálogo el buscador sigue diciendo "git" y veo solo "Git esencial".
 - [ ] [web, móvil] Con 20 cursos cargados, abro el vigésimo y vuelvo al
   catálogo: siguen los 20 cargados y la lista está en la misma posición.
-- [ ] [web] Al recargar el catálogo con "git" en el buscador, sigo viendo
+- [x] [web] Al recargar el catálogo con "git" en el buscador, sigo viendo
   "git" y solo "Git esencial"; con 20 cursos cargados, al recargar veo solo
   los primeros 10. Al recargar el detalle de un curso, sigo viendo ese
   curso.
-- [ ] [web] Dado que no hay sesión, cuando abro la dirección del detalle de
+- [x] [web] Dado que no hay sesión, cuando abro la dirección del detalle de
   "Git esencial" y entro, entonces llego a ese detalle.
-- [ ] [web] Una dirección de curso con un identificador que no existe muestra
+- [x] [web] Una dirección de curso con un identificador que no existe muestra
   "Este curso no existe o ya no está disponible." y "Ver cursos", que lleva
   al catálogo.
 - [ ] [web, móvil] Si un curso deja de estar publicado después de cargar el

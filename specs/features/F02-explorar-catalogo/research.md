@@ -177,9 +177,12 @@ Fuente: <https://www.postgresql.org/docs/18/unaccent.html>.
   cliente, igual que la validación de F01 (cada repo la escribe con las
   constantes del contrato). Como el color sale del `id` y no del título, no
   cambia si el autor corrige el título (F05).
-- **A verificar al implementar**: que Hermes (SDK 58) acepte `\p{L}` con la
-  bandera `u`. Si no, en el móvil una letra es un carácter con
-  `c.toLowerCase() !== c.toUpperCase()`, y un número es `/[0-9]/`.
+- **Verificado al implementar**: Hermes (SDK 58) acepta `\p{L}` y `\p{N}`
+  con la bandera `u`. El `hermesc` del proyecto
+  (`node_modules/hermes-compiler`) compila `/[\p{L}\p{N}]/u` y rechaza una
+  propiedad inventada (`\p{Inventada}`), así que valida los nombres. El móvil
+  usa la misma función que la web; la alternativa (`c.toLowerCase() !==
+  c.toUpperCase()` y `/[0-9]/`) no hizo falta.
 
 ## 8. Web: búsqueda en la dirección y catálogo que sobrevive al detalle
 

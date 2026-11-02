@@ -167,25 +167,25 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
 
 ## Fase 4: Móvil (brote_mobile_expo)
 
-- [ ] T031 [movil] Mover `MENSAJE_SIN_CONEXION` y `MENSAJE_SIN_SERVIDOR` de `src/servicios/sesion.ts` a `src/servicios/api.ts`, y actualizar los imports de `src/servicios/sesion.ts`
-- [ ] T032 [movil] Crear `src/servicios/cursos.ts` con `traerCatalogo`, `traerCurso` y `esNoDisponible`, como en la web (T016), y `leerErrorDeCarga(error)` con un caso más: `ErrorConexion` con `sinConexion` → `MENSAJE_SIN_CONEXION`
-- [ ] T033 [P] [movil] Crear `src/utilidades/cursos.ts`, igual que la web (T017). Comprobar en Expo Go que Hermes acepta `/[\p{L}\p{N}]/u`. Si no, usar la alternativa de research.md, punto 7: letra si `c.toLowerCase() !== c.toUpperCase()`, número si `/[0-9]/`
-- [ ] T034 [P] [movil] En `src/constantes/tema.ts`, agregar `coloresPortada` (los mismos 8 valores de la web, T018, en el mismo orden) y `sobrePortada: "#ffffff"`
-- [ ] T035 [movil] Crear `src/componentes/PortadaCurso.tsx`: props `id`, `titulo` y `tamano: "tarjeta" | "detalle"`; un `View` con `coloresPortada[indiceColorPortada(id)]` y la inicial; `accessibilityElementsHidden` e `importantForAccessibility="no-hide-descendants"`
-- [ ] T036 [movil] Crear `src/componentes/TarjetaCurso.tsx`:
+- [X] T031 [movil] Mover `MENSAJE_SIN_CONEXION` y `MENSAJE_SIN_SERVIDOR` de `src/servicios/sesion.ts` a `src/servicios/api.ts`, y actualizar los imports de `src/servicios/sesion.ts`
+- [X] T032 [movil] Crear `src/servicios/cursos.ts` con `traerCatalogo`, `traerCurso` y `esNoDisponible`, como en la web (T016), y `leerErrorDeCarga(error)` con un caso más: `ErrorConexion` con `sinConexion` → `MENSAJE_SIN_CONEXION`
+- [X] T033 [P] [movil] Crear `src/utilidades/cursos.ts`, igual que la web (T017). Comprobar en Expo Go que Hermes acepta `/[\p{L}\p{N}]/u`. Si no, usar la alternativa de research.md, punto 7: letra si `c.toLowerCase() !== c.toUpperCase()`, número si `/[0-9]/`
+- [X] T034 [P] [movil] En `src/constantes/tema.ts`, agregar `coloresPortada` (los mismos 8 valores de la web, T018, en el mismo orden) y `sobrePortada: "#ffffff"`
+- [X] T035 [movil] Crear `src/componentes/PortadaCurso.tsx`: props `id`, `titulo` y `tamano: "tarjeta" | "detalle"`; un `View` con `coloresPortada[indiceColorPortada(id)]` y la inicial; `accessibilityElementsHidden` e `importantForAccessibility="no-hide-descendants"`
+- [X] T036 [movil] Crear `src/componentes/TarjetaCurso.tsx`:
   - un `Pressable` con `accessibilityRole="button"` y `accessibilityLabel` igual al título;
   - abre el detalle con `router.push({ pathname: "/curso/[idCurso]", params: { idCurso: curso.id } })`;
   - en fila: `PortadaCurso` y, al lado, el título (`numberOfLines={2}`), "Por {autor.nombre}", la descripción (`numberOfLines={3}`) y `textoCantidadLecciones`;
   - colores de `useColores()`.
-- [ ] T037 [P] [movil] Crear `src/componentes/Buscador.tsx`: `TextInput` con `placeholder="Buscar cursos"`, `accessibilityLabel="Buscar cursos"`, `maxLength={LIMITES_CATALOGO.busquedaMax}`, `returnKeyType="search"`, `autoCorrect={false}` y `clearButtonMode="while-editing"`; cuando `buscando`, un `ActivityIndicator` pequeño a la derecha
-- [ ] T038 [P] [movil] Crear `src/componentes/ErrorCarga.tsx`: el mensaje (`accessibilityRole="alert"`) y un `Boton` "Reintentar"
-- [ ] T039 [movil] Crear `src/hooks/useCatalogo.ts` con `useReducer`. Tiene el mismo estado, acciones y reglas que el contexto de la web (T024), más:
+- [X] T037 [P] [movil] Crear `src/componentes/Buscador.tsx`: `TextInput` con `placeholder="Buscar cursos"`, `accessibilityLabel="Buscar cursos"`, `maxLength={LIMITES_CATALOGO.busquedaMax}`, `returnKeyType="search"`, `autoCorrect={false}` y `clearButtonMode="while-editing"`; cuando `buscando`, un `ActivityIndicator` pequeño a la derecha
+- [X] T038 [P] [movil] Crear `src/componentes/ErrorCarga.tsx`: el mensaje (`accessibilityRole="alert"`) y un `Boton` "Reintentar"
+- [X] T039 [movil] Crear `src/hooks/useCatalogo.ts` con `useReducer`. Tiene el mismo estado, acciones y reglas que el contexto de la web (T024), más:
   - `recargar()`: pide la primera carga de la consulta vigente y deja la lista en pantalla con `recargando`. Al llegar, reemplaza la lista (vuelve a los primeros 10); si falla, deja la lista y pone `errorRecarga`. Con `fase: "error"`, hace lo mismo que `reintentar()`;
   - `mensajeError` y `mensajeErrorRecarga` con `leerErrorDeCarga`.
 
   No hace falta un contexto: la pestaña sigue montada debajo del detalle
-- [ ] T040 [P] [movil] En `src/app/(tabs)/_layout.tsx`, la pestaña `index` pasa a llamarse "Explorar"; actualizar el comentario (ya no es provisional)
-- [ ] T041 [movil] Reescribir `src/app/(tabs)/index.tsx` como el catálogo:
+- [X] T040 [P] [movil] En `src/app/(tabs)/_layout.tsx`, la pestaña `index` pasa a llamarse "Explorar"; actualizar el comentario (ya no es provisional)
+- [X] T041 [movil] Reescribir `src/app/(tabs)/index.tsx` como el catálogo:
   - el texto del buscador está en `useState`; a los 300 ms sin escribir, `buscar(texto.trim())`;
   - estados:
     - `fase: "cargando"` → `ActivityIndicator` centrado;
@@ -198,7 +198,7 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
     - opacidad reducida mientras `buscando`;
     - `ListEmptyComponent`: "Todavía no hay cursos publicados." (sin consulta) o "No hay cursos que coincidan con «{consulta}»." con "Borrar búsqueda". Va dentro de la lista para que deslizar hacia abajo siga funcionando;
     - `ListFooterComponent`: `ActivityIndicator` con `cargandoMas`; `ErrorCarga` con `errorMas`.
-- [ ] T042 [movil] Crear `src/app/curso/[idCurso].tsx` y registrar `<Stack.Screen name="curso/[idCurso]" options={{ headerShown: true, title: "" }} />` dentro del `Stack.Protected` con sesión de `src/componentes/NavegacionRaiz.tsx`. La pantalla:
+- [X] T042 [movil] Crear `src/app/curso/[idCurso].tsx` y registrar `<Stack.Screen name="curso/[idCurso]" options={{ headerShown: true, title: "" }} />` dentro del `Stack.Protected` con sesión de `src/componentes/NavegacionRaiz.tsx`. La pantalla:
   - lee `idCurso` con `useLocalSearchParams` y los datos con `usePeticion(useCallback(() => traerCurso(idCurso), [idCurso]))`;
   - es un `ScrollView` con `RefreshControl` (`refreshing={cargando && datos !== null}`, `onRefresh={recargar}`);
   - estados:
@@ -206,8 +206,8 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
     - `esNoDisponible` → `MENSAJES_CATALOGO.cursoNoDisponible` y `Boton` "Ver cursos" → `router.back()`;
     - otro error → `ErrorCarga`;
   - con datos: los mismos contenidos que la web (T027), con la descripción completa y "Este curso todavía no tiene lecciones." cuando no hay.
-- [ ] T043 [P] [movil] Actualizar `CLAUDE.md`: en la estructura, `utilidades/`
-- [ ] T044 [movil] `npm run tipos`, `npm run lint` y `npm run doctor` sin errores ni avisos nuevos
+- [X] T043 [P] [movil] Actualizar `CLAUDE.md`: en la estructura, `utilidades/`
+- [X] T044 [movil] `npm run tipos`, `npm run lint` y `npm run doctor` sin errores ni avisos nuevos
 
 **Punto de control**: con el backend sembrado y Expo Go, la parte móvil de cada tabla de quickstart.md, sección 3, funciona.
 

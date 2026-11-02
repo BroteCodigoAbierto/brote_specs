@@ -218,7 +218,7 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
 - [X] T045 [specs] Integrar [data-model.md](./data-model.md) a `specs/02-modelo-datos.md`:
   - **Curso** y **Leccion** en "Entidades definidas", con `publicado` booleano y una nota de que la portada no se guarda;
   - en "Entidades previstas", dejar solo lo que falta: actividades de la lección (F03), límites y revisión (F05, F06), idioma y gamificación (F05, F08).
-- [ ] T046 [specs] Integrar a `specs/01-navegacion.md`:
+- [X] T046 [specs] Integrar a `specs/01-navegacion.md`:
   - web: `/` es el catálogo con `?q=`, y `/cursos/:idCurso` deja de estar prevista;
   - móvil: `(tabs)/index` se llama "Explorar", y `curso/[idCurso]` es una pantalla del `Stack` raíz, encima de las pestañas;
   - en "Qué viaja", `idCurso` del catálogo al detalle, y `state.desde` con `?q=`.

@@ -222,8 +222,8 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
   - web: `/` es el catálogo con `?q=`, y `/cursos/:idCurso` deja de estar prevista;
   - móvil: `(tabs)/index` se llama "Explorar", y `curso/[idCurso]` es una pantalla del `Stack` raíz, encima de las pestañas;
   - en "Qué viaja", `idCurso` del catálogo al detalle, y `state.desde` con `?q=`.
-- [ ] T047 [specs] `npm run contrato:revisar`: todas las copias coinciden con la oficial (0.3.0)
-- [ ] T048 [specs] Revisar que `spec.md` coincide con lo que se construyó; si algo cambió, actualizarla en el mismo PR
+- [X] T047 [specs] `npm run contrato:revisar`: todas las copias coinciden con la oficial (0.3.0)
+- [X] T048 [specs] Revisar que `spec.md` coincide con lo que se construyó; si algo cambió, actualizarla en el mismo PR
 
 ---
 

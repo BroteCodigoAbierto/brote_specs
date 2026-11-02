@@ -101,9 +101,10 @@ búsqueda desde sus primeros 10 resultados.
   ni siquiera con la cuenta de su autor (sus cursos sin publicar los verá en
   "Mis cursos", F05). El servidor es quien filtra: un cliente nunca recibe
   cursos sin publicar.
-- Orden: por título, de la A a la Z, sin importar mayúsculas ni acentos. Si
-  dos cursos tienen el mismo título, primero el que se creó antes. La
-  búsqueda respeta el mismo orden.
+- Orden: por título, de la A a la Z, sin importar mayúsculas, acentos ni los
+  signos al inicio ("¿Cómo se dice hola?" va con la C). Si dos cursos tienen
+  el mismo título, primero el que se creó antes. La búsqueda respeta el mismo
+  orden.
 - De 10 en 10:
   - El catálogo y los resultados de una búsqueda llegan de 10 en 10, en el
     orden de arriba. El servidor nunca entrega más de 10 cursos de una vez.

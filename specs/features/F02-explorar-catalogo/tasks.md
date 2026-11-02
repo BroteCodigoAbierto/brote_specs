@@ -96,34 +96,34 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
 
 ## Fase 3: Web (brote_web_react)
 
-- [ ] T015 [web] Mover `MENSAJE_SIN_SERVIDOR` de `src/servicios/sesion.ts` a `src/servicios/api.ts` y actualizar sus imports en `src/servicios/sesion.ts` y `src/componentes/PantallaSinServidor/PantallaSinServidor.tsx`
-- [ ] T016 [web] Crear `src/servicios/cursos.ts` sobre `pedir()`:
+- [X] T015 [web] Mover `MENSAJE_SIN_SERVIDOR` de `src/servicios/sesion.ts` a `src/servicios/api.ts` y actualizar sus imports en `src/servicios/sesion.ts` y `src/componentes/PantallaSinServidor/PantallaSinServidor.tsx`
+- [X] T016 [web] Crear `src/servicios/cursos.ts` sobre `pedir()`:
   - `traerCatalogo({ q, despues }: { q: string; despues?: string | null })`: `GET /cursos` con `URLSearchParams`; `q` solo si no está vacía, y `despues` solo si viene;
   - `traerCurso(id)`: `GET /cursos/${encodeURIComponent(id)}`;
   - `esNoDisponible(error)`: `ErrorHttp` con estado 404;
   - `leerErrorDeCarga(error): string`: un `ErrorHttp` con estado < 500 y `cuerpo.error` devuelve ese texto; cualquier otra cosa, `MENSAJE_SIN_SERVIDOR`.
-- [ ] T017 [P] [web] Crear `src/utilidades/cursos.ts` (carpeta nueva), con funciones de research.md, punto 7:
+- [X] T017 [P] [web] Crear `src/utilidades/cursos.ts` (carpeta nueva), con funciones de research.md, punto 7:
   - `textoCantidadLecciones(n)`: `0` → "Sin lecciones", `1` → "1 lección", si no, "N lecciones";
   - `inicialPortada(titulo)`: primer carácter que cumple `/[\p{L}\p{N}]/u`, en `toLocaleUpperCase("es")`; si no hay, el primer carácter del título;
   - `indiceColorPortada(id)`: `h = (h * 31 + codePoint) % 2147483647` por cada carácter, y devuelve `h % 8`.
-- [ ] T018 [P] [web] En `src/estilos/tokens.css`, agregar `--color-portada-1` a `--color-portada-8` (`#2f7d4f`, `#2c6aa0`, `#7b4fa0`, `#a8443f`, `#9a5b13`, `#1f7a7a`, `#8a4a6b`, `#4a5a6a`) y `--color-sobre-portada: #ffffff`, iguales en claro y oscuro. Revisar que cada color tenga contraste ≥ 4.5:1 con el blanco; si alguno no llega, oscurecerlo y anotar el valor nuevo en research.md, punto 7, para que el móvil use el mismo
-- [ ] T019 [web] Crear `src/componentes/PortadaCurso/PortadaCurso.tsx` y `.module.css`:
+- [X] T018 [P] [web] En `src/estilos/tokens.css`, agregar `--color-portada-1` a `--color-portada-8` (`#2f7d4f`, `#2c6aa0`, `#7b4fa0`, `#a8443f`, `#9a5b13`, `#1f7a7a`, `#8a4a6b`, `#4a5a6a`) y `--color-sobre-portada: #ffffff`, iguales en claro y oscuro. Revisar que cada color tenga contraste ≥ 4.5:1 con el blanco; si alguno no llega, oscurecerlo y anotar el valor nuevo en research.md, punto 7, para que el móvil use el mismo
+- [X] T019 [web] Crear `src/componentes/PortadaCurso/PortadaCurso.tsx` y `.module.css`:
   - props `id`, `titulo` y `tamano: "tarjeta" | "detalle"`;
   - un cuadro con la inicial (`inicialPortada`) sobre `var(--color-portada-N)`, donde N es `indiceColorPortada(id) + 1`;
   - `aria-hidden="true"`: es decorativa y el título va al lado.
-- [ ] T020 [web] Crear `src/componentes/TarjetaCurso/TarjetaCurso.tsx` y `.module.css`. Recibe `curso: ResumenCurso` y es un `Link` a `/cursos/${curso.id}` con:
+- [X] T020 [web] Crear `src/componentes/TarjetaCurso/TarjetaCurso.tsx` y `.module.css`. Recibe `curso: ResumenCurso` y es un `Link` a `/cursos/${curso.id}` con:
   - `PortadaCurso`;
   - el título (`h2`), cortado a 2 líneas con `line-clamp`;
   - "Por {autor.nombre}";
   - la descripción, cortada a 3 líneas con `line-clamp` y "…";
   - `textoCantidadLecciones(curso.cantidadLecciones)`.
-- [ ] T021 [P] [web] Crear `src/componentes/Buscador/Buscador.tsx` y `.module.css`:
+- [X] T021 [P] [web] Crear `src/componentes/Buscador/Buscador.tsx` y `.module.css`:
   - props `valor`, `alCambiar` y `buscando`;
   - `<input type="search">` con `aria-label="Buscar cursos"`, `placeholder="Buscar cursos"` y `maxLength={LIMITES_CATALOGO.busquedaMax}`;
   - cuando `buscando`, un indicador pequeño junto al campo, dentro de un `role="status"` con el texto oculto "Buscando...".
-- [ ] T022 [P] [web] Crear `src/componentes/IndicadorCarga/IndicadorCarga.tsx` y `.module.css`: el mismo indicador de `PantallaCarga`, pero dentro de la página (sin ocupar toda la ventana), con `role="status"` y el texto oculto "Cargando..."
-- [ ] T023 [P] [web] Crear `src/componentes/ErrorCarga/ErrorCarga.tsx` y `.module.css`: props `mensaje` y `alReintentar`; el mensaje con `role="alert"` y un `Boton` "Reintentar"
-- [ ] T024 [web] Crear el contexto del catálogo en tres archivos, como el de la sesión: `src/contextos/CatalogoContext.ts` (tipos y contexto), `src/contextos/CatalogoProvider.tsx` (reducer y pedidos) y `src/hooks/useCatalogo.ts`.
+- [X] T022 [P] [web] Crear `src/componentes/IndicadorCarga/IndicadorCarga.tsx` y `.module.css`: el mismo indicador de `PantallaCarga`, pero dentro de la página (sin ocupar toda la ventana), con `role="status"` y el texto oculto "Cargando..."
+- [X] T023 [P] [web] Crear `src/componentes/ErrorCarga/ErrorCarga.tsx` y `.module.css`: props `mensaje` y `alReintentar`; el mensaje con `role="alert"` y un `Boton` "Reintentar"
+- [X] T024 [web] Crear el contexto del catálogo en tres archivos, como el de la sesión: `src/contextos/CatalogoContext.ts` (tipos y contexto), `src/contextos/CatalogoProvider.tsx` (reducer y pedidos) y `src/hooks/useCatalogo.ts`.
   - Estado: `{ consulta, cursos, siguiente, fase: "cargando" | "listo" | "error", buscando, cargandoMas, errorMas, error }`. Empieza con `fase: "cargando"` y sin consulta pedida.
   - `buscar(consulta)`:
     - si es la consulta vigente y `fase` no es `"error"`, no hace nada (así, al volver del detalle no se pide otra vez);
@@ -133,8 +133,8 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
   - `reintentar()`: repite lo que falló (la primera carga o la de más).
   - Cada respuesta lleva la consulta que la pidió, y el reducer la ignora si ya no es la vigente.
   - `useCatalogo()` expone el estado, las tres acciones y `mensajeError` (`leerErrorDeCarga`).
-- [ ] T025 [web] En `src/componentes/Layout/Layout.tsx`, envolver el `<Outlet />` con `<CatalogoProvider>` (así sigue montado al ir de `/` a `/cursos/:idCurso` y volver) y agregar `<ScrollRestoration />` de `react-router` (research.md, punto 8)
-- [ ] T026 [web] Crear `src/paginas/Catalogo/Catalogo.tsx` y `Catalogo.module.css`:
+- [X] T025 [web] En `src/componentes/Layout/Layout.tsx`, envolver el `<Outlet />` con `<CatalogoProvider>` (así sigue montado al ir de `/` a `/cursos/:idCurso` y volver) y agregar `<ScrollRestoration />` de `react-router` (research.md, punto 8)
+- [X] T026 [web] Crear `src/paginas/Catalogo/Catalogo.tsx` y `Catalogo.module.css`:
   - `q` sale de `useSearchParams`, y el texto del buscador (`useState`) empieza con `q`;
   - al escribir, el texto cambia al instante. A los 300 ms sin escribir, si difiere de `q`, `setSearchParams(texto ? { q: texto } : {}, { replace: true, preventScrollReset: true })`;
   - un efecto llama a `buscar(q.trim())` cada vez que cambia `q`;
@@ -147,7 +147,7 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
   - al final de la lista:
     - con `siguiente`, `Boton` "Ver más" → `cargarMas()`, con `enviando={cargandoMas}` y `textoEnviando="Cargando..."`;
     - con `errorMas`, `ErrorCarga` → `reintentar`.
-- [ ] T027 [web] Crear `src/paginas/DetalleCurso/DetalleCurso.tsx` y `DetalleCurso.module.css`:
+- [X] T027 [web] Crear `src/paginas/DetalleCurso/DetalleCurso.tsx` y `DetalleCurso.module.css`:
   - `idCurso` sale de `useParams`; los datos, de `usePeticion(useCallback(() => traerCurso(idCurso), [idCurso]))`;
   - estados:
     - cargando → `IndicadorCarga`;
@@ -157,9 +157,9 @@ description: "Lista de tareas de F02 Explorar el catálogo de cursos publicados"
     - `PortadaCurso` `tamano="detalle"`, el título en `h1`, "Por {autor.nombre}", la descripción completa (`white-space: pre-line`) y `textoCantidadLecciones`;
     - la lista `<ol>` con "{posicion}. {titulo}" por lección (`list-style: none`);
     - sin lecciones, "Este curso todavía no tiene lecciones." en lugar de la lista.
-- [ ] T028 [web] En `src/rutas.tsx`, dentro del `Layout`: `/` → `Catalogo` y `/cursos/:idCurso` → `DetalleCurso` (antes de `*`). Borrar `src/paginas/Inicio/Inicio.tsx` e `Inicio.module.css`, y actualizar el comentario del archivo
-- [ ] T029 [P] [web] Actualizar `CLAUDE.md`: en la estructura, `utilidades/` (funciones de presentación sin estado, p. ej. la portada de un curso)
-- [ ] T030 [web] `npm run tipos` y `npm run lint` sin errores
+- [X] T028 [web] En `src/rutas.tsx`, dentro del `Layout`: `/` → `Catalogo` y `/cursos/:idCurso` → `DetalleCurso` (antes de `*`). Borrar `src/paginas/Inicio/Inicio.tsx` e `Inicio.module.css`, y actualizar el comentario del archivo
+- [X] T029 [P] [web] Actualizar `CLAUDE.md`: en la estructura, `utilidades/` (funciones de presentación sin estado, p. ej. la portada de un curso)
+- [X] T030 [web] `npm run tipos` y `npm run lint` sin errores
 
 **Punto de control**: con el backend sembrado, la parte web de cada tabla de quickstart.md, sección 3, funciona.
 

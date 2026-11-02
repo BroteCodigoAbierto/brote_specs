@@ -250,14 +250,14 @@ deja el estado inicial.
 - [ ] V15 [web, móvil] Un texto de solo espacios muestra el catálogo completo, y el buscador no acepta más de 100 caracteres.
 - [ ] V16 [web, móvil] Si escribo "japo", lo borro y escribo "git" de corrido, termino viendo solo "Git esencial".
 - [ ] V17 [web, móvil] Mientras llegan los resultados de una búsqueda, la lista anterior sigue en pantalla, atenuada, con un indicador junto al buscador; la lista no desaparece ni aparece el indicador de carga del catálogo en su lugar.
-- [ ] V18 [backend] Pedir al servidor, sin pasar por un cliente, una búsqueda de 101 caracteres se rechaza; pedir el catálogo o el detalle de un curso sin sesión también se rechaza.
-- [ ] V19 [backend] Pedir al servidor el detalle de un curso en borrador, con su identificador, responde exactamente igual que con un identificador que no existe.
+- [x] V18 [backend] Pedir al servidor, sin pasar por un cliente, una búsqueda de 101 caracteres se rechaza; pedir el catálogo o el detalle de un curso sin sesión también se rechaza.
+- [x] V19 [backend] Pedir al servidor el detalle de un curso en borrador, con su identificador, responde exactamente igual que con un identificador que no existe.
 - [ ] V20 [web, móvil] Con 25 cursos publicados, el catálogo muestra los 10 primeros por título. En el móvil, al llegar al final de la lista se agregan los 10 siguientes; en la web, al pulsar "Ver más". Después de la tercera carga veo los 25, ninguno repetido, y no se cargan más (en la web, "Ver más" ya no aparece).
 - [ ] V21 [web, móvil] Al buscar "curso de prueba" veo 10 de los 21 cursos genéricos; al cargar más, otros 10, y después el último. Al borrar la búsqueda, la lista vuelve a empezar desde los primeros 10 del catálogo.
 - [ ] V22 [web, móvil] Pulsar "Ver más" varias veces seguidas (web), o seguir deslizando mientras se cargan (móvil), agrega los 10 siguientes una sola vez.
 - [ ] V23 [web, móvil] Con 25 cursos publicados y los primeros 10 cargados, retiro uno de esos 10; al cargar más, no se repite ni falta ninguno de los que siguen publicados.
 - [ ] V24 [web, móvil] Con 10 cursos cargados, apago el servidor y pido más: los 10 siguen en pantalla y al final veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar"; al encender el servidor y pulsar "Reintentar" se agregan los 10 siguientes.
-- [ ] V25 [backend] Pedir cursos al servidor, sin pasar por un cliente, nunca devuelve más de 10 de una vez, aunque se le pidan más.
+- [x] V25 [backend] Pedir cursos al servidor, sin pasar por un cliente, nunca devuelve más de 10 de una vez, aunque se le pidan más.
 - [ ] V26 [web, móvil] Al pulsar la tarjeta de "Git esencial" veo su portada, el título, "Por {nombre del autor}", la descripción completa, "6 lecciones" y las seis lecciones numeradas en orden, de "1. ¿Qué es el control de versiones?" a "6. Resolviendo conflictos".
 - [ ] V27 [web, móvil] Un curso publicado sin lecciones muestra "Este curso todavía no tiene lecciones." en su detalle.
 - [ ] V28 [web, móvil] Después de buscar "git" y abrir "Git esencial", al volver al catálogo el buscador sigue diciendo "git" y veo solo "Git esencial".

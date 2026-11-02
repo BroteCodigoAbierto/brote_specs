@@ -311,10 +311,10 @@ búsqueda desde sus primeros 10 resultados.
   anterior sigue en pantalla, atenuada, con un indicador junto al buscador;
   la lista no desaparece ni aparece el indicador de carga del catálogo en su
   lugar.
-- [ ] [backend] Pedir al servidor, sin pasar por un cliente, una búsqueda de
+- [x] [backend] Pedir al servidor, sin pasar por un cliente, una búsqueda de
   101 caracteres se rechaza; pedir el catálogo o el detalle de un curso sin
   sesión también se rechaza.
-- [ ] [backend] Pedir al servidor el detalle de un curso en borrador, con su
+- [x] [backend] Pedir al servidor el detalle de un curso en borrador, con su
   identificador, responde exactamente igual que con un identificador que no
   existe.
 
@@ -338,7 +338,7 @@ búsqueda desde sus primeros 10 resultados.
   10 siguen en pantalla y al final veo "No se pudo conectar con Brote.
   Inténtalo de nuevo en un momento." y "Reintentar"; al encender el servidor
   y pulsar "Reintentar" se agregan los 10 siguientes.
-- [ ] [backend] Pedir cursos al servidor, sin pasar por un cliente, nunca
+- [x] [backend] Pedir cursos al servidor, sin pasar por un cliente, nunca
   devuelve más de 10 de una vez, aunque se le pidan más.
 
 ### Detalle

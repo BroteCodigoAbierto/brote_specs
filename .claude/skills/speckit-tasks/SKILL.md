@@ -25,6 +25,8 @@ disable-model-invocation: true
 
 **Tamaño**: cada tarea debe poder terminarse y revisarse sola, en un commit. Si una tarea toca más de 2 o 3 archivos, pártela.
 
+**Interfaz**: las tareas de web y móvil que crean o cambian pantallas citan la sección de `docs/diseno.md` que siguen. Si el plan agrega componentes o tokens, la primera tarea es `[specs]` agregarlos a `docs/diseno.md`, y después una tarea por cliente para implementarlos con el mismo nombre.
+
 **Fase de cierre obligatoria**: integrar data-model.md a `specs/02-modelo-datos.md`, integrar las pantallas a `specs/01-navegacion.md`, `npm run contrato:revisar` si cambió el contrato, y revisar que spec.md coincide con lo construido.
 
 ---

@@ -114,12 +114,18 @@ solo lugar por repo.
 
 ## Estilos
 
+El aspecto (tokens, componentes, patrones y actividades) está en
+[`docs/diseno.md`](diseno.md); aquí solo va cómo se escribe.
+
 - **Web**: un `NombreComponente.module.css` junto a cada componente. Colores,
   espacios, radios y tipografía salen de las variables de
   `src/estilos/tokens.css` (`var(--color-primario)`); no se escriben colores
   sueltos.
 - **Móvil**: `StyleSheet.create` al final del archivo del componente. Los
-  valores salen de `src/constantes/tema.ts`.
+  valores salen de `src/constantes/tema.ts`; los colores que cambian con el
+  modo oscuro se leen con `useColores()`.
+- En los dos: las pantallas se arman con los componentes de `docs/diseno.md`
+  (`Superficie`, `Boton`, `CampoTexto`, ...), no con vistas y colores sueltos.
 
 ## Backend
 

@@ -213,6 +213,14 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | Encabezado (web, en `Layout`) | — | Píldora de vidrio pegajosa: `Marca` a la izquierda, `MenuCuenta` (avatar, nombre y menú) a la derecha |
 | Barra de pestañas (móvil) | — | Fondo `Superficie` sólida con esquinas superiores `grande`, iconos Lucide (`Compass`, `UserRound`), activa en `primario` |
 | Volver (detalle) | — | `Boton` `enlace` chico con `ArrowLeft` y "Cursos"; regresa a la pantalla anterior con su estado |
+| `BarraProgreso` | `actual`, `total` | Barra de la lección (sección 6). Web: `role="progressbar"` con `aria-valuetext="Actividad {n} de {total}"`; móvil: `accessibilityRole="progressbar"` y la misma etiqueta |
+| `BarraRespuesta` | `estado` (`neutro`, `correcto`, `incorrecto`), `titulo`, `detalle`, `textoBoton`, `deshabilitado`, `alPulsar` | Barra inferior fija de cada actividad, con el `Boton` primario a ancho completo. `correcto`: fondo `broteSuave`, título en `broteFuerte` con `CircleCheck`; `incorrecto`: fondo `errorSuave`, título en `error` con `CircleX`. Anuncia el cambio (`aria-live` / `accessibilityLiveRegion`) y, al dejar de ser `neutro`, pasa el foco al botón |
+| `OpcionRespuesta` | `estado` (`normal`, `seleccionada`, `correcta`, `incorrecta`), `texto` o `simbolo`, `numero` (solo web), `deshabilitada`, `alElegir` | Opción de la sección 6 (radio). Con `simbolo`, mosaico cuadrado con el símbolo en `display` |
+| `BloqueCodigo` | `codigo` | Panel `codigoFondo`, radio `medio`, `codigo` 14/22. Una fila por línea; las de diff (`+`, `-`, `@@`) con sus colores. Se desplaza hacia los lados en vez de cortar líneas |
+| `TarjetaVolteable` | `frente`, `reverso`, `volteada`, `alVoltear` | Dos caras de `Superficie` elevada (mínimo 200 px), texto `titulo2` centrado; gira sobre el eje vertical en `lento` |
+| `CampoEspacio` | `valor`, `alCambiar`, `estado` (`normal`, `correcto`, `incorrecto`), `esperada`, `etiqueta`, `deshabilitado` | Campo en línea con el texto, de radio `chico`; bordes y fondos como las opciones. `esperada` va a su lado en `nota` `broteFuerte` |
+| `Dialogo` (web) | `abierto`, `titulo`, `texto`, `textoConfirmar`, `textoCancelar`, `alConfirmar`, `alCancelar` | `<dialog>` modal: `Superficie` sólida, radio `enorme`, título `titulo2`, botones `secundario` (cancelar, con el foco) y `peligro` (confirmar). Esc cancela. En el móvil, la misma confirmación es `Alert.alert` nativo, con cancelar como `cancel` y confirmar como `destructive` |
+| `ResultadoLeccion` | `titulo`, `aciertos`, `preguntas`, `alVolver` | Fin de lección (sección 6) |
 
 **Iconos**: [Lucide](https://lucide.dev), `lucide-react` en la web y
 `lucide-react-native` en el móvil. Trazo 2, tamaño 20 (16 en insignias, 24 en
@@ -267,7 +275,34 @@ son la base para todas las actividades; cada spec de actividad las concreta.
   `ui-monospace` 14/22 y cursor `brote`, también en modo claro.
 - **Fin de lección**: pantalla de resultado con `display`, insignias de logro
   en `broteSuave` y una celebración breve (`lento`), sin sonido por defecto.
-- **Teclado** (web): las opciones se eligen con 1–9 y Enter comprueba.
+  En F03 (`ResultadoLeccion`): icono `PartyPopper` en un círculo `broteSuave`
+  que crece con un rebote, "¡Lección completada!" en `display`, el título de
+  la lección en `titulo3`, una `Insignia` `brote` "Acertaste {a} de {p}" (si
+  la lección tiene preguntas) y "Volver al curso" como botón primario.
+- **Teoría**: título en `titulo2`, párrafos en `cuerpo`, `BloqueCodigo` y los
+  puntos clave como lista con un `Check` `brote` por punto.
+- **Tarjeta de memoria**: `TarjetaVolteable` y, debajo, "Toca la tarjeta para
+  voltearla" en `nota` `textoSuave` con `RotateCw`, que desaparece al primer
+  giro. "Continuar" se habilita al voltearla por primera vez.
+- **Completar espacios**: el texto en una `Superficie`, respetando saltos de
+  línea y sangría, con un `CampoEspacio` en cada espacio. Al comprobar, junto
+  a cada espacio incorrecto aparece la respuesta esperada, y la barra inferior
+  muestra el texto completo con las respuestas.
+- **Pregunta abierta**: campo de varias líneas con el aspecto de
+  `CampoTexto`. Al comprobar queda de solo lectura y aparece una `Superficie`
+  `suave` con "SOLUCIÓN DE REFERENCIA" en `seccion` y la solución; luego
+  "¿La tuviste bien?" con "La tuve bien" y "No la tuve" (`Boton`
+  `secundario`). La barra inferior dice "¡Correcto!" o "A repasar".
+- **Salir de la lección**: la X es un `Boton` `fantasma` chico con la etiqueta
+  "Salir de la lección". Si el alumno ya hizo algo, salir (con la X, el botón
+  de volver o el gesto de atrás) pide confirmación con `Dialogo` en la web y
+  `Alert.alert` en el móvil: "¿Salir de la lección?", "Perderás tu avance en
+  esta lección.", "Seguir aquí" y "Salir".
+- **Teclado** (web): las opciones se eligen con 1–9 (según su lugar en
+  pantalla) y Enter pulsa el botón de la barra inferior, salvo con el foco en
+  un `<textarea>`, un botón o un enlace. En completar espacios, Tab pasa al
+  siguiente espacio y Enter comprueba. Al comprobar, el foco pasa a
+  "Continuar"; al pasar de actividad, al título de la nueva.
 
 ## 7. Accesibilidad (checklist de cada pantalla)
 

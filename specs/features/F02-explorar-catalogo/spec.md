@@ -261,21 +261,21 @@ búsqueda desde sus primeros 10 resultados.
 
 ### Catálogo
 
-- [ ] [web, móvil] Con sesión iniciada, al abrir Brote llego al catálogo: en
+- [x] [web, móvil] Con sesión iniciada, al abrir Brote llego al catálogo: en
   la web en `/` y en el móvil en la pestaña "Explorar". Ya no aparece "Hola,
   {nombre}".
-- [ ] [web, móvil] Con los cuatro cursos de prueba publicados, el catálogo
+- [x] [web, móvil] Con los cuatro cursos de prueba publicados, el catálogo
   los muestra en este orden: "Examen unidad 1", "Git esencial", "Japonés
   sencillo", "Programación en C sencilla".
-- [ ] [web, móvil] Cada tarjeta muestra la portada, el título, "Por {nombre
+- [x] [web, móvil] Cada tarjeta muestra la portada, el título, "Por {nombre
   del autor}", el inicio de la descripción y el número de lecciones: la de
   "Git esencial" dice "6 lecciones"; la de un curso con una sola lección dice
   "1 lección"; la de un curso sin lecciones dice "Sin lecciones".
-- [ ] [web, móvil] La portada de "Japonés sencillo" es una "J" sobre un
+- [x] [web, móvil] La portada de "Japonés sencillo" es una "J" sobre un
   color, y la de un curso titulado "¿Cómo se dice hola?" es una "C". Un
   mismo curso tiene el mismo color en su tarjeta, en su detalle, al recargar
   y en el otro cliente.
-- [ ] [web, móvil] Una descripción que no cabe en tres líneas se corta con
+- [x] [web, móvil] Una descripción que no cabe en tres líneas se corta con
   "…" en la tarjeta y se ve completa en el detalle.
 - [ ] [web, móvil] Un curso en borrador y otro en revisión no aparecen en el
   catálogo ni al buscar su título exacto, aunque entre con la cuenta de su
@@ -288,24 +288,24 @@ búsqueda desde sus primeros 10 resultados.
 
 ### Búsqueda
 
-- [ ] [web, móvil] Al escribir "git" en el buscador, sin pulsar Enter ni
+- [x] [web, móvil] Al escribir "git" en el buscador, sin pulsar Enter ni
   ningún botón, el catálogo muestra solo "Git esencial".
-- [ ] [web, móvil] "JAPONES" encuentra "Japonés sencillo" y "programacion"
+- [x] [web, móvil] "JAPONES" encuentra "Japonés sencillo" y "programacion"
   encuentra "Programación en C sencilla".
-- [ ] [web, móvil] "flex" encuentra "Examen unidad 1" (la palabra solo
+- [x] [web, móvil] "flex" encuentra "Examen unidad 1" (la palabra solo
   está en su descripción).
-- [ ] [web, móvil] "sencill" encuentra "Japonés sencillo" y "Programación en
+- [x] [web, móvil] "sencill" encuentra "Japonés sencillo" y "Programación en
   C sencilla"; "sencillo japones" encuentra solo "Japonés sencillo".
-- [ ] [web, móvil] El nombre del autor de los cursos de prueba encuentra sus
+- [x] [web, móvil] El nombre del autor de los cursos de prueba encuentra sus
   cuatro cursos; "git" seguido de ese nombre encuentra solo "Git esencial".
   Si otra cuenta con el mismo nombre publica un curso, buscar ese nombre
   también lo encuentra.
-- [ ] [web, móvil] Con "cocina" veo "No hay cursos que coincidan con
+- [x] [web, móvil] Con "cocina" veo "No hay cursos que coincidan con
   «cocina»." y "Borrar búsqueda"; al pulsarlo, el buscador queda vacío y veo
   los cuatro cursos.
-- [ ] [web, móvil] Un texto de solo espacios muestra el catálogo completo, y el
+- [x] [web, móvil] Un texto de solo espacios muestra el catálogo completo, y el
   buscador no acepta más de 100 caracteres.
-- [ ] [web, móvil] Si escribo "japo", lo borro y escribo "git" de corrido,
+- [x] [web, móvil] Si escribo "japo", lo borro y escribo "git" de corrido,
   termino viendo solo "Git esencial".
 - [ ] [web, móvil] Mientras llegan los resultados de una búsqueda, la lista
   anterior sigue en pantalla, atenuada, con un indicador junto al buscador;
@@ -343,13 +343,13 @@ búsqueda desde sus primeros 10 resultados.
 
 ### Detalle
 
-- [ ] [web, móvil] Al pulsar la tarjeta de "Git esencial" veo su portada, el
+- [x] [web, móvil] Al pulsar la tarjeta de "Git esencial" veo su portada, el
   título, "Por {nombre del autor}", la descripción completa, "6 lecciones" y
   las seis lecciones numeradas en orden, de "1. ¿Qué es el control de
   versiones?" a "6. Resolviendo conflictos".
 - [ ] [web, móvil] Un curso publicado sin lecciones muestra "Este curso
   todavía no tiene lecciones." en su detalle.
-- [ ] [web, móvil] Después de buscar "git" y abrir "Git esencial", al volver
+- [x] [web, móvil] Después de buscar "git" y abrir "Git esencial", al volver
   al catálogo el buscador sigue diciendo "git" y veo solo "Git esencial".
 - [ ] [web, móvil] Con 20 cursos cargados, abro el vigésimo y vuelvo al
   catálogo: siguen los 20 cargados y la lista está en la misma posición.

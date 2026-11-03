@@ -239,7 +239,7 @@ deja el estado inicial.
 - [x] V04 [web, móvil] La portada de "Japonés sencillo" es una "J" sobre un color, y la de un curso titulado "¿Cómo se dice hola?" es una "C". Un mismo curso tiene el mismo color en su tarjeta, en su detalle, al recargar y en el otro cliente.
 - [x] V05 [web, móvil] Una descripción que no cabe en tres líneas se corta con "…" en la tarjeta y se ve completa en el detalle.
 - [x] V06 [web, móvil] Un curso en borrador y otro en revisión no aparecen en el catálogo ni al buscar su título exacto, aunque entre con la cuenta de su autor.
-- [ ] V07 [web, móvil] Sin ningún curso publicado, el catálogo muestra "Todavía no hay cursos publicados." y no muestra el buscador.
+- [x] V07 [web, móvil] Sin ningún curso publicado, el catálogo muestra "Todavía no hay cursos publicados." y no muestra el buscador.
 - [x] V08 [web, móvil] Un curso cuyo título y descripción contienen `<b>hola</b>` y `<script>` muestra esos textos tal cual en la tarjeta y en el detalle, sin negritas y sin ejecutar nada.
 - [x] V09 [web, móvil] Al escribir "git" en el buscador, sin pulsar Enter ni ningún botón, el catálogo muestra solo "Git esencial".
 - [x] V10 [web, móvil] "JAPONES" encuentra "Japonés sencillo" y "programacion" encuentra "Programación en C sencilla".

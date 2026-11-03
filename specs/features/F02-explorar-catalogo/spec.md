@@ -280,7 +280,7 @@ búsqueda desde sus primeros 10 resultados.
 - [x] [web, móvil] Un curso en borrador y otro en revisión no aparecen en el
   catálogo ni al buscar su título exacto, aunque entre con la cuenta de su
   autor.
-- [ ] [web, móvil] Sin ningún curso publicado, el catálogo muestra "Todavía
+- [x] [web, móvil] Sin ningún curso publicado, el catálogo muestra "Todavía
   no hay cursos publicados." y no muestra el buscador.
 - [x] [web, móvil] Un curso cuyo título y descripción contienen `<b>hola</b>`
   y `<script>` muestra esos textos tal cual en la tarjeta y en el detalle,

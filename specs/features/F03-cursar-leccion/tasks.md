@@ -36,20 +36,20 @@ description: "Lista de tareas de F03 Cursar una lección"
 
 ## Fase 1: Preparación
 
-- [ ] T001 [specs] Agregar al final de `contrato/contrato.ts` el bloque "Lecciones y actividades (F03)" de [contracts/contrato.md](./contracts/contrato.md), copiado tal cual: `ActividadTeoria`, `ActividadTarjeta`, `OpcionRespuesta`, `ActividadOpcionMultiple`, `EspacioRespuesta`, `ActividadCompletarEspacios`, `ActividadPreguntaAbierta`, `Actividad`, `TipoActividad`, `DetalleLeccion`, `RespuestaLeccion`, `MARCA_ESPACIO`, `LIMITES_ACTIVIDADES` y `MENSAJES_LECCION`. Subir `contrato/VERSION` de `0.3.0` a `0.4.0`
-- [ ] T002 [specs] En `docs/diseno.md`, sección 2, agregar los tokens de plan.md ("Lo que se agrega a docs/diseno.md"):
+- [X] T001 [specs] Agregar al final de `contrato/contrato.ts` el bloque "Lecciones y actividades (F03)" de [contracts/contrato.md](./contracts/contrato.md), copiado tal cual: `ActividadTeoria`, `ActividadTarjeta`, `OpcionRespuesta`, `ActividadOpcionMultiple`, `EspacioRespuesta`, `ActividadCompletarEspacios`, `ActividadPreguntaAbierta`, `Actividad`, `TipoActividad`, `DetalleLeccion`, `RespuestaLeccion`, `MARCA_ESPACIO`, `LIMITES_ACTIVIDADES` y `MENSAJES_LECCION`. Subir `contrato/VERSION` de `0.3.0` a `0.4.0`
+- [X] T002 [specs] En `docs/diseno.md`, sección 2, agregar los tokens de plan.md ("Lo que se agrega a docs/diseno.md"):
   - 2.1 Color: `progresoFin` `#84CC16` (claro y oscuro) y los de código, iguales en claro y oscuro: `codigoFondo` `#16142E`, `codigoTexto` `#ECEBFA`, `codigoAgregado` `#BEF264` con `codigoAgregadoFondo` `rgba(163,230,53,0.16)`, `codigoEliminado` `#FDA4AF` con `codigoEliminadoFondo` `rgba(255,107,133,0.16)` y `codigoEncabezado` `#A29DFF`;
   - 2.2 Tipografía: `codigo` 14 / 22, peso 400, monoespaciada (web `--fuente-codigo`; móvil `fuentes.codigo`: Menlo en iOS, `monospace` en Android);
   - 2.3 Medidas: `anchoLeccion` 680 px (contenido del reproductor en la web).
 
   Comprobar con una calculadora de contraste que `codigoTexto`, `codigoAgregado`, `codigoEliminado` y `codigoEncabezado` llegan a 4.5:1 sobre `codigoFondo` (y los dos de diff sobre su fondo encima de `codigoFondo`); si alguno no llega, ajustarlo aquí antes de usarlo
-- [ ] T003 [specs] En `docs/diseno.md`:
+- [X] T003 [specs] En `docs/diseno.md`:
   - sección 4, agregar a la tabla `BarraProgreso`, `BarraRespuesta`, `OpcionRespuesta`, `BloqueCodigo`, `TarjetaVolteable`, `CampoEspacio`, `Dialogo` (web; en el móvil, `Alert.alert`) y `ResultadoLeccion`, con las props y notas de plan.md;
   - sección 6, agregar los patrones: tarjeta de memoria (indicación con `RotateCw`, gira en `lento`, "Continuar" al primer giro), completar espacios (campos en línea, respuesta esperada al lado de cada incorrecto), pregunta abierta ("SOLUCIÓN DE REFERENCIA" en `seccion` sobre `Superficie` `suave`, "La tuve bien" / "No la tuve" como `Boton` `secundario`), bloque de código con diff (research.md, punto 13), confirmación de salida (research.md, puntos 8 y 9) y el teclado de la web (research.md, punto 10).
-- [ ] T004 [back] En `brote_backend_express`: `git switch dev && git pull --ff-only` y crear `feature/F03-cursar-leccion` desde `dev`
-- [ ] T005 [P] [web] Igual que T004 en `brote_web_react`
-- [ ] T006 [P] [movil] Igual que T004 en `brote_mobile_expo`
-- [ ] T007 [specs] Copiar el contrato 0.4.0 a los tres repos: `npm run contrato:copiar` en brote_specs. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo
+- [X] T004 [back] En `brote_backend_express`: `git switch dev && git pull --ff-only` y crear `feature/F03-cursar-leccion` desde `dev`
+- [X] T005 [P] [web] Igual que T004 en `brote_web_react`
+- [X] T006 [P] [movil] Igual que T004 en `brote_mobile_expo`
+- [X] T007 [specs] Copiar el contrato 0.4.0 a los tres repos: `npm run contrato:copiar` en brote_specs. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo
 
 ---
 

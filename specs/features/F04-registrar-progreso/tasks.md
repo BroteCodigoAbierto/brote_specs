@@ -44,10 +44,10 @@ description: "Lista de tareas de F04 Registrar y consultar el progreso"
   - "Barra de pestañas (móvil)": iconos `Compass`, `BookMarked` y `UserRound`;
   - "Encabezado (web, en `Layout`)": el enlace "Mi panel" con `LayoutDashboard` entre la `Marca` y `MenuCuenta`, con el aspecto del `Boton` `fantasma` chico (es un enlace: estilos propios con los mismos tokens), activo en `primario`, solo el icono (con nombre accesible) en pantallas angostas.
 - [X] T003 [specs] En `docs/diseno.md`, sección 5, agregar los patrones de plan.md: **detalle del curso con progreso** (una `Superficie` con `AvanceCurso` y el `Boton` primario "Empezar…" / "Continuar…" con `iconoFinal` `ArrowRight`, debajo de la descripción y antes de "Lecciones"); **lección completada en la lista** (círculo del número en `broteSuave` con el número en `broteFuerte`, `CircleCheck` `broteFuerte` y "{a} de {p} aciertos" en `nota` `textoSuave` antes de la flecha; nombre accesible "{n}. {título}, completada, {a} de {p} aciertos"); y **página personal** (`titulo1` y una sección por bloque con su título en `seccion` y sus propios estados)
-- [ ] T004 [back] En `brote_backend_express`: `git switch dev && git pull --ff-only` y crear `feature/F04-registrar-progreso` desde `dev`
-- [ ] T005 [P] [web] Igual que T004 en `brote_web_react`
-- [ ] T006 [P] [movil] Igual que T004 en `brote_mobile_expo`
-- [ ] T007 [specs] Copiar el contrato 0.5.0 a los tres repos: `npm run contrato:copiar` en brote_specs. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo. En el backend, `npm run tipos` falla hasta T013 (`aDetalleCurso` no llena `progreso`); en web y móvil compila
+- [X] T004 [back] En `brote_backend_express`: `git switch dev && git pull --ff-only` y crear `feature/F04-registrar-progreso` desde `dev`
+- [X] T005 [P] [web] Igual que T004 en `brote_web_react`
+- [X] T006 [P] [movil] Igual que T004 en `brote_mobile_expo`
+- [X] T007 [specs] Copiar el contrato 0.5.0 a los tres repos: `npm run contrato:copiar` en brote_specs. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo. En el backend, `npm run tipos` falla hasta T013 (`aDetalleCurso` no llena `progreso`); en web y móvil compila
 
 ---
 

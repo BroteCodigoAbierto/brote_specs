@@ -94,6 +94,12 @@ Versiones revisadas el 2026-11-02: Prisma 7.10.1, React Router 8.4.0, Expo SDK
   `String.prototype.normalize("NFD")`. Si no, la alternativa es una tabla de
   las vocales acentuadas, la ü y la ñ (`á→a`, ..., `ñ→n`), con la que dan el
   mismo resultado todos los textos de los criterios.
+- *Hecho al implementar*: sin un intérprete de Hermes a mano, el móvil decide
+  al arrancar. Si `"á".normalize("NFD")` separa el acento, usa NFD como la
+  web; si no, usa la tabla `áàäâéèëêíìïîóòöôúùüûñç → aaaaeeeeiiiioooouuuunc`.
+  Las dos rutas dan lo mismo con los textos de los criterios ("Cancion",
+  "CANCIÓN", "canción  ", " INT ", "Ñandú", "pingüino"). El móvil pasa a
+  minúsculas antes de quitar acentos, para que la tabla solo tenga minúsculas.
 
 ## 5. Validar las actividades en el backend
 
@@ -270,6 +276,9 @@ Fuente: <https://reactrouter.com/api/hooks/useBlocker>.
   no, se agrega `gestureEnabled: false` a la pantalla mientras el alumno
   haya hecho algo. En Android, `app.json` ya tiene
   `predictiveBackGestureEnabled: false`.
+- *Pendiente al implementar*: no se pudo probar en un iPhone. Se comprueba
+  con V37; si el gesto no pide confirmación, se aplica el `gestureEnabled:
+  false` de arriba.
 - **Sesión expirada y "sin conexión"**: no hace falta nada nuevo. `pedir()`
   ya avisa el 401, espera 15 segundos y distingue "sin conexión" (F01).
 

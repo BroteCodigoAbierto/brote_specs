@@ -56,6 +56,7 @@ en los dos y en estas tablas.
 | `broteFuerte` | `#4D7C0F` | `#A3E635` | Texto de acierto/logro; fondo de insignias con texto blanco |
 | `broteSuave` | `#ECFCCB` | `rgba(163,230,53,0.14)` | Fondo de "correcto", tarjetas de logro |
 | `sobreBrote` | `#FFFFFF` | `#1A2E05` | Texto sobre `broteFuerte` |
+| `progresoFin` | `#84CC16` | `#84CC16` | Final del degradado de la barra de progreso (empieza en `brote`) |
 | `acento` | `#F97362` | `#FF8A7A` | Detalles cálidos: rachas, novedad, ilustración. Solo decorativo |
 | `acentoSuave` | `#FFEDEA` | `rgba(255,138,122,0.14)` | Fondo de avisos cálidos |
 | `error` | `#DC2650` | `#FF6B85` | Errores de campo y de envío, respuesta incorrecta |
@@ -70,6 +71,20 @@ en los dos y en estas tablas.
 | `vidrioSuave` | `rgba(238,240,255,0.66)` | `rgba(46,42,92,0.55)` | Vidrio teñido (campos, zonas secundarias) |
 | `vidrioOpaco` | `#FCFCFF` | `#1B1A33` | Sustituto del vidrio sin transparencia |
 | `vidrioBorde` | `rgba(255,255,255,0.90)` | `rgba(255,255,255,0.10)` | Borde luminoso del vidrio |
+
+**Código** (F03): el panel de código es oscuro también en modo claro, así que
+estos tokens valen lo mismo en los dos modos. Contraste comprobado contra su
+fondo: texto 15.2:1, agregado 9.6:1, eliminado 7.5:1, encabezado 7.5:1.
+
+| Token | Valor | Uso |
+|---|---|---|
+| `codigoFondo` | `#16142E` | Fondo de `BloqueCodigo` (y de la terminal simulada) |
+| `codigoTexto` | `#ECEBFA` | Texto normal del código |
+| `codigoAgregado` | `#BEF264` | Texto de una línea de diff que empieza con `+` |
+| `codigoAgregadoFondo` | `rgba(163,230,53,0.16)` | Fondo de esa línea |
+| `codigoEliminado` | `#FDA4AF` | Texto de una línea de diff que empieza con `-` |
+| `codigoEliminadoFondo` | `rgba(255,107,133,0.16)` | Fondo de esa línea |
+| `codigoEncabezado` | `#A29DFF` | Línea de diff que empieza con `@@` |
 
 **Fondo ambiental** (`fondoAmbiental`): debajo de todo, nunca detrás de texto
 sin vidrio.
@@ -90,7 +105,9 @@ mismo color 18 % más claro, con la inicial en blanco. Todas con contraste
 
 **Plus Jakarta Sans** (400, 500, 600, 700, 800). Web: Google Fonts en
 `index.html`. Móvil: `@expo-google-fonts/plus-jakarta-sans`, cargada en el
-layout raíz antes de ocultar el splash. Código: `ui-monospace` / `Menlo`.
+layout raíz antes de ocultar el splash. Código: `--fuente-codigo` en la web
+(`ui-monospace`, `Menlo`, ...) y `fuentes.codigo` en el móvil (Menlo en iOS,
+`monospace` en Android).
 
 | Token | Tamaño / interlínea | Peso | Espaciado | Uso |
 |---|---|---|---|---|
@@ -104,6 +121,7 @@ layout raíz antes de ocultar el splash. Código: `ui-monospace` / `Menlo`.
 | `etiqueta` | 13 / 18 | 600 | 0 | Etiquetas de campo |
 | `boton` | 15 / 20 | 600 | -0.1 | Texto de botones |
 | `seccion` | 11 / 14 | 700 | 1.4, mayúsculas | Encabezados pequeños ("LECCIONES") |
+| `codigo` | 14 / 22 | 400 | 0 | Código, en la fuente monoespaciada |
 
 En la web los tamaños van en `rem` (16 px = 1 rem).
 
@@ -120,7 +138,8 @@ En la web los tamaños van en `rem` (16 px = 1 rem).
 - Botones y chips: `pildora`. Campos: `medio`. Tarjetas y paneles: `grande`.
   Hojas y paneles de pantalla completa: `enorme`.
 - Área táctil mínima: **44 px**. Botón normal: 52 px de alto; chico: 44 px.
-- Ancho de lectura en la web: `anchoContenido` 1040 px; formularios: 420 px.
+- Ancho de lectura en la web: `anchoContenido` 1040 px; formularios: 420 px;
+  reproductor de lecciones: `anchoLeccion` 680 px.
 - En el móvil, margen lateral de pantalla: espacio `6` (20 px).
 
 ### 2.4 Sombras y desenfoque

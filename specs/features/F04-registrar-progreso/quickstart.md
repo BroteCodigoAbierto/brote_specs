@@ -63,10 +63,12 @@ idLeccion() { psql -X -q -t -A postgresql://brote:brote@localhost:5432/brote <<<
 ```
 
 ```bash
-# P1. La cuenta A completa todas las lecciones de "Examen unidad 1", acertando todo
+# P1. La cuenta A completa todas las lecciones de "Examen unidad 1", acertando todo.
+# completada_en va en UTC, como la escribe el backend: el valor por omisión de
+# la columna usa la zona de la sesión de psql y dejaría el curso al final de la lista.
 bd <<'SQL'
-INSERT INTO progreso (id_usuario, id_leccion, aciertos, preguntas)
-SELECT u.id, l.id, q.n, q.n
+INSERT INTO progreso (id_usuario, id_leccion, aciertos, preguntas, completada_en)
+SELECT u.id, l.id, q.n, q.n, now() AT TIME ZONE 'UTC'
 FROM leccion l
 JOIN curso c ON c.id = l.id_curso
 JOIN "user" u ON u.email = 'autor@brote.test'

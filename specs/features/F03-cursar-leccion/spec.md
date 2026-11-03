@@ -430,7 +430,7 @@ Nada de esto se guarda (ver "Resultado esperado").
 - [x] [web, móvil] "Volver al curso" lleva al detalle del curso. Al abrir
   otra vez la misma lección, empieza desde la primera actividad, sin
   respuestas.
-- [ ] [web, móvil] Con "reducir movimiento" activado, la barra de progreso
+- [x] [web, móvil] Con "reducir movimiento" activado, la barra de progreso
   avanza y la celebración aparece sin animaciones, y la opción incorrecta no
   se sacude.
 
@@ -438,14 +438,14 @@ Nada de esto se guarda (ver "Resultado esperado").
 
 - [x] [web, móvil] En la primera actividad, sin haber hecho nada, la X lleva
   directo al detalle del curso, sin preguntar.
-- [ ] [web, móvil] Después de pasar de la primera actividad, o de elegir una
+- [x] [web, móvil] Después de pasar de la primera actividad, o de elegir una
   opción en ella, la X muestra "¿Salir de la lección?" con "Perderás tu
   avance en esta lección.", "Salir" y "Seguir aquí". "Seguir aquí" me deja en
   la misma actividad con lo que había elegido o escrito; "Salir" lleva al
   detalle del curso.
 - [x] [web] El botón de volver del navegador a mitad de la lección hace lo
   mismo que la X.
-- [ ] [móvil] El botón o gesto de atrás del teléfono a mitad de la lección
+- [x] [móvil] El botón o gesto de atrás del teléfono a mitad de la lección
   hace lo mismo que la X.
 
 ### Contenido y acceso
@@ -473,7 +473,7 @@ Nada de esto se guarda (ver "Resultado esperado").
   pudo conectar con Brote. Inténtalo de nuevo en un momento." y
   "Reintentar"; al encender el servidor y pulsar "Reintentar" veo la primera
   actividad.
-- [ ] [móvil] En modo avión, al abrir una lección veo "Sin conexión. Revisa
+- [x] [móvil] En modo avión, al abrir una lección veo "Sin conexión. Revisa
   tu conexión e inténtalo de nuevo." y "Reintentar"; al quitar el modo avión
   y pulsar "Reintentar" veo la primera actividad.
 - [x] [web, móvil] Con una lección ya abierta, apago el servidor (en el

@@ -254,18 +254,18 @@ consulta L1.
 - [x] V30 [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1), acertando la opción múltiple, fallando el espacio y eligiendo "La tuve bien" en la pregunta abierta, al terminar veo "¡Lección completada!", "Primeros pasos" y "Acertaste 2 de 3", con una celebración breve.
 - [x] V31 [web, móvil] En "Tu primer commit" (Git esencial, 2), que solo tiene teoría, al terminar veo "¡Lección completada!" sin "Acertaste…".
 - [x] V32 [web, móvil] "Volver al curso" lleva al detalle del curso. Al abrir otra vez la misma lección, empieza desde la primera actividad, sin respuestas.
-- [ ] V33 [web, móvil] Con "reducir movimiento" activado, la barra de progreso avanza y la celebración aparece sin animaciones, y la opción incorrecta no se sacude.
+- [x] V33 [web, móvil] Con "reducir movimiento" activado, la barra de progreso avanza y la celebración aparece sin animaciones, y la opción incorrecta no se sacude.
 - [x] V34 [web, móvil] En la primera actividad, sin haber hecho nada, la X lleva directo al detalle del curso, sin preguntar.
-- [ ] V35 [web, móvil] Después de pasar de la primera actividad, o de elegir una opción en ella, la X muestra "¿Salir de la lección?" con "Perderás tu avance en esta lección.", "Salir" y "Seguir aquí". "Seguir aquí" me deja en la misma actividad con lo que había elegido o escrito; "Salir" lleva al detalle del curso.
+- [x] V35 [web, móvil] Después de pasar de la primera actividad, o de elegir una opción en ella, la X muestra "¿Salir de la lección?" con "Perderás tu avance en esta lección.", "Salir" y "Seguir aquí". "Seguir aquí" me deja en la misma actividad con lo que había elegido o escrito; "Salir" lleva al detalle del curso.
 - [x] V36 [web] El botón de volver del navegador a mitad de la lección hace lo mismo que la X.
-- [ ] V37 [móvil] El botón o gesto de atrás del teléfono a mitad de la lección hace lo mismo que la X.
+- [x] V37 [móvil] El botón o gesto de atrás del teléfono a mitad de la lección hace lo mismo que la X.
 - [x] V38 [web, móvil] En "Actividades de prueba", la lección con `<b>hola</b>` y `<script>` en sus textos (teoría, tarjeta, pregunta, opciones, texto con espacios y solución) los muestra tal cual, sin negritas y sin ejecutar nada.
 - [x] V39 [web, móvil] En "Actividades de prueba", la lección sin actividades muestra "Esta lección todavía no tiene actividades." y "Volver al curso".
 - [x] V40 [web] Una dirección de lección con un identificador inventado, o con una lección que es de otro curso, muestra "Esta lección no existe o ya no está disponible." y "Ver cursos", que lleva al catálogo.
 - [x] V41 [backend] Pedir al servidor, sin pasar por un cliente, una lección de un curso en borrador responde exactamente igual que con un identificador que no existe; pedir una lección sin sesión se rechaza.
 - [x] V42 [web, móvil] Mientras carga la lección se ven la X y un indicador de carga; "Esta lección todavía no tiene actividades." no aparece ni por un instante.
 - [x] V43 [web, móvil] Con el servidor apagado, al abrir una lección veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar"; al encender el servidor y pulsar "Reintentar" veo la primera actividad.
-- [ ] V44 [móvil] En modo avión, al abrir una lección veo "Sin conexión. Revisa tu conexión e inténtalo de nuevo." y "Reintentar"; al quitar el modo avión y pulsar "Reintentar" veo la primera actividad.
+- [x] V44 [móvil] En modo avión, al abrir una lección veo "Sin conexión. Revisa tu conexión e inténtalo de nuevo." y "Reintentar"; al quitar el modo avión y pulsar "Reintentar" veo la primera actividad.
 - [x] V45 [web, móvil] Con una lección ya abierta, apago el servidor (en el móvil, o activo el modo avión) y puedo terminarla hasta la pantalla de lección completada.
 - [x] V46 [web, móvil] Dado que la sesión expiró, cuando abro una lección, entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar."; en la web, al entrar regreso a esa lección.
 

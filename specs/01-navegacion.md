@@ -24,7 +24,11 @@ Brote no se usa sin cuenta. En los dos clientes:
 /registro                 Crear cuenta                           (F01)
 /                         Catálogo de cursos publicados; la      (F02)
                           búsqueda va en ?q= (p. ej. /?q=git)
-/cursos/:idCurso          Detalle del curso y sus lecciones      (F02; F04 le agrega el progreso)
+/cursos/:idCurso          Detalle del curso, sus lecciones y el  (F02, F04)
+                          avance del alumno, con Empezar /
+                          Continuar
+/panel                    "Mi panel": página personal; por ahora (F04)
+                          solo "Sigue aprendiendo"
 *                         Página no encontrada (con sesión)      (F01)
 /cursos/:idCurso/lecciones/:idLeccion
                           Reproductor de la lección, a pantalla  (F03)
@@ -38,8 +42,9 @@ Brote no se usa sin cuenta. En los dos clientes:
 
 - `/entrar` y `/registro` se muestran sin el marco común. Todas las demás
   rutas exigen sesión y van dentro del marco, cuyo encabezado tiene la marca
-  (enlace a `/`) y el **menú de la cuenta**: un botón con el nombre que abre
-  el correo y "Cerrar sesión".
+  (enlace a `/`), el enlace **"Mi panel"** (a `/panel`, F04; en pantallas
+  angostas solo su icono) y el **menú de la cuenta**: un botón con el nombre
+  que abre el correo y "Cerrar sesión".
 - Después de entrar se llega a la dirección que se intentaba abrir (o a `/`);
   después de crear la cuenta, siempre a `/`. Después de cerrar sesión, a
   `/entrar`.
@@ -53,6 +58,11 @@ Brote no se usa sin cuenta. En los dos clientes:
   el detalle del curso; si la dirección se abrió directo, la reemplaza por el
   detalle, para que "atrás" no regrese a la lección. Recargar la lección
   empieza desde la primera actividad.
+- El botón Empezar / Continuar del detalle (F04) abre la primera lección sin
+  completar igual que la lista: salir de ella vuelve al detalle. El detalle
+  se monta de nuevo al volver, así que muestra el avance actualizado.
+- De "Mi panel" a un detalle, "Cursos" (volver) regresa a "Mi panel". El
+  panel se vuelve a cargar cada vez que se entra.
 
 ## Móvil (expo-router)
 
@@ -61,9 +71,11 @@ Brote no se usa sin cuenta. En los dos clientes:
 (auth)/registro           Crear cuenta                           (F01)
 (tabs)/index              Pestaña "Explorar": catálogo de        (F02)
                           cursos publicados
+(tabs)/mis-cursos         Pestaña "Mis cursos": cursos empezados (F04)
+                          con su avance; los descargados llegan
+                          con F10
 (tabs)/cuenta             Pestaña "Cuenta": nombre, correo y     (F01)
                           "Cerrar sesión"
-(tabs)/mis-cursos         Cursos en progreso y descargados       (F04, F10) (prevista)
 (tabs)/glosario           Glosario                               (F09) (prevista)
 curso/[idCurso]           Detalle del curso, en el Stack raíz,   (F02)
                           encima de las pestañas
@@ -84,6 +96,12 @@ leccion/[idCurso]/[idLeccion]
   de apilar otra.
 - `leccion/[idCurso]/[idLeccion]` no tiene encabezado: dibuja su propia X.
   Salir vuelve al detalle del curso que quedó debajo.
+- Las pestañas van en este orden: "Explorar", "Mis cursos" y "Cuenta" (F04).
+  Pulsar un curso de "Mis cursos" abre `curso/[idCurso]` encima de las
+  pestañas, como desde "Explorar"; volver regresa a "Mis cursos".
+- El detalle y "Mis cursos" quedan montados debajo de otras pantallas: al
+  volver a ellos se recargan sin indicador para mostrar el avance nuevo (F04).
+  Si esa recarga falla, los datos se quedan con el aviso de error encima.
 
 ## Salir de una lección (F03)
 
@@ -100,4 +118,5 @@ cerrar la app no la piden.
 |---|---|---|
 | Cualquier ruta protegida (web) | `/entrar` | `state.desde`: la ubicación que se intentaba abrir, con su `?q=`, para regresar después de entrar (F01) |
 | Catálogo | Detalle del curso | `idCurso`: en la dirección en la web; como parámetro de ruta en el móvil (F02) |
-| Detalle del curso | Reproductor | `idCurso`, `idLeccion`: en la dirección en la web; como parámetros de ruta en el móvil (F03) |
+| Detalle del curso | Reproductor | `idCurso`, `idLeccion`: en la dirección en la web; como parámetros de ruta en el móvil (F03). Desde la lista o desde Empezar / Continuar (F04); en la web, con `state.desdeCurso` para que salir vuelva al detalle |
+| Mis cursos (móvil) / Mi panel (web) | Detalle del curso | `idCurso`, igual que desde el catálogo (F04) |

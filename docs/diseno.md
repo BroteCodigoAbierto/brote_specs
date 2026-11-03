@@ -198,7 +198,7 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | `Texto` (móvil) | `variante` (nombre de la tabla 2.2), `color` (nombre de color) | Todo texto del móvil; aplica Plus Jakarta Sans. En la web lo resuelven las variables `--texto-*` |
 | `FondoAmbiental` | — | Web: en `body`. Móvil: envuelve cada pantalla (vista con `experimental_backgroundImage`) |
 | `Superficie` | `tono`, `elevada` | Ver sección 3 |
-| `Boton` | `variante` (`primario`, `secundario`, `fantasma`, `peligro`, `enlace`), `tamano` (`normal`, `chico`), `icono`, `iconoFinal`, `enviando`, `anchoCompleto` | Píldora. `enviando`: deshabilita y muestra indicador sin cambiar de ancho |
+| `Boton` | `variante` (`primario`, `secundario`, `fantasma`, `peligro`, `enlace`), `tamano` (`normal`, `chico`), `icono`, `iconoFinal`, `enviando`, `anchoCompleto` | Píldora. `enviando`: deshabilita y muestra indicador sin cambiar de ancho. Un texto que no cabe se corta con "…" en una línea (F04) |
 | `CampoTexto` | `etiqueta`, `error`, `ayuda`, `icono` | Fondo `vidrioSuave`; foco: borde `primario` + halo de 3 px `primarioSuave`; error: borde y fondo de error, mensaje con icono debajo |
 | `CampoContrasena` | igual que `CampoTexto` | Botón de ojo de 44 px dentro del campo |
 | `Buscador` | `valor`, `buscando` | Icono de lupa, botón para limpiar, indicador a la derecha mientras busca |
@@ -208,19 +208,20 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | `ErrorCarga` | `mensaje`, `alReintentar` | `EstadoVacio` con icono de nube tachada y botón "Reintentar" |
 | `Insignia` | `tono` (`neutro`, `primario`, `brote`, `acento`), `icono` | Píldora chica con icono para metadatos ("6 lecciones") |
 | `PortadaCurso` | `idCurso`, `titulo`, `tamano` (`tarjeta`, `detalle`) | Degradado + inicial; brillo superior |
-| `TarjetaCurso` | `curso` | `Superficie` con portada, título (2 líneas), autor, descripción (3 líneas) e `Insignia` de lecciones. Web: portada arriba (16:9) en rejilla; móvil: portada cuadrada a la izquierda |
+| `TarjetaCurso` | `curso`, `avance` | `Superficie` con portada, título (2 líneas), autor, descripción (3 líneas) e `Insignia` de lecciones. Web: portada arriba (16:9) en rejilla; móvil: portada cuadrada a la izquierda. Con `avance` (`{ completadas, total }`, F04), en lugar de la descripción y la insignia muestra `AvanceCurso`: es la tarjeta de "Mis cursos" y "Sigue aprendiendo" |
 | `Marca` | `tamano` (`normal`, `grande`) | Ver "Marca" abajo |
-| Encabezado (web, en `Layout`) | — | Píldora de vidrio pegajosa: `Marca` a la izquierda, `MenuCuenta` (avatar, nombre y menú) a la derecha |
-| Barra de pestañas (móvil) | — | Fondo `Superficie` sólida con esquinas superiores `grande`, iconos Lucide (`Compass`, `UserRound`), activa en `primario` |
+| Encabezado (web, en `Layout`) | — | Píldora de vidrio pegajosa: `Marca` a la izquierda, `MenuCuenta` (avatar, nombre y menú) a la derecha. Entre los dos (F04), el enlace "Mi panel" con `LayoutDashboard`: tiene el aspecto del `Boton` `fantasma` chico (es un enlace, con estilos propios y los mismos tokens); la página activa lo pone en `primario`. En pantallas angostas queda solo el icono, con su nombre accesible |
+| Barra de pestañas (móvil) | — | Fondo `Superficie` sólida con esquinas superiores `grande`, iconos Lucide (`Compass` Explorar, `BookMarked` Mis cursos, `UserRound` Cuenta), activa en `primario` |
 | Volver (detalle) | — | `Boton` `enlace` chico con `ArrowLeft` y "Cursos"; regresa a la pantalla anterior con su estado |
-| `BarraProgreso` | `actual`, `total` | Barra de la lección (sección 6). Web: `role="progressbar"` con `aria-valuetext="Actividad {n} de {total}"`; móvil: `accessibilityRole="progressbar"` y la misma etiqueta |
+| `BarraProgreso` | `actual`, `total`, `etiqueta`, `textoValor` | Barra de la lección (sección 6) y del avance de un curso. Web: `role="progressbar"` con `aria-label={etiqueta}` y `aria-valuetext={textoValor}`; móvil: `accessibilityRole="progressbar"` con las mismas etiquetas. Las dos props son opcionales (F04): sin ellas, "Progreso de la lección" y "Actividad {n} de {total}" (o "Lección completada") |
+| `AvanceCurso` | `completadas`, `total` | Avance de un curso (F04): "{c} de {t} lecciones" (con `t = 1`, "lección") en `cuerpoChico` seminegrita y debajo `BarraProgreso` con `etiqueta` "Avance del curso" y `textoValor` "{c} de {t} lecciones completadas". Con el curso terminado, además una `Insignia` `brote` con `CircleCheck` "Curso terminado" |
 | `BarraRespuesta` | `estado` (`neutro`, `correcto`, `incorrecto`), `titulo`, `detalle`, `textoBoton`, `deshabilitado`, `alPulsar` | Barra inferior fija de cada actividad, con el `Boton` primario a ancho completo. `correcto`: fondo `broteSuave`, título en `broteFuerte` con `CircleCheck`; `incorrecto`: fondo `errorSuave`, título en `error` con `CircleX`. Anuncia el cambio (`aria-live` / `accessibilityLiveRegion`) y, al dejar de ser `neutro`, pasa el foco al botón |
 | `OpcionRespuesta` | `estado` (`normal`, `seleccionada`, `correcta`, `incorrecta`), `texto` o `simbolo`, `numero` (solo web), `deshabilitada`, `alElegir` | Opción de la sección 6 (radio). Con `simbolo`, mosaico cuadrado con el símbolo en `display` |
 | `BloqueCodigo` | `codigo` | Panel `codigoFondo`, radio `medio`, `codigo` 14/22. Una fila por línea; las de diff (`+`, `-`, `@@`) con sus colores. Se desplaza hacia los lados en vez de cortar líneas |
 | `TarjetaVolteable` | `frente`, `reverso`, `volteada`, `alVoltear` | Dos caras de `Superficie` elevada (mínimo 200 px), texto `titulo2` centrado; gira sobre el eje vertical en `lento` |
 | `CampoEspacio` | `valor`, `alCambiar`, `estado` (`normal`, `correcto`, `incorrecto`), `esperada`, `etiqueta`, `deshabilitado` | Campo en línea con el texto, de radio `chico`; bordes y fondos como las opciones. `esperada` va a su lado en `nota` `broteFuerte` |
 | `Dialogo` (web) | `abierto`, `titulo`, `texto`, `textoConfirmar`, `textoCancelar`, `alConfirmar`, `alCancelar` | `<dialog>` modal: `Superficie` sólida, radio `enorme`, título `titulo2`, botones `secundario` (cancelar, con el foco) y `peligro` (confirmar). Esc cancela. En el móvil, la misma confirmación es `Alert.alert` nativo, con cancelar como `cancel` y confirmar como `destructive` |
-| `ResultadoLeccion` | `titulo`, `aciertos`, `preguntas`, `alVolver` | Fin de lección (sección 6) |
+| `ResultadoLeccion` | `titulo`, `aciertos`, `preguntas`, `alVolver`, `guardado`, `alReintentar` | Fin de lección (sección 6). `guardado` (F04) es el estado del progreso, en una zona entre los aciertos y el botón que anuncia sus cambios (`aria-live="polite"` / `accessibilityLiveRegion="polite"`): `"guardando"` ("Guardando tu progreso…" en `nota` `textoSuave` con un indicador chico, y "Volver al curso" con `enviando`); `"guardado"` (`CircleCheck` y "Progreso guardado" en `nota` `broteFuerte`); `"error"` y `"sinConexion"` (`Aviso` `error` con su texto y `Boton` `secundario` chico "Reintentar" → `alReintentar`); `"noDisponible"` (`Aviso` `error` sin "Reintentar") |
 
 **Iconos**: [Lucide](https://lucide.dev), `lucide-react` en la web y
 `lucide-react-native` en el móvil. Trazo 2, tamaño 20 (16 en insignias, 24 en
@@ -247,6 +248,29 @@ degradado índigo → violeta, seguido de "Brote" en `titulo3` peso 800.
   (`IndicadorCarga` centrado), vacío (`EstadoVacio`), error (`ErrorCarga`) y
   con datos. Al recargar con datos en pantalla, los datos se quedan y se
   atenúan (opacidad 0.55); nunca se reemplazan por el indicador.
+  - **Recarga al volver** (móvil, F04): al volver a una pantalla que quedó
+    montada (el detalle del curso, "Mis cursos"), se pide otra vez sin
+    indicador ni atenuación. Si falla, los datos se quedan y aparece encima
+    el `Aviso` de error (o de sin conexión) con "Reintentar", igual que
+    cuando falla deslizar hacia abajo.
+- **Detalle del curso con progreso** (F04): si el curso tiene lecciones,
+  debajo de la descripción y antes de "Lecciones" va una `Superficie` con
+  `AvanceCurso` y, si queda alguna lección sin completar, el `Boton`
+  primario "Empezar: 1. {título}" / "Continuar: {n}. {título}" con
+  `iconoFinal` `ArrowRight` (en el móvil, a ancho completo). Abre la primera
+  lección sin completar en el orden del curso. Con el curso terminado no hay
+  botón.
+- **Lección completada en la lista** (F04): el círculo del número pasa a
+  `broteSuave` con el número en `broteFuerte`, y antes de la flecha van un
+  `CircleCheck` `broteFuerte` y, si la lección tiene preguntas, "{a} de {p}
+  aciertos" en `nota` `textoSuave`. El color no es la única pista: el icono
+  y el nombre accesible, "{n}. {título}, completada" y, si hay, ", {a} de
+  {p} aciertos".
+- **Página personal** ("Mi panel", web, F04): título `titulo1` y una sección
+  por bloque, con su título en `seccion` ("Sigue aprendiendo") y sus propios
+  estados (cargando, vacío, error, con datos). Las tarjetas van en la
+  rejilla de "Listas de tarjetas". Cada feature que agregue un bloque suma
+  su sección.
 - **Errores de campo** debajo del campo, en `nota` color `error`, con icono.
   **Errores generales** en un `Aviso` arriba del botón principal.
 

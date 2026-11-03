@@ -113,7 +113,7 @@ description: "Lista de tareas de F04 Registrar y consultar el progreso"
 - [X] T048 [movil] Crear `src/app/(tabs)/mis-cursos.tsx` (docs/diseno.md, sección 5): dentro de `FondoAmbiental` y `SafeAreaView` (arriba), título "Mis cursos" en `titulo1` y `usePeticion(traerCursosEmpezados)` con `useRecargarAlVolver(recargarEnSilencio)`. Cargando sin datos → `IndicadorCarga`; error sin datos → `ErrorCarga` con `leerErrorDeCarga` (distingue "sin conexión") y "Reintentar"; vacío → `EstadoVacio` (icono `BookMarked`) con el título y el texto de la spec y `Boton` "Explorar cursos" → `router.navigate("/")`; con datos → `FlatList` de `TarjetaCurso` con `avance`, `RefreshControl` (`refreshing={cargando && datos !== null}`, `onRefresh={recargar}`) y, si una recarga falló con cursos en pantalla, el `Aviso` de error encima de la lista, como en "Explorar" (F02)
 - [X] T049 [movil] En `src/app/(tabs)/_layout.tsx`, `Tabs.Screen name="mis-cursos"` entre `index` y `cuenta`, con `title: "Mis cursos"` y el icono `BookMarked`; actualizar el comentario del archivo
 - [X] T050 [P] [movil] Actualizar `CLAUDE.md`: la pestaña "Mis cursos" en las pantallas y `AvanceCurso` en la lista de componentes del sistema de diseño
-- [ ] T051 [movil] `npm run tipos` y `npm run lint` sin errores, y `npx expo export --platform android` compila. Comprobar en el dispositivo que `useFocusEffect` dispara al volver de la lección al detalle y de un detalle a "Mis cursos" (plan.md, notas del móvil); si no, anotarlo en research.md, punto 8
+- [X] T051 [movil] `npm run tipos` y `npm run lint` sin errores, y `npx expo export --platform android` compila. Comprobar en el dispositivo que `useFocusEffect` dispara al volver de la lección al detalle y de un detalle a "Mis cursos" (plan.md, notas del móvil); si no, anotarlo en research.md, punto 8
 
 **Punto de control**: con el backend sembrado y Expo Go, la parte móvil de cada tabla de quickstart.md, sección 3, funciona.
 
@@ -125,7 +125,7 @@ description: "Lista de tareas de F04 Registrar y consultar el progreso"
 - [X] T053 [specs] Integrar a `specs/01-navegacion.md` lo de plan.md, "Cambios a la navegación": web `/panel` ("Mi panel", dentro del marco, con el enlace en el encabezado) y el botón Empezar / Continuar del detalle; móvil `(tabs)/mis-cursos` deja de estar prevista para F04 (la parte de descargados sigue prevista para F10) y abre `curso/[idCurso]` encima de las pestañas; en "Qué viaja", Mis cursos / Mi panel → Detalle del curso
 - [X] T054 [specs] `npm run contrato:revisar`: todas las copias coinciden con la oficial (0.5.0)
 - [X] T055 [specs] Revisar que `spec.md` coincide con lo que se construyó; si algo cambió, actualizarla en el mismo PR
-- [ ] T056 [specs] Repetir de F03 "Volver y empezar de nuevo" y "Con algo hecho", y de F02 "Volver con lo cargado" (quickstart.md, sección 4)
+- [X] T056 [specs] Repetir de F03 "Volver y empezar de nuevo" y "Con algo hecho", y de F02 "Volver con lo cargado" (quickstart.md, sección 4)
 
 ---
 
@@ -138,36 +138,36 @@ estado inicial; cuenta A = `autor@brote.test`, cuenta B = `autor2@brote.test`.
 - [x] V01 [web, móvil] Con la cuenta A, al terminar "1. ¿Qué es el control de versiones?" (Git esencial) acertando sus dos preguntas, veo "¡Lección completada!", "Guardando tu progreso…" con "Volver al curso" deshabilitado y después "Progreso guardado" con "Volver al curso" habilitado.
 - [x] V02 [web, móvil] Al pulsar "Volver al curso", el detalle de "Git esencial" muestra "1 de 6 lecciones", la barra con una sexta parte llena, la lección 1 marcada como completada con "2 de 2 aciertos" y el botón "Continuar: 2. Tu primer commit", sin recargar.
 - [x] V03 [web, móvil] Al terminar "2. Tu primer commit", que solo tiene teoría, queda marcada como completada sin resultado, y el detalle dice "2 de 6 lecciones".
-- [ ] V04 [web, móvil] Si salgo de "3. Viajar en el tiempo: historial y diffs" a mitad (con la X y "Salir"), el detalle sigue diciendo "2 de 6 lecciones" y la lección 3 no está marcada.
+- [x] V04 [web, móvil] Si salgo de "3. Viajar en el tiempo: historial y diffs" a mitad (con la X y "Salir"), el detalle sigue diciendo "2 de 6 lecciones" y la lección 3 no está marcada.
 - [x] V05 [web] Al recargar la página a mitad de una lección no completada, la lección sigue sin marcar en el detalle.
-- [ ] V06 [móvil] Al cerrar la app a mitad de una lección no completada y volver a abrirla, la lección sigue sin marcar en el detalle.
+- [x] V06 [móvil] Al cerrar la app a mitad de una lección no completada y volver a abrirla, la lección sigue sin marcar en el detalle.
 - [x] V07 [web, móvil] Dado que con la cuenta A completé la lección 1 de "Git esencial" en la web, cuando entro con la cuenta A en el móvil y abro el detalle de "Git esencial", entonces la lección 1 aparece completada con el mismo resultado. Y al revés: lo que completo en el móvil aparece en la web.
 - [x] V08 [web, móvil] Al cerrar sesión, entrar con la cuenta B y abrir "Git esencial", no aparece ninguna lección completada y veo "0 de 6 lecciones"; al volver a la cuenta A, su progreso sigue ahí.
 - [x] V09 [backend] Pedir al servidor el progreso sin sesión se rechaza; con la sesión de la cuenta B no aparece nada de lo que completó la cuenta A.
 - [x] V10 [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1), completándola primero con "Acertaste 1 de 3" y luego otra vez con "Acertaste 3 de 3", el detalle muestra "3 de 3 aciertos"; repitiéndola una tercera vez con "Acertaste 2 de 3", muestra "2 de 3 aciertos". El avance del curso sube en una lección con el primer intento y no cambia con los otros dos.
-- [ ] V11 [web, móvil] Al abrir una lección ya completada empieza desde la primera actividad, sin respuestas; si salgo a medias, sigue completada con el resultado anterior.
+- [x] V11 [web, móvil] Al abrir una lección ya completada empieza desde la primera actividad, sin respuestas; si salgo a medias, sigue completada con el resultado anterior.
 - [x] V12 [web, móvil] En un curso sin lecciones completadas veo "0 de {total} lecciones", la barra vacía y "Empezar: 1. {título de la primera}", que abre esa lección.
 - [x] V13 [web, móvil] En "Git esencial", con las lecciones 1 y 3 completadas, el botón dice "Continuar: 2. Tu primer commit" y abre esa lección.
 - [x] V14 [web, móvil] Con todas las lecciones de un curso completadas veo "{total} de {total} lecciones", la barra llena, "Curso terminado" y ningún botón Empezar ni Continuar; cualquier lección se puede abrir desde la lista.
 - [x] V15 [web, móvil] Mientras carga el detalle, el avance no aparece en "0 de {total}" ni por un instante antes de mostrar el real.
-- [ ] V16 [web, móvil] Con un lector de pantalla, la barra se anuncia como "{completadas} de {total} lecciones completadas" y cada lección completada como "completada".
+- [x] V16 [web, móvil] Con un lector de pantalla, la barra se anuncia como "{completadas} de {total} lecciones completadas" y cada lección completada como "completada".
 - [x] V17 [móvil] La barra de pestañas tiene "Explorar", "Mis cursos" y "Cuenta".
 - [x] V18 [móvil] Con la cuenta B sin progreso, "Mis cursos" muestra "Todavía no empiezas ningún curso." y "Explorar cursos", que lleva a la pestaña "Explorar".
 - [x] V19 [móvil] Con lecciones completadas en "Git esencial" y luego en "Japonés sencillo", "Mis cursos" muestra primero "Japonés sencillo" y después "Git esencial", cada uno con su "{completadas} de {total} lecciones" y su barra; no aparecen los cursos que no empecé.
 - [x] V20 [móvil] Al completar después una lección de "Git esencial" y volver a "Mis cursos", "Git esencial" pasa al primer lugar con el avance actualizado.
 - [x] V21 [móvil] Pulsar un curso abre su detalle encima de las pestañas; volver regresa a "Mis cursos".
 - [x] V22 [móvil] Un curso con todas sus lecciones completadas muestra "Curso terminado".
-- [ ] V23 [móvil] Con una lección completada en la web mientras "Mis cursos" está abierta en el móvil, al deslizar hacia abajo aparece el avance nuevo.
+- [x] V23 [móvil] Con una lección completada en la web mientras "Mis cursos" está abierta en el móvil, al deslizar hacia abajo aparece el avance nuevo.
 - [x] V24 [web] El encabezado tiene el enlace "Mi panel" en todas las pantallas con el marco común, y lleva a la página "Mi panel" con la sección "Sigue aprendiendo".
 - [x] V25 [web] Con la cuenta B sin progreso, "Sigue aprendiendo" muestra "Todavía no empiezas ningún curso." y "Explorar cursos", que lleva al catálogo.
 - [x] V26 [web] "Sigue aprendiendo" muestra los mismos cursos, en el mismo orden y con el mismo avance que "Mis cursos" del móvil con la misma cuenta. Pulsar un curso lleva a su detalle.
 - [x] V27 [web, móvil] Con el servidor apagado justo antes de terminar una lección, la pantalla de lección completada muestra "No se pudo guardar tu progreso." y "Reintentar"; al encender el servidor y pulsar "Reintentar", aparece "Progreso guardado" y la lección queda completada.
 - [x] V28 [web, móvil] Si en ese error pulso "Volver al curso" sin reintentar, la lección no queda completada en el detalle.
-- [ ] V29 [móvil] En modo avión al terminar una lección veo "Sin conexión. Tu progreso no se guardó." y "Reintentar"; al quitar el modo avión y pulsar "Reintentar", se guarda.
+- [x] V29 [móvil] En modo avión al terminar una lección veo "Sin conexión. Tu progreso no se guardó." y "Reintentar"; al quitar el modo avión y pulsar "Reintentar", se guarda.
 - [x] V30 [web, móvil] Si el curso deja de estar publicado mientras curso una lección, al terminarla veo "Esta lección ya no está disponible. Tu progreso no se guardó." sin "Reintentar", y el curso ya no aparece en "Mis cursos" ni en "Mi panel". Al volver a publicarlo, reaparece con lo que había completado.
 - [x] V31 [web, móvil] Con el servidor apagado, "Mis cursos" (móvil) y "Mi panel" (web) muestran "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar"; al encender el servidor y pulsar "Reintentar", aparece la lista.
-- [ ] V32 [móvil] En modo avión, "Mis cursos" muestra "Sin conexión. Revisa tu conexión e inténtalo de nuevo." y "Reintentar".
-- [ ] V33 [móvil] Si al volver de una lección completada al detalle del curso no hay conexión, el detalle sigue en pantalla con "Sin conexión. Revisa tu conexión e inténtalo de nuevo." encima y "Reintentar"; al quitar el modo avión y pulsar "Reintentar", la lección aparece marcada.
+- [x] V32 [móvil] En modo avión, "Mis cursos" muestra "Sin conexión. Revisa tu conexión e inténtalo de nuevo." y "Reintentar".
+- [x] V33 [móvil] Si al volver de una lección completada al detalle del curso no hay conexión, el detalle sigue en pantalla con "Sin conexión. Revisa tu conexión e inténtalo de nuevo." encima y "Reintentar"; al quitar el modo avión y pulsar "Reintentar", la lección aparece marcada.
 - [x] V34 [web, móvil] Dado que la sesión expiró, cuando abro "Mis cursos" o "Mi panel", entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar.".
 - [x] V35 [web, móvil] Dado que la sesión expiró mientras cursaba una lección, cuando la termino, llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar."; al volver a entrar, esa lección no está completada.
 - [x] V36 [backend] Registrar, sin pasar por un cliente, una lección de un curso en borrador responde exactamente igual que con un identificador que no existe; registrar más aciertos que preguntas, o un número de preguntas que no es el de la lección, se rechaza y no cambia el progreso.

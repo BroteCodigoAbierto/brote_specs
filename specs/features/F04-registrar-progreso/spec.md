@@ -304,12 +304,12 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
 - [x] [web, móvil] Al terminar "2. Tu primer commit", que solo tiene
   teoría, queda marcada como completada sin resultado, y el detalle dice "2
   de 6 lecciones".
-- [ ] [web, móvil] Si salgo de "3. Viajar en el tiempo: historial y diffs"
+- [x] [web, móvil] Si salgo de "3. Viajar en el tiempo: historial y diffs"
   a mitad (con la X y "Salir"), el detalle sigue diciendo "2 de 6
   lecciones" y la lección 3 no está marcada.
 - [x] [web] Al recargar la página a mitad de una lección no completada, la
   lección sigue sin marcar en el detalle.
-- [ ] [móvil] Al cerrar la app a mitad de una lección no completada y
+- [x] [móvil] Al cerrar la app a mitad de una lección no completada y
   volver a abrirla, la lección sigue sin marcar en el detalle.
 
 ### De la cuenta, no del dispositivo
@@ -333,7 +333,7 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
   una tercera vez con "Acertaste 2 de 3", muestra "2 de 3 aciertos". El
   avance del curso sube en una lección con el primer intento y no cambia con
   los otros dos.
-- [ ] [web, móvil] Al abrir una lección ya completada empieza desde la
+- [x] [web, móvil] Al abrir una lección ya completada empieza desde la
   primera actividad, sin respuestas; si salgo a medias, sigue completada con
   el resultado anterior.
 
@@ -350,7 +350,7 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
   lista.
 - [x] [web, móvil] Mientras carga el detalle, el avance no aparece en "0 de
   {total}" ni por un instante antes de mostrar el real.
-- [ ] [web, móvil] Con un lector de pantalla, la barra se anuncia como
+- [x] [web, móvil] Con un lector de pantalla, la barra se anuncia como
   "{completadas} de {total} lecciones completadas" y cada lección
   completada como "completada".
 
@@ -372,7 +372,7 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
   volver regresa a "Mis cursos".
 - [x] [móvil] Un curso con todas sus lecciones completadas muestra "Curso
   terminado".
-- [ ] [móvil] Con una lección completada en la web mientras "Mis cursos"
+- [x] [móvil] Con una lección completada en la web mientras "Mis cursos"
   está abierta en el móvil, al deslizar hacia abajo aparece el avance nuevo.
 
 ### Mi panel (web)
@@ -395,7 +395,7 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
   aparece "Progreso guardado" y la lección queda completada.
 - [x] [web, móvil] Si en ese error pulso "Volver al curso" sin reintentar,
   la lección no queda completada en el detalle.
-- [ ] [móvil] En modo avión al terminar una lección veo "Sin conexión. Tu
+- [x] [móvil] En modo avión al terminar una lección veo "Sin conexión. Tu
   progreso no se guardó." y "Reintentar"; al quitar el modo avión y pulsar
   "Reintentar", se guarda.
 - [x] [web, móvil] Si el curso deja de estar publicado mientras curso una
@@ -407,9 +407,9 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
   panel" (web) muestran "No se pudo conectar con Brote. Inténtalo de nuevo en
   un momento." y "Reintentar"; al encender el servidor y pulsar "Reintentar",
   aparece la lista.
-- [ ] [móvil] En modo avión, "Mis cursos" muestra "Sin conexión. Revisa tu
+- [x] [móvil] En modo avión, "Mis cursos" muestra "Sin conexión. Revisa tu
   conexión e inténtalo de nuevo." y "Reintentar".
-- [ ] [móvil] Si al volver de una lección completada al detalle del curso no
+- [x] [móvil] Si al volver de una lección completada al detalle del curso no
   hay conexión, el detalle sigue en pantalla con "Sin conexión. Revisa tu
   conexión e inténtalo de nuevo." encima y "Reintentar"; al quitar el modo
   avión y pulsar "Reintentar", la lección aparece marcada.

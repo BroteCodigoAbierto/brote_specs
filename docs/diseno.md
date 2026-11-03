@@ -248,6 +248,29 @@ degradado índigo → violeta, seguido de "Brote" en `titulo3` peso 800.
   (`IndicadorCarga` centrado), vacío (`EstadoVacio`), error (`ErrorCarga`) y
   con datos. Al recargar con datos en pantalla, los datos se quedan y se
   atenúan (opacidad 0.55); nunca se reemplazan por el indicador.
+  - **Recarga al volver** (móvil, F04): al volver a una pantalla que quedó
+    montada (el detalle del curso, "Mis cursos"), se pide otra vez sin
+    indicador ni atenuación. Si falla, los datos se quedan y aparece encima
+    el `Aviso` de error (o de sin conexión) con "Reintentar", igual que
+    cuando falla deslizar hacia abajo.
+- **Detalle del curso con progreso** (F04): si el curso tiene lecciones,
+  debajo de la descripción y antes de "Lecciones" va una `Superficie` con
+  `AvanceCurso` y, si queda alguna lección sin completar, el `Boton`
+  primario "Empezar: 1. {título}" / "Continuar: {n}. {título}" con
+  `iconoFinal` `ArrowRight` (en el móvil, a ancho completo). Abre la primera
+  lección sin completar en el orden del curso. Con el curso terminado no hay
+  botón.
+- **Lección completada en la lista** (F04): el círculo del número pasa a
+  `broteSuave` con el número en `broteFuerte`, y antes de la flecha van un
+  `CircleCheck` `broteFuerte` y, si la lección tiene preguntas, "{a} de {p}
+  aciertos" en `nota` `textoSuave`. El color no es la única pista: el icono
+  y el nombre accesible, "{n}. {título}, completada" y, si hay, ", {a} de
+  {p} aciertos".
+- **Página personal** ("Mi panel", web, F04): título `titulo1` y una sección
+  por bloque, con su título en `seccion` ("Sigue aprendiendo") y sus propios
+  estados (cargando, vacío, error, con datos). Las tarjetas van en la
+  rejilla de "Listas de tarjetas". Cada feature que agregue un bloque suma
+  su sección.
 - **Errores de campo** debajo del campo, en `nota` color `error`, con icono.
   **Errores generales** en un `Aviso` arriba del botón principal.
 

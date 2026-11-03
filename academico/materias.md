@@ -28,7 +28,7 @@ raíz del workspace).
 | La spec se actualiza en el mismo commit/PR que el código | Constitución, principio I | El PR de `brote_specs` acompaña a los de código |
 | Lista "Una spec está completa cuando" | Checklist que genera `/speckit-specify` en `checklists/requisitos.md` | |
 | Specs dentro del repositorio para que la IA las lea | Las specs están en `brote_specs` y el `CLAUDE.md` de `brote_mobile_expo` apunta ahí | **Explicar al profesor** que el repo móvil no contiene las specs |
-| Entre 4 y 8 features en el MVP | El MVP tiene 10 (F01 a F10) | **Pendiente de decidir** si se presenta como está, se agrupan o se marca un subconjunto como "MVP de la materia" |
+| Entre 4 y 8 features en el MVP | El MVP tiene 15 (F01 a F15) | **Pendiente de decidir** si se presenta como está, se agrupan o se marca un subconjunto como "MVP de la materia" |
 
 ### Temas del curso y features que los cubren
 

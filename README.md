@@ -31,7 +31,7 @@ programa sin una spec.
 
 ```text
 specs/
-  00-proyecto.md          problema, usuarios, MVP (F01...F10), futuras
+  00-proyecto.md          problema, usuarios, MVP (F01...F15), futuras
   01-navegacion.md        pantallas de web y móvil
   02-modelo-datos.md      entidades (crece con cada feature)
   features/F0X-.../       spec.md, plan.md, tasks.md, contracts/, quickstart.md

@@ -201,7 +201,8 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
 - Al volver (móvil): el detalle se vuelve a cargar sin indicador de carga;
   mientras llega, se ve el avance anterior. Si no se puede cargar, el
   detalle sigue en pantalla con el aviso de error o de sin conexión encima y
-  "Reintentar".
+  "Reintentar". Lo mismo si falla deslizar hacia abajo en el detalle (en F02
+  el error reemplazaba la pantalla).
 
 ### Mis cursos (móvil) y Mi panel (web)
 

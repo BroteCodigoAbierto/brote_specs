@@ -130,13 +130,54 @@ su forma: el backend la valida antes de guardarla.
 - "No vacío": recortado, tiene al menos un carácter. Un campo que el tipo no
   tiene se rechaza.
 - Las respuestas viajan al cliente, que califica sin volver a pedir nada
-  (research de F03, punto 2). F04 y F08 no pueden confiar en los aciertos que
-  mande el cliente.
+  (research de F03, punto 2). Por eso el servidor no puede confiar en los
+  aciertos que mande el cliente: F04 solo comprueba que el resultado cuadre
+  con la lección (ver Progreso), y F08 decide si eso basta para los puntos.
+- Qué tipos son preguntas lo dice `CALIFICA_ACTIVIDAD` en el contrato (F04):
+  `opcionMultiple`, `completarEspacios` y `preguntaAbierta`. Con esa
+  constante cuentan las preguntas el backend y los dos clientes.
 - Los otros 8 tipos del prototipo llegan con sus features; los límites de
   longitud de cada texto, con F05, y el glosario de cada actividad, con F09.
 
 Detalle en
 [`features/F03-cursar-leccion/data-model.md`](./features/F03-cursar-leccion/data-model.md).
+
+### Progreso (F04)
+
+Que un alumno completó una lección, con el resultado de la última vez. Hay a
+lo sumo uno por alumno y lección: repetir la lección reemplaza el resultado y
+la fecha. Tabla `progreso`; en el contrato, `ProgresoLeccion` (dentro de cada
+`LeccionDelCurso` del detalle) y `CursoEmpezado`.
+
+| Campo (contrato) | Columna (`progreso`) | Tipo | Obligatorio | Reglas |
+|---|---|---|---|---|
+| — | `id_usuario` | texto | sí | → `user.id`; se borra con el usuario. Siempre el de la sesión: no viaja por la API |
+| — | `id_leccion` | texto | sí | → `leccion.id`; se borra con la lección (y así con su curso) |
+| `aciertos` | `aciertos` | entero | sí | Entre 0 y `preguntas` |
+| `preguntas` | `preguntas` | entero | sí | Las preguntas que tenía la lección al completarla, contadas con `CALIFICA_ACTIVIDAD`. 0 en una lección sin preguntas |
+| `completadaEn` | `completada_en` | fecha (ISO 8601 en la API) | sí | La última vez que la completó; la pone el servidor. Ordena los cursos empezados |
+| — | `creado_en` | fecha | sí | La primera vez que la completó |
+
+- **Clave primaria** `(id_usuario, id_leccion)`, sin `id` propio. **Índice**
+  en `id_leccion`. Una restricción `CHECK` (`progreso_resultado_valido`)
+  exige `0 <= aciertos <= preguntas`.
+- Solo se escribe al completar una lección que se puede abrir (curso
+  publicado y lección de ese curso, como en F03), y solo si `preguntas` es el
+  número de preguntas que la lección tiene hoy y `aciertos <= preguntas`. No
+  se recalifican las respuestas. Escribir es un `upsert`: dos escrituras casi
+  al mismo tiempo dejan la última.
+- Cada alumno lee solo sus filas; el autor de un curso no ve el progreso de
+  sus alumnos.
+- **Lecciones completadas de un curso**: las filas del alumno en lecciones de
+  ese curso. Como la fila se borra con la lección, cuentan solo las
+  lecciones que el curso tiene hoy.
+- **Curso empezado**: un curso publicado con al menos una fila del alumno.
+  Un curso que deja de estar publicado no aparece, pero sus filas se quedan:
+  si vuelve a publicarse, el progreso sigue ahí.
+- El curso no se guarda: sale de la lección.
+
+Detalle, la migración y lo que viaja en el contrato en
+[`features/F04-registrar-progreso/data-model.md`](./features/F04-registrar-progreso/data-model.md).
 
 ## Entidades previstas
 
@@ -147,6 +188,5 @@ spec de cada feature.
 |---|---|---|
 | Actividad: los demás tipos | Emparejar, ordenar, banco de palabras, clasificar, código, terminal, grafo de commits y escuchar y repetir (8 del prototipo), y los límites de longitud de los textos (F05) | Features siguientes, F05 |
 | Curso: lo que falta | Límites del título y la descripción (F05), el estado "en revisión" (F06), el idioma (F05) y la configuración de gamificación (F08) | F05, F06, F08 |
-| Progreso | Lección completada por un usuario | F04 |
 | Puntos / Insignia | Recompensas de un usuario en un curso | F08 |
 | EntradaGlosario | Término y definición, derivados de lecciones completadas o agregados por el alumno | F09 |

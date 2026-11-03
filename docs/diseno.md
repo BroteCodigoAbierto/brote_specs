@@ -198,7 +198,7 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | `Texto` (móvil) | `variante` (nombre de la tabla 2.2), `color` (nombre de color) | Todo texto del móvil; aplica Plus Jakarta Sans. En la web lo resuelven las variables `--texto-*` |
 | `FondoAmbiental` | — | Web: en `body`. Móvil: envuelve cada pantalla (vista con `experimental_backgroundImage`) |
 | `Superficie` | `tono`, `elevada` | Ver sección 3 |
-| `Boton` | `variante` (`primario`, `secundario`, `fantasma`, `peligro`, `enlace`), `tamano` (`normal`, `chico`), `icono`, `iconoFinal`, `enviando`, `anchoCompleto` | Píldora. `enviando`: deshabilita y muestra indicador sin cambiar de ancho |
+| `Boton` | `variante` (`primario`, `secundario`, `fantasma`, `peligro`, `enlace`), `tamano` (`normal`, `chico`), `icono`, `iconoFinal`, `enviando`, `anchoCompleto` | Píldora. `enviando`: deshabilita y muestra indicador sin cambiar de ancho. Un texto que no cabe se corta con "…" en una línea (F04) |
 | `CampoTexto` | `etiqueta`, `error`, `ayuda`, `icono` | Fondo `vidrioSuave`; foco: borde `primario` + halo de 3 px `primarioSuave`; error: borde y fondo de error, mensaje con icono debajo |
 | `CampoContrasena` | igual que `CampoTexto` | Botón de ojo de 44 px dentro del campo |
 | `Buscador` | `valor`, `buscando` | Icono de lupa, botón para limpiar, indicador a la derecha mientras busca |

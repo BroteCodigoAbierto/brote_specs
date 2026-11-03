@@ -255,8 +255,8 @@ deja el estado inicial.
 - [x] V20 [web, móvil] Con 25 cursos publicados, el catálogo muestra los 10 primeros por título. En el móvil, al llegar al final de la lista se agregan los 10 siguientes; en la web, al pulsar "Ver más". Después de la tercera carga veo los 25, ninguno repetido, y no se cargan más (en la web, "Ver más" ya no aparece).
 - [x] V21 [web, móvil] Al buscar "curso de prueba" veo 10 de los 21 cursos genéricos; al cargar más, otros 10, y después el último. Al borrar la búsqueda, la lista vuelve a empezar desde los primeros 10 del catálogo.
 - [x] V22 [web, móvil] Pulsar "Ver más" varias veces seguidas (web), o seguir deslizando mientras se cargan (móvil), agrega los 10 siguientes una sola vez.
-- [ ] V23 [web, móvil] Con 25 cursos publicados y los primeros 10 cargados, retiro uno de esos 10; al cargar más, no se repite ni falta ninguno de los que siguen publicados.
-- [ ] V24 [web, móvil] Con 10 cursos cargados, apago el servidor y pido más: los 10 siguen en pantalla y al final veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar"; al encender el servidor y pulsar "Reintentar" se agregan los 10 siguientes.
+- [x] V23 [web, móvil] Con 25 cursos publicados y los primeros 10 cargados, retiro uno de esos 10; al cargar más, no se repite ni falta ninguno de los que siguen publicados.
+- [x] V24 [web, móvil] Con 10 cursos cargados, apago el servidor y pido más: los 10 siguen en pantalla y al final veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar"; al encender el servidor y pulsar "Reintentar" se agregan los 10 siguientes.
 - [x] V25 [backend] Pedir cursos al servidor, sin pasar por un cliente, nunca devuelve más de 10 de una vez, aunque se le pidan más.
 - [x] V26 [web, móvil] Al pulsar la tarjeta de "Git esencial" veo su portada, el título, "Por {nombre del autor}", la descripción completa, "6 lecciones" y las seis lecciones numeradas en orden, de "1. ¿Qué es el control de versiones?" a "6. Resolviendo conflictos".
 - [x] V27 [web, móvil] Un curso publicado sin lecciones muestra "Este curso todavía no tiene lecciones." en su detalle.
@@ -265,11 +265,11 @@ deja el estado inicial.
 - [x] V30 [web] Al recargar el catálogo con "git" en el buscador, sigo viendo "git" y solo "Git esencial"; con 20 cursos cargados, al recargar veo solo los primeros 10. Al recargar el detalle de un curso, sigo viendo ese curso.
 - [x] V31 [web] Dado que no hay sesión, cuando abro la dirección del detalle de "Git esencial" y entro, entonces llego a ese detalle.
 - [x] V32 [web] Una dirección de curso con un identificador que no existe muestra "Este curso no existe o ya no está disponible." y "Ver cursos", que lleva al catálogo.
-- [ ] V33 [web, móvil] Si un curso deja de estar publicado después de cargar el catálogo, al pulsar su tarjeta veo "Este curso no existe o ya no está disponible."; al recargar el catálogo, ya no aparece.
-- [ ] V34 [web, móvil] Mientras carga el catálogo o el detalle de un curso se ve un indicador de carga, y "Todavía no hay cursos publicados." no aparece ni por un instante.
-- [ ] V35 [web, móvil] Con el catálogo abierto, apago el servidor; al buscar o al abrir un curso veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar", y lo escrito en el buscador sigue ahí. Al encender el servidor y pulsar "Reintentar" veo los cursos o el detalle.
-- [ ] V36 [móvil] En modo avión, al buscar, recargar o abrir un curso veo "Sin conexión. Revisa tu conexión e inténtalo de nuevo." y "Reintentar"; al quitar el modo avión y pulsar "Reintentar" veo los datos.
-- [ ] V37 [móvil] Con la app abierta en el catálogo, publico un curso nuevo; al deslizar hacia abajo, aparece y la lista vuelve a empezar desde los primeros 10. Si la recarga falla, los cursos que ya estaban siguen en pantalla junto al mensaje de error.
+- [x] V33 [web, móvil] Si un curso deja de estar publicado después de cargar el catálogo, al pulsar su tarjeta veo "Este curso no existe o ya no está disponible."; al recargar el catálogo, ya no aparece.
+- [x] V34 [web, móvil] Mientras carga el catálogo o el detalle de un curso se ve un indicador de carga, y "Todavía no hay cursos publicados." no aparece ni por un instante.
+- [x] V35 [web, móvil] Con el catálogo abierto, apago el servidor; al buscar o al abrir un curso veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar", y lo escrito en el buscador sigue ahí. Al encender el servidor y pulsar "Reintentar" veo los cursos o el detalle.
+- [x] V36 [móvil] En modo avión, al buscar, recargar o abrir un curso veo "Sin conexión. Revisa tu conexión e inténtalo de nuevo." y "Reintentar"; al quitar el modo avión y pulsar "Reintentar" veo los datos.
+- [x] V37 [móvil] Con la app abierta en el catálogo, publico un curso nuevo; al deslizar hacia abajo, aparece y la lista vuelve a empezar desde los primeros 10. Si la recarga falla, los cursos que ya estaban siguen en pantalla junto al mensaje de error.
 - [ ] V38 [web, móvil] Dado que la sesión expiró, cuando busco o abro un curso, entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar."; en la web, al entrar regreso al catálogo con mi búsqueda o al detalle donde estaba.
 
 ---

@@ -331,10 +331,10 @@ búsqueda desde sus primeros 10 resultados.
 - [x] [web, móvil] Pulsar "Ver más" varias veces seguidas (web), o seguir
   deslizando mientras se cargan (móvil), agrega los 10 siguientes una sola
   vez.
-- [ ] [web, móvil] Con 25 cursos publicados y los primeros 10 cargados,
+- [x] [web, móvil] Con 25 cursos publicados y los primeros 10 cargados,
   retiro uno de esos 10; al cargar más, no se repite ni falta ninguno de los
   que siguen publicados.
-- [ ] [web, móvil] Con 10 cursos cargados, apago el servidor y pido más: los
+- [x] [web, móvil] Con 10 cursos cargados, apago el servidor y pido más: los
   10 siguen en pantalla y al final veo "No se pudo conectar con Brote.
   Inténtalo de nuevo en un momento." y "Reintentar"; al encender el servidor
   y pulsar "Reintentar" se agregan los 10 siguientes.
@@ -362,23 +362,23 @@ búsqueda desde sus primeros 10 resultados.
 - [x] [web] Una dirección de curso con un identificador que no existe muestra
   "Este curso no existe o ya no está disponible." y "Ver cursos", que lleva
   al catálogo.
-- [ ] [web, móvil] Si un curso deja de estar publicado después de cargar el
+- [x] [web, móvil] Si un curso deja de estar publicado después de cargar el
   catálogo, al pulsar su tarjeta veo "Este curso no existe o ya no está
   disponible."; al recargar el catálogo, ya no aparece.
 
 ### Estados
 
-- [ ] [web, móvil] Mientras carga el catálogo o el detalle de un curso se ve
+- [x] [web, móvil] Mientras carga el catálogo o el detalle de un curso se ve
   un indicador de carga, y "Todavía no hay cursos publicados." no aparece ni
   por un instante.
-- [ ] [web, móvil] Con el catálogo abierto, apago el servidor; al buscar o al
+- [x] [web, móvil] Con el catálogo abierto, apago el servidor; al buscar o al
   abrir un curso veo "No se pudo conectar con Brote. Inténtalo de nuevo en un
   momento." y "Reintentar", y lo escrito en el buscador sigue ahí. Al encender
   el servidor y pulsar "Reintentar" veo los cursos o el detalle.
-- [ ] [móvil] En modo avión, al buscar, recargar o abrir un curso veo "Sin
+- [x] [móvil] En modo avión, al buscar, recargar o abrir un curso veo "Sin
   conexión. Revisa tu conexión e inténtalo de nuevo." y "Reintentar"; al
   quitar el modo avión y pulsar "Reintentar" veo los datos.
-- [ ] [móvil] Con la app abierta en el catálogo, publico un curso nuevo; al
+- [x] [móvil] Con la app abierta en el catálogo, publico un curso nuevo; al
   deslizar hacia abajo, aparece y la lista vuelve a empezar desde los
   primeros 10. Si la recarga falla, los cursos que ya estaban siguen en
   pantalla junto al mensaje de error.

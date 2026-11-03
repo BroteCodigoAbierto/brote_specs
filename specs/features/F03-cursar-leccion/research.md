@@ -231,11 +231,15 @@ Versiones revisadas el 2026-11-02: Prisma 7.10.1, React Router 8.4.0, Expo SDK
   el `Layout`, del que cuelgan el `Layout` y la lección. Así siguen montados
   al pasar del catálogo al detalle y a la lección, y de regreso.
 - **Salir**:
-  - La X y "Volver al curso" hacen lo mismo que el "Volver" del detalle de
-    F02: `navegar(-1)` si se llegó desde otra pantalla de Brote
-    (`ubicacion.key !== "default"`) o, si se abrió la dirección directo,
-    `navegar("/cursos/:idCurso", { replace: true })`. Así, después de salir,
-    "atrás" no regresa a la lección.
+  - La X y "Volver al curso": `navegar(-1)` solo si la lección se abrió desde
+    el detalle del curso (el enlace lleva el estado `{ desdeCurso: true }`,
+    `utilidades/navegacion.ts`); si no (dirección abierta directo, o después
+    de pasar por "Entrar"), `navegar("/cursos/:idCurso", { replace: true })`.
+    Así, después de salir, "atrás" no regresa a la lección.
+    *Al validar*: la primera versión usaba `ubicacion.key !== "default"`, como
+    el "Volver" de F02. Después de "Entrar" (que redirige con `replace`) la
+    clave ya no es `"default"` y `navegar(-1)` salía de Brote hacia la página
+    anterior del historial, sin pedir confirmación.
   - La confirmación usa **`useBlocker`** de React Router, con la condición
     "hizo algo y no ha terminado" y solo si cambia la ruta. Bloquea por igual
     la X, el botón de volver del navegador y cualquier enlace. Mientras

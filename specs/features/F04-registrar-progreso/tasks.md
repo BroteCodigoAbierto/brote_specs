@@ -122,7 +122,7 @@ description: "Lista de tareas de F04 Registrar y consultar el progreso"
 ## Fase 5: Cierre
 
 - [X] T052 [specs] Integrar [data-model.md](./data-model.md) a `specs/02-modelo-datos.md`: **Progreso (F04)** en "Entidades definidas" (tabla de campos, clave primaria, índice, `CHECK` y reglas), y quitarlo de "Entidades previstas"
-- [ ] T053 [specs] Integrar a `specs/01-navegacion.md` lo de plan.md, "Cambios a la navegación": web `/panel` ("Mi panel", dentro del marco, con el enlace en el encabezado) y el botón Empezar / Continuar del detalle; móvil `(tabs)/mis-cursos` deja de estar prevista para F04 (la parte de descargados sigue prevista para F10) y abre `curso/[idCurso]` encima de las pestañas; en "Qué viaja", Mis cursos / Mi panel → Detalle del curso
+- [X] T053 [specs] Integrar a `specs/01-navegacion.md` lo de plan.md, "Cambios a la navegación": web `/panel` ("Mi panel", dentro del marco, con el enlace en el encabezado) y el botón Empezar / Continuar del detalle; móvil `(tabs)/mis-cursos` deja de estar prevista para F04 (la parte de descargados sigue prevista para F10) y abre `curso/[idCurso]` encima de las pestañas; en "Qué viaja", Mis cursos / Mi panel → Detalle del curso
 - [ ] T054 [specs] `npm run contrato:revisar`: todas las copias coinciden con la oficial (0.5.0)
 - [ ] T055 [specs] Revisar que `spec.md` coincide con lo que se construyó; si algo cambió, actualizarla en el mismo PR
 - [ ] T056 [specs] Repetir de F03 "Volver y empezar de nuevo" y "Con algo hecho", y de F02 "Volver con lo cargado" (quickstart.md, sección 4)

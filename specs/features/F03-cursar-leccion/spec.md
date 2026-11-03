@@ -308,9 +308,9 @@ Nada de esto se guarda (ver "Resultado esperado").
 
 <!--
   Datos de prueba: los cuatro cursos del prototipo publicados, con las
-  actividades de los cinco tipos de esta feature, más el curso "Curso de
-  prueba de actividades" descrito en "Supuestos". Cómo prepararlos lo dice
-  el quickstart.md del plan.
+  actividades de los cinco tipos de esta feature, más el curso "Actividades
+  de prueba" descrito en "Supuestos". Cómo prepararlos lo dice el
+  quickstart.md del plan.
 -->
 
 ### Abrir y recorrer
@@ -398,7 +398,7 @@ Nada de esto se guarda (ver "Resultado esperado").
   correcto y el segundo incorrecto (con "=======" junto a él), y la pregunta
   cuenta como fallada. "Comprobar" no se habilita mientras uno de los dos
   espacios esté vacío.
-- [ ] [web, móvil] En "Curso de prueba de actividades", el espacio que acepta
+- [ ] [web, móvil] En "Actividades de prueba", el espacio que acepta
   "canción" y "tema" da por correctas "Cancion", "CANCIÓN", "tema" y
   "canción  " (con espacios al final), y por incorrecta "canciones".
 - [ ] [web, móvil] Un espacio no deja escribir más de 100 caracteres.
@@ -450,11 +450,11 @@ Nada de esto se guarda (ver "Resultado esperado").
 
 ### Contenido y acceso
 
-- [ ] [web, móvil] En "Curso de prueba de actividades", la lección con
+- [ ] [web, móvil] En "Actividades de prueba", la lección con
   `<b>hola</b>` y `<script>` en sus textos (teoría, tarjeta, pregunta,
   opciones, texto con espacios y solución) los muestra tal cual, sin
   negritas y sin ejecutar nada.
-- [ ] [web, móvil] En "Curso de prueba de actividades", la lección sin
+- [ ] [web, móvil] En "Actividades de prueba", la lección sin
   actividades muestra "Esta lección todavía no tiene actividades." y "Volver
   al curso".
 - [ ] [web] Una dirección de lección con un identificador inventado, o con
@@ -515,10 +515,12 @@ Nada de esto se guarda (ver "Resultado esperado").
 - Los textos de las actividades del prototipo se cargan tal cual, sin
   corregirlos; solo cambia el formato en que se guardan. Los términos de
   glosario no se cargan.
-- Para validar los criterios hace falta además un curso publicado "Curso de
-  prueba de actividades" con: una lección con un espacio que acepta "canción"
-  y "tema"; una lección con `<b>hola</b>` y `<script>` en los textos de una
-  actividad de cada tipo; y una lección sin actividades.
+- Para validar los criterios hace falta además un curso "Actividades de
+  prueba" con: una lección con un espacio que acepta "canción" y "tema"; una
+  lección con `<b>hola</b>` y `<script>` en los textos de una actividad de
+  cada tipo; y una lección sin actividades. Como los cursos extra de F02, solo
+  está publicado mientras se validan los criterios que lo piden, para no
+  cambiar los resultados del catálogo.
 - Se mezclan las opciones porque en el prototipo la correcta siempre es la
   primera.
 - La tarjeta de memoria no se califica: en el prototipo tenía "Lo sabía" y "A

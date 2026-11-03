@@ -176,6 +176,7 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 
 | Componente | Props clave | Notas |
 |---|---|---|
+| `Texto` (móvil) | `variante` (nombre de la tabla 2.2), `color` (nombre de color) | Todo texto del móvil; aplica Plus Jakarta Sans. En la web lo resuelven las variables `--texto-*` |
 | `FondoAmbiental` | — | Web: en `body`. Móvil: envuelve cada pantalla (vista con `experimental_backgroundImage`) |
 | `Superficie` | `tono`, `elevada` | Ver sección 3 |
 | `Boton` | `variante` (`primario`, `secundario`, `fantasma`, `peligro`, `enlace`), `tamano` (`normal`, `chico`), `icono`, `iconoFinal`, `enviando`, `anchoCompleto` | Píldora. `enviando`: deshabilita y muestra indicador sin cambiar de ancho |
@@ -188,9 +189,11 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | `ErrorCarga` | `mensaje`, `alReintentar` | `EstadoVacio` con icono de nube tachada y botón "Reintentar" |
 | `Insignia` | `tono` (`neutro`, `primario`, `brote`, `acento`), `icono` | Píldora chica con icono para metadatos ("6 lecciones") |
 | `PortadaCurso` | `idCurso`, `titulo`, `tamano` (`tarjeta`, `detalle`) | Degradado + inicial; brillo superior |
-| `TarjetaCurso` | `curso` | `Superficie` con portada, título (2 líneas), autor, descripción (3 líneas) e `Insignia` de lecciones |
-| `Encabezado` (web) | — | Barra de vidrio pegajosa: marca a la izquierda, `MenuCuenta` a la derecha |
-| Barra de pestañas (móvil) | — | Pestañas sobre `Superficie` flotante, iconos Lucide, activa en `primario` |
+| `TarjetaCurso` | `curso` | `Superficie` con portada, título (2 líneas), autor, descripción (3 líneas) e `Insignia` de lecciones. Web: portada arriba (16:9) en rejilla; móvil: portada cuadrada a la izquierda |
+| `Marca` | `tamano` (`normal`, `grande`) | Ver "Marca" abajo |
+| Encabezado (web, en `Layout`) | — | Píldora de vidrio pegajosa: `Marca` a la izquierda, `MenuCuenta` (avatar, nombre y menú) a la derecha |
+| Barra de pestañas (móvil) | — | Fondo `Superficie` sólida con esquinas superiores `grande`, iconos Lucide (`Compass`, `UserRound`), activa en `primario` |
+| Volver (detalle) | — | `Boton` `enlace` chico con `ArrowLeft` y "Cursos"; regresa a la pantalla anterior con su estado |
 
 **Iconos**: [Lucide](https://lucide.dev), `lucide-react` en la web y
 `lucide-react-native` en el móvil. Trazo 2, tamaño 20 (16 en insignias, 24 en

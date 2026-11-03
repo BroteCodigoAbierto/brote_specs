@@ -49,9 +49,10 @@
      intento.
   3. El detalle del curso tiene "Empezar" / "Continuar", que abre la primera
      lección sin completar.
-- Pendiente para el plan: cómo comprueba el servidor que los aciertos son
-  reales (research de F03, punto 2, lo dejó abierto para F04). La spec solo
-  exige que no se acepten resultados incoherentes con la lección.
+- Cómo comprueba el servidor los aciertos (research de F03, punto 2, lo dejó
+  abierto para F04): lo resolvió el plan con el usuario. Se comprueba que el
+  resultado cuadre con la lección, sin recalificar (research de F04,
+  punto 1).
 - `docs/diseno.md` no tiene todavía: el avance de un curso (barra y "{n} de
   {total} lecciones"), la marca de lección completada, el estado de guardado
   en `ResultadoLeccion`, la tarjeta de curso empezado, la pestaña "Mis

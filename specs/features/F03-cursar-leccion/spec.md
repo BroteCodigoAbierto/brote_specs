@@ -315,119 +315,119 @@ Nada de esto se guarda (ver "Resultado esperado").
 
 ### Abrir y recorrer
 
-- [ ] [web, móvil] En el detalle de "Git esencial", al pulsar "1. ¿Qué es el
+- [x] [web, móvil] En el detalle de "Git esencial", al pulsar "1. ¿Qué es el
   control de versiones?" se abre su reproductor: la X, la barra de progreso
   vacía y la teoría "El problema que resuelve Git". En el móvil no se ve la
   barra de pestañas.
-- [ ] [web, móvil] Recorro esa lección hasta el final y veo, en este orden:
+- [x] [web, móvil] Recorro esa lección hasta el final y veo, en este orden:
   teoría "El problema que resuelve Git", tarjeta "¿Qué es un repositorio
   (repo)?", tarjeta "¿Qué es un commit?", teoría "Las tres áreas de Git" y
   dos preguntas de opción múltiple. La barra de progreso avanza un paso con
   cada "Continuar" y en la pantalla de lección completada está llena.
-- [ ] [web, móvil] En ninguna lección de los cursos de prueba aparece una
+- [x] [web, móvil] En ninguna lección de los cursos de prueba aparece una
   actividad de los tipos que quedan fuera de alcance: "Tu primer commit"
   (Git esencial, 2) tiene solo su teoría.
-- [ ] [web, móvil] No hay forma de volver a la actividad anterior ni de pasar
+- [x] [web, móvil] No hay forma de volver a la actividad anterior ni de pasar
   a la siguiente sin pulsar "Continuar".
-- [ ] [web] Al recargar la página a mitad de una lección, la lección vuelve a
+- [x] [web] Al recargar la página a mitad de una lección, la lección vuelve a
   empezar desde la primera actividad. La dirección del reproductor se puede
   abrir directamente.
-- [ ] [web] Dado que no hay sesión, cuando abro la dirección de una lección y
+- [x] [web] Dado que no hay sesión, cuando abro la dirección de una lección y
   entro, entonces llego a esa lección.
 
 ### Teoría
 
-- [ ] [web, móvil] La teoría "El problema que resuelve Git" muestra su
+- [x] [web, móvil] La teoría "El problema que resuelve Git" muestra su
   título, dos párrafos y tres puntos clave en lista; "Continuar" está
   disponible desde el principio.
-- [ ] [web, móvil] La teoría "El atributo for de <label>" (Examen unidad 1,
+- [x] [web, móvil] La teoría "El atributo for de <label>" (Examen unidad 1,
   lección 1) muestra `<label>` en el título y en el texto tal cual, y su
   bloque de código en letra monoespaciada con sus dos líneas.
-- [ ] [web, móvil] En "Viajar en el tiempo: historial y diffs" (Git esencial,
+- [x] [web, móvil] En "Viajar en el tiempo: historial y diffs" (Git esencial,
   3), en el diff de la pregunta "En el diff de arriba, ¿qué línea se
   eliminó…?" la línea que empieza con `-` se ve resaltada como eliminada, las
   que empiezan con `+` como agregadas y la de `@@` como encabezado.
-- [ ] [móvil] En la teoría `target="_blank" y rel="noopener"` (Examen unidad
+- [x] [móvil] En la teoría `target="_blank" y rel="noopener"` (Examen unidad
   1, lección 3), la línea de código `<a href="https://ejemplo.com" …>` no se
   corta: el bloque se desplaza hacia los lados para verla completa.
 
 ### Tarjeta de memoria
 
-- [ ] [web, móvil] En la tarjeta "¿Qué es un commit?", "Continuar" está
+- [x] [web, móvil] En la tarjeta "¿Qué es un commit?", "Continuar" está
   deshabilitado; al pulsar la tarjeta veo el reverso ("Una fotografía
   guardada del proyecto…") y "Continuar" se habilita. Al pulsarla otra vez
   vuelve al frente.
-- [ ] [web] Con el foco en la tarjeta, Enter o la barra espaciadora la
+- [x] [web] Con el foco en la tarjeta, Enter o la barra espaciadora la
   voltean.
 
 ### Opción múltiple
 
-- [ ] [web, móvil] En "¿Cuál de estas afirmaciones es correcta?" (Git
+- [x] [web, móvil] En "¿Cuál de estas afirmaciones es correcta?" (Git
   esencial, 1), "Comprobar" está deshabilitado hasta que elijo una opción, y
   puedo cambiar de opción antes de comprobar.
-- [ ] [web, móvil] Al elegir "Un commit es una fotografía del proyecto en un
+- [x] [web, móvil] Al elegir "Un commit es una fotografía del proyecto en un
   momento dado" y comprobar, esa opción queda marcada como correcta y la
   barra inferior dice "¡Correcto!".
-- [ ] [web, móvil] Al elegir "Un commit borra el historial anterior" y
+- [x] [web, móvil] Al elegir "Un commit borra el historial anterior" y
   comprobar, esa opción queda marcada como incorrecta, la correcta queda
   marcada como correcta y la barra inferior muestra "Respuesta correcta: Un
   commit es una fotografía del proyecto en un momento dado". Las opciones ya
   no se pueden cambiar y el botón dice "Continuar".
-- [ ] [web, móvil] Al abrir varias veces la misma lección, las opciones de
+- [x] [web, móvil] Al abrir varias veces la misma lección, las opciones de
   esa pregunta no salen siempre en el mismo orden, y la correcta no está
   siempre arriba.
-- [ ] [web, móvil] En "Hiragana: las vocales" (Japonés sencillo, 1), las
+- [x] [web, móvil] En "Hiragana: las vocales" (Japonés sencillo, 1), las
   opciones de "¿Cuál hiragana se lee 'a'?" se ven como mosaicos con los
   símbolos "あ", "い" y "う" en grande.
-- [ ] [web] Con las teclas 1, 2 y 3 elijo la opción que está en ese lugar en
+- [x] [web] Con las teclas 1, 2 y 3 elijo la opción que está en ese lugar en
   pantalla; Enter comprueba y, después, Enter continúa.
 
 ### Completar espacios
 
-- [ ] [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1), el
+- [x] [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1), el
   texto `___ main() {` con sus tres líneas se ve con su sangría y un espacio
   para escribir; "Comprobar" está deshabilitado mientras el espacio está
   vacío o tiene solo espacios.
-- [ ] [web, móvil] Escribir " INT " en ese espacio y comprobar lo marca como
+- [x] [web, móvil] Escribir " INT " en ese espacio y comprobar lo marca como
   correcto y la barra dice "¡Correcto!".
-- [ ] [web, móvil] Escribir "float" lo marca como incorrecto, muestra "int"
+- [x] [web, móvil] Escribir "float" lo marca como incorrecto, muestra "int"
   junto al espacio y la barra inferior muestra "Respuesta correcta:" con el
   texto completo y "int" en el espacio. El espacio ya no se puede editar.
-- [ ] [web, móvil] En "Resolviendo conflictos" (Git esencial, 6), con
+- [x] [web, móvil] En "Resolviendo conflictos" (Git esencial, 6), con
   "head" en el primer espacio y "=====" en el segundo, el primero queda
   correcto y el segundo incorrecto (con "=======" junto a él), y la pregunta
   cuenta como fallada. "Comprobar" no se habilita mientras uno de los dos
   espacios esté vacío.
-- [ ] [web, móvil] En "Actividades de prueba", el espacio que acepta
+- [x] [web, móvil] En "Actividades de prueba", el espacio que acepta
   "canción" y "tema" da por correctas "Cancion", "CANCIÓN", "tema" y
   "canción  " (con espacios al final), y por incorrecta "canciones".
-- [ ] [web, móvil] Un espacio no deja escribir más de 100 caracteres.
-- [ ] [web] Tab pasa de un espacio al siguiente y Enter comprueba.
+- [x] [web, móvil] Un espacio no deja escribir más de 100 caracteres.
+- [x] [web] Tab pasa de un espacio al siguiente y Enter comprueba.
 
 ### Pregunta abierta
 
-- [ ] [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1),
+- [x] [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1),
   "Comprobar" está deshabilitado hasta que escribo algo que no sean solo
   espacios.
-- [ ] [web, móvil] Al escribir una respuesta y comprobar, mi respuesta queda
+- [x] [web, móvil] Al escribir una respuesta y comprobar, mi respuesta queda
   visible y sin poder editarse, aparece la "Solución de referencia" ("Porque C
   es un lenguaje de tipado estático…") y los botones "La tuve bien" y "No la
   tuve"; "Continuar" no aparece hasta que elijo uno.
-- [ ] [web, móvil] Al elegir "La tuve bien" la barra dice "¡Correcto!" y la
+- [x] [web, móvil] Al elegir "La tuve bien" la barra dice "¡Correcto!" y la
   pregunta cuenta como acertada; al elegir "No la tuve" la barra dice "A
   repasar" y cuenta como fallada.
-- [ ] [web, móvil] El campo de la respuesta no deja escribir más de 2000
+- [x] [web, móvil] El campo de la respuesta no deja escribir más de 2000
   caracteres.
 
 ### Lección completada
 
-- [ ] [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1),
+- [x] [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1),
   acertando la opción múltiple, fallando el espacio y eligiendo "La tuve
   bien" en la pregunta abierta, al terminar veo "¡Lección completada!",
   "Primeros pasos" y "Acertaste 2 de 3", con una celebración breve.
-- [ ] [web, móvil] En "Tu primer commit" (Git esencial, 2), que solo tiene
+- [x] [web, móvil] En "Tu primer commit" (Git esencial, 2), que solo tiene
   teoría, al terminar veo "¡Lección completada!" sin "Acertaste…".
-- [ ] [web, móvil] "Volver al curso" lleva al detalle del curso. Al abrir
+- [x] [web, móvil] "Volver al curso" lleva al detalle del curso. Al abrir
   otra vez la misma lección, empieza desde la primera actividad, sin
   respuestas.
 - [ ] [web, móvil] Con "reducir movimiento" activado, la barra de progreso
@@ -436,50 +436,50 @@ Nada de esto se guarda (ver "Resultado esperado").
 
 ### Salir
 
-- [ ] [web, móvil] En la primera actividad, sin haber hecho nada, la X lleva
+- [x] [web, móvil] En la primera actividad, sin haber hecho nada, la X lleva
   directo al detalle del curso, sin preguntar.
 - [ ] [web, móvil] Después de pasar de la primera actividad, o de elegir una
   opción en ella, la X muestra "¿Salir de la lección?" con "Perderás tu
   avance en esta lección.", "Salir" y "Seguir aquí". "Seguir aquí" me deja en
   la misma actividad con lo que había elegido o escrito; "Salir" lleva al
   detalle del curso.
-- [ ] [web] El botón de volver del navegador a mitad de la lección hace lo
+- [x] [web] El botón de volver del navegador a mitad de la lección hace lo
   mismo que la X.
 - [ ] [móvil] El botón o gesto de atrás del teléfono a mitad de la lección
   hace lo mismo que la X.
 
 ### Contenido y acceso
 
-- [ ] [web, móvil] En "Actividades de prueba", la lección con
+- [x] [web, móvil] En "Actividades de prueba", la lección con
   `<b>hola</b>` y `<script>` en sus textos (teoría, tarjeta, pregunta,
   opciones, texto con espacios y solución) los muestra tal cual, sin
   negritas y sin ejecutar nada.
-- [ ] [web, móvil] En "Actividades de prueba", la lección sin
+- [x] [web, móvil] En "Actividades de prueba", la lección sin
   actividades muestra "Esta lección todavía no tiene actividades." y "Volver
   al curso".
-- [ ] [web] Una dirección de lección con un identificador inventado, o con
+- [x] [web] Una dirección de lección con un identificador inventado, o con
   una lección que es de otro curso, muestra "Esta lección no existe o ya no
   está disponible." y "Ver cursos", que lleva al catálogo.
-- [ ] [backend] Pedir al servidor, sin pasar por un cliente, una lección de
+- [x] [backend] Pedir al servidor, sin pasar por un cliente, una lección de
   un curso en borrador responde exactamente igual que con un identificador
   que no existe; pedir una lección sin sesión se rechaza.
 
 ### Estados
 
-- [ ] [web, móvil] Mientras carga la lección se ven la X y un indicador de
+- [x] [web, móvil] Mientras carga la lección se ven la X y un indicador de
   carga; "Esta lección todavía no tiene actividades." no aparece ni por un
   instante.
-- [ ] [web, móvil] Con el servidor apagado, al abrir una lección veo "No se
+- [x] [web, móvil] Con el servidor apagado, al abrir una lección veo "No se
   pudo conectar con Brote. Inténtalo de nuevo en un momento." y
   "Reintentar"; al encender el servidor y pulsar "Reintentar" veo la primera
   actividad.
 - [ ] [móvil] En modo avión, al abrir una lección veo "Sin conexión. Revisa
   tu conexión e inténtalo de nuevo." y "Reintentar"; al quitar el modo avión
   y pulsar "Reintentar" veo la primera actividad.
-- [ ] [web, móvil] Con una lección ya abierta, apago el servidor (en el
+- [x] [web, móvil] Con una lección ya abierta, apago el servidor (en el
   móvil, o activo el modo avión) y puedo terminarla hasta la pantalla de
   lección completada.
-- [ ] [web, móvil] Dado que la sesión expiró, cuando abro una lección,
+- [x] [web, móvil] Dado que la sesión expiró, cuando abro una lección,
   entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a
   entrar."; en la web, al entrar regreso a esa lección.
 

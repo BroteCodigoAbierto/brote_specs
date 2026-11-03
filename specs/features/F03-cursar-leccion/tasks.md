@@ -222,52 +222,52 @@ se marca también en spec.md. Antes de cada criterio, `npm run bd:sembrar`
 deja el estado inicial; los de "Actividades de prueba" piden además la
 consulta L1.
 
-- [ ] V01 [web, móvil] En el detalle de "Git esencial", al pulsar "1. ¿Qué es el control de versiones?" se abre su reproductor: la X, la barra de progreso vacía y la teoría "El problema que resuelve Git". En el móvil no se ve la barra de pestañas.
-- [ ] V02 [web, móvil] Recorro esa lección hasta el final y veo, en este orden: teoría "El problema que resuelve Git", tarjeta "¿Qué es un repositorio (repo)?", tarjeta "¿Qué es un commit?", teoría "Las tres áreas de Git" y dos preguntas de opción múltiple. La barra de progreso avanza un paso con cada "Continuar" y en la pantalla de lección completada está llena.
-- [ ] V03 [web, móvil] En ninguna lección de los cursos de prueba aparece una actividad de los tipos que quedan fuera de alcance: "Tu primer commit" (Git esencial, 2) tiene solo su teoría.
-- [ ] V04 [web, móvil] No hay forma de volver a la actividad anterior ni de pasar a la siguiente sin pulsar "Continuar".
-- [ ] V05 [web] Al recargar la página a mitad de una lección, la lección vuelve a empezar desde la primera actividad. La dirección del reproductor se puede abrir directamente.
-- [ ] V06 [web] Dado que no hay sesión, cuando abro la dirección de una lección y entro, entonces llego a esa lección.
-- [ ] V07 [web, móvil] La teoría "El problema que resuelve Git" muestra su título, dos párrafos y tres puntos clave en lista; "Continuar" está disponible desde el principio.
-- [ ] V08 [web, móvil] La teoría "El atributo for de <label>" (Examen unidad 1, lección 1) muestra `<label>` en el título y en el texto tal cual, y su bloque de código en letra monoespaciada con sus dos líneas.
-- [ ] V09 [web, móvil] En "Viajar en el tiempo: historial y diffs" (Git esencial, 3), en el diff de la pregunta "En el diff de arriba, ¿qué línea se eliminó…?" la línea que empieza con `-` se ve resaltada como eliminada, las que empiezan con `+` como agregadas y la de `@@` como encabezado.
-- [ ] V10 [móvil] En la teoría `target="_blank" y rel="noopener"` (Examen unidad 1, lección 3), la línea de código `<a href="https://ejemplo.com" …>` no se corta: el bloque se desplaza hacia los lados para verla completa.
-- [ ] V11 [web, móvil] En la tarjeta "¿Qué es un commit?", "Continuar" está deshabilitado; al pulsar la tarjeta veo el reverso ("Una fotografía guardada del proyecto…") y "Continuar" se habilita. Al pulsarla otra vez vuelve al frente.
-- [ ] V12 [web] Con el foco en la tarjeta, Enter o la barra espaciadora la voltean.
-- [ ] V13 [web, móvil] En "¿Cuál de estas afirmaciones es correcta?" (Git esencial, 1), "Comprobar" está deshabilitado hasta que elijo una opción, y puedo cambiar de opción antes de comprobar.
-- [ ] V14 [web, móvil] Al elegir "Un commit es una fotografía del proyecto en un momento dado" y comprobar, esa opción queda marcada como correcta y la barra inferior dice "¡Correcto!".
-- [ ] V15 [web, móvil] Al elegir "Un commit borra el historial anterior" y comprobar, esa opción queda marcada como incorrecta, la correcta queda marcada como correcta y la barra inferior muestra "Respuesta correcta: Un commit es una fotografía del proyecto en un momento dado". Las opciones ya no se pueden cambiar y el botón dice "Continuar".
-- [ ] V16 [web, móvil] Al abrir varias veces la misma lección, las opciones de esa pregunta no salen siempre en el mismo orden, y la correcta no está siempre arriba.
-- [ ] V17 [web, móvil] En "Hiragana: las vocales" (Japonés sencillo, 1), las opciones de "¿Cuál hiragana se lee 'a'?" se ven como mosaicos con los símbolos "あ", "い" y "う" en grande.
-- [ ] V18 [web] Con las teclas 1, 2 y 3 elijo la opción que está en ese lugar en pantalla; Enter comprueba y, después, Enter continúa.
-- [ ] V19 [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1), el texto `___ main() {` con sus tres líneas se ve con su sangría y un espacio para escribir; "Comprobar" está deshabilitado mientras el espacio está vacío o tiene solo espacios.
-- [ ] V20 [web, móvil] Escribir " INT " en ese espacio y comprobar lo marca como correcto y la barra dice "¡Correcto!".
-- [ ] V21 [web, móvil] Escribir "float" lo marca como incorrecto, muestra "int" junto al espacio y la barra inferior muestra "Respuesta correcta:" con el texto completo y "int" en el espacio. El espacio ya no se puede editar.
-- [ ] V22 [web, móvil] En "Resolviendo conflictos" (Git esencial, 6), con "head" en el primer espacio y "=====" en el segundo, el primero queda correcto y el segundo incorrecto (con "=======" junto a él), y la pregunta cuenta como fallada. "Comprobar" no se habilita mientras uno de los dos espacios esté vacío.
-- [ ] V23 [web, móvil] En "Actividades de prueba", el espacio que acepta "canción" y "tema" da por correctas "Cancion", "CANCIÓN", "tema" y "canción  " (con espacios al final), y por incorrecta "canciones".
-- [ ] V24 [web, móvil] Un espacio no deja escribir más de 100 caracteres.
-- [ ] V25 [web] Tab pasa de un espacio al siguiente y Enter comprueba.
-- [ ] V26 [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1), "Comprobar" está deshabilitado hasta que escribo algo que no sean solo espacios.
-- [ ] V27 [web, móvil] Al escribir una respuesta y comprobar, mi respuesta queda visible y sin poder editarse, aparece la "Solución de referencia" ("Porque C es un lenguaje de tipado estático…") y los botones "La tuve bien" y "No la tuve"; "Continuar" no aparece hasta que elijo uno.
-- [ ] V28 [web, móvil] Al elegir "La tuve bien" la barra dice "¡Correcto!" y la pregunta cuenta como acertada; al elegir "No la tuve" la barra dice "A repasar" y cuenta como fallada.
-- [ ] V29 [web, móvil] El campo de la respuesta no deja escribir más de 2000 caracteres.
-- [ ] V30 [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1), acertando la opción múltiple, fallando el espacio y eligiendo "La tuve bien" en la pregunta abierta, al terminar veo "¡Lección completada!", "Primeros pasos" y "Acertaste 2 de 3", con una celebración breve.
-- [ ] V31 [web, móvil] En "Tu primer commit" (Git esencial, 2), que solo tiene teoría, al terminar veo "¡Lección completada!" sin "Acertaste…".
-- [ ] V32 [web, móvil] "Volver al curso" lleva al detalle del curso. Al abrir otra vez la misma lección, empieza desde la primera actividad, sin respuestas.
+- [x] V01 [web, móvil] En el detalle de "Git esencial", al pulsar "1. ¿Qué es el control de versiones?" se abre su reproductor: la X, la barra de progreso vacía y la teoría "El problema que resuelve Git". En el móvil no se ve la barra de pestañas.
+- [x] V02 [web, móvil] Recorro esa lección hasta el final y veo, en este orden: teoría "El problema que resuelve Git", tarjeta "¿Qué es un repositorio (repo)?", tarjeta "¿Qué es un commit?", teoría "Las tres áreas de Git" y dos preguntas de opción múltiple. La barra de progreso avanza un paso con cada "Continuar" y en la pantalla de lección completada está llena.
+- [x] V03 [web, móvil] En ninguna lección de los cursos de prueba aparece una actividad de los tipos que quedan fuera de alcance: "Tu primer commit" (Git esencial, 2) tiene solo su teoría.
+- [x] V04 [web, móvil] No hay forma de volver a la actividad anterior ni de pasar a la siguiente sin pulsar "Continuar".
+- [x] V05 [web] Al recargar la página a mitad de una lección, la lección vuelve a empezar desde la primera actividad. La dirección del reproductor se puede abrir directamente.
+- [x] V06 [web] Dado que no hay sesión, cuando abro la dirección de una lección y entro, entonces llego a esa lección.
+- [x] V07 [web, móvil] La teoría "El problema que resuelve Git" muestra su título, dos párrafos y tres puntos clave en lista; "Continuar" está disponible desde el principio.
+- [x] V08 [web, móvil] La teoría "El atributo for de <label>" (Examen unidad 1, lección 1) muestra `<label>` en el título y en el texto tal cual, y su bloque de código en letra monoespaciada con sus dos líneas.
+- [x] V09 [web, móvil] En "Viajar en el tiempo: historial y diffs" (Git esencial, 3), en el diff de la pregunta "En el diff de arriba, ¿qué línea se eliminó…?" la línea que empieza con `-` se ve resaltada como eliminada, las que empiezan con `+` como agregadas y la de `@@` como encabezado.
+- [x] V10 [móvil] En la teoría `target="_blank" y rel="noopener"` (Examen unidad 1, lección 3), la línea de código `<a href="https://ejemplo.com" …>` no se corta: el bloque se desplaza hacia los lados para verla completa.
+- [x] V11 [web, móvil] En la tarjeta "¿Qué es un commit?", "Continuar" está deshabilitado; al pulsar la tarjeta veo el reverso ("Una fotografía guardada del proyecto…") y "Continuar" se habilita. Al pulsarla otra vez vuelve al frente.
+- [x] V12 [web] Con el foco en la tarjeta, Enter o la barra espaciadora la voltean.
+- [x] V13 [web, móvil] En "¿Cuál de estas afirmaciones es correcta?" (Git esencial, 1), "Comprobar" está deshabilitado hasta que elijo una opción, y puedo cambiar de opción antes de comprobar.
+- [x] V14 [web, móvil] Al elegir "Un commit es una fotografía del proyecto en un momento dado" y comprobar, esa opción queda marcada como correcta y la barra inferior dice "¡Correcto!".
+- [x] V15 [web, móvil] Al elegir "Un commit borra el historial anterior" y comprobar, esa opción queda marcada como incorrecta, la correcta queda marcada como correcta y la barra inferior muestra "Respuesta correcta: Un commit es una fotografía del proyecto en un momento dado". Las opciones ya no se pueden cambiar y el botón dice "Continuar".
+- [x] V16 [web, móvil] Al abrir varias veces la misma lección, las opciones de esa pregunta no salen siempre en el mismo orden, y la correcta no está siempre arriba.
+- [x] V17 [web, móvil] En "Hiragana: las vocales" (Japonés sencillo, 1), las opciones de "¿Cuál hiragana se lee 'a'?" se ven como mosaicos con los símbolos "あ", "い" y "う" en grande.
+- [x] V18 [web] Con las teclas 1, 2 y 3 elijo la opción que está en ese lugar en pantalla; Enter comprueba y, después, Enter continúa.
+- [x] V19 [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1), el texto `___ main() {` con sus tres líneas se ve con su sangría y un espacio para escribir; "Comprobar" está deshabilitado mientras el espacio está vacío o tiene solo espacios.
+- [x] V20 [web, móvil] Escribir " INT " en ese espacio y comprobar lo marca como correcto y la barra dice "¡Correcto!".
+- [x] V21 [web, móvil] Escribir "float" lo marca como incorrecto, muestra "int" junto al espacio y la barra inferior muestra "Respuesta correcta:" con el texto completo y "int" en el espacio. El espacio ya no se puede editar.
+- [x] V22 [web, móvil] En "Resolviendo conflictos" (Git esencial, 6), con "head" en el primer espacio y "=====" en el segundo, el primero queda correcto y el segundo incorrecto (con "=======" junto a él), y la pregunta cuenta como fallada. "Comprobar" no se habilita mientras uno de los dos espacios esté vacío.
+- [x] V23 [web, móvil] En "Actividades de prueba", el espacio que acepta "canción" y "tema" da por correctas "Cancion", "CANCIÓN", "tema" y "canción  " (con espacios al final), y por incorrecta "canciones".
+- [x] V24 [web, móvil] Un espacio no deja escribir más de 100 caracteres.
+- [x] V25 [web] Tab pasa de un espacio al siguiente y Enter comprueba.
+- [x] V26 [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1), "Comprobar" está deshabilitado hasta que escribo algo que no sean solo espacios.
+- [x] V27 [web, móvil] Al escribir una respuesta y comprobar, mi respuesta queda visible y sin poder editarse, aparece la "Solución de referencia" ("Porque C es un lenguaje de tipado estático…") y los botones "La tuve bien" y "No la tuve"; "Continuar" no aparece hasta que elijo uno.
+- [x] V28 [web, móvil] Al elegir "La tuve bien" la barra dice "¡Correcto!" y la pregunta cuenta como acertada; al elegir "No la tuve" la barra dice "A repasar" y cuenta como fallada.
+- [x] V29 [web, móvil] El campo de la respuesta no deja escribir más de 2000 caracteres.
+- [x] V30 [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1), acertando la opción múltiple, fallando el espacio y eligiendo "La tuve bien" en la pregunta abierta, al terminar veo "¡Lección completada!", "Primeros pasos" y "Acertaste 2 de 3", con una celebración breve.
+- [x] V31 [web, móvil] En "Tu primer commit" (Git esencial, 2), que solo tiene teoría, al terminar veo "¡Lección completada!" sin "Acertaste…".
+- [x] V32 [web, móvil] "Volver al curso" lleva al detalle del curso. Al abrir otra vez la misma lección, empieza desde la primera actividad, sin respuestas.
 - [ ] V33 [web, móvil] Con "reducir movimiento" activado, la barra de progreso avanza y la celebración aparece sin animaciones, y la opción incorrecta no se sacude.
-- [ ] V34 [web, móvil] En la primera actividad, sin haber hecho nada, la X lleva directo al detalle del curso, sin preguntar.
+- [x] V34 [web, móvil] En la primera actividad, sin haber hecho nada, la X lleva directo al detalle del curso, sin preguntar.
 - [ ] V35 [web, móvil] Después de pasar de la primera actividad, o de elegir una opción en ella, la X muestra "¿Salir de la lección?" con "Perderás tu avance en esta lección.", "Salir" y "Seguir aquí". "Seguir aquí" me deja en la misma actividad con lo que había elegido o escrito; "Salir" lleva al detalle del curso.
-- [ ] V36 [web] El botón de volver del navegador a mitad de la lección hace lo mismo que la X.
+- [x] V36 [web] El botón de volver del navegador a mitad de la lección hace lo mismo que la X.
 - [ ] V37 [móvil] El botón o gesto de atrás del teléfono a mitad de la lección hace lo mismo que la X.
-- [ ] V38 [web, móvil] En "Actividades de prueba", la lección con `<b>hola</b>` y `<script>` en sus textos (teoría, tarjeta, pregunta, opciones, texto con espacios y solución) los muestra tal cual, sin negritas y sin ejecutar nada.
-- [ ] V39 [web, móvil] En "Actividades de prueba", la lección sin actividades muestra "Esta lección todavía no tiene actividades." y "Volver al curso".
-- [ ] V40 [web] Una dirección de lección con un identificador inventado, o con una lección que es de otro curso, muestra "Esta lección no existe o ya no está disponible." y "Ver cursos", que lleva al catálogo.
-- [ ] V41 [backend] Pedir al servidor, sin pasar por un cliente, una lección de un curso en borrador responde exactamente igual que con un identificador que no existe; pedir una lección sin sesión se rechaza.
-- [ ] V42 [web, móvil] Mientras carga la lección se ven la X y un indicador de carga; "Esta lección todavía no tiene actividades." no aparece ni por un instante.
-- [ ] V43 [web, móvil] Con el servidor apagado, al abrir una lección veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar"; al encender el servidor y pulsar "Reintentar" veo la primera actividad.
+- [x] V38 [web, móvil] En "Actividades de prueba", la lección con `<b>hola</b>` y `<script>` en sus textos (teoría, tarjeta, pregunta, opciones, texto con espacios y solución) los muestra tal cual, sin negritas y sin ejecutar nada.
+- [x] V39 [web, móvil] En "Actividades de prueba", la lección sin actividades muestra "Esta lección todavía no tiene actividades." y "Volver al curso".
+- [x] V40 [web] Una dirección de lección con un identificador inventado, o con una lección que es de otro curso, muestra "Esta lección no existe o ya no está disponible." y "Ver cursos", que lleva al catálogo.
+- [x] V41 [backend] Pedir al servidor, sin pasar por un cliente, una lección de un curso en borrador responde exactamente igual que con un identificador que no existe; pedir una lección sin sesión se rechaza.
+- [x] V42 [web, móvil] Mientras carga la lección se ven la X y un indicador de carga; "Esta lección todavía no tiene actividades." no aparece ni por un instante.
+- [x] V43 [web, móvil] Con el servidor apagado, al abrir una lección veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar"; al encender el servidor y pulsar "Reintentar" veo la primera actividad.
 - [ ] V44 [móvil] En modo avión, al abrir una lección veo "Sin conexión. Revisa tu conexión e inténtalo de nuevo." y "Reintentar"; al quitar el modo avión y pulsar "Reintentar" veo la primera actividad.
-- [ ] V45 [web, móvil] Con una lección ya abierta, apago el servidor (en el móvil, o activo el modo avión) y puedo terminarla hasta la pantalla de lección completada.
-- [ ] V46 [web, móvil] Dado que la sesión expiró, cuando abro una lección, entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar."; en la web, al entrar regreso a esa lección.
+- [x] V45 [web, móvil] Con una lección ya abierta, apago el servidor (en el móvil, o activo el modo avión) y puedo terminarla hasta la pantalla de lección completada.
+- [x] V46 [web, móvil] Dado que la sesión expiró, cuando abro una lección, entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar."; en la web, al entrar regreso a esa lección.
 
 ---
 

@@ -47,11 +47,36 @@ dispositivos. Cada curso decide si usa gamificación.
 | F08 | Gamificación: puntos e insignias por curso | sí | sí |
 | F09 | Glosario | sí | sí |
 | F10 | Cursar sin conexión | no | sí |
+| F11 | Actividades de relacionar: emparejar, clasificar, ordenar y banco de palabras | sí | sí |
+| F12 | Actividades de código y terminal: reto de código, terminal simulada y grafo de commits | sí | sí |
+| F13 | Imágenes y audio propios en los cursos | sí | sí |
+| F14 | Actividad de voz: escuchar y repetir | sí | sí |
+| F15 | Sonidos y vibración al responder y al terminar | sí | sí |
 
-Orden sugerido: F01 → F02 → F03 → F04 → F05 → F06 → F07 → F09 → F08 → F10.
-F03 y F05 probablemente convenga partirlas por grupos de tipos de actividad
-(p. ej. F03 con los tipos básicos y una feature posterior por cada grupo
-interactivo), cuando se especifiquen.
+Orden: F01 → F02 → F03 → F04 → F05 → F06 → F11 → F12 → F13 → F14 → F07 →
+F15 → F09 → F08 → F10 (decidido el 2026-11-03).
+
+En F13 el autor sube los archivos desde el editor (web); en el móvil solo se
+ven y se escuchan.
+
+## Catálogo de actividades
+
+Las actividades del MVP son los 13 tipos del prototipo (`docs/prototipo.md`).
+Según el principio IV, cada feature que agrega un tipo trae su reproductor en
+la web y el móvil, su formulario del editor y sus actividades en los cursos de
+prueba.
+
+| Grupo | Tipos | Feature |
+|---|---|---|
+| Básicos | teoría, tarjeta, opción múltiple, completar espacios, pregunta abierta | F03 (cursar), F05 (editor) |
+| Relacionar | emparejar, clasificar, ordenar, banco de palabras | F11 |
+| Código y terminal | reto de código, terminal simulada, grafo de commits | F12 |
+| Voz | escuchar y repetir | F14 |
+
+F05 hace el editor completo con los tipos básicos, y su paleta ya agrupa los
+cuatro grupos. F13 agrega imágenes a la teoría y a las opciones de la opción
+múltiple, y audio propio para escuchar y repetir (sin él, se usa voz
+sintetizada). F15 aplica a todas las actividades y se puede apagar.
 
 ## Funcionalidades futuras
 
@@ -60,5 +85,6 @@ interactivo), cuando se especifiquen.
 - Recordatorios con notificaciones en el móvil.
 - Rachas de días seguidos.
 - Cursos no lineales (rutas condicionales entre lecciones).
-- Subir imágenes y audio propios a los cursos.
+- Actividad de dibujo: el alumno dibuja o traza (por ejemplo, un hiragana) y
+  se autoevalúa contra un modelo.
 - Coautores de un curso.

@@ -16,7 +16,7 @@ disable-model-invocation: true
 ## Reglas de Brote (tienen prioridad sobre las instrucciones del núcleo de abajo)
 
 **Antes de escribir código**:
-1. Lee `docs/estilo-codigo.md` y el `CLAUDE.md` de cada repo afectado.
+1. Lee `docs/estilo-codigo.md` y el `CLAUDE.md` de cada repo afectado. Si hay tareas de interfaz, lee también `docs/diseno.md` y úsalo: solo tokens y componentes de ahí, nada de colores, sombras o tamaños sueltos.
 2. En cada repo afectado (`../brote_backend_express`, `../brote_web_react`, `../brote_mobile_expo`), verifica que estás en la rama `feature/<ID>-<nombre-corto>`. Si no existe, créala desde `dev` actualizado. Nunca trabajes directo en `dev` ni en `main`.
 3. Si el usuario pidió tareas concretas (p. ej. "solo T006"), implementa **solo esas**.
 

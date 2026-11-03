@@ -238,9 +238,9 @@ deja el estado inicial.
 - [x] V03 [web, móvil] Cada tarjeta muestra la portada, el título, "Por {nombre del autor}", el inicio de la descripción y el número de lecciones: la de "Git esencial" dice "6 lecciones"; la de un curso con una sola lección dice "1 lección"; la de un curso sin lecciones dice "Sin lecciones".
 - [x] V04 [web, móvil] La portada de "Japonés sencillo" es una "J" sobre un color, y la de un curso titulado "¿Cómo se dice hola?" es una "C". Un mismo curso tiene el mismo color en su tarjeta, en su detalle, al recargar y en el otro cliente.
 - [x] V05 [web, móvil] Una descripción que no cabe en tres líneas se corta con "…" en la tarjeta y se ve completa en el detalle.
-- [ ] V06 [web, móvil] Un curso en borrador y otro en revisión no aparecen en el catálogo ni al buscar su título exacto, aunque entre con la cuenta de su autor.
+- [x] V06 [web, móvil] Un curso en borrador y otro en revisión no aparecen en el catálogo ni al buscar su título exacto, aunque entre con la cuenta de su autor.
 - [ ] V07 [web, móvil] Sin ningún curso publicado, el catálogo muestra "Todavía no hay cursos publicados." y no muestra el buscador.
-- [ ] V08 [web, móvil] Un curso cuyo título y descripción contienen `<b>hola</b>` y `<script>` muestra esos textos tal cual en la tarjeta y en el detalle, sin negritas y sin ejecutar nada.
+- [x] V08 [web, móvil] Un curso cuyo título y descripción contienen `<b>hola</b>` y `<script>` muestra esos textos tal cual en la tarjeta y en el detalle, sin negritas y sin ejecutar nada.
 - [x] V09 [web, móvil] Al escribir "git" en el buscador, sin pulsar Enter ni ningún botón, el catálogo muestra solo "Git esencial".
 - [x] V10 [web, móvil] "JAPONES" encuentra "Japonés sencillo" y "programacion" encuentra "Programación en C sencilla".
 - [x] V11 [web, móvil] "flex" encuentra "Examen unidad 1" (la palabra solo está en su descripción).
@@ -249,19 +249,19 @@ deja el estado inicial.
 - [x] V14 [web, móvil] Con "cocina" veo "No hay cursos que coincidan con «cocina»." y "Borrar búsqueda"; al pulsarlo, el buscador queda vacío y veo los cuatro cursos.
 - [x] V15 [web, móvil] Un texto de solo espacios muestra el catálogo completo, y el buscador no acepta más de 100 caracteres.
 - [x] V16 [web, móvil] Si escribo "japo", lo borro y escribo "git" de corrido, termino viendo solo "Git esencial".
-- [ ] V17 [web, móvil] Mientras llegan los resultados de una búsqueda, la lista anterior sigue en pantalla, atenuada, con un indicador junto al buscador; la lista no desaparece ni aparece el indicador de carga del catálogo en su lugar.
+- [x] V17 [web, móvil] Mientras llegan los resultados de una búsqueda, la lista anterior sigue en pantalla, atenuada, con un indicador junto al buscador; la lista no desaparece ni aparece el indicador de carga del catálogo en su lugar.
 - [x] V18 [backend] Pedir al servidor, sin pasar por un cliente, una búsqueda de 101 caracteres se rechaza; pedir el catálogo o el detalle de un curso sin sesión también se rechaza.
 - [x] V19 [backend] Pedir al servidor el detalle de un curso en borrador, con su identificador, responde exactamente igual que con un identificador que no existe.
-- [ ] V20 [web, móvil] Con 25 cursos publicados, el catálogo muestra los 10 primeros por título. En el móvil, al llegar al final de la lista se agregan los 10 siguientes; en la web, al pulsar "Ver más". Después de la tercera carga veo los 25, ninguno repetido, y no se cargan más (en la web, "Ver más" ya no aparece).
-- [ ] V21 [web, móvil] Al buscar "curso de prueba" veo 10 de los 21 cursos genéricos; al cargar más, otros 10, y después el último. Al borrar la búsqueda, la lista vuelve a empezar desde los primeros 10 del catálogo.
-- [ ] V22 [web, móvil] Pulsar "Ver más" varias veces seguidas (web), o seguir deslizando mientras se cargan (móvil), agrega los 10 siguientes una sola vez.
+- [x] V20 [web, móvil] Con 25 cursos publicados, el catálogo muestra los 10 primeros por título. En el móvil, al llegar al final de la lista se agregan los 10 siguientes; en la web, al pulsar "Ver más". Después de la tercera carga veo los 25, ninguno repetido, y no se cargan más (en la web, "Ver más" ya no aparece).
+- [x] V21 [web, móvil] Al buscar "curso de prueba" veo 10 de los 21 cursos genéricos; al cargar más, otros 10, y después el último. Al borrar la búsqueda, la lista vuelve a empezar desde los primeros 10 del catálogo.
+- [x] V22 [web, móvil] Pulsar "Ver más" varias veces seguidas (web), o seguir deslizando mientras se cargan (móvil), agrega los 10 siguientes una sola vez.
 - [ ] V23 [web, móvil] Con 25 cursos publicados y los primeros 10 cargados, retiro uno de esos 10; al cargar más, no se repite ni falta ninguno de los que siguen publicados.
 - [ ] V24 [web, móvil] Con 10 cursos cargados, apago el servidor y pido más: los 10 siguen en pantalla y al final veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar"; al encender el servidor y pulsar "Reintentar" se agregan los 10 siguientes.
 - [x] V25 [backend] Pedir cursos al servidor, sin pasar por un cliente, nunca devuelve más de 10 de una vez, aunque se le pidan más.
 - [x] V26 [web, móvil] Al pulsar la tarjeta de "Git esencial" veo su portada, el título, "Por {nombre del autor}", la descripción completa, "6 lecciones" y las seis lecciones numeradas en orden, de "1. ¿Qué es el control de versiones?" a "6. Resolviendo conflictos".
-- [ ] V27 [web, móvil] Un curso publicado sin lecciones muestra "Este curso todavía no tiene lecciones." en su detalle.
+- [x] V27 [web, móvil] Un curso publicado sin lecciones muestra "Este curso todavía no tiene lecciones." en su detalle.
 - [x] V28 [web, móvil] Después de buscar "git" y abrir "Git esencial", al volver al catálogo el buscador sigue diciendo "git" y veo solo "Git esencial".
-- [ ] V29 [web, móvil] Con 20 cursos cargados, abro el vigésimo y vuelvo al catálogo: siguen los 20 cargados y la lista está en la misma posición.
+- [x] V29 [web, móvil] Con 20 cursos cargados, abro el vigésimo y vuelvo al catálogo: siguen los 20 cargados y la lista está en la misma posición.
 - [x] V30 [web] Al recargar el catálogo con "git" en el buscador, sigo viendo "git" y solo "Git esencial"; con 20 cursos cargados, al recargar veo solo los primeros 10. Al recargar el detalle de un curso, sigo viendo ese curso.
 - [x] V31 [web] Dado que no hay sesión, cuando abro la dirección del detalle de "Git esencial" y entro, entonces llego a ese detalle.
 - [x] V32 [web] Una dirección de curso con un identificador que no existe muestra "Este curso no existe o ya no está disponible." y "Ver cursos", que lleva al catálogo.

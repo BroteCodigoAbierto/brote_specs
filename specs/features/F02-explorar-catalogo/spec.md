@@ -277,12 +277,12 @@ búsqueda desde sus primeros 10 resultados.
   y en el otro cliente.
 - [x] [web, móvil] Una descripción que no cabe en tres líneas se corta con
   "…" en la tarjeta y se ve completa en el detalle.
-- [ ] [web, móvil] Un curso en borrador y otro en revisión no aparecen en el
+- [x] [web, móvil] Un curso en borrador y otro en revisión no aparecen en el
   catálogo ni al buscar su título exacto, aunque entre con la cuenta de su
   autor.
 - [ ] [web, móvil] Sin ningún curso publicado, el catálogo muestra "Todavía
   no hay cursos publicados." y no muestra el buscador.
-- [ ] [web, móvil] Un curso cuyo título y descripción contienen `<b>hola</b>`
+- [x] [web, móvil] Un curso cuyo título y descripción contienen `<b>hola</b>`
   y `<script>` muestra esos textos tal cual en la tarjeta y en el detalle,
   sin negritas y sin ejecutar nada.
 
@@ -307,7 +307,7 @@ búsqueda desde sus primeros 10 resultados.
   buscador no acepta más de 100 caracteres.
 - [x] [web, móvil] Si escribo "japo", lo borro y escribo "git" de corrido,
   termino viendo solo "Git esencial".
-- [ ] [web, móvil] Mientras llegan los resultados de una búsqueda, la lista
+- [x] [web, móvil] Mientras llegan los resultados de una búsqueda, la lista
   anterior sigue en pantalla, atenuada, con un indicador junto al buscador;
   la lista no desaparece ni aparece el indicador de carga del catálogo en su
   lugar.
@@ -320,15 +320,15 @@ búsqueda desde sus primeros 10 resultados.
 
 ### De 10 en 10
 
-- [ ] [web, móvil] Con 25 cursos publicados, el catálogo muestra los 10
+- [x] [web, móvil] Con 25 cursos publicados, el catálogo muestra los 10
   primeros por título. En el móvil, al llegar al final de la lista se agregan
   los 10 siguientes; en la web, al pulsar "Ver más". Después de la tercera
   carga veo los 25, ninguno repetido, y no se cargan más (en la web, "Ver
   más" ya no aparece).
-- [ ] [web, móvil] Al buscar "curso de prueba" veo 10 de los 21 cursos
+- [x] [web, móvil] Al buscar "curso de prueba" veo 10 de los 21 cursos
   genéricos; al cargar más, otros 10, y después el último. Al borrar la
   búsqueda, la lista vuelve a empezar desde los primeros 10 del catálogo.
-- [ ] [web, móvil] Pulsar "Ver más" varias veces seguidas (web), o seguir
+- [x] [web, móvil] Pulsar "Ver más" varias veces seguidas (web), o seguir
   deslizando mientras se cargan (móvil), agrega los 10 siguientes una sola
   vez.
 - [ ] [web, móvil] Con 25 cursos publicados y los primeros 10 cargados,
@@ -347,11 +347,11 @@ búsqueda desde sus primeros 10 resultados.
   título, "Por {nombre del autor}", la descripción completa, "6 lecciones" y
   las seis lecciones numeradas en orden, de "1. ¿Qué es el control de
   versiones?" a "6. Resolviendo conflictos".
-- [ ] [web, móvil] Un curso publicado sin lecciones muestra "Este curso
+- [x] [web, móvil] Un curso publicado sin lecciones muestra "Este curso
   todavía no tiene lecciones." en su detalle.
 - [x] [web, móvil] Después de buscar "git" y abrir "Git esencial", al volver
   al catálogo el buscador sigue diciendo "git" y veo solo "Git esencial".
-- [ ] [web, móvil] Con 20 cursos cargados, abro el vigésimo y vuelvo al
+- [x] [web, móvil] Con 20 cursos cargados, abro el vigésimo y vuelvo al
   catálogo: siguen los 20 cargados y la lista está en la misma posición.
 - [x] [web] Al recargar el catálogo con "git" en el buscador, sigo viendo
   "git" y solo "Git esencial"; con 20 cursos cargados, al recargar veo solo

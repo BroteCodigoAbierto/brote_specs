@@ -55,8 +55,8 @@ description: "Lista de tareas de F03 Cursar una lección"
 
 ## Fase 2: Backend (brote_backend_express)
 
-- [ ] T008 [back] En `prisma/schema.prisma`, en el modelo `Leccion`, agregar `actividades Json @default("[]")` con el comentario `// F03: lista de Actividad del contrato, en orden; solo se escribe después de validarActividades`. Actualizar el comentario del bloque "Cursos (F02)" (las actividades ya llegaron). Generar la migración `prisma/migrations/<fecha>_f03_actividades/migration.sql` con `npm run bd:migrar -- --create-only --name f03_actividades` (o con `prisma migrate diff` si no se puede crear la *shadow database*, como en F01). Debe quedar `ALTER TABLE "leccion" ADD COLUMN "actividades" JSONB NOT NULL DEFAULT '[]';`. Aplicarla y correr `npm run bd:generar`
-- [ ] T009 [P] [back] Crear `src/validacion/actividades.ts` con `validarActividades(valor: unknown): Actividad[]` (research.md, punto 5; data-model.md). Lanza `new Error("actividad N (tipo): ...")` (N desde 1) en el primer problema:
+- [X] T008 [back] En `prisma/schema.prisma`, en el modelo `Leccion`, agregar `actividades Json @default("[]")` con el comentario `// F03: lista de Actividad del contrato, en orden; solo se escribe después de validarActividades`. Actualizar el comentario del bloque "Cursos (F02)" (las actividades ya llegaron). Generar la migración `prisma/migrations/<fecha>_f03_actividades/migration.sql` con `npm run bd:migrar -- --create-only --name f03_actividades` (o con `prisma migrate diff` si no se puede crear la *shadow database*, como en F01). Debe quedar `ALTER TABLE "leccion" ADD COLUMN "actividades" JSONB NOT NULL DEFAULT '[]';`. Aplicarla y correr `npm run bd:generar`
+- [X] T009 [P] [back] Crear `src/validacion/actividades.ts` con `validarActividades(valor: unknown): Actividad[]` (research.md, punto 5; data-model.md). Lanza `new Error("actividad N (tipo): ...")` (N desde 1) en el primer problema:
   - `valor` es un arreglo; cada elemento, un objeto con `tipo` en `teoria | tarjeta | opcionMultiple | completarEspacios | preguntaAbierta`;
   - ayudantes: `textoObligatorio(objeto, campo)` (texto que, recortado, tiene al menos un carácter), `textoOpcional` (ausente o como el anterior) y `soloCampos(objeto, permitidos)` (rechaza cualquier campo que el tipo no tiene);
   - `teoria`: `titulo` opcional, `texto` obligatorio, `codigo` opcional, `puntosClave` opcional ("si está, al menos uno; cada uno no vacío");
@@ -66,18 +66,18 @@ description: "Lista de tareas de F03 Cursar una lección"
   - `preguntaAbierta`: `pregunta` y `solucion` obligatorias.
 
   Devuelve el mismo arreglo, ya tipado
-- [ ] T010 [back] Crear `src/servicios/lecciones.ts` con `traerLeccionPublicada(idCurso: string, idLeccion: string): Promise<DetalleLeccion>`:
+- [X] T010 [back] Crear `src/servicios/lecciones.ts` con `traerLeccionPublicada(idCurso: string, idLeccion: string): Promise<DetalleLeccion>`:
   - `bd.leccion.findFirst({ where: { id: idLeccion, idCurso, curso: { publicado: true } }, select: { id: true, titulo: true, posicion: true, actividades: true } })`;
   - si no hay, `throw new ErrorApi(404, MENSAJES_LECCION.leccionNoDisponible)`, sea que no exista, que sea de otro curso o que el curso no esté publicado;
   - `aDetalleLeccion(leccion)`: `{ id, titulo, posicion, actividades: leccion.actividades as unknown as Actividad[] }`, con un comentario de que ya se validaron al guardarse.
-- [ ] T011 [back] En `src/rutas/cursos.ts`, agregar `rutasCursos.get<{ idCurso: string; idLeccion: string }>("/:idCurso/lecciones/:idLeccion", requerirSesion, ...)`, que responde `200` con `RespuestaLeccion` (`{ leccion }`). Sin validar los parámetros; la sesión va primero (401 aunque los identificadores no existan)
-- [ ] T012 [P] [back] Crear `scripts/actividades-prototipo.ts` con `export const ACTIVIDADES_PROTOTIPO: Record<string, Actividad[][]>`, por título del curso ("Git esencial", "Japonés sencillo", "Programación en C sencilla", "Examen unidad 1") y una lista por lección, en el orden de su `manifest.json`. Se genera **una vez** con un script desechable en la carpeta temporal (no se versiona) que lee `../brote_specs/referencia/cursos-prototipo/<carpeta>/lessons/*.json` en el orden del manifest y aplica la tabla de research.md, punto 6:
+- [X] T011 [back] En `src/rutas/cursos.ts`, agregar `rutasCursos.get<{ idCurso: string; idLeccion: string }>("/:idCurso/lecciones/:idLeccion", requerirSesion, ...)`, que responde `200` con `RespuestaLeccion` (`{ leccion }`). Sin validar los parámetros; la sesión va primero (401 aunque los identificadores no existan)
+- [X] T012 [P] [back] Crear `scripts/actividades-prototipo.ts` con `export const ACTIVIDADES_PROTOTIPO: Record<string, Actividad[][]>`, por título del curso ("Git esencial", "Japonés sencillo", "Programación en C sencilla", "Examen unidad 1") y una lista por lección, en el orden de su `manifest.json`. Se genera **una vez** con un script desechable en la carpeta temporal (no se versiona) que lee `../brote_specs/referencia/cursos-prototipo/<carpeta>/lessons/*.json` en el orden del manifest y aplica la tabla de research.md, punto 6:
   - solo `content`, `flashcard`, `multiple_choice`, `fill_blank` y `open_question`, en su orden; los demás tipos y `glossary` se descartan;
   - `content` → `teoria` (`title` → `titulo`, `body` → `texto`, `code` → `codigo`, `bullets` → `puntosClave`); `flashcard` → `tarjeta` (`front` → `frente`, `back` → `reverso`); `multiple_choice` → `opcionMultiple` (`prompt` → `pregunta`, `code` → `codigo`, opción texto → `{ texto }`, `{ icon }` → `{ simbolo }`, `answer` → `correcta`); `fill_blank` → `completarEspacios` (`text` → `texto`, `blanks[].accepted` → `espacios[].aceptadas`); `open_question` → `preguntaAbierta` (`prompt` → `pregunta`, `solution` → `solucion`);
   - los textos se copian sin cambios.
 
   Formatear con Prettier. Encabezado: de dónde sale y que lo regenera la tarea T012 de F03 si cambia `referencia/`. Comprobar el total: 93 actividades (26 `teoria`, 9 `tarjeta`, 28 `opcionMultiple`, 13 `completarEspacios`, 17 `preguntaAbierta`)
-- [ ] T013 [back] En `scripts/datos-prueba.ts`:
+- [X] T013 [back] En `scripts/datos-prueba.ts`:
   - `type LeccionPrueba = { titulo: string; actividades: Actividad[] }` y `CursoPrueba.lecciones: LeccionPrueba[]`; `leccionesNumeradas(n)` devuelve lecciones con `actividades: []`;
   - los cuatro cursos del prototipo toman las actividades de `ACTIVIDADES_PROTOTIPO[titulo][i]`;
   - nuevo curso de `AUTOR`, `publicado: false`: "Actividades de prueba", descripción "Curso para comprobar a mano los cinco tipos de actividad." (sin las palabras de los criterios de búsqueda de F02), con las lecciones de quickstart.md, sección 1.1:
@@ -85,9 +85,9 @@ description: "Lista de tareas de F03 Cursar una lección"
     2. "Textos con etiquetas": una actividad de cada tipo con `<b>hola</b>` y `<script>alert(1)</script>` en **todos** sus textos (título, texto, código, puntos clave, frente, reverso, pregunta, opciones, texto con espacios —con su `___`— y solución);
     3. "Lección sin actividades": `[]`.
   - actualizar el comentario de arriba (ahora también hay actividades).
-- [ ] T014 [back] En `scripts/sembrar-cursos.ts`, **antes** de la transacción, pasar las actividades de cada lección por `validarActividades`; si falla, terminar con un error que diga el curso, la lección y el mensaje, sin tocar la base. En la transacción, crear cada lección con `actividades`. Imprimir también cuántas actividades se crearon. Actualizar el comentario de uso (F02 y F03)
-- [ ] T015 [P] [back] Actualizar `CLAUDE.md`: en la estructura, `scripts/actividades-prototipo.ts` (actividades del prototipo ya convertidas al contrato, F03)
-- [ ] T016 [back] `npm run tipos` y `npm run lint` sin errores
+- [X] T014 [back] En `scripts/sembrar-cursos.ts`, **antes** de la transacción, pasar las actividades de cada lección por `validarActividades`; si falla, terminar con un error que diga el curso, la lección y el mensaje, sin tocar la base. En la transacción, crear cada lección con `actividades`. Imprimir también cuántas actividades se crearon. Actualizar el comentario de uso (F02 y F03)
+- [X] T015 [P] [back] Actualizar `CLAUDE.md`: en la estructura, `scripts/actividades-prototipo.ts` (actividades del prototipo ya convertidas al contrato, F03)
+- [X] T016 [back] `npm run tipos` y `npm run lint` sin errores
 
 **Punto de control**: después de `npm run bd:sembrar`, quickstart.md sección 2 (B1 a B6) da exactamente las respuestas de [contracts/api.md](./contracts/api.md). V41 ya se puede validar.
 

@@ -382,7 +382,7 @@ búsqueda desde sus primeros 10 resultados.
   deslizar hacia abajo, aparece y la lista vuelve a empezar desde los
   primeros 10. Si la recarga falla, los cursos que ya estaban siguen en
   pantalla junto al mensaje de error.
-- [ ] [web, móvil] Dado que la sesión expiró, cuando busco o abro un curso,
+- [x] [web, móvil] Dado que la sesión expiró, cuando busco o abro un curso,
   entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a
   entrar."; en la web, al entrar regreso al catálogo con mi búsqueda o al
   detalle donde estaba.

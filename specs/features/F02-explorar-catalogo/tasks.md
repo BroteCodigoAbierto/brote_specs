@@ -270,7 +270,7 @@ deja el estado inicial.
 - [x] V35 [web, móvil] Con el catálogo abierto, apago el servidor; al buscar o al abrir un curso veo "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar", y lo escrito en el buscador sigue ahí. Al encender el servidor y pulsar "Reintentar" veo los cursos o el detalle.
 - [x] V36 [móvil] En modo avión, al buscar, recargar o abrir un curso veo "Sin conexión. Revisa tu conexión e inténtalo de nuevo." y "Reintentar"; al quitar el modo avión y pulsar "Reintentar" veo los datos.
 - [x] V37 [móvil] Con la app abierta en el catálogo, publico un curso nuevo; al deslizar hacia abajo, aparece y la lista vuelve a empezar desde los primeros 10. Si la recarga falla, los cursos que ya estaban siguen en pantalla junto al mensaje de error.
-- [ ] V38 [web, móvil] Dado que la sesión expiró, cuando busco o abro un curso, entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar."; en la web, al entrar regreso al catálogo con mi búsqueda o al detalle donde estaba.
+- [x] V38 [web, móvil] Dado que la sesión expiró, cuando busco o abro un curso, entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar."; en la web, al entrar regreso al catálogo con mi búsqueda o al detalle donde estaba.
 
 ---
 

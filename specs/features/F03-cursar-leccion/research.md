@@ -267,8 +267,12 @@ Fuente: <https://reactrouter.com/api/hooks/useBlocker>.
   `usePreventRemove(hizoAlgo && !terminada, ...)`, que expo-router 58
   exporta (`import { usePreventRemove } from "expo-router"`), intercepta la
   X, el botón atrás de Android y el gesto de deslizar de iOS. En su callback
-  se muestra la confirmación y, si elige "Salir", se ejecuta la acción
-  detenida (`navigation.dispatch(data.action)`).
+  se muestra la confirmación y, si elige "Salir", se apaga el bloqueo
+  (estado `saliendo`) y se repite la acción detenida con `repeat()`.
+  *Al validar*: la primera versión hacía `navigation.dispatch(data.action)`,
+  como en React Navigation. En la versión de expo-router 58 eso vuelve a
+  quedar bloqueado y "Salir" no hacía nada; hay que usar el `repeat` que
+  recibe el callback.
 - **Confirmación**: `Alert.alert("¿Salir de la lección?", "Perderás tu avance
   en esta lección.", [{ text: "Seguir aquí", style: "cancel" }, { text:
   "Salir", style: "destructive", onPress }])`. Es el diálogo nativo de cada

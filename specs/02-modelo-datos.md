@@ -99,12 +99,44 @@ Lección ordenada dentro de un curso. Tabla `leccion`; en el contrato,
 | — | `id_curso` | texto | sí | → `curso.id`; se borra con el curso |
 | `titulo` | `titulo` | texto | sí | Sus límites los define F05 |
 | `posicion` | `posicion` | entero | sí | 1, 2, 3, ... dentro del curso. **Única** por curso |
+| `actividades` | `actividades` | JSONB | sí | Lista de **Actividad** en el orden de la lección (F03). Por defecto `[]`. Solo se escribe después de `validarActividades`. En el contrato viaja en `DetalleLeccion`; `ResumenLeccion` y el detalle del curso no la traen |
 | — | `creado_en`, `actualizado_en` | fecha | sí | |
-
-Las actividades de la lección llegan con F03.
 
 Detalle de las dos tablas, la migración y la búsqueda en
 [`features/F02-explorar-catalogo/data-model.md`](./features/F02-explorar-catalogo/data-model.md).
+
+### Actividad (F03)
+
+Ejercicio o bloque de teoría de una lección. No tiene tabla ni `id`: es un
+elemento de `leccion.actividades`, y su lugar en la lista es su orden. En el
+contrato, la unión `Actividad`, distinguida por `tipo`. La base no comprueba
+su forma: el backend la valida antes de guardarla.
+
+| Tipo (`tipo`) | Campo | Tipo | Obligatorio | Reglas |
+|---|---|---|---|---|
+| `teoria` | `titulo` | texto | no | Si está, no vacío |
+| | `texto` | texto | sí | No vacío. Párrafos separados por un renglón en blanco |
+| | `codigo` | texto | no | Si está, no vacío. Las líneas con `+`, `-` o `@@` se leen como diff |
+| | `puntosClave` | lista de textos | no | Si está, al menos uno; cada uno no vacío |
+| `tarjeta` | `frente`, `reverso` | texto | sí | No vacíos |
+| `opcionMultiple` | `pregunta` | texto | sí | No vacía |
+| | `codigo` | texto | no | Igual que en `teoria` |
+| | `opciones` | lista de `{ texto }` o `{ simbolo }` | sí | Entre 2 y 9; cada texto o símbolo no vacío |
+| | `correcta` | entero | sí | Índice en `opciones`: exactamente una correcta |
+| `completarEspacios` | `texto` | texto | sí | Con al menos un `___` (`MARCA_ESPACIO`) |
+| | `espacios` | lista de `{ aceptadas }` | sí | Uno por cada `___`. Al menos una aceptada por espacio, no vacía y de hasta 100 caracteres; la primera es la que se muestra como esperada |
+| `preguntaAbierta` | `pregunta`, `solucion` | texto | sí | No vacías |
+
+- "No vacío": recortado, tiene al menos un carácter. Un campo que el tipo no
+  tiene se rechaza.
+- Las respuestas viajan al cliente, que califica sin volver a pedir nada
+  (research de F03, punto 2). F04 y F08 no pueden confiar en los aciertos que
+  mande el cliente.
+- Los otros 8 tipos del prototipo llegan con sus features; los límites de
+  longitud de cada texto, con F05, y el glosario de cada actividad, con F09.
+
+Detalle en
+[`features/F03-cursar-leccion/data-model.md`](./features/F03-cursar-leccion/data-model.md).
 
 ## Entidades previstas
 
@@ -113,7 +145,7 @@ spec de cada feature.
 
 | Entidad | Qué representa | Feature |
 |---|---|---|
-| Actividad | Ejercicio o bloque de teoría de una lección; una variante por tipo (13 en el prototipo). Las lecciones las guardan en orden | F03, F05 |
+| Actividad: los demás tipos | Emparejar, ordenar, banco de palabras, clasificar, código, terminal, grafo de commits y escuchar y repetir (8 del prototipo), y los límites de longitud de los textos (F05) | Features siguientes, F05 |
 | Curso: lo que falta | Límites del título y la descripción (F05), el estado "en revisión" (F06), el idioma (F05) y la configuración de gamificación (F08) | F05, F06, F08 |
 | Progreso | Lección completada por un usuario | F04 |
 | Puntos / Insignia | Recompensas de un usuario en un curso | F08 |

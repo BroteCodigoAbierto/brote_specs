@@ -17,6 +17,9 @@ El código está en los repos hermanos (`../brote_backend_express`,
 
 - Todo en español: documentos con acentos; identificadores de código sin
   acentos ni ñ (`docs/estilo-codigo.md`).
+- Toda interfaz sigue `docs/diseno.md` (sistema de diseño de vidrio): tokens,
+  componentes, patrones de pantalla y reglas de las actividades interactivas.
+  Lo que falte se agrega ahí primero.
 - Las specs dicen QUÉ, no CÓMO: nada de librerías, tablas ni endpoints en
   `spec.md`.
 - Las decisiones de diseño o de producto se le preguntan al usuario **una por

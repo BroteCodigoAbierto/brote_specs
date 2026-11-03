@@ -94,8 +94,8 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
    junto a "Explorar" y "Cuenta".
 2. Ve los cursos que empezó, del que avanzó más recientemente al más
    antiguo. Cada curso muestra su portada, título, autor y su avance
-   ("{completadas} de {total} lecciones" con su barra), o "Curso terminado"
-   si completó todas.
+   ("{completadas} de {total} lecciones" con su barra) y, si completó todas,
+   además "Curso terminado".
 3. Pulsa un curso y se abre su detalle, encima de las pestañas, como desde
    "Explorar".
 4. Desliza hacia abajo para volver a cargar la lista.
@@ -145,7 +145,9 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
   lecciones que el curso tiene hoy. "{total}" es el mismo número de
   lecciones que muestra el detalle de F02. La barra está vacía con 0 y llena
   cuando completó todas. Para los lectores de pantalla se anuncia como
-  "{completadas} de {total} lecciones completadas".
+  "{completadas} de {total} lecciones completadas". Con un curso de una sola
+  lección va en singular, como en F02: "{completadas} de 1 lección" y
+  "{completadas} de 1 lección completada".
 - **Curso empezado**: un curso aparece en "Mis cursos" y en "Sigue
   aprendiendo" cuando el alumno completó al menos una de sus lecciones. Los
   cursos terminados siguen apareciendo, con "Curso terminado". Un curso que
@@ -196,6 +198,10 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
   avance ni botón.
 - Al volver de una lección (con "Volver al curso", la X o atrás), el detalle
   muestra el progreso actualizado sin que el alumno tenga que recargar.
+- Al volver (móvil): el detalle se vuelve a cargar sin indicador de carga;
+  mientras llega, se ve el avance anterior. Si no se puede cargar, el
+  detalle sigue en pantalla con el aviso de error o de sin conexión encima y
+  "Reintentar".
 
 ### Mis cursos (móvil) y Mi panel (web)
 
@@ -213,7 +219,9 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
   aparece el mensaje de error o de sin conexión.
 - Al volver a la pestaña "Mis cursos" (móvil) o entrar a "Mi panel" (web),
   la lista se vuelve a cargar, para mostrar lo completado en otro
-  dispositivo o en otra pantalla.
+  dispositivo o en otra pantalla. En el móvil, sin indicador de carga y, si
+  falla, como en la recarga: los cursos siguen visibles y aparece el
+  mensaje de error o de sin conexión.
 
 ## Resultado esperado
 
@@ -400,9 +408,16 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
   aparece la lista.
 - [ ] [móvil] En modo avión, "Mis cursos" muestra "Sin conexión. Revisa tu
   conexión e inténtalo de nuevo." y "Reintentar".
+- [ ] [móvil] Si al volver de una lección completada al detalle del curso no
+  hay conexión, el detalle sigue en pantalla con "Sin conexión. Revisa tu
+  conexión e inténtalo de nuevo." encima y "Reintentar"; al quitar el modo
+  avión y pulsar "Reintentar", la lección aparece marcada.
 - [ ] [web, móvil] Dado que la sesión expiró, cuando abro "Mis cursos" o "Mi
   panel", entonces llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a
   entrar.".
+- [ ] [web, móvil] Dado que la sesión expiró mientras cursaba una lección,
+  cuando la termino, llego a "Entrar" con el aviso "Tu sesión terminó.
+  Vuelve a entrar."; al volver a entrar, esa lección no está completada.
 - [ ] [backend] Registrar, sin pasar por un cliente, una lección de un curso
   en borrador responde exactamente igual que con un identificador que no
   existe; registrar más aciertos que preguntas, o un número de preguntas que
@@ -429,7 +444,9 @@ El alumno no escribe nada: estos datos salen de terminar una lección.
   agrega a "Mis cursos".
 - "Volver al curso" espera a que termine de guardarse para que el detalle ya
   muestre la lección marcada. Si el guardado falla, el alumno puede irse
-  igual; la lección no queda registrada.
+  igual; la lección no queda registrada. En el móvil, el detalle que quedó
+  debajo de la lección se vuelve a cargar al volver, así que la marca
+  aparece en cuanto llega la respuesta (una fracción de segundo).
 - En el detalle, el resultado de cada lección se muestra como "{aciertos} de
   {preguntas} aciertos", también con 1 ("1 de 1 aciertos"), para no
   confundirlo con "{completadas} de {total} lecciones".

@@ -242,7 +242,9 @@ y cada uno sigue donde quedó el anterior.
 | [web, móvil] Curso retirado a mitad | Abre Git esencial, 3; en medio, corre la primera línea de P3; termina la lección. Ve a "Mis cursos" / "Mi panel". Corre la segunda línea de P3 y recarga | "Esta lección ya no está disponible. Tu progreso no se guardó." sin "Reintentar". Git esencial no aparece en la lista; al volver a publicarlo, reaparece con lo que tenía |
 | [web, móvil] Lista con el servidor apagado | Apaga el backend; abre "Mis cursos" (móvil) o "Mi panel" (web). Enciéndelo y pulsa "Reintentar" | "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y "Reintentar"; después, la lista |
 | [móvil] Lista sin conexión | Modo avión; abre "Mis cursos" (si ya estaba cargada, desliza hacia abajo) | "Sin conexión. Revisa tu conexión e inténtalo de nuevo." con "Reintentar" (con cursos en pantalla, se quedan y el mensaje aparece encima) |
+| [móvil] Recarga fallida al volver | Desde el estado inicial, termina Git esencial, 1 hasta ver "Progreso guardado"; activa el modo avión y pulsa "Volver al curso". Quita el modo avión y pulsa "Reintentar" | El detalle sigue en pantalla, con el avance de antes, y encima "Sin conexión. Revisa tu conexión e inténtalo de nuevo." con "Reintentar". Después: "1 de 6 lecciones" y la lección 1 marcada |
 | [web, móvil] Sesión expirada | Corre `./expirar`; abre "Mis cursos" o "Mi panel" | "Entrar" con "Tu sesión terminó. Vuelve a entrar." |
+| [web, móvil] Sesión expirada al guardar | Abre una lección sin completar (por ejemplo, Japonés sencillo, 1); antes del último "Continuar", corre `./expirar`; pulsa "Continuar". Entra otra vez y abre el curso | "Entrar" con "Tu sesión terminó. Vuelve a entrar.". Después, la lección sin marca; P2 no tiene fila de esa lección |
 | [backend] Autoridad al registrar | Sección 2, B3 y B4 | Curso en borrador, lección inexistente y de otro curso: el mismo 404. Resultados incoherentes: 400 y P2 no cambia |
 
 ## 4. Antes del PR

@@ -60,6 +60,13 @@
   plan debe agregarlos ahí antes de usarlos.
 - La dirección de "Mi panel" en la web la fija el plan (`/mis-cursos` ya está
   prevista para F05 en `specs/01-navegacion.md`).
+- Revisión de `/speckit-analyze` (2026-11-03): se agregaron los criterios de
+  sesión expirada al guardar y de recarga fallida al volver al detalle
+  (móvil). Dos casos de error quedan sin criterio propio a propósito: los 15
+  segundos sin respuesta en el móvil (es el mismo cliente que ya se validó en
+  F01 a F03) y la misma lección en dos dispositivos a la vez (lo garantiza
+  que haya un solo registro por alumno y lección; el criterio de repetir
+  comprueba que gana el último).
 - Los criterios marcados `[backend]` se prueban enviando peticiones al
   servidor sin pasar por un cliente; cómo hacerlo lo dice el `quickstart.md`
   del plan.

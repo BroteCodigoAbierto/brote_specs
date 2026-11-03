@@ -27,7 +27,7 @@ tenerlos delante (research.md, punto 8).
 | I. La spec manda | sí | El plan sigue la spec y sus tres aclaraciones. La forma de comprobar los aciertos, que la spec dejaba al plan, la eligió el usuario (research.md, punto 1) |
 | II. Un producto, cuatro repos | sí | Tipos y constantes nuevos en `contrato/` 0.5.0, copiados a los tres repos |
 | III. El backend es la autoridad | sí | El usuario sale siempre de la sesión. Solo se registran lecciones que se pueden abrir (mismo 404 que F03). El cuerpo se valida entero y el resultado se compara con las preguntas que cuenta el servidor, con un `CHECK` en la base. No se recalifican las respuestas porque el cliente ya las conoce desde F03 (research.md, punto 1) |
-| IV. Actividades extensibles | sí | `CALIFICA_ACTIVIDAD` es un `Record<TipoActividad, boolean>` en el contrato. Un tipo nuevo se declara ahí y no hay que tocar nada más (research.md, punto 2) |
+| IV. Actividades extensibles | sí | `CALIFICA_ACTIVIDAD` es un `Record<TipoActividad, boolean>` en el contrato, y con él cuentan las preguntas el backend y los dos clientes. Un tipo nuevo se declara ahí y no hay que tocar nada más (research.md, punto 2) |
 | V. Estados explícitos | sí | Guardar: guardando (sin poder salir con el botón), guardado, error y sin conexión (sin perder el resultado), y no disponible. Detalle, Mis cursos y Mi panel: cargando, con datos, vacío, error y sin conexión (móvil) |
 | VI. Dependencias justificadas | sí | Ningún paquete nuevo |
 | VII. Estilo propio | sí | Identificadores en español sin acentos (`ultimoAvanceEn`, `useGuardarProgreso`) |
@@ -94,9 +94,10 @@ Según `docs/diseno.md`. Lo nuevo se agrega **primero** a `docs/diseno.md`
 - **Navegación** (sección 4):
   - Barra de pestañas (móvil): `Compass` (Explorar), `BookMarked` (Mis
     cursos), `UserRound` (Cuenta).
-  - Encabezado (web): enlace "Mi panel" con `LayoutDashboard`, `Boton`
-    `fantasma` chico; activo en `primario`. En pantallas angostas queda solo
-    el icono, con su nombre accesible.
+  - Encabezado (web): enlace "Mi panel" con `LayoutDashboard`, con el
+    aspecto del `Boton` `fantasma` chico (es un enlace, no un botón: estilos
+    propios con los mismos tokens); activo en `primario`. En pantallas
+    angostas queda solo el icono, con su nombre accesible.
 
 ### Por pantalla
 
@@ -178,6 +179,10 @@ Según `docs/diseno.md`. Lo nuevo se agrega **primero** a `docs/diseno.md`
   `useGuardarProgreso` y pasa `guardado` y `alReintentar` a
   `ResultadoLeccion`. La X de `EncabezadoLeccion` recibe `deshabilitada`
   mientras se guarda.
+- **Reproductor** (`hooks/useReproductor.ts`): recibe las actividades de la
+  lección en lugar de su cantidad, y cuenta `preguntas` con
+  `CALIFICA_ACTIVIDAD` (research.md, punto 2). Los aciertos siguen saliendo
+  de los resultados.
 - **Componentes**: `AvanceCurso` (nuevo); cambian `BarraProgreso`
   (`etiqueta`, `textoValor`), `TarjetaCurso` (`avance`), `ResultadoLeccion`
   (`guardado`, `alReintentar`) y `EncabezadoLeccion` (`deshabilitada`).
@@ -209,7 +214,9 @@ Según `docs/diseno.md`. Lo nuevo se agrega **primero** a `docs/diseno.md`
     `index` y `cuenta`, con `BookMarked`.
   - `src/app/curso/[idCurso].tsx`: lo mismo que la web (avance, botón,
     marca de completada) y `useRecargarAlVolver(recargarEnSilencio)`. El
-    botón hace `router.push` a la lección, como la lista.
+    botón hace `router.push` a la lección, como la lista. Con datos en
+    pantalla, un error de recarga ya no reemplaza el detalle: se queda con el
+    `Aviso` encima, como "Explorar" (research.md, punto 8).
   - `src/app/leccion/[idCurso]/[idLeccion].tsx`: `LeccionTerminada` con
     `useGuardarProgreso`, como en la web. `ErrorConexion` con `sinConexion`
     → `"sinConexion"`. `usePreventRemove` no cambia (ya no bloquea con
@@ -218,7 +225,10 @@ Según `docs/diseno.md`. Lo nuevo se agrega **primero** a `docs/diseno.md`
   `TarjetaCurso`, `ResultadoLeccion` y `EncabezadoLeccion`, con las mismas
   props que en la web.
 - **Hooks**: `useGuardarProgreso.ts` y `useRecargarAlVolver.ts` (nuevos).
-  `usePeticion.ts` gana `recargarEnSilencio()` (research.md, punto 8).
+  `usePeticion.ts` gana `recargarEnSilencio()` (research.md, punto 8): sin
+  `cargando`; si falla, conserva los datos y pone el error.
+  `useReproductor.ts` cuenta las preguntas con `CALIFICA_ACTIVIDAD`, como en
+  la web.
 - **Servicios y utilidades**: `servicios/progreso.ts` y
   `utilidades/progreso.ts`, iguales a los de la web.
 - **Almacenamiento local**: ninguno. Guardar sin conexión para después es

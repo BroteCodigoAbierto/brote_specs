@@ -38,19 +38,22 @@ el contrato por copia y la validación manual ya están decididos
 
 - **Decisión**: una constante en el contrato, `CALIFICA_ACTIVIDAD:
   Record<TipoActividad, boolean>`, con `opcionMultiple`, `completarEspacios`
-  y `preguntaAbierta` en `true`. El backend cuenta con ella las preguntas de
-  la lección.
+  y `preguntaAbierta` en `true`. Con ella cuentan las preguntas de la
+  lección el backend y los dos clientes.
 - **Por qué**: el servidor necesita saber cuántas preguntas tiene una lección
   sin depender de los componentes de los clientes. Al ser un `Record` sobre
   `TipoActividad`, cuando una feature agregue un tipo de actividad el
   contrato no compila hasta decidir si se califica. Sigue siendo "agregar un
   tipo" en el contrato (principio IV): no hay que tocar más código.
-- **Los clientes**: cada componente de actividad ya reporta `"sinCalificar"`
-  o un resultado, y `useReproductor` cuenta como preguntas las que no son
-  `"sinCalificar"` (F03). Eso no cambia. Si un cliente y el contrato no
-  coinciden, el servidor responde 400 y se nota al validar: la lección "2. Tu
-  primer commit" (solo teoría) y "Primeros pasos" (3 preguntas) lo cubren en
-  la guía.
+- **Los clientes**: en F03, `useReproductor` contaba como preguntas los
+  resultados que no eran `"sinCalificar"`, que decide cada componente. Eran
+  dos reglas: si un componente y el contrato no coincidían, todos los
+  guardados de esa lección darían 400. Desde F04, `useReproductor` recibe las
+  actividades de la lección y cuenta `preguntas` con `CALIFICA_ACTIVIDAD`;
+  los aciertos siguen saliendo de los resultados (`"acierto"`). Si un
+  componente de un tipo calificable reportara `"sinCalificar"`, contaría
+  como fallo: se ve en el resultado, pero el guardado no falla. Lo decidió
+  el usuario el 2026-11-03 (revisión de `/speckit-analyze`).
 - **Alternativa descartada**: una lista `TIPOS_PREGUNTA` en el contrato. Al
   agregar un tipo nadie obliga a decidir si va en la lista.
 
@@ -166,13 +169,22 @@ el contrato por copia y la validación manual ya están decididos
   del curso y "Mis cursos".
   - Al recargar con datos en pantalla, los datos se quedan (patrón de la
     sección 5 de `docs/diseno.md`) y el `RefreshControl` no se muestra: es
-    una recarga silenciosa. Si falla, se quedan los datos que había: no se
-    reemplaza una pantalla útil por un error por una recarga que el alumno
-    no pidió.
-  - `usePeticion` del móvil necesita para esto `recargarEnSilencio()` (pide
-    otra vez sin poner `cargando` ni borrar el error de la vista hasta que
-    llega la respuesta). `recargar()` sigue como está para "Reintentar" y
+    una recarga silenciosa. Mientras llega, se ve el avance anterior (una
+    fracción de segundo; spec, "Supuestos").
+  - Si falla, se quedan los datos que había y aparece encima el `Aviso` de
+    error o de sin conexión con "Reintentar", como en "Explorar" al deslizar
+    hacia abajo (F02). Así no se queda en pantalla, sin avisar, un avance
+    viejo que no muestra la lección recién guardada. Lo decidió el usuario
+    el 2026-11-03 (revisión de `/speckit-analyze`).
+  - `usePeticion` del móvil necesita para esto `recargarEnSilencio()`: pide
+    otra vez sin poner `cargando` (así el `RefreshControl` no aparece). Si
+    responde, reemplaza los datos y borra el error; si falla, conserva los
+    datos y pone el error. `recargar()` sigue como está para "Reintentar" y
     deslizar hacia abajo.
+  - El detalle del móvil, que en F02 reemplazaba la pantalla por
+    `ErrorCarga` ante cualquier error, pasa a mostrar el `Aviso` encima
+    cuando ya tiene datos (también al deslizar hacia abajo). "No
+    disponible" sigue reemplazando la pantalla.
 - **Alternativa descartada**: un contexto de progreso compartido que la
   lección actualice con la respuesta del `PUT`. Más estado global para algo
   que una recarga resuelve, y no cubriría lo completado en otro
@@ -189,6 +201,9 @@ En `utilidades/progreso.ts` de cada cliente, iguales en los dos:
 - `textoAvance(completadas, total)` → `"2 de 6 lecciones"`; con `total = 1`,
   `"0 de 1 lección"` / `"1 de 1 lección"`, como `textoCantidadLecciones` de
   F02 ("1 lección").
+- `textoAvanceAccesible(completadas, total)` → `"2 de 6 lecciones
+  completadas"`; con `total = 1`, `"1 de 1 lección completada"` (spec,
+  "Avance de un curso").
 - `textoAciertos({ aciertos, preguntas })` → `"2 de 3 aciertos"`, o `null`
   si `preguntas = 0` (la lección se marca sin resultado).
 - `textoBotonSiguiente(siguiente, completadas)` → `"Empezar: 1. {título}"`

@@ -189,8 +189,7 @@ esa excepción a la regla de "las mismas props en los dos clientes".
 - **Mapa del curso** (`paginas/MapaCurso/`): `usePeticion(traerCursoEnEditor)`,
   con los estados de 404 y 403. Dentro, el formulario de datos, la lista de
   lecciones (research.md, punto 17) y "Eliminar curso".
-- **Lienzo de la lección** (`paginas/LienzoLeccion/`): con `useEditorLeccion`,
-  dibuja la barra superior, `PaletaActividades`, `Secuencia` e `Inspector`. Con
+- **Lienzo de la lección** (`paginas/LienzoLeccion/`): `LienzoLeccion` carga y dibuja los estados, y `EditorLeccion`, con `useEditorLeccion`, dibuja la barra superior, `PaletaActividades`, `Secuencia` e `Inspector`. Con
   `state.probando`, dibuja `ProbarLeccion` (research.md, punto 12).
 - **Actividades** (`src/actividades/`):
   - `ambito.ts` (nuevo): el contexto `AmbitoActividad` (research.md, punto 11).

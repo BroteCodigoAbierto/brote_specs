@@ -63,23 +63,30 @@ Cerrar sesión borra la fila de ese dispositivo; las demás siguen.
 Detalle de las cuatro tablas en
 [`features/F01-crear-cuenta/data-model.md`](./features/F01-crear-cuenta/data-model.md).
 
-### Curso (F02)
+### Curso (F02, F05)
 
 Curso creado por un usuario, que es su autor. Tabla `curso`; en el contrato
-viaja como `ResumenCurso` (catálogo) y `DetalleCurso` (detalle).
+viaja como `ResumenCurso` (catálogo), `DetalleCurso` (detalle), `CursoDelAutor`
+("Cursos que creé") y `CursoEnEditor` (mapa del curso).
 
 | Campo (contrato) | Columna (`curso`) | Tipo | Obligatorio | Reglas |
 |---|---|---|---|---|
 | `id` | `id` | texto | sí | UUID v7, lo genera la base |
-| `titulo` | `titulo` | texto | sí | Sus límites de longitud los define F05 |
-| `descripcion` | `descripcion` | texto | sí | Puede tener saltos de línea. Límites en F05 |
-| — | `publicado` | booleano | sí | Por defecto `false`. Solo los `true` se ven en el catálogo y el detalle, para cualquier usuario, incluido su autor. Lo cambia un administrador en la base (decisión 0014). En F02 "en revisión" es lo mismo que no publicado; F06 lo distingue |
+| `titulo` | `titulo` | texto | sí | De 1 a 100 caracteres. Se guarda recortado |
+| `descripcion` | `descripcion` | texto | sí | De 1 a 1000 caracteres. Puede tener saltos de línea. Se guarda tal como se escribió |
+| — | `publicado` | booleano | sí | Por defecto `false`. Solo los `true` se ven en el catálogo y el detalle, para cualquier usuario, incluido su autor. Lo cambia un administrador en la base (decisión 0014). En F02 "en revisión" es lo mismo que no publicado; F06 lo distingue. Un curso publicado no se edita ni se elimina hasta F06 |
+| `estado` | — | texto | sí | No se guarda: `"publicado"` si `publicado`, si no `"borrador"`. F06 agrega `"enRevision"` |
 | `autor` | `id_autor` | texto | sí | → `user.id`, sin borrado en cascada (borrar cuentas está fuera del MVP). En el contrato, `{ id, nombre }` con el nombre actual del usuario |
 | `cantidadLecciones` | — | entero | sí | No se guarda: se cuenta al responder |
 | — | `creado_en` | fecha | sí | Por defecto, el momento de crearlo. Desempata el orden |
-| — | `actualizado_en` | fecha | sí | |
+| — | `actualizado_en` | fecha | sí | Ordena "Cursos que creé". Se actualiza también al cambiar sus lecciones |
 
 - Un curso no publicado y uno que no existe dan la misma respuesta.
+- Un curso tiene hasta 100 lecciones.
+- Solo su autor abre, cambia o elimina un borrador. Para cualquier otro, un curso
+  ajeno da la misma respuesta que uno que no existe.
+- Eliminar un curso borra sus lecciones y el progreso de ellas. Si estuvo publicado
+  y se retiró, el progreso de sus alumnos se borra con él.
 - Orden del catálogo: el título sin mayúsculas, acentos ni signos al inicio
   ("¿", "¡"); luego `creado_en` y luego `id`.
 - **La portada no se guarda**: cada cliente la calcula (la inicial del título
@@ -88,22 +95,25 @@ viaja como `ResumenCurso` (catálogo) y `DetalleCurso` (detalle).
   [`features/F02-explorar-catalogo/research.md`](./features/F02-explorar-catalogo/research.md),
   punto 7.
 
-### Leccion (F02)
+### Leccion (F02, F05)
 
 Lección ordenada dentro de un curso. Tabla `leccion`; en el contrato,
-`ResumenLeccion`.
+`ResumenLeccion`, y en el editor, `LeccionEnMapa` y `LeccionEnEditor`.
 
 | Campo (contrato) | Columna (`leccion`) | Tipo | Obligatorio | Reglas |
 |---|---|---|---|---|
 | `id` | `id` | texto | sí | UUID v7, lo genera la base |
 | — | `id_curso` | texto | sí | → `curso.id`; se borra con el curso |
-| `titulo` | `titulo` | texto | sí | Sus límites los define F05 |
-| `posicion` | `posicion` | entero | sí | 1, 2, 3, ... dentro del curso. **Única** por curso |
-| `actividades` | `actividades` | JSONB | sí | Lista de **Actividad** en el orden de la lección (F03). Por defecto `[]`. Solo se escribe después de `validarActividades`. En el contrato viaja en `DetalleLeccion`; `ResumenLeccion` y el detalle del curso no la traen |
+| `titulo` | `titulo` | texto | sí | De 1 a 100 caracteres. Se guarda recortado |
+| `posicion` | `posicion` | entero | sí | 1, 2, 3, ... dentro del curso, sin huecos. **Única** por curso. Se renumera al reordenar y al eliminar, en dos pasos, porque el índice único se comprueba fila por fila (research de F05, punto 3) |
+| `actividades` | `actividades` | JSONB | sí | Lista de **Actividad** en el orden de la lección (F03). Por defecto `[]`. Solo se escribe después de `validarActividades`. En el contrato viaja en `DetalleLeccion`; `ResumenLeccion` y el detalle del curso no la traen. Hasta 50 actividades |
+| `version` | `version` | entero | sí | Por defecto 1. Sube 1 cada vez que se guarda la lección, para detectar una versión más nueva. Agregarla, reordenar o renumerar no la cambian. Solo viaja en `LeccionEnEditor` |
 | — | `creado_en`, `actualizado_en` | fecha | sí | |
 
 Detalle de las dos tablas, la migración y la búsqueda en
 [`features/F02-explorar-catalogo/data-model.md`](./features/F02-explorar-catalogo/data-model.md).
+Lo que agrega el editor, en
+[`features/F05-crear-editar-curso/data-model.md`](./features/F05-crear-editar-curso/data-model.md).
 
 ### Actividad (F03)
 
@@ -114,18 +124,20 @@ su forma: el backend la valida antes de guardarla.
 
 | Tipo (`tipo`) | Campo | Tipo | Obligatorio | Reglas |
 |---|---|---|---|---|
-| `teoria` | `titulo` | texto | no | Si está, no vacío |
-| | `texto` | texto | sí | No vacío. Párrafos separados por un renglón en blanco |
-| | `codigo` | texto | no | Si está, no vacío. Las líneas con `+`, `-` o `@@` se leen como diff |
-| | `puntosClave` | lista de textos | no | Si está, al menos uno; cada uno no vacío |
-| `tarjeta` | `frente`, `reverso` | texto | sí | No vacíos |
-| `opcionMultiple` | `pregunta` | texto | sí | No vacía |
+| `teoria` | `titulo` | texto | no | Si está, no vacío, de hasta 100. Se guarda recortado |
+| | `texto` | texto | sí | No vacío, de hasta 5000. Párrafos separados por un renglón en blanco |
+| | `codigo` | texto | no | Si está, no vacío, de hasta 2000. Las líneas con `+`, `-` o `@@` se leen como diff |
+| | `puntosClave` | lista de textos | no | Si está, de 1 a 10; cada uno no vacío, de hasta 200 |
+| `tarjeta` | `frente` | texto | sí | No vacío, de hasta 200 |
+| | `reverso` | texto | sí | No vacío, de hasta 1000 |
+| `opcionMultiple` | `pregunta` | texto | sí | No vacía, de hasta 500 |
 | | `codigo` | texto | no | Igual que en `teoria` |
-| | `opciones` | lista de `{ texto }` o `{ simbolo }` | sí | Entre 2 y 9; cada texto o símbolo no vacío |
+| | `opciones` | lista de `{ texto }` o `{ simbolo }` | sí | Entre 2 y 9, todas de texto o todas de símbolo. Cada texto no vacío, de hasta 200; cada símbolo, de hasta 4. No se repiten: se comparan recortadas, respetando las mayúsculas |
 | | `correcta` | entero | sí | Índice en `opciones`: exactamente una correcta |
-| `completarEspacios` | `texto` | texto | sí | Con al menos un `___` (`MARCA_ESPACIO`) |
-| | `espacios` | lista de `{ aceptadas }` | sí | Uno por cada `___`. Al menos una aceptada por espacio, no vacía y de hasta 100 caracteres; la primera es la que se muestra como esperada |
-| `preguntaAbierta` | `pregunta`, `solucion` | texto | sí | No vacías |
+| `completarEspacios` | `texto` | texto | sí | De hasta 2000, con 1 a 20 `___` (`MARCA_ESPACIO`) |
+| | `espacios` | lista de `{ aceptadas }` | sí | Uno por cada `___`. De 1 a 10 aceptadas por espacio, no vacías y de hasta 100 caracteres; la primera es la que se muestra como esperada |
+| `preguntaAbierta` | `pregunta` | texto | sí | No vacía, de hasta 500 |
+| | `solucion` | texto | sí | No vacía, de hasta 2000 |
 
 - "No vacío": recortado, tiene al menos un carácter. Un campo que el tipo no
   tiene se rechaza.
@@ -136,8 +148,10 @@ su forma: el backend la valida antes de guardarla.
 - Qué tipos son preguntas lo dice `CALIFICA_ACTIVIDAD` en el contrato (F04):
   `opcionMultiple`, `completarEspacios` y `preguntaAbierta`. Con esa
   constante cuentan las preguntas el backend y los dos clientes.
-- Los otros 8 tipos del prototipo llegan con sus features; los límites de
-  longitud de cada texto, con F05, y el glosario de cada actividad, con F09.
+- Los otros 8 tipos del prototipo llegan con sus features, y el glosario de cada
+  actividad, con F09.
+- Las longitudes cuentan caracteres Unicode. Los límites están en
+  `LIMITES_ACTIVIDADES` (F05).
 
 Detalle en
 [`features/F03-cursar-leccion/data-model.md`](./features/F03-cursar-leccion/data-model.md).
@@ -186,7 +200,7 @@ spec de cada feature.
 
 | Entidad | Qué representa | Feature |
 |---|---|---|
-| Actividad: los demás tipos | Emparejar, ordenar, banco de palabras, clasificar, código, terminal, grafo de commits y escuchar y repetir (8 del prototipo), y los límites de longitud de los textos (F05) | Features siguientes, F05 |
-| Curso: lo que falta | Límites del título y la descripción (F05), el estado "en revisión" (F06), el idioma (F05) y la configuración de gamificación (F08) | F05, F06, F08 |
+| Actividad: los demás tipos | Emparejar, ordenar, banco de palabras, clasificar, código, terminal, grafo de commits y escuchar y repetir (8 del prototipo) | F11, F12, F14 |
+| Curso: lo que falta | El estado "en revisión" (F06), el idioma (F07) y la configuración de gamificación (F08) | F06, F07, F08 |
 | Puntos / Insignia | Recompensas de un usuario en un curso | F08 |
 | EntradaGlosario | Término y definición, derivados de lecciones completadas o agregados por el alumno | F09 |

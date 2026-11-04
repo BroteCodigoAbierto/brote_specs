@@ -27,17 +27,18 @@ Brote no se usa sin cuenta. En los dos clientes:
 /cursos/:idCurso          Detalle del curso, sus lecciones y el  (F02, F04)
                           avance del alumno, con Empezar /
                           Continuar
-/panel                    "Mi panel": página personal; por ahora (F04)
-                          solo "Sigue aprendiendo"
+/panel                    "Mi panel": página personal, con       (F04, F05)
+                          "Sigue aprendiendo" y "Cursos que creé"
+/editor/nuevo             Nuevo curso                            (F05)
+/editor/:idCurso          Mapa del curso (datos y lecciones)     (F05)
 *                         Página no encontrada (con sesión)      (F01)
 /cursos/:idCurso/lecciones/:idLeccion
                           Reproductor de la lección, a pantalla  (F03)
                           completa, fuera del marco común
-/glosario                 Glosario                               (F09) (prevista)
-/mis-cursos               Cursos que creé                        (F05) (prevista)
-/editor/:idCurso          Mapa del curso (lecciones)             (F05) (prevista)
 /editor/:idCurso/lecciones/:idLeccion
-                          Lienzo de la lección                   (F05) (prevista)
+                          Lienzo de la lección, a pantalla       (F05)
+                          completa, fuera del marco común
+/glosario                 Glosario                               (F09) (prevista)
 ```
 
 - `/entrar` y `/registro` se muestran sin el marco común. Todas las demás
@@ -63,6 +64,16 @@ Brote no se usa sin cuenta. En los dos clientes:
   se monta de nuevo al volver, así que muestra el avance actualizado.
 - De "Mi panel" a un detalle, "Cursos" (volver) regresa a "Mi panel". El
   panel se vuelve a cargar cada vez que se entra.
+- En "Cursos que creé" (F05), "Editar" abre el mapa de un borrador y "Ver curso"
+  abre el detalle de uno publicado. "Nuevo curso" lleva a `/editor/nuevo`; al
+  crearlo, el mapa reemplaza esa entrada del historial.
+- Del mapa, "Mi panel" vuelve a `/panel`, y cada lección abre su lienzo. Del
+  lienzo, "Volver al curso" lleva al mapa.
+- "Probar lección" (F05) agrega una entrada de historial en la misma dirección,
+  con `state.probando`: volver regresa al lienzo como estaba, sin preguntar.
+  Recargar en modo de prueba vuelve al lienzo.
+- Un curso publicado no se abre en el editor (F05): el mapa y el lienzo muestran
+  el aviso y "Ver curso".
 
 ## Móvil (expo-router)
 
@@ -112,6 +123,19 @@ confirmación: "¿Salir de la lección?", "Perderás tu avance en esta lección.
 (web) y el botón o gesto de atrás del teléfono (móvil). Recargar la página o
 cerrar la app no la piden.
 
+## Salir con cambios sin guardar (F05)
+
+En el lienzo y en los datos del curso, con cambios sin guardar, salir pide
+confirmación: "¿Salir sin guardar?", "Perderás los cambios que no guardaste.",
+"Seguir aquí" y "Salir". La piden "Volver al curso", "Mi panel", abrir una lección
+desde el mapa y el botón de volver del navegador, si el destino está dentro de
+Brote. Recargar, cerrar la pestaña o salir de Brote muestran el aviso del navegador.
+Cerrar sesión no pregunta nada.
+
+Si la sesión expira al guardar, o en una acción del mapa, lo capturado se guarda en
+una copia local. Al entrar con la misma cuenta se regresa a esa pantalla con esos
+cambios; si entra otra cuenta, se descarta.
+
 ## Qué viaja entre pantallas
 
 | De | A | Dato |
@@ -120,3 +144,6 @@ cerrar la app no la piden.
 | Catálogo | Detalle del curso | `idCurso`: en la dirección en la web; como parámetro de ruta en el móvil (F02) |
 | Detalle del curso | Reproductor | `idCurso`, `idLeccion`: en la dirección en la web; como parámetros de ruta en el móvil (F03). Desde la lista o desde Empezar / Continuar (F04); en la web, con `state.desdeCurso` para que salir vuelva al detalle |
 | Mis cursos (móvil) / Mi panel (web) | Detalle del curso | `idCurso`, igual que desde el catálogo (F04) |
+| Mi panel | Mapa del curso | `idCurso`, en la dirección (F05) |
+| Mapa del curso | Lienzo de la lección | `idCurso`, `idLeccion`, en la dirección (F05) |
+| Lienzo de la lección | Probar lección | Nada: las actividades siguen en memoria. `state.probando` en el historial (F05) |

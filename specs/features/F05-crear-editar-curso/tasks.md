@@ -198,7 +198,7 @@ F05 toca `BarraRespuesta` y `useEnfocarAlMontar`, que usa el reproductor.
 - [X] V07 [web] Al pulsar "Crear curso" con el título solo con espacios y la descripción vacía, los dos campos muestran "Este campo es obligatorio." y no se crea nada.
 - [X] V08 [web] El título no deja escribir más de 100 caracteres, y la descripción, más de 1000.
 - [X] V09 [web] Al crear "Huerto urbano" llego a su mapa, con "Borrador", "Este curso todavía no tiene lecciones." y "Agrega la primera para empezar.". En "Mi panel" aparece primero, con "Sin lecciones".
-- [ ] V10 [web, móvil] "Huerto urbano" no aparece en el catálogo ni al buscar su título, ni siquiera con la cuenta A.
+- [X] V10 [web, móvil] "Huerto urbano" no aparece en el catálogo ni al buscar su título, ni siquiera con la cuenta A. (Móvil validado en Expo web, no en un teléfono.)
 - [X] V11 [web] Con la cuenta A, la dirección del detalle de "Huerto urbano" muestra "Este curso no existe o ya no está disponible.".
 - [X] V12 [web] Pulsar "Crear curso" varias veces seguidas crea un solo curso.
 - [X] V13 [web] En el mapa, "Guardar cambios" está deshabilitado hasta que cambio algo. Al cambiar el título a "Azotea verde" y guardar veo "Cambios guardados", y al recargar sigue ese título, con la "A" en la portada.
@@ -208,13 +208,13 @@ F05 toca `BarraRespuesta` y `useEnfocarAlMontar`, que usa el reproductor.
 - [X] V17 [web] "Nueva lección" con el título vacío muestra "Este campo es obligatorio." y no la agrega. El campo no deja escribir más de 100 caracteres.
 - [X] V18 [web] Al agregar "Semillas", "Riego" y "Cosecha", aparecen en ese orden, numeradas de 1 a 3 y con "Sin actividades".
 - [X] V19 [web] Pulsar "Agregar" varias veces seguidas agrega una sola lección.
-- [ ] V20 [web] Al arrastrar "Cosecha" al primer lugar veo "1. Cosecha", "2. Semillas" y "3. Riego", y sigue así al recargar.
+- [X] V20 [web] Al arrastrar "Cosecha" al primer lugar veo "1. Cosecha", "2. Semillas" y "3. Riego", y sigue así al recargar. (Validado con eventos de arrastre simulados, no con el ratón.)
 - [X] V21 [web] Con el teclado, usando "Subir" y "Bajar", logro el mismo cambio y el foco sigue en el botón. "Subir" está deshabilitado en la primera lección y "Bajar" en la última.
 - [X] V22 [web] "Eliminar" en una lección pregunta "¿Eliminar esta lección?" con "Se borrará con todas sus actividades. No se puede deshacer.". "Cancelar" no cambia nada; "Eliminar" la quita, las demás se renumeran y sigue así al recargar.
 - [X] V23 [web] En el borrador con 100 lecciones, "Nueva lección" está deshabilitado y veo "Un curso puede tener hasta 100 lecciones.".
 - [X] V24 [web] La paleta muestra, en este orden: "Básicos" con Teoría, Tarjeta, Opción múltiple, Completar espacios y Pregunta abierta; "Relacionar" con Emparejar, Clasificar, Ordenar y Banco de palabras; "Código y terminal" con Reto de código, Terminal simulada y Grafo de commits; y "Voz" con Escuchar y repetir.
 - [X] V25 [web] Los 8 tipos que no son básicos se ven deshabilitados con "Próximamente": no se pueden arrastrar a la secuencia, y pulsarlos o usarlos con el teclado no agrega nada.
-- [ ] V26 [web] Al arrastrar "Tarjeta" entre dos actividades, queda entre esas dos.
+- [X] V26 [web] Al arrastrar "Tarjeta" entre dos actividades, queda entre esas dos. (Validado con eventos de arrastre simulados, no con el ratón.)
 - [X] V27 [web] Al pulsar "Teoría" con la actividad 2 seleccionada, queda en el lugar 3; sin ninguna seleccionada, queda al final. En los dos casos queda seleccionada y el foco está en su primer campo.
 - [X] V28 [web] Con el teclado (Tab y Enter) agrego una actividad sin usar el ratón.
 - [X] V29 [web] En la lección con 50 actividades, los tipos de la paleta están deshabilitados y veo "Una lección puede tener hasta 50 actividades.".
@@ -222,10 +222,10 @@ F05 toca `BarraRespuesta` y `useEnfocarAlMontar`, que usa el reproductor.
 - [X] V31 [web] Cada bloque muestra su número, su tipo y el inicio de su texto, que cambia mientras escribo en el inspector. Una actividad sin texto dice "Sin contenido".
 - [X] V32 [web] Al agregar una actividad, su bloque lleva la marca "Incompleta" desde el principio, y la pierde en cuanto la completo.
 - [X] V33 [web] Sin actividad seleccionada, el inspector dice "Elige una actividad para editarla.". Al pulsar un bloque, también con el teclado (Tab y Enter), aparece su formulario.
-- [ ] V34 [web] Puedo reordenar los bloques arrastrándolos y con "Subir" y "Bajar".
+- [X] V34 [web] Puedo reordenar los bloques arrastrándolos y con "Subir" y "Bajar". (Validado con eventos de arrastre simulados, no con el ratón.)
 - [X] V35 [web] "Eliminar" en un bloque pregunta "¿Eliminar esta actividad?" con "Perderás lo que escribiste en ella.". Si era la seleccionada, el inspector vuelve a "Elige una actividad para editarla.".
 - [X] V36 [web] En una ventana angosta las zonas se apilan y puedo agregar, editar, reordenar y guardar sin arrastrar.
-- [ ] V37 [web] Con un lector de pantalla, los tipos con "Próximamente" se anuncian como no disponibles, y al mover una lección o un bloque con "Subir" o "Bajar" se anuncia "Movida a la posición {n}".
+- [X] V37 [web] Con un lector de pantalla, los tipos con "Próximamente" se anuncian como no disponibles, y al mover una lección o un bloque con "Subir" o "Bajar" se anuncia "Movida a la posición {n}". (Revisado en el DOM, sin lector de pantalla.)
 - [X] V38 [web] En la teoría, con solo el texto lleno, la actividad deja de estar incompleta. "Agregar punto" suma filas hasta 10; una fila vacía no se guarda.
 - [X] V39 [web] Los formularios muestran sus ayudas: "Separa los párrafos con un renglón en blanco." y "Las líneas que empiezan con +, - o @@ se resaltan como un diff." en la teoría, y "Cada ___ es un espacio que el alumno llena." en completar espacios.
 - [X] V40 [web] La tarjeta queda completa cuando tiene frente y reverso.
@@ -251,7 +251,7 @@ F05 toca `BarraRespuesta` y `useEnfocarAlMontar`, que usa el reproductor.
 - [X] V60 [web] Al terminar veo "¡Lección completada!", el título de la lección y "Acertaste {aciertos} de {preguntas}", con "Volver al editor", sin "Guardando tu progreso…" ni "Progreso guardado".
 - [X] V61 [web] "Volver al editor", la X (sin preguntar nada) y el botón de volver del navegador regresan al lienzo con mis cambios sin guardar y la misma actividad seleccionada.
 - [X] V62 [web] Con el servidor apagado, puedo probar la lección de principio a fin.
-- [ ] V63 [web, móvil] Después de probar una lección y publicar el curso, esa lección aparece sin completar para el autor.
+- [X] V63 [web, móvil] Después de probar una lección y publicar el curso, esa lección aparece sin completar para el autor. (Móvil validado en Expo web, no en un teléfono.)
 - [X] V64 [web] "Guardar lección" está deshabilitado al abrir la lección. Al cambiar algo aparece "Cambios sin guardar" y se habilita.
 - [X] V65 [web] Con una lección de tres actividades completas, al guardar veo "Lección guardada". Al recargar, las tres siguen ahí en el mismo orden y con sus datos, y el mapa dice "3 actividades".
 - [X] V66 [web] Con dos actividades incompletas, al guardar veo "No se guardó: hay 2 actividades incompletas." (con una, "No se guardó: hay 1 actividad incompleta."), queda seleccionada la primera con sus errores y el foco en su primer campo con error. Al recargar y aceptar salir, la lección está como antes de esos cambios.
@@ -259,7 +259,7 @@ F05 toca `BarraRespuesta` y `useEnfocarAlMontar`, que usa el reproductor.
 - [X] V68 [web] Puedo guardar una lección sin actividades.
 - [X] V69 [web] Una teoría con el título vacío y sin puntos clave se guarda sin esos campos. Un código con sangría conserva su sangría después de guardar y recargar.
 - [X] V70 [web] Mientras se guarda, "Guardar lección" muestra un indicador y no puedo editar nada.
-- [ ] V71 [web, móvil] Armo una lección con los cinco tipos, un administrador publica el curso, y un alumno la cursa de principio a fin con lo que escribí: en la web y en el móvil se ve igual que en la vista previa y su resultado cuenta las tres preguntas.
+- [X] V71 [web, móvil] Armo una lección con los cinco tipos, un administrador publica el curso, y un alumno la cursa de principio a fin con lo que escribí: en la web y en el móvil se ve igual que en la vista previa y su resultado cuenta las tres preguntas. (Móvil validado en Expo web, no en un teléfono.)
 - [X] V72 [web] Con la misma lección abierta en dos pestañas, guardo un cambio en la primera y otro en la segunda: la segunda pregunta "Esta lección cambió en otro lugar" con "Se guardó una versión más nueva en otra pestaña o dispositivo. Si guardas, la reemplazarás.", "Cancelar" y "Reemplazar".
 - [X] V73 [web] "Cancelar" me deja en la lección con mis cambios y "Cambios sin guardar"; si recargo y acepto salir, veo lo que guardó la primera pestaña.
 - [X] V74 [web] "Reemplazar" guarda, veo "Lección guardada" y, al recargar la primera pestaña, veo lo de la segunda.

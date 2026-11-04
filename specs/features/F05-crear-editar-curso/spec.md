@@ -546,7 +546,7 @@ La sección se vuelve a cargar cada vez que se entra a "Mi panel".
 - [X] [web] Al crear "Huerto urbano" llego a su mapa, con "Borrador", "Este
   curso todavía no tiene lecciones." y "Agrega la primera para empezar.". En
   "Mi panel" aparece primero, con "Sin lecciones".
-- [ ] [web, móvil] "Huerto urbano" no aparece en el catálogo ni al buscar su
+- [X] [web, móvil] "Huerto urbano" no aparece en el catálogo ni al buscar su
   título, ni siquiera con la cuenta A.
 - [X] [web] Con la cuenta A, la dirección del detalle de "Huerto urbano"
   muestra "Este curso no existe o ya no está disponible.".
@@ -574,7 +574,7 @@ La sección se vuelve a cargar cada vez que se entra a "Mi panel".
 - [X] [web] Al agregar "Semillas", "Riego" y "Cosecha", aparecen en ese orden,
   numeradas de 1 a 3 y con "Sin actividades".
 - [X] [web] Pulsar "Agregar" varias veces seguidas agrega una sola lección.
-- [ ] [web] Al arrastrar "Cosecha" al primer lugar veo "1. Cosecha", "2.
+- [X] [web] Al arrastrar "Cosecha" al primer lugar veo "1. Cosecha", "2.
   Semillas" y "3. Riego", y sigue así al recargar.
 - [X] [web] Con el teclado, usando "Subir" y "Bajar", logro el mismo cambio y
   el foco sigue en el botón. "Subir" está deshabilitado en la primera lección
@@ -596,7 +596,7 @@ La sección se vuelve a cargar cada vez que se entra a "Mi panel".
 - [X] [web] Los 8 tipos que no son básicos se ven deshabilitados con
   "Próximamente": no se pueden arrastrar a la secuencia, y pulsarlos o usarlos
   con el teclado no agrega nada.
-- [ ] [web] Al arrastrar "Tarjeta" entre dos actividades, queda entre esas
+- [X] [web] Al arrastrar "Tarjeta" entre dos actividades, queda entre esas
   dos.
 - [X] [web] Al pulsar "Teoría" con la actividad 2 seleccionada, queda en el
   lugar 3; sin ninguna seleccionada, queda al final. En los dos casos queda
@@ -618,14 +618,14 @@ La sección se vuelve a cargar cada vez que se entra a "Mi panel".
 - [X] [web] Sin actividad seleccionada, el inspector dice "Elige una actividad
   para editarla.". Al pulsar un bloque, también con el teclado (Tab y Enter),
   aparece su formulario.
-- [ ] [web] Puedo reordenar los bloques arrastrándolos y con "Subir" y
+- [X] [web] Puedo reordenar los bloques arrastrándolos y con "Subir" y
   "Bajar".
 - [X] [web] "Eliminar" en un bloque pregunta "¿Eliminar esta actividad?" con
   "Perderás lo que escribiste en ella.". Si era la seleccionada, el inspector
   vuelve a "Elige una actividad para editarla.".
 - [X] [web] En una ventana angosta las zonas se apilan y puedo agregar,
   editar, reordenar y guardar sin arrastrar.
-- [ ] [web] Con un lector de pantalla, los tipos con "Próximamente" se
+- [X] [web] Con un lector de pantalla, los tipos con "Próximamente" se
   anuncian como no disponibles, y al mover una lección o un bloque con "Subir"
   o "Bajar" se anuncia "Movida a la posición {n}".
 
@@ -703,7 +703,7 @@ La sección se vuelve a cargar cada vez que se entra a "Mi panel".
   actividad seleccionada.
 - [X] [web] Con el servidor apagado, puedo probar la lección de principio a
   fin.
-- [ ] [web, móvil] Después de probar una lección y publicar el curso, esa
+- [X] [web, móvil] Después de probar una lección y publicar el curso, esa
   lección aparece sin completar para el autor.
 
 ### Guardar
@@ -726,7 +726,7 @@ La sección se vuelve a cargar cada vez que se entra a "Mi panel".
   recargar.
 - [X] [web] Mientras se guarda, "Guardar lección" muestra un indicador y no
   puedo editar nada.
-- [ ] [web, móvil] Armo una lección con los cinco tipos, un administrador
+- [X] [web, móvil] Armo una lección con los cinco tipos, un administrador
   publica el curso, y un alumno la cursa de principio a fin con lo que
   escribí: en la web y en el móvil se ve igual que en la vista previa y su
   resultado cuenta las tres preguntas.

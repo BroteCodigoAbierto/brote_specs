@@ -168,7 +168,7 @@ description: "Lista de tareas de F05 Crear y editar un curso"
 - [X] T065 [web] En `src/paginas/LienzoLeccion/EditorLeccion.tsx`: `useSalirSinGuardar(hayCambios)` con su `Dialogo`, y el de versión más nueva ("Esta lección cambió en otro lugar", "Se guardó una versión más nueva en otra pestaña o dispositivo. Si guardas, la reemplazarás.", "Reemplazar", "Cancelar"), que llama a `guardar(true)`
 - [X] T066 [web] En `src/paginas/LienzoLeccion/EditorLeccion.tsx`, "Probar lección" (research.md, punto 12): `comprobar`, y si pasa, `navegar(ubicacion.pathname, { state: { probando: true } })`. Con `state.probando` y todo completo, dibuja `ProbarLeccion` con `alSalir={() => navegar(-1)}`. Al montarse, si llega `state.probando` sin haber abierto la prueba en esta visita, reemplaza la entrada
 - [X] T067 [web] En `CLAUDE.md`: la carpeta `editor/` en "Estructura", los componentes nuevos en "Reglas", que el editor no tiene par en el móvil, y que agregar un tipo es su carpeta en `actividades/` con su componente y su editor, y una línea en `registro.ts` y en `registroEditor.ts`
-- [ ] T068 [web] `npm run tipos`, `npm run lint` y `npm run build` sin errores
+- [X] T068 [web] `npm run tipos`, `npm run lint` y `npm run build` sin errores
 
 **Punto de control**: se puede crear un curso, armar una lección con los cinco tipos, probarla y guardarla.
 
@@ -178,8 +178,8 @@ description: "Lista de tareas de F05 Crear y editar un curso"
 
 - [X] T069 [specs] Integrar [data-model.md](./data-model.md) a `specs/02-modelo-datos.md`: `version` en Leccion; en Curso, `estado` y los límites del título y la descripción; en Actividad, los límites y las dos reglas nuevas de la opción múltiple. Actualizar "Entidades previstas": el idioma pasa de F05 a F07
 - [X] T070 [specs] Integrar "Cambios a la navegación" de [plan.md](./plan.md) a `specs/01-navegacion.md`: quitar `/mis-cursos`, agregar `/editor/nuevo`, confirmar `/editor/:idCurso` y `/editor/:idCurso/lecciones/:idLeccion`, actualizar la línea de `/panel`, agregar la salida con cambios sin guardar y "Probar lección", y actualizar "Qué viaja entre pantallas"
-- [ ] T071 [specs] `npm run contrato:revisar`: las tres copias coinciden con la oficial
-- [ ] T072 [specs] Revisar que `specs/features/F05-crear-editar-curso/spec.md` coincide con lo que se construyó; si algo cambió, actualizarla
+- [X] T071 [specs] `npm run contrato:revisar`: las tres copias coinciden con la oficial
+- [X] T072 [specs] Revisar que `specs/features/F05-crear-editar-curso/spec.md` coincide con lo que se construyó; si algo cambió, actualizarla
 
 ---
 

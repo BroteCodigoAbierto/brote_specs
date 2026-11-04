@@ -140,6 +140,8 @@ En la web los tamaños van en `rem` (16 px = 1 rem).
 - Área táctil mínima: **44 px**. Botón normal: 52 px de alto; chico: 44 px.
 - Ancho de lectura en la web: `anchoContenido` 1040 px; formularios: 420 px;
   reproductor de lecciones: `anchoLeccion` 680 px.
+- Editor (solo web): `anchoPaleta` 240 px y `anchoInspector` 440 px. Por debajo
+  de 1024 px, el lienzo apila sus tres zonas.
 - En el móvil, margen lateral de pantalla: espacio `6` (20 px).
 
 ### 2.4 Sombras y desenfoque
@@ -223,6 +225,27 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | `Dialogo` (web) | `abierto`, `titulo`, `texto`, `textoConfirmar`, `textoCancelar`, `alConfirmar`, `alCancelar` | `<dialog>` modal: `Superficie` sólida, radio `enorme`, título `titulo2`, botones `secundario` (cancelar, con el foco) y `peligro` (confirmar). Esc cancela. En el móvil, la misma confirmación es `Alert.alert` nativo, con cancelar como `cancel` y confirmar como `destructive` |
 | `ResultadoLeccion` | `titulo`, `aciertos`, `preguntas`, `alVolver`, `guardado`, `alReintentar` | Fin de lección (sección 6). `guardado` (F04) es el estado del progreso, en una zona entre los aciertos y el botón que anuncia sus cambios (`aria-live="polite"` / `accessibilityLiveRegion="polite"`): `"guardando"` ("Guardando tu progreso…" en `nota` `textoSuave` con un indicador chico, y "Volver al curso" con `enviando`); `"guardado"` (`CircleCheck` y "Progreso guardado" en `nota` `broteFuerte`); `"error"` y `"sinConexion"` (`Aviso` `error` con su texto y `Boton` `secundario` chico "Reintentar" → `alReintentar`); `"noDisponible"` (`Aviso` `error` sin "Reintentar") |
 
+### Editor (solo web)
+
+El editor de cursos solo existe en la web (decisión 0003), así que estos
+componentes, sus props y las medidas `anchoPaleta` y `anchoInspector` no tienen
+par en el móvil. Es la única excepción a "el mismo nombre y las mismas props en
+los dos clientes".
+
+| Componente | Props clave | Notas |
+|---|---|---|
+| `CampoTexto` (cambia) | `maxLongitud`, `deshabilitado` | Solo en la web |
+| `CampoArea` | `id`, `etiqueta`, `valor`, `alCambiar`, `error`, `ayuda`, `maxLongitud`, `filas`, `codigo`, `deshabilitado` | `CampoTexto` de varias líneas, con el mismo aspecto. Con `codigo`, en `--fuente-codigo`. Expone su `ref`, para escribir donde está el cursor |
+| `ListaEditable` | `filas`, `dibujarFila`, `alAgregar`, `alQuitar`, `textoAgregar`, `minimo`, `maximo`, `deshabilitada` | Filas con "Quitar" y un `Boton` `secundario` chico con `Plus` para agregar. La usan los puntos clave, las opciones y las respuestas aceptadas |
+| `BotonesOrden` | `alSubir`, `alBajar`, `esPrimero`, `esUltimo`, `etiqueta` | "Subir" (`ChevronUp`) y "Bajar" (`ChevronDown`), de 44 px. En los extremos usan `aria-disabled`, no `disabled`, para no perder el foco |
+| `TarjetaCursoAutor` | `curso` | `Superficie` con portada, título, `Insignia` del estado, `Insignia` de lecciones y el texto de la acción. Toda la tarjeta es un enlace |
+| `PaletaActividades` | `alAgregar`, `deshabilitada`, `arrastre` | Grupos en `seccion`, tipos como botones con icono. Sin registro: texto en `textoSuave`, icono en `textoTenue` e `Insignia` `neutro` "Próximamente" |
+| `BloqueActividad` | `numero`, `etiqueta`, `icono`, `resumen`, `incompleta`, `seleccionado`, `alSeleccionar`, `alEliminar`, orden | `Superficie` con asa `GripVertical` y un `<button>` con número, tipo y resumen en una línea, hermano de los botones de orden y de "Eliminar". Seleccionado: borde `primario` y fondo `primarioSuave`. Incompleta: `Insignia` `acento` con `CircleAlert` |
+| `VistaPrevia` | `actividad`, `idBloque`, `mensaje` | `Superficie` `suave` con "VISTA PREVIA" en `seccion` y "Reiniciar" (`RotateCcw`). Monta la actividad en `AmbitoActividad` |
+| `Dialogo` (cambia) | `enviando` | Pone `enviando` en el botón de confirmar. Solo en la web |
+| `ResultadoLeccion` (cambia) | `textoVolver` | Por defecto, "Volver al curso". Solo en la web |
+| `BarraRespuesta` (cambia) | — | Dentro de un `AmbitoActividad` va en línea, no fija. Solo en la web |
+
 **Iconos**: [Lucide](https://lucide.dev), `lucide-react` en la web y
 `lucide-react-native` en el móvil. Trazo 2, tamaño 20 (16 en insignias, 24 en
 pestañas). Los iconos acompañan texto; un icono solo lleva
@@ -270,7 +293,21 @@ degradado índigo → violeta, seguido de "Brote" en `titulo3` peso 800.
   por bloque, con su título en `seccion` ("Sigue aprendiendo") y sus propios
   estados (cargando, vacío, error, con datos). Las tarjetas van en la
   rejilla de "Listas de tarjetas". Cada feature que agregue un bloque suma
-  su sección.
+  su sección. "Cursos que creé" (F05) lleva "Nuevo curso" (`Boton` primario
+  chico con `Plus`) a la derecha de su título.
+- **Estado de un curso** (F05): "Borrador" con `Insignia` `neutro` y
+  `PencilLine`; "Publicado" con `Insignia` `primario` y `Globe`. El lima no se
+  usa aquí: no es un avance del alumno.
+- **Mapa del curso** (web, F05): arriba, `Boton` `enlace` chico "Mi panel" con
+  `ArrowLeft`. Una `Superficie` con los datos del curso y otra con las
+  lecciones. "Guardar cambios" es el `Boton` primario de la pantalla; "Nueva
+  lección" y "Agregar", `secundario`; el "Eliminar" de cada lección, `fantasma`
+  chico. "Eliminar curso" al final, como `Boton` `peligro`.
+- **Lienzo de la lección** (web, F05): fuera del marco común. Barra superior
+  `Superficie` pegajosa con "Volver al curso", el título, "Cambios sin guardar"
+  o "Lección guardada" en `nota`, "Probar lección" (`secundario`, `Play`) y
+  "Guardar lección" (primario). Debajo, una rejilla de `anchoPaleta`, el resto y
+  `anchoInspector`.
 - **Errores de campo** debajo del campo, en `nota` color `error`, con icono.
   **Errores generales** en un `Aviso` arriba del botón principal.
 
@@ -327,6 +364,18 @@ son la base para todas las actividades; cada spec de actividad las concreta.
   un `<textarea>`, un botón o un enlace. En completar espacios, Tab pasa al
   siguiente espacio y Enter comprueba. Al comprobar, el foco pasa a
   "Continuar"; al pasar de actividad, al título de la nueva.
+- **Vista previa** (web, F05): la actividad real en un recuadro, dentro de
+  `AmbitoActividad`. No toma el foco al actualizarse, sus teclas solo actúan con
+  el foco dentro y su barra de respuesta va en línea.
+- **Modo de prueba** (web, F05): el reproductor con un `Aviso` `info` "Modo de
+  prueba: esto no cuenta como progreso." debajo del encabezado. Al terminar,
+  `ResultadoLeccion` sin `guardado` y con "Volver al editor".
+- **Iconos de los tipos** (F05): Teoría `BookOpen`, Tarjeta `Layers`, Opción
+  múltiple `ListChecks`, Completar espacios `TextCursorInput`, Pregunta abierta
+  `MessageSquareText`, Emparejar `Link2`, Clasificar `Columns3`, Ordenar
+  `ArrowDownUp`, Banco de palabras `WholeWord`, Reto de código `Code`, Terminal
+  simulada `SquareTerminal`, Grafo de commits `GitGraph`, Escuchar y repetir
+  `Mic`.
 
 ## 7. Accesibilidad (checklist de cada pantalla)
 

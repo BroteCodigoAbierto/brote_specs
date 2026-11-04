@@ -521,109 +521,109 @@ La sección se vuelve a cargar cada vez que se entra a "Mi panel".
 
 ### Cursos que creé
 
-- [ ] [web] Con la cuenta A, "Mi panel" muestra "Sigue aprendiendo" y debajo
+- [X] [web] Con la cuenta A, "Mi panel" muestra "Sigue aprendiendo" y debajo
   "Cursos que creé", con "Todavía no creas ningún curso.", "Crea uno y enseña
   lo que sabes." y el botón "Nuevo curso".
-- [ ] [web] Con la cuenta autor, "Cursos que creé" muestra "Git esencial" con
+- [X] [web] Con la cuenta autor, "Cursos que creé" muestra "Git esencial" con
   "Publicado", "6 lecciones" y el enlace "Ver curso", y "Curso en borrador"
   con "Borrador" y el enlace "Editar".
-- [ ] [web] "Editar" abre el mapa de "Curso en borrador". "Ver curso" abre el
+- [X] [web] "Editar" abre el mapa de "Curso en borrador". "Ver curso" abre el
   detalle de "Git esencial", y volver desde ahí regresa a "Mi panel".
-- [ ] [web] Con dos borradores en la cuenta A, al guardar un cambio en el de
+- [X] [web] Con dos borradores en la cuenta A, al guardar un cambio en el de
   abajo y volver a "Mi panel", ese curso queda primero.
-- [ ] [web] Con la cuenta B, "Cursos que creé" no muestra ningún curso de la
+- [X] [web] Con la cuenta B, "Cursos que creé" no muestra ningún curso de la
   cuenta A.
 
 ### Crear un curso
 
-- [ ] [web] "Nuevo curso" abre un formulario con título y descripción.
+- [X] [web] "Nuevo curso" abre un formulario con título y descripción.
   "Cancelar" vuelve a "Mi panel" sin crear nada.
-- [ ] [web] Al pulsar "Crear curso" con el título solo con espacios y la
+- [X] [web] Al pulsar "Crear curso" con el título solo con espacios y la
   descripción vacía, los dos campos muestran "Este campo es obligatorio." y no
   se crea nada.
-- [ ] [web] El título no deja escribir más de 100 caracteres, y la
+- [X] [web] El título no deja escribir más de 100 caracteres, y la
   descripción, más de 1000.
-- [ ] [web] Al crear "Huerto urbano" llego a su mapa, con "Borrador", "Este
+- [X] [web] Al crear "Huerto urbano" llego a su mapa, con "Borrador", "Este
   curso todavía no tiene lecciones." y "Agrega la primera para empezar.". En
   "Mi panel" aparece primero, con "Sin lecciones".
 - [ ] [web, móvil] "Huerto urbano" no aparece en el catálogo ni al buscar su
   título, ni siquiera con la cuenta A.
-- [ ] [web] Con la cuenta A, la dirección del detalle de "Huerto urbano"
+- [X] [web] Con la cuenta A, la dirección del detalle de "Huerto urbano"
   muestra "Este curso no existe o ya no está disponible.".
-- [ ] [web] Pulsar "Crear curso" varias veces seguidas crea un solo curso.
+- [X] [web] Pulsar "Crear curso" varias veces seguidas crea un solo curso.
 
 ### Datos del curso
 
-- [ ] [web] En el mapa, "Guardar cambios" está deshabilitado hasta que cambio
+- [X] [web] En el mapa, "Guardar cambios" está deshabilitado hasta que cambio
   algo. Al cambiar el título a "Azotea verde" y guardar veo "Cambios
   guardados", y al recargar sigue ese título, con la "A" en la portada.
-- [ ] [web] Con el título vacío, "Guardar cambios" muestra "Este campo es
+- [X] [web] Con el título vacío, "Guardar cambios" muestra "Este campo es
   obligatorio." y al recargar sigue el título anterior.
-- [ ] [web] Mientras se guardan los datos del curso, "Guardar cambios" muestra
+- [X] [web] Mientras se guardan los datos del curso, "Guardar cambios" muestra
   un indicador y no puedo agregar, mover ni eliminar lecciones.
-- [ ] [web] "Eliminar curso" pregunta "¿Eliminar este curso?" con "Se borrará
+- [X] [web] "Eliminar curso" pregunta "¿Eliminar este curso?" con "Se borrará
   con todas sus lecciones. No se puede deshacer.". "Cancelar" no cambia nada;
   "Eliminar" me lleva a "Mi panel", el curso ya no aparece y su dirección del
   editor muestra "Este curso no existe o ya no está disponible.".
 
 ### Lecciones
 
-- [ ] [web] "Nueva lección" con el título vacío muestra "Este campo es
+- [X] [web] "Nueva lección" con el título vacío muestra "Este campo es
   obligatorio." y no la agrega. El campo no deja escribir más de 100
   caracteres.
-- [ ] [web] Al agregar "Semillas", "Riego" y "Cosecha", aparecen en ese orden,
+- [X] [web] Al agregar "Semillas", "Riego" y "Cosecha", aparecen en ese orden,
   numeradas de 1 a 3 y con "Sin actividades".
-- [ ] [web] Pulsar "Agregar" varias veces seguidas agrega una sola lección.
+- [X] [web] Pulsar "Agregar" varias veces seguidas agrega una sola lección.
 - [ ] [web] Al arrastrar "Cosecha" al primer lugar veo "1. Cosecha", "2.
   Semillas" y "3. Riego", y sigue así al recargar.
-- [ ] [web] Con el teclado, usando "Subir" y "Bajar", logro el mismo cambio y
+- [X] [web] Con el teclado, usando "Subir" y "Bajar", logro el mismo cambio y
   el foco sigue en el botón. "Subir" está deshabilitado en la primera lección
   y "Bajar" en la última.
-- [ ] [web] "Eliminar" en una lección pregunta "¿Eliminar esta lección?" con
+- [X] [web] "Eliminar" en una lección pregunta "¿Eliminar esta lección?" con
   "Se borrará con todas sus actividades. No se puede deshacer.". "Cancelar" no
   cambia nada; "Eliminar" la quita, las demás se renumeran y sigue así al
   recargar.
-- [ ] [web] En el borrador con 100 lecciones, "Nueva lección" está
+- [X] [web] En el borrador con 100 lecciones, "Nueva lección" está
   deshabilitado y veo "Un curso puede tener hasta 100 lecciones.".
 
 ### Paleta
 
-- [ ] [web] La paleta muestra, en este orden: "Básicos" con Teoría, Tarjeta,
+- [X] [web] La paleta muestra, en este orden: "Básicos" con Teoría, Tarjeta,
   Opción múltiple, Completar espacios y Pregunta abierta; "Relacionar" con
   Emparejar, Clasificar, Ordenar y Banco de palabras; "Código y terminal" con
   Reto de código, Terminal simulada y Grafo de commits; y "Voz" con Escuchar y
   repetir.
-- [ ] [web] Los 8 tipos que no son básicos se ven deshabilitados con
+- [X] [web] Los 8 tipos que no son básicos se ven deshabilitados con
   "Próximamente": no se pueden arrastrar a la secuencia, y pulsarlos o usarlos
   con el teclado no agrega nada.
 - [ ] [web] Al arrastrar "Tarjeta" entre dos actividades, queda entre esas
   dos.
-- [ ] [web] Al pulsar "Teoría" con la actividad 2 seleccionada, queda en el
+- [X] [web] Al pulsar "Teoría" con la actividad 2 seleccionada, queda en el
   lugar 3; sin ninguna seleccionada, queda al final. En los dos casos queda
   seleccionada y el foco está en su primer campo.
-- [ ] [web] Con el teclado (Tab y Enter) agrego una actividad sin usar el
+- [X] [web] Con el teclado (Tab y Enter) agrego una actividad sin usar el
   ratón.
-- [ ] [web] En la lección con 50 actividades, los tipos de la paleta están
+- [X] [web] En la lección con 50 actividades, los tipos de la paleta están
   deshabilitados y veo "Una lección puede tener hasta 50 actividades.".
 
 ### Secuencia de bloques
 
-- [ ] [web] Una lección sin actividades muestra "Esta lección todavía no tiene
+- [X] [web] Una lección sin actividades muestra "Esta lección todavía no tiene
   actividades." y "Arrastra un tipo de la paleta o púlsalo para agregarlo.".
-- [ ] [web] Cada bloque muestra su número, su tipo y el inicio de su texto,
+- [X] [web] Cada bloque muestra su número, su tipo y el inicio de su texto,
   que cambia mientras escribo en el inspector. Una actividad sin texto dice
   "Sin contenido".
-- [ ] [web] Al agregar una actividad, su bloque lleva la marca "Incompleta"
+- [X] [web] Al agregar una actividad, su bloque lleva la marca "Incompleta"
   desde el principio, y la pierde en cuanto la completo.
-- [ ] [web] Sin actividad seleccionada, el inspector dice "Elige una actividad
+- [X] [web] Sin actividad seleccionada, el inspector dice "Elige una actividad
   para editarla.". Al pulsar un bloque, también con el teclado (Tab y Enter),
   aparece su formulario.
 - [ ] [web] Puedo reordenar los bloques arrastrándolos y con "Subir" y
   "Bajar".
-- [ ] [web] "Eliminar" en un bloque pregunta "¿Eliminar esta actividad?" con
+- [X] [web] "Eliminar" en un bloque pregunta "¿Eliminar esta actividad?" con
   "Perderás lo que escribiste en ella.". Si era la seleccionada, el inspector
   vuelve a "Elige una actividad para editarla.".
-- [ ] [web] En una ventana angosta las zonas se apilan y puedo agregar,
+- [X] [web] En una ventana angosta las zonas se apilan y puedo agregar,
   editar, reordenar y guardar sin arrastrar.
 - [ ] [web] Con un lector de pantalla, los tipos con "Próximamente" se
   anuncian como no disponibles, y al mover una lección o un bloque con "Subir"
@@ -631,100 +631,100 @@ La sección se vuelve a cargar cada vez que se entra a "Mi panel".
 
 ### Formularios
 
-- [ ] [web] En la teoría, con solo el texto lleno, la actividad deja de estar
+- [X] [web] En la teoría, con solo el texto lleno, la actividad deja de estar
   incompleta. "Agregar punto" suma filas hasta 10; una fila vacía no se
   guarda.
-- [ ] [web] Los formularios muestran sus ayudas: "Separa los párrafos con un
+- [X] [web] Los formularios muestran sus ayudas: "Separa los párrafos con un
   renglón en blanco." y "Las líneas que empiezan con +, - o @@ se resaltan
   como un diff." en la teoría, y "Cada ___ es un espacio que el alumno llena."
   en completar espacios.
-- [ ] [web] La tarjeta queda completa cuando tiene frente y reverso.
-- [ ] [web] La opción múltiple empieza con dos opciones vacías. Con 2,
+- [X] [web] La tarjeta queda completa cuando tiene frente y reverso.
+- [X] [web] La opción múltiple empieza con dos opciones vacías. Con 2,
   "Quitar" está deshabilitado; con 9, también "Agregar opción".
-- [ ] [web] Sin opción correcta marcada, al guardar veo "Elige la opción
+- [X] [web] Sin opción correcta marcada, al guardar veo "Elige la opción
   correcta.". Si quito la opción correcta, ninguna queda marcada.
-- [ ] [web] Con dos opciones "Rojo" y " Rojo ", al guardar la repetida muestra
+- [X] [web] Con dos opciones "Rojo" y " Rojo ", al guardar la repetida muestra
   "Esta opción está repetida."; "Rojo" y "rojo" sí se aceptan.
-- [ ] [web] Con tipo "Símbolo", las opciones "あ" e "い" se ven como mosaicos en
+- [X] [web] Con tipo "Símbolo", las opciones "あ" e "い" se ven como mosaicos en
   la vista previa. Al cambiar a "Símbolo" con una opción de más de 4
   caracteres, lo escrito se conserva y al guardar veo "Un símbolo puede tener
   hasta 4 caracteres.".
-- [ ] [web] En completar espacios, "Agregar espacio" escribe `___` donde está
+- [X] [web] En completar espacios, "Agregar espacio" escribe `___` donde está
   el cursor y aparece el grupo "Espacio 1". Escribir otro `___` a mano agrega
   "Espacio 2".
-- [ ] [web] Un texto sin `___` muestra, al guardar, "Agrega al menos un
+- [X] [web] Un texto sin `___` muestra, al guardar, "Agrega al menos un
   espacio con ___.". Con 21, "El texto puede tener hasta 20 espacios.".
-- [ ] [web] Con dos espacios con respuestas, al borrar un `___` del texto los
+- [X] [web] Con dos espacios con respuestas, al borrar un `___` del texto los
   dos grupos siguen ahí, con "Hay más grupos de respuestas que espacios en el
   texto. Quita los que sobran." y "Quitar espacio". La actividad sigue
   incompleta hasta que quito uno. Si el grupo que sobra estaba vacío,
   desaparece solo.
-- [ ] [web] Un espacio deja agregar hasta 10 respuestas, y la primera lleva la
+- [X] [web] Un espacio deja agregar hasta 10 respuestas, y la primera lleva la
   nota "Es la que ve el alumno como respuesta esperada".
-- [ ] [web] La pregunta abierta queda completa cuando tiene pregunta y
+- [X] [web] La pregunta abierta queda completa cuando tiene pregunta y
   solución.
-- [ ] [web] Cada campo no deja escribir más del límite de "Datos de entrada".
+- [X] [web] Cada campo no deja escribir más del límite de "Datos de entrada".
 
 ### Vista previa
 
-- [ ] [web] Una opción múltiple completa se ve en la vista previa como en el
+- [X] [web] Una opción múltiple completa se ve en la vista previa como en el
   reproductor: elijo una opción, compruebo y veo "¡Correcto!" o la respuesta
   correcta. La barra de respuesta queda dentro de la vista previa.
-- [ ] [web] En la vista previa, la tarjeta se voltea, los espacios se
+- [X] [web] En la vista previa, la tarjeta se voltea, los espacios se
   califican sin importar mayúsculas ni acentos, y la pregunta abierta muestra
   la solución.
-- [ ] [web] Mientras escribo en un campo del inspector, la vista previa se
+- [X] [web] Mientras escribo en un campo del inspector, la vista previa se
   actualiza y el foco se queda en el campo: sigo escribiendo sin perder
   letras.
-- [ ] [web] Con el foco en el inspector o en la secuencia, fuera de un campo,
+- [X] [web] Con el foco en el inspector o en la secuencia, fuera de un campo,
   las teclas 1 a 9 y Enter no eligen opciones ni comprueban en la vista
   previa. Con el foco dentro de la vista previa, sí.
-- [ ] [web] "Reiniciar" devuelve la actividad al principio, y "Continuar" hace
+- [X] [web] "Reiniciar" devuelve la actividad al principio, y "Continuar" hace
   lo mismo.
-- [ ] [web] Una actividad incompleta muestra "Completa esta actividad para ver
+- [X] [web] Una actividad incompleta muestra "Completa esta actividad para ver
   su vista previa.".
 
 ### Probar la lección
 
-- [ ] [web] En una lección sin actividades, "Probar lección" está
+- [X] [web] En una lección sin actividades, "Probar lección" está
   deshabilitado.
-- [ ] [web] Con dos actividades incompletas, "Probar lección" no abre nada:
+- [X] [web] Con dos actividades incompletas, "Probar lección" no abre nada:
   veo "No se puede probar: hay 2 actividades incompletas." (con una, "No se
   puede probar: hay 1 actividad incompleta."), queda seleccionada la primera
   con sus errores y el foco en su primer campo con error.
-- [ ] [web] Con actividades completas y cambios sin guardar, "Probar lección"
+- [X] [web] Con actividades completas y cambios sin guardar, "Probar lección"
   abre el reproductor a pantalla completa, con "Modo de prueba: esto no cuenta
   como progreso." y las actividades como están en el lienzo, desde la primera.
-- [ ] [web] Al terminar veo "¡Lección completada!", el título de la lección y
+- [X] [web] Al terminar veo "¡Lección completada!", el título de la lección y
   "Acertaste {aciertos} de {preguntas}", con "Volver al editor", sin
   "Guardando tu progreso…" ni "Progreso guardado".
-- [ ] [web] "Volver al editor", la X (sin preguntar nada) y el botón de volver
+- [X] [web] "Volver al editor", la X (sin preguntar nada) y el botón de volver
   del navegador regresan al lienzo con mis cambios sin guardar y la misma
   actividad seleccionada.
-- [ ] [web] Con el servidor apagado, puedo probar la lección de principio a
+- [X] [web] Con el servidor apagado, puedo probar la lección de principio a
   fin.
 - [ ] [web, móvil] Después de probar una lección y publicar el curso, esa
   lección aparece sin completar para el autor.
 
 ### Guardar
 
-- [ ] [web] "Guardar lección" está deshabilitado al abrir la lección. Al
+- [X] [web] "Guardar lección" está deshabilitado al abrir la lección. Al
   cambiar algo aparece "Cambios sin guardar" y se habilita.
-- [ ] [web] Con una lección de tres actividades completas, al guardar veo
+- [X] [web] Con una lección de tres actividades completas, al guardar veo
   "Lección guardada". Al recargar, las tres siguen ahí en el mismo orden y con
   sus datos, y el mapa dice "3 actividades".
-- [ ] [web] Con dos actividades incompletas, al guardar veo "No se guardó: hay
+- [X] [web] Con dos actividades incompletas, al guardar veo "No se guardó: hay
   2 actividades incompletas." (con una, "No se guardó: hay 1 actividad
   incompleta."), queda seleccionada la primera con sus errores y el foco en su
   primer campo con error. Al recargar y aceptar salir, la lección está como
   antes de esos cambios.
-- [ ] [web] Con el título de la lección vacío, al guardar veo "Este campo es
+- [X] [web] Con el título de la lección vacío, al guardar veo "Este campo es
   obligatorio." en el título y no se guarda.
-- [ ] [web] Puedo guardar una lección sin actividades.
-- [ ] [web] Una teoría con el título vacío y sin puntos clave se guarda sin
+- [X] [web] Puedo guardar una lección sin actividades.
+- [X] [web] Una teoría con el título vacío y sin puntos clave se guarda sin
   esos campos. Un código con sangría conserva su sangría después de guardar y
   recargar.
-- [ ] [web] Mientras se guarda, "Guardar lección" muestra un indicador y no
+- [X] [web] Mientras se guarda, "Guardar lección" muestra un indicador y no
   puedo editar nada.
 - [ ] [web, móvil] Armo una lección con los cinco tipos, un administrador
   publica el curso, y un alumno la cursa de principio a fin con lo que
@@ -733,64 +733,64 @@ La sección se vuelve a cargar cada vez que se entra a "Mi panel".
 
 ### Versión más nueva
 
-- [ ] [web] Con la misma lección abierta en dos pestañas, guardo un cambio en
+- [X] [web] Con la misma lección abierta en dos pestañas, guardo un cambio en
   la primera y otro en la segunda: la segunda pregunta "Esta lección cambió en
   otro lugar" con "Se guardó una versión más nueva en otra pestaña o
   dispositivo. Si guardas, la reemplazarás.", "Cancelar" y "Reemplazar".
-- [ ] [web] "Cancelar" me deja en la lección con mis cambios y "Cambios sin
+- [X] [web] "Cancelar" me deja en la lección con mis cambios y "Cambios sin
   guardar"; si recargo y acepto salir, veo lo que guardó la primera pestaña.
-- [ ] [web] "Reemplazar" guarda, veo "Lección guardada" y, al recargar la
+- [X] [web] "Reemplazar" guarda, veo "Lección guardada" y, al recargar la
   primera pestaña, veo lo de la segunda.
-- [ ] [web] Guardar dos veces seguidas en la misma pestaña no pregunta nada.
-- [ ] [web] Con el lienzo abierto, reordenar las lecciones o cambiar los datos
+- [X] [web] Guardar dos veces seguidas en la misma pestaña no pregunta nada.
+- [X] [web] Con el lienzo abierto, reordenar las lecciones o cambiar los datos
   del curso en otra pestaña no hace aparecer la pregunta al guardar.
-- [ ] [backend] Guardar, sin pasar por un cliente, una lección a partir de una
+- [X] [backend] Guardar, sin pasar por un cliente, una lección a partir de una
   versión que ya no es la última se rechaza y la lección queda como estaba,
   salvo que se pida reemplazarla.
 
 ### Salir sin guardar
 
-- [ ] [web] Con cambios sin guardar, "Volver al curso" pregunta "¿Salir sin
+- [X] [web] Con cambios sin guardar, "Volver al curso" pregunta "¿Salir sin
   guardar?" con "Perderás los cambios que no guardaste.". "Seguir aquí" deja
   todo como estaba; "Salir" me lleva al mapa y los cambios se pierden.
-- [ ] [web] El botón de volver del navegador hace lo mismo.
-- [ ] [web] Con cambios sin guardar en los datos del curso, "Mi panel" y abrir
+- [X] [web] El botón de volver del navegador hace lo mismo.
+- [X] [web] Con cambios sin guardar en los datos del curso, "Mi panel" y abrir
   una lección preguntan lo mismo.
-- [ ] [web] Sin cambios pendientes, "Volver al curso" sale directo.
-- [ ] [web] Al recargar la página con cambios sin guardar, el navegador avisa
+- [X] [web] Sin cambios pendientes, "Volver al curso" sale directo.
+- [X] [web] Al recargar la página con cambios sin guardar, el navegador avisa
   antes de salir; sin cambios, no avisa.
 
 ### Permisos y cursos publicados
 
-- [ ] [web] Con la cuenta B, la dirección del editor de un borrador de la
+- [X] [web] Con la cuenta B, la dirección del editor de un borrador de la
   cuenta A muestra "Este curso no existe o ya no está disponible." y "Ir a Mi
   panel". Una dirección con un identificador de curso inventado muestra lo
   mismo.
-- [ ] [web] En un borrador propio, la dirección de una lección con un
+- [X] [web] En un borrador propio, la dirección de una lección con un
   identificador inventado, o de una lección de otro curso, muestra "Esta
   lección no existe o ya no está disponible." y "Ir a Mi panel".
-- [ ] [web] Con la cuenta autor, la dirección del editor de "Git esencial" y
+- [X] [web] Con la cuenta autor, la dirección del editor de "Git esencial" y
   la de una de sus lecciones muestran "Este curso ya está publicado y por
   ahora no se puede editar." y "Ver curso".
-- [ ] [web] Con el lienzo abierto, un administrador publica el curso. Al
+- [X] [web] Con el lienzo abierto, un administrador publica el curso. Al
   guardar veo "Este curso ya está publicado y por ahora no se puede editar.
   Tus cambios no se guardaron." y lo que escribí sigue en pantalla.
-- [ ] [backend] Crear un curso sin sesión se rechaza. Cambiar, sin pasar por
+- [X] [backend] Crear un curso sin sesión se rechaza. Cambiar, sin pasar por
   un cliente, un borrador de la cuenta A con la sesión de la cuenta B responde
   exactamente igual que con un identificador que no existe.
-- [ ] [backend] Cambiar los datos, una lección o el orden de "Git esencial"
+- [X] [backend] Cambiar los datos, una lección o el orden de "Git esencial"
   con la sesión de su autor, o eliminarlo, se rechaza y no cambia nada.
-- [ ] [backend] Guardar, sin pasar por un cliente, una lección con una
+- [X] [backend] Guardar, sin pasar por un cliente, una lección con una
   actividad incompleta, con un texto más largo que su límite, con dos opciones
   iguales, con opciones de texto y de símbolo mezcladas, con un número de
   grupos distinto al de `___`, con un tipo que no es básico o con 51
   actividades, se rechaza y la lección queda como estaba.
-- [ ] [backend] Crear o cambiar un curso con un título de 101 caracteres, o
+- [X] [backend] Crear o cambiar un curso con un título de 101 caracteres, o
   agregar la lección 101, se rechaza y no cambia nada.
 
 ### Contenido
 
-- [ ] [web] Un curso con `<b>hola</b>` y `<script>` en el título, la
+- [X] [web] Un curso con `<b>hola</b>` y `<script>` en el título, la
   descripción, los títulos de sus lecciones y los textos de una actividad de
   cada tipo los muestra tal cual en "Cursos que creé", el mapa, los bloques de
   la secuencia, el inspector y la vista previa, sin negritas y sin ejecutar
@@ -798,42 +798,42 @@ La sección se vuelve a cargar cada vez que se entra a "Mi panel".
 
 ### Estados y errores
 
-- [ ] [web] Mientras carga, "Cursos que creé", el mapa y el lienzo muestran un
+- [X] [web] Mientras carga, "Cursos que creé", el mapa y el lienzo muestran un
   indicador, y sus mensajes de vacío no aparecen ni por un instante.
-- [ ] [web] Con el servidor apagado, "Sigue aprendiendo" y "Cursos que creé"
+- [X] [web] Con el servidor apagado, "Sigue aprendiendo" y "Cursos que creé"
   muestran cada una "No se pudo conectar con Brote. Inténtalo de nuevo en un
   momento." y su "Reintentar". El mapa y el lienzo también; al encender el
   servidor y pulsar "Reintentar" veo los datos.
-- [ ] [web] Con el servidor apagado, al guardar la lección veo "No se pudo
+- [X] [web] Con el servidor apagado, al guardar la lección veo "No se pudo
   guardar la lección. Tus cambios siguen aquí."; al encender el servidor y
   pulsar otra vez "Guardar lección", se guarda.
-- [ ] [web] Con el servidor apagado, "Crear curso" muestra "No se pudo crear
+- [X] [web] Con el servidor apagado, "Crear curso" muestra "No se pudo crear
   el curso. Inténtalo de nuevo en un momento." y "Guardar cambios" muestra "No
   se pudieron guardar los cambios.". En los dos casos lo escrito sigue en el
   formulario.
-- [ ] [web] Con el servidor apagado, al reordenar lecciones la lista vuelve al
+- [X] [web] Con el servidor apagado, al reordenar lecciones la lista vuelve al
   orden anterior con "No se pudo guardar el nuevo orden.". Al agregar, veo "No
   se pudo agregar la lección." y el título escrito sigue en el campo. Al
   eliminar, la lección sigue en la lista con "No se pudo eliminar la
   lección.", y el curso, con "No se pudo eliminar el curso.".
-- [ ] [web] Con la lección eliminada en otra pestaña, al guardar veo "Esta
+- [X] [web] Con la lección eliminada en otra pestaña, al guardar veo "Esta
   lección ya no existe. Tus cambios no se guardaron."; con el curso eliminado,
   "Este curso ya no existe. Tus cambios no se guardaron.". Lo que escribí
   sigue en pantalla.
-- [ ] [web] Dado que la sesión expiró, cuando guardo la lección, llego a
+- [X] [web] Dado que la sesión expiró, cuando guardo la lección, llego a
   "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar."; al entrar con
   la misma cuenta regreso al lienzo con mis cambios sin guardar y, al pulsar
   "Guardar lección", se guardan.
-- [ ] [web] Dado que la sesión expiró, cuando pulso "Crear curso" o "Guardar
+- [X] [web] Dado que la sesión expiró, cuando pulso "Crear curso" o "Guardar
   cambios", llego a "Entrar" con el aviso; al entrar con la misma cuenta
   regreso al formulario con lo que escribí.
-- [ ] [web] Dado que la sesión expiró, con el título del curso cambiado sin
+- [X] [web] Dado que la sesión expiró, con el título del curso cambiado sin
   guardar y un título escrito en "Nueva lección", cuando reordeno las
   lecciones llego a "Entrar" con el aviso; al entrar con la misma cuenta
   regreso al mapa con lo que escribí.
-- [ ] [web] Si después de que expiró la sesión entro con otra cuenta, no veo
+- [X] [web] Si después de que expiró la sesión entro con otra cuenta, no veo
   los cambios sin guardar de la cuenta anterior.
-- [ ] [web] Dado que la sesión expiró, cuando abro el mapa de un curso, llego
+- [X] [web] Dado que la sesión expiró, cuando abro el mapa de un curso, llego
   a "Entrar" con el aviso; al entrar regreso a ese mapa.
 
 ## Datos que toca

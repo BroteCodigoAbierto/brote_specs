@@ -189,108 +189,108 @@ Cada criterio se comprueba con [quickstart.md](./quickstart.md), sección 3, y s
 también en `spec.md`. Antes de los PR, las repeticiones de F03 y F04 de la sección 4:
 F05 toca `BarraRespuesta` y `useEnfocarAlMontar`, que usa el reproductor.
 
-- [ ] V01 [web] Con la cuenta A, "Mi panel" muestra "Sigue aprendiendo" y debajo "Cursos que creé", con "Todavía no creas ningún curso.", "Crea uno y enseña lo que sabes." y el botón "Nuevo curso".
-- [ ] V02 [web] Con la cuenta autor, "Cursos que creé" muestra "Git esencial" con "Publicado", "6 lecciones" y el enlace "Ver curso", y "Curso en borrador" con "Borrador" y el enlace "Editar".
-- [ ] V03 [web] "Editar" abre el mapa de "Curso en borrador". "Ver curso" abre el detalle de "Git esencial", y volver desde ahí regresa a "Mi panel".
-- [ ] V04 [web] Con dos borradores en la cuenta A, al guardar un cambio en el de abajo y volver a "Mi panel", ese curso queda primero.
-- [ ] V05 [web] Con la cuenta B, "Cursos que creé" no muestra ningún curso de la cuenta A.
-- [ ] V06 [web] "Nuevo curso" abre un formulario con título y descripción. "Cancelar" vuelve a "Mi panel" sin crear nada.
-- [ ] V07 [web] Al pulsar "Crear curso" con el título solo con espacios y la descripción vacía, los dos campos muestran "Este campo es obligatorio." y no se crea nada.
-- [ ] V08 [web] El título no deja escribir más de 100 caracteres, y la descripción, más de 1000.
-- [ ] V09 [web] Al crear "Huerto urbano" llego a su mapa, con "Borrador", "Este curso todavía no tiene lecciones." y "Agrega la primera para empezar.". En "Mi panel" aparece primero, con "Sin lecciones".
+- [X] V01 [web] Con la cuenta A, "Mi panel" muestra "Sigue aprendiendo" y debajo "Cursos que creé", con "Todavía no creas ningún curso.", "Crea uno y enseña lo que sabes." y el botón "Nuevo curso".
+- [X] V02 [web] Con la cuenta autor, "Cursos que creé" muestra "Git esencial" con "Publicado", "6 lecciones" y el enlace "Ver curso", y "Curso en borrador" con "Borrador" y el enlace "Editar".
+- [X] V03 [web] "Editar" abre el mapa de "Curso en borrador". "Ver curso" abre el detalle de "Git esencial", y volver desde ahí regresa a "Mi panel".
+- [X] V04 [web] Con dos borradores en la cuenta A, al guardar un cambio en el de abajo y volver a "Mi panel", ese curso queda primero.
+- [X] V05 [web] Con la cuenta B, "Cursos que creé" no muestra ningún curso de la cuenta A.
+- [X] V06 [web] "Nuevo curso" abre un formulario con título y descripción. "Cancelar" vuelve a "Mi panel" sin crear nada.
+- [X] V07 [web] Al pulsar "Crear curso" con el título solo con espacios y la descripción vacía, los dos campos muestran "Este campo es obligatorio." y no se crea nada.
+- [X] V08 [web] El título no deja escribir más de 100 caracteres, y la descripción, más de 1000.
+- [X] V09 [web] Al crear "Huerto urbano" llego a su mapa, con "Borrador", "Este curso todavía no tiene lecciones." y "Agrega la primera para empezar.". En "Mi panel" aparece primero, con "Sin lecciones".
 - [ ] V10 [web, móvil] "Huerto urbano" no aparece en el catálogo ni al buscar su título, ni siquiera con la cuenta A.
-- [ ] V11 [web] Con la cuenta A, la dirección del detalle de "Huerto urbano" muestra "Este curso no existe o ya no está disponible.".
-- [ ] V12 [web] Pulsar "Crear curso" varias veces seguidas crea un solo curso.
-- [ ] V13 [web] En el mapa, "Guardar cambios" está deshabilitado hasta que cambio algo. Al cambiar el título a "Azotea verde" y guardar veo "Cambios guardados", y al recargar sigue ese título, con la "A" en la portada.
-- [ ] V14 [web] Con el título vacío, "Guardar cambios" muestra "Este campo es obligatorio." y al recargar sigue el título anterior.
-- [ ] V15 [web] Mientras se guardan los datos del curso, "Guardar cambios" muestra un indicador y no puedo agregar, mover ni eliminar lecciones.
-- [ ] V16 [web] "Eliminar curso" pregunta "¿Eliminar este curso?" con "Se borrará con todas sus lecciones. No se puede deshacer.". "Cancelar" no cambia nada; "Eliminar" me lleva a "Mi panel", el curso ya no aparece y su dirección del editor muestra "Este curso no existe o ya no está disponible.".
-- [ ] V17 [web] "Nueva lección" con el título vacío muestra "Este campo es obligatorio." y no la agrega. El campo no deja escribir más de 100 caracteres.
-- [ ] V18 [web] Al agregar "Semillas", "Riego" y "Cosecha", aparecen en ese orden, numeradas de 1 a 3 y con "Sin actividades".
-- [ ] V19 [web] Pulsar "Agregar" varias veces seguidas agrega una sola lección.
+- [X] V11 [web] Con la cuenta A, la dirección del detalle de "Huerto urbano" muestra "Este curso no existe o ya no está disponible.".
+- [X] V12 [web] Pulsar "Crear curso" varias veces seguidas crea un solo curso.
+- [X] V13 [web] En el mapa, "Guardar cambios" está deshabilitado hasta que cambio algo. Al cambiar el título a "Azotea verde" y guardar veo "Cambios guardados", y al recargar sigue ese título, con la "A" en la portada.
+- [X] V14 [web] Con el título vacío, "Guardar cambios" muestra "Este campo es obligatorio." y al recargar sigue el título anterior.
+- [X] V15 [web] Mientras se guardan los datos del curso, "Guardar cambios" muestra un indicador y no puedo agregar, mover ni eliminar lecciones.
+- [X] V16 [web] "Eliminar curso" pregunta "¿Eliminar este curso?" con "Se borrará con todas sus lecciones. No se puede deshacer.". "Cancelar" no cambia nada; "Eliminar" me lleva a "Mi panel", el curso ya no aparece y su dirección del editor muestra "Este curso no existe o ya no está disponible.".
+- [X] V17 [web] "Nueva lección" con el título vacío muestra "Este campo es obligatorio." y no la agrega. El campo no deja escribir más de 100 caracteres.
+- [X] V18 [web] Al agregar "Semillas", "Riego" y "Cosecha", aparecen en ese orden, numeradas de 1 a 3 y con "Sin actividades".
+- [X] V19 [web] Pulsar "Agregar" varias veces seguidas agrega una sola lección.
 - [ ] V20 [web] Al arrastrar "Cosecha" al primer lugar veo "1. Cosecha", "2. Semillas" y "3. Riego", y sigue así al recargar.
-- [ ] V21 [web] Con el teclado, usando "Subir" y "Bajar", logro el mismo cambio y el foco sigue en el botón. "Subir" está deshabilitado en la primera lección y "Bajar" en la última.
-- [ ] V22 [web] "Eliminar" en una lección pregunta "¿Eliminar esta lección?" con "Se borrará con todas sus actividades. No se puede deshacer.". "Cancelar" no cambia nada; "Eliminar" la quita, las demás se renumeran y sigue así al recargar.
-- [ ] V23 [web] En el borrador con 100 lecciones, "Nueva lección" está deshabilitado y veo "Un curso puede tener hasta 100 lecciones.".
-- [ ] V24 [web] La paleta muestra, en este orden: "Básicos" con Teoría, Tarjeta, Opción múltiple, Completar espacios y Pregunta abierta; "Relacionar" con Emparejar, Clasificar, Ordenar y Banco de palabras; "Código y terminal" con Reto de código, Terminal simulada y Grafo de commits; y "Voz" con Escuchar y repetir.
-- [ ] V25 [web] Los 8 tipos que no son básicos se ven deshabilitados con "Próximamente": no se pueden arrastrar a la secuencia, y pulsarlos o usarlos con el teclado no agrega nada.
+- [X] V21 [web] Con el teclado, usando "Subir" y "Bajar", logro el mismo cambio y el foco sigue en el botón. "Subir" está deshabilitado en la primera lección y "Bajar" en la última.
+- [X] V22 [web] "Eliminar" en una lección pregunta "¿Eliminar esta lección?" con "Se borrará con todas sus actividades. No se puede deshacer.". "Cancelar" no cambia nada; "Eliminar" la quita, las demás se renumeran y sigue así al recargar.
+- [X] V23 [web] En el borrador con 100 lecciones, "Nueva lección" está deshabilitado y veo "Un curso puede tener hasta 100 lecciones.".
+- [X] V24 [web] La paleta muestra, en este orden: "Básicos" con Teoría, Tarjeta, Opción múltiple, Completar espacios y Pregunta abierta; "Relacionar" con Emparejar, Clasificar, Ordenar y Banco de palabras; "Código y terminal" con Reto de código, Terminal simulada y Grafo de commits; y "Voz" con Escuchar y repetir.
+- [X] V25 [web] Los 8 tipos que no son básicos se ven deshabilitados con "Próximamente": no se pueden arrastrar a la secuencia, y pulsarlos o usarlos con el teclado no agrega nada.
 - [ ] V26 [web] Al arrastrar "Tarjeta" entre dos actividades, queda entre esas dos.
-- [ ] V27 [web] Al pulsar "Teoría" con la actividad 2 seleccionada, queda en el lugar 3; sin ninguna seleccionada, queda al final. En los dos casos queda seleccionada y el foco está en su primer campo.
-- [ ] V28 [web] Con el teclado (Tab y Enter) agrego una actividad sin usar el ratón.
-- [ ] V29 [web] En la lección con 50 actividades, los tipos de la paleta están deshabilitados y veo "Una lección puede tener hasta 50 actividades.".
-- [ ] V30 [web] Una lección sin actividades muestra "Esta lección todavía no tiene actividades." y "Arrastra un tipo de la paleta o púlsalo para agregarlo.".
-- [ ] V31 [web] Cada bloque muestra su número, su tipo y el inicio de su texto, que cambia mientras escribo en el inspector. Una actividad sin texto dice "Sin contenido".
-- [ ] V32 [web] Al agregar una actividad, su bloque lleva la marca "Incompleta" desde el principio, y la pierde en cuanto la completo.
-- [ ] V33 [web] Sin actividad seleccionada, el inspector dice "Elige una actividad para editarla.". Al pulsar un bloque, también con el teclado (Tab y Enter), aparece su formulario.
+- [X] V27 [web] Al pulsar "Teoría" con la actividad 2 seleccionada, queda en el lugar 3; sin ninguna seleccionada, queda al final. En los dos casos queda seleccionada y el foco está en su primer campo.
+- [X] V28 [web] Con el teclado (Tab y Enter) agrego una actividad sin usar el ratón.
+- [X] V29 [web] En la lección con 50 actividades, los tipos de la paleta están deshabilitados y veo "Una lección puede tener hasta 50 actividades.".
+- [X] V30 [web] Una lección sin actividades muestra "Esta lección todavía no tiene actividades." y "Arrastra un tipo de la paleta o púlsalo para agregarlo.".
+- [X] V31 [web] Cada bloque muestra su número, su tipo y el inicio de su texto, que cambia mientras escribo en el inspector. Una actividad sin texto dice "Sin contenido".
+- [X] V32 [web] Al agregar una actividad, su bloque lleva la marca "Incompleta" desde el principio, y la pierde en cuanto la completo.
+- [X] V33 [web] Sin actividad seleccionada, el inspector dice "Elige una actividad para editarla.". Al pulsar un bloque, también con el teclado (Tab y Enter), aparece su formulario.
 - [ ] V34 [web] Puedo reordenar los bloques arrastrándolos y con "Subir" y "Bajar".
-- [ ] V35 [web] "Eliminar" en un bloque pregunta "¿Eliminar esta actividad?" con "Perderás lo que escribiste en ella.". Si era la seleccionada, el inspector vuelve a "Elige una actividad para editarla.".
-- [ ] V36 [web] En una ventana angosta las zonas se apilan y puedo agregar, editar, reordenar y guardar sin arrastrar.
+- [X] V35 [web] "Eliminar" en un bloque pregunta "¿Eliminar esta actividad?" con "Perderás lo que escribiste en ella.". Si era la seleccionada, el inspector vuelve a "Elige una actividad para editarla.".
+- [X] V36 [web] En una ventana angosta las zonas se apilan y puedo agregar, editar, reordenar y guardar sin arrastrar.
 - [ ] V37 [web] Con un lector de pantalla, los tipos con "Próximamente" se anuncian como no disponibles, y al mover una lección o un bloque con "Subir" o "Bajar" se anuncia "Movida a la posición {n}".
-- [ ] V38 [web] En la teoría, con solo el texto lleno, la actividad deja de estar incompleta. "Agregar punto" suma filas hasta 10; una fila vacía no se guarda.
-- [ ] V39 [web] Los formularios muestran sus ayudas: "Separa los párrafos con un renglón en blanco." y "Las líneas que empiezan con +, - o @@ se resaltan como un diff." en la teoría, y "Cada ___ es un espacio que el alumno llena." en completar espacios.
-- [ ] V40 [web] La tarjeta queda completa cuando tiene frente y reverso.
-- [ ] V41 [web] La opción múltiple empieza con dos opciones vacías. Con 2, "Quitar" está deshabilitado; con 9, también "Agregar opción".
-- [ ] V42 [web] Sin opción correcta marcada, al guardar veo "Elige la opción correcta.". Si quito la opción correcta, ninguna queda marcada.
-- [ ] V43 [web] Con dos opciones "Rojo" y " Rojo ", al guardar la repetida muestra "Esta opción está repetida."; "Rojo" y "rojo" sí se aceptan.
-- [ ] V44 [web] Con tipo "Símbolo", las opciones "あ" e "い" se ven como mosaicos en la vista previa. Al cambiar a "Símbolo" con una opción de más de 4 caracteres, lo escrito se conserva y al guardar veo "Un símbolo puede tener hasta 4 caracteres.".
-- [ ] V45 [web] En completar espacios, "Agregar espacio" escribe `___` donde está el cursor y aparece el grupo "Espacio 1". Escribir otro `___` a mano agrega "Espacio 2".
-- [ ] V46 [web] Un texto sin `___` muestra, al guardar, "Agrega al menos un espacio con ___.". Con 21, "El texto puede tener hasta 20 espacios.".
-- [ ] V47 [web] Con dos espacios con respuestas, al borrar un `___` del texto los dos grupos siguen ahí, con "Hay más grupos de respuestas que espacios en el texto. Quita los que sobran." y "Quitar espacio". La actividad sigue incompleta hasta que quito uno. Si el grupo que sobra estaba vacío, desaparece solo.
-- [ ] V48 [web] Un espacio deja agregar hasta 10 respuestas, y la primera lleva la nota "Es la que ve el alumno como respuesta esperada".
-- [ ] V49 [web] La pregunta abierta queda completa cuando tiene pregunta y solución.
-- [ ] V50 [web] Cada campo no deja escribir más del límite de "Datos de entrada".
-- [ ] V51 [web] Una opción múltiple completa se ve en la vista previa como en el reproductor: elijo una opción, compruebo y veo "¡Correcto!" o la respuesta correcta. La barra de respuesta queda dentro de la vista previa.
-- [ ] V52 [web] En la vista previa, la tarjeta se voltea, los espacios se califican sin importar mayúsculas ni acentos, y la pregunta abierta muestra la solución.
-- [ ] V53 [web] Mientras escribo en un campo del inspector, la vista previa se actualiza y el foco se queda en el campo: sigo escribiendo sin perder letras.
-- [ ] V54 [web] Con el foco en el inspector o en la secuencia, fuera de un campo, las teclas 1 a 9 y Enter no eligen opciones ni comprueban en la vista previa. Con el foco dentro de la vista previa, sí.
-- [ ] V55 [web] "Reiniciar" devuelve la actividad al principio, y "Continuar" hace lo mismo.
-- [ ] V56 [web] Una actividad incompleta muestra "Completa esta actividad para ver su vista previa.".
-- [ ] V57 [web] En una lección sin actividades, "Probar lección" está deshabilitado.
-- [ ] V58 [web] Con dos actividades incompletas, "Probar lección" no abre nada: veo "No se puede probar: hay 2 actividades incompletas." (con una, "No se puede probar: hay 1 actividad incompleta."), queda seleccionada la primera con sus errores y el foco en su primer campo con error.
-- [ ] V59 [web] Con actividades completas y cambios sin guardar, "Probar lección" abre el reproductor a pantalla completa, con "Modo de prueba: esto no cuenta como progreso." y las actividades como están en el lienzo, desde la primera.
-- [ ] V60 [web] Al terminar veo "¡Lección completada!", el título de la lección y "Acertaste {aciertos} de {preguntas}", con "Volver al editor", sin "Guardando tu progreso…" ni "Progreso guardado".
-- [ ] V61 [web] "Volver al editor", la X (sin preguntar nada) y el botón de volver del navegador regresan al lienzo con mis cambios sin guardar y la misma actividad seleccionada.
-- [ ] V62 [web] Con el servidor apagado, puedo probar la lección de principio a fin.
+- [X] V38 [web] En la teoría, con solo el texto lleno, la actividad deja de estar incompleta. "Agregar punto" suma filas hasta 10; una fila vacía no se guarda.
+- [X] V39 [web] Los formularios muestran sus ayudas: "Separa los párrafos con un renglón en blanco." y "Las líneas que empiezan con +, - o @@ se resaltan como un diff." en la teoría, y "Cada ___ es un espacio que el alumno llena." en completar espacios.
+- [X] V40 [web] La tarjeta queda completa cuando tiene frente y reverso.
+- [X] V41 [web] La opción múltiple empieza con dos opciones vacías. Con 2, "Quitar" está deshabilitado; con 9, también "Agregar opción".
+- [X] V42 [web] Sin opción correcta marcada, al guardar veo "Elige la opción correcta.". Si quito la opción correcta, ninguna queda marcada.
+- [X] V43 [web] Con dos opciones "Rojo" y " Rojo ", al guardar la repetida muestra "Esta opción está repetida."; "Rojo" y "rojo" sí se aceptan.
+- [X] V44 [web] Con tipo "Símbolo", las opciones "あ" e "い" se ven como mosaicos en la vista previa. Al cambiar a "Símbolo" con una opción de más de 4 caracteres, lo escrito se conserva y al guardar veo "Un símbolo puede tener hasta 4 caracteres.".
+- [X] V45 [web] En completar espacios, "Agregar espacio" escribe `___` donde está el cursor y aparece el grupo "Espacio 1". Escribir otro `___` a mano agrega "Espacio 2".
+- [X] V46 [web] Un texto sin `___` muestra, al guardar, "Agrega al menos un espacio con ___.". Con 21, "El texto puede tener hasta 20 espacios.".
+- [X] V47 [web] Con dos espacios con respuestas, al borrar un `___` del texto los dos grupos siguen ahí, con "Hay más grupos de respuestas que espacios en el texto. Quita los que sobran." y "Quitar espacio". La actividad sigue incompleta hasta que quito uno. Si el grupo que sobra estaba vacío, desaparece solo.
+- [X] V48 [web] Un espacio deja agregar hasta 10 respuestas, y la primera lleva la nota "Es la que ve el alumno como respuesta esperada".
+- [X] V49 [web] La pregunta abierta queda completa cuando tiene pregunta y solución.
+- [X] V50 [web] Cada campo no deja escribir más del límite de "Datos de entrada".
+- [X] V51 [web] Una opción múltiple completa se ve en la vista previa como en el reproductor: elijo una opción, compruebo y veo "¡Correcto!" o la respuesta correcta. La barra de respuesta queda dentro de la vista previa.
+- [X] V52 [web] En la vista previa, la tarjeta se voltea, los espacios se califican sin importar mayúsculas ni acentos, y la pregunta abierta muestra la solución.
+- [X] V53 [web] Mientras escribo en un campo del inspector, la vista previa se actualiza y el foco se queda en el campo: sigo escribiendo sin perder letras.
+- [X] V54 [web] Con el foco en el inspector o en la secuencia, fuera de un campo, las teclas 1 a 9 y Enter no eligen opciones ni comprueban en la vista previa. Con el foco dentro de la vista previa, sí.
+- [X] V55 [web] "Reiniciar" devuelve la actividad al principio, y "Continuar" hace lo mismo.
+- [X] V56 [web] Una actividad incompleta muestra "Completa esta actividad para ver su vista previa.".
+- [X] V57 [web] En una lección sin actividades, "Probar lección" está deshabilitado.
+- [X] V58 [web] Con dos actividades incompletas, "Probar lección" no abre nada: veo "No se puede probar: hay 2 actividades incompletas." (con una, "No se puede probar: hay 1 actividad incompleta."), queda seleccionada la primera con sus errores y el foco en su primer campo con error.
+- [X] V59 [web] Con actividades completas y cambios sin guardar, "Probar lección" abre el reproductor a pantalla completa, con "Modo de prueba: esto no cuenta como progreso." y las actividades como están en el lienzo, desde la primera.
+- [X] V60 [web] Al terminar veo "¡Lección completada!", el título de la lección y "Acertaste {aciertos} de {preguntas}", con "Volver al editor", sin "Guardando tu progreso…" ni "Progreso guardado".
+- [X] V61 [web] "Volver al editor", la X (sin preguntar nada) y el botón de volver del navegador regresan al lienzo con mis cambios sin guardar y la misma actividad seleccionada.
+- [X] V62 [web] Con el servidor apagado, puedo probar la lección de principio a fin.
 - [ ] V63 [web, móvil] Después de probar una lección y publicar el curso, esa lección aparece sin completar para el autor.
-- [ ] V64 [web] "Guardar lección" está deshabilitado al abrir la lección. Al cambiar algo aparece "Cambios sin guardar" y se habilita.
-- [ ] V65 [web] Con una lección de tres actividades completas, al guardar veo "Lección guardada". Al recargar, las tres siguen ahí en el mismo orden y con sus datos, y el mapa dice "3 actividades".
-- [ ] V66 [web] Con dos actividades incompletas, al guardar veo "No se guardó: hay 2 actividades incompletas." (con una, "No se guardó: hay 1 actividad incompleta."), queda seleccionada la primera con sus errores y el foco en su primer campo con error. Al recargar y aceptar salir, la lección está como antes de esos cambios.
-- [ ] V67 [web] Con el título de la lección vacío, al guardar veo "Este campo es obligatorio." en el título y no se guarda.
-- [ ] V68 [web] Puedo guardar una lección sin actividades.
-- [ ] V69 [web] Una teoría con el título vacío y sin puntos clave se guarda sin esos campos. Un código con sangría conserva su sangría después de guardar y recargar.
-- [ ] V70 [web] Mientras se guarda, "Guardar lección" muestra un indicador y no puedo editar nada.
+- [X] V64 [web] "Guardar lección" está deshabilitado al abrir la lección. Al cambiar algo aparece "Cambios sin guardar" y se habilita.
+- [X] V65 [web] Con una lección de tres actividades completas, al guardar veo "Lección guardada". Al recargar, las tres siguen ahí en el mismo orden y con sus datos, y el mapa dice "3 actividades".
+- [X] V66 [web] Con dos actividades incompletas, al guardar veo "No se guardó: hay 2 actividades incompletas." (con una, "No se guardó: hay 1 actividad incompleta."), queda seleccionada la primera con sus errores y el foco en su primer campo con error. Al recargar y aceptar salir, la lección está como antes de esos cambios.
+- [X] V67 [web] Con el título de la lección vacío, al guardar veo "Este campo es obligatorio." en el título y no se guarda.
+- [X] V68 [web] Puedo guardar una lección sin actividades.
+- [X] V69 [web] Una teoría con el título vacío y sin puntos clave se guarda sin esos campos. Un código con sangría conserva su sangría después de guardar y recargar.
+- [X] V70 [web] Mientras se guarda, "Guardar lección" muestra un indicador y no puedo editar nada.
 - [ ] V71 [web, móvil] Armo una lección con los cinco tipos, un administrador publica el curso, y un alumno la cursa de principio a fin con lo que escribí: en la web y en el móvil se ve igual que en la vista previa y su resultado cuenta las tres preguntas.
-- [ ] V72 [web] Con la misma lección abierta en dos pestañas, guardo un cambio en la primera y otro en la segunda: la segunda pregunta "Esta lección cambió en otro lugar" con "Se guardó una versión más nueva en otra pestaña o dispositivo. Si guardas, la reemplazarás.", "Cancelar" y "Reemplazar".
-- [ ] V73 [web] "Cancelar" me deja en la lección con mis cambios y "Cambios sin guardar"; si recargo y acepto salir, veo lo que guardó la primera pestaña.
-- [ ] V74 [web] "Reemplazar" guarda, veo "Lección guardada" y, al recargar la primera pestaña, veo lo de la segunda.
-- [ ] V75 [web] Guardar dos veces seguidas en la misma pestaña no pregunta nada.
-- [ ] V76 [web] Con el lienzo abierto, reordenar las lecciones o cambiar los datos del curso en otra pestaña no hace aparecer la pregunta al guardar.
-- [ ] V77 [backend] Guardar, sin pasar por un cliente, una lección a partir de una versión que ya no es la última se rechaza y la lección queda como estaba, salvo que se pida reemplazarla.
-- [ ] V78 [web] Con cambios sin guardar, "Volver al curso" pregunta "¿Salir sin guardar?" con "Perderás los cambios que no guardaste.". "Seguir aquí" deja todo como estaba; "Salir" me lleva al mapa y los cambios se pierden.
-- [ ] V79 [web] El botón de volver del navegador hace lo mismo.
-- [ ] V80 [web] Con cambios sin guardar en los datos del curso, "Mi panel" y abrir una lección preguntan lo mismo.
-- [ ] V81 [web] Sin cambios pendientes, "Volver al curso" sale directo.
-- [ ] V82 [web] Al recargar la página con cambios sin guardar, el navegador avisa antes de salir; sin cambios, no avisa.
-- [ ] V83 [web] Con la cuenta B, la dirección del editor de un borrador de la cuenta A muestra "Este curso no existe o ya no está disponible." y "Ir a Mi panel". Una dirección con un identificador de curso inventado muestra lo mismo.
-- [ ] V84 [web] En un borrador propio, la dirección de una lección con un identificador inventado, o de una lección de otro curso, muestra "Esta lección no existe o ya no está disponible." y "Ir a Mi panel".
-- [ ] V85 [web] Con la cuenta autor, la dirección del editor de "Git esencial" y la de una de sus lecciones muestran "Este curso ya está publicado y por ahora no se puede editar." y "Ver curso".
-- [ ] V86 [web] Con el lienzo abierto, un administrador publica el curso. Al guardar veo "Este curso ya está publicado y por ahora no se puede editar. Tus cambios no se guardaron." y lo que escribí sigue en pantalla.
-- [ ] V87 [backend] Crear un curso sin sesión se rechaza. Cambiar, sin pasar por un cliente, un borrador de la cuenta A con la sesión de la cuenta B responde exactamente igual que con un identificador que no existe.
-- [ ] V88 [backend] Cambiar los datos, una lección o el orden de "Git esencial" con la sesión de su autor, o eliminarlo, se rechaza y no cambia nada.
-- [ ] V89 [backend] Guardar, sin pasar por un cliente, una lección con una actividad incompleta, con un texto más largo que su límite, con dos opciones iguales, con opciones de texto y de símbolo mezcladas, con un número de grupos distinto al de `___`, con un tipo que no es básico o con 51 actividades, se rechaza y la lección queda como estaba.
-- [ ] V90 [backend] Crear o cambiar un curso con un título de 101 caracteres, o agregar la lección 101, se rechaza y no cambia nada.
-- [ ] V91 [web] Un curso con `<b>hola</b>` y `<script>` en el título, la descripción, los títulos de sus lecciones y los textos de una actividad de cada tipo los muestra tal cual en "Cursos que creé", el mapa, los bloques de la secuencia, el inspector y la vista previa, sin negritas y sin ejecutar nada.
-- [ ] V92 [web] Mientras carga, "Cursos que creé", el mapa y el lienzo muestran un indicador, y sus mensajes de vacío no aparecen ni por un instante.
-- [ ] V93 [web] Con el servidor apagado, "Sigue aprendiendo" y "Cursos que creé" muestran cada una "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y su "Reintentar". El mapa y el lienzo también; al encender el servidor y pulsar "Reintentar" veo los datos.
-- [ ] V94 [web] Con el servidor apagado, al guardar la lección veo "No se pudo guardar la lección. Tus cambios siguen aquí."; al encender el servidor y pulsar otra vez "Guardar lección", se guarda.
-- [ ] V95 [web] Con el servidor apagado, "Crear curso" muestra "No se pudo crear el curso. Inténtalo de nuevo en un momento." y "Guardar cambios" muestra "No se pudieron guardar los cambios.". En los dos casos lo escrito sigue en el formulario.
-- [ ] V96 [web] Con el servidor apagado, al reordenar lecciones la lista vuelve al orden anterior con "No se pudo guardar el nuevo orden.". Al agregar, veo "No se pudo agregar la lección." y el título escrito sigue en el campo. Al eliminar, la lección sigue en la lista con "No se pudo eliminar la lección.", y el curso, con "No se pudo eliminar el curso.".
-- [ ] V97 [web] Con la lección eliminada en otra pestaña, al guardar veo "Esta lección ya no existe. Tus cambios no se guardaron."; con el curso eliminado, "Este curso ya no existe. Tus cambios no se guardaron.". Lo que escribí sigue en pantalla.
-- [ ] V98 [web] Dado que la sesión expiró, cuando guardo la lección, llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar."; al entrar con la misma cuenta regreso al lienzo con mis cambios sin guardar y, al pulsar "Guardar lección", se guardan.
-- [ ] V99 [web] Dado que la sesión expiró, cuando pulso "Crear curso" o "Guardar cambios", llego a "Entrar" con el aviso; al entrar con la misma cuenta regreso al formulario con lo que escribí.
-- [ ] V100 [web] Dado que la sesión expiró, con el título del curso cambiado sin guardar y un título escrito en "Nueva lección", cuando reordeno las lecciones llego a "Entrar" con el aviso; al entrar con la misma cuenta regreso al mapa con lo que escribí.
-- [ ] V101 [web] Si después de que expiró la sesión entro con otra cuenta, no veo los cambios sin guardar de la cuenta anterior.
-- [ ] V102 [web] Dado que la sesión expiró, cuando abro el mapa de un curso, llego a "Entrar" con el aviso; al entrar regreso a ese mapa.
+- [X] V72 [web] Con la misma lección abierta en dos pestañas, guardo un cambio en la primera y otro en la segunda: la segunda pregunta "Esta lección cambió en otro lugar" con "Se guardó una versión más nueva en otra pestaña o dispositivo. Si guardas, la reemplazarás.", "Cancelar" y "Reemplazar".
+- [X] V73 [web] "Cancelar" me deja en la lección con mis cambios y "Cambios sin guardar"; si recargo y acepto salir, veo lo que guardó la primera pestaña.
+- [X] V74 [web] "Reemplazar" guarda, veo "Lección guardada" y, al recargar la primera pestaña, veo lo de la segunda.
+- [X] V75 [web] Guardar dos veces seguidas en la misma pestaña no pregunta nada.
+- [X] V76 [web] Con el lienzo abierto, reordenar las lecciones o cambiar los datos del curso en otra pestaña no hace aparecer la pregunta al guardar.
+- [X] V77 [backend] Guardar, sin pasar por un cliente, una lección a partir de una versión que ya no es la última se rechaza y la lección queda como estaba, salvo que se pida reemplazarla.
+- [X] V78 [web] Con cambios sin guardar, "Volver al curso" pregunta "¿Salir sin guardar?" con "Perderás los cambios que no guardaste.". "Seguir aquí" deja todo como estaba; "Salir" me lleva al mapa y los cambios se pierden.
+- [X] V79 [web] El botón de volver del navegador hace lo mismo.
+- [X] V80 [web] Con cambios sin guardar en los datos del curso, "Mi panel" y abrir una lección preguntan lo mismo.
+- [X] V81 [web] Sin cambios pendientes, "Volver al curso" sale directo.
+- [X] V82 [web] Al recargar la página con cambios sin guardar, el navegador avisa antes de salir; sin cambios, no avisa.
+- [X] V83 [web] Con la cuenta B, la dirección del editor de un borrador de la cuenta A muestra "Este curso no existe o ya no está disponible." y "Ir a Mi panel". Una dirección con un identificador de curso inventado muestra lo mismo.
+- [X] V84 [web] En un borrador propio, la dirección de una lección con un identificador inventado, o de una lección de otro curso, muestra "Esta lección no existe o ya no está disponible." y "Ir a Mi panel".
+- [X] V85 [web] Con la cuenta autor, la dirección del editor de "Git esencial" y la de una de sus lecciones muestran "Este curso ya está publicado y por ahora no se puede editar." y "Ver curso".
+- [X] V86 [web] Con el lienzo abierto, un administrador publica el curso. Al guardar veo "Este curso ya está publicado y por ahora no se puede editar. Tus cambios no se guardaron." y lo que escribí sigue en pantalla.
+- [X] V87 [backend] Crear un curso sin sesión se rechaza. Cambiar, sin pasar por un cliente, un borrador de la cuenta A con la sesión de la cuenta B responde exactamente igual que con un identificador que no existe.
+- [X] V88 [backend] Cambiar los datos, una lección o el orden de "Git esencial" con la sesión de su autor, o eliminarlo, se rechaza y no cambia nada.
+- [X] V89 [backend] Guardar, sin pasar por un cliente, una lección con una actividad incompleta, con un texto más largo que su límite, con dos opciones iguales, con opciones de texto y de símbolo mezcladas, con un número de grupos distinto al de `___`, con un tipo que no es básico o con 51 actividades, se rechaza y la lección queda como estaba.
+- [X] V90 [backend] Crear o cambiar un curso con un título de 101 caracteres, o agregar la lección 101, se rechaza y no cambia nada.
+- [X] V91 [web] Un curso con `<b>hola</b>` y `<script>` en el título, la descripción, los títulos de sus lecciones y los textos de una actividad de cada tipo los muestra tal cual en "Cursos que creé", el mapa, los bloques de la secuencia, el inspector y la vista previa, sin negritas y sin ejecutar nada.
+- [X] V92 [web] Mientras carga, "Cursos que creé", el mapa y el lienzo muestran un indicador, y sus mensajes de vacío no aparecen ni por un instante.
+- [X] V93 [web] Con el servidor apagado, "Sigue aprendiendo" y "Cursos que creé" muestran cada una "No se pudo conectar con Brote. Inténtalo de nuevo en un momento." y su "Reintentar". El mapa y el lienzo también; al encender el servidor y pulsar "Reintentar" veo los datos.
+- [X] V94 [web] Con el servidor apagado, al guardar la lección veo "No se pudo guardar la lección. Tus cambios siguen aquí."; al encender el servidor y pulsar otra vez "Guardar lección", se guarda.
+- [X] V95 [web] Con el servidor apagado, "Crear curso" muestra "No se pudo crear el curso. Inténtalo de nuevo en un momento." y "Guardar cambios" muestra "No se pudieron guardar los cambios.". En los dos casos lo escrito sigue en el formulario.
+- [X] V96 [web] Con el servidor apagado, al reordenar lecciones la lista vuelve al orden anterior con "No se pudo guardar el nuevo orden.". Al agregar, veo "No se pudo agregar la lección." y el título escrito sigue en el campo. Al eliminar, la lección sigue en la lista con "No se pudo eliminar la lección.", y el curso, con "No se pudo eliminar el curso.".
+- [X] V97 [web] Con la lección eliminada en otra pestaña, al guardar veo "Esta lección ya no existe. Tus cambios no se guardaron."; con el curso eliminado, "Este curso ya no existe. Tus cambios no se guardaron.". Lo que escribí sigue en pantalla.
+- [X] V98 [web] Dado que la sesión expiró, cuando guardo la lección, llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar."; al entrar con la misma cuenta regreso al lienzo con mis cambios sin guardar y, al pulsar "Guardar lección", se guardan.
+- [X] V99 [web] Dado que la sesión expiró, cuando pulso "Crear curso" o "Guardar cambios", llego a "Entrar" con el aviso; al entrar con la misma cuenta regreso al formulario con lo que escribí.
+- [X] V100 [web] Dado que la sesión expiró, con el título del curso cambiado sin guardar y un título escrito en "Nueva lección", cuando reordeno las lecciones llego a "Entrar" con el aviso; al entrar con la misma cuenta regreso al mapa con lo que escribí.
+- [X] V101 [web] Si después de que expiró la sesión entro con otra cuenta, no veo los cambios sin guardar de la cuenta anterior.
+- [X] V102 [web] Dado que la sesión expiró, cuando abro el mapa de un curso, llego a "Entrar" con el aviso; al entrar regreso a ese mapa.
 
 ---
 

@@ -30,7 +30,8 @@ Brote no se usa sin cuenta. En los dos clientes:
 /panel                    "Mi panel": página personal, con       (F04, F05)
                           "Sigue aprendiendo" y "Cursos que creé"
 /editor/nuevo             Nuevo curso                            (F05)
-/editor/:idCurso          Mapa del curso (datos y lecciones)     (F05)
+/editor/:idCurso          Mapa del curso: datos y lecciones;     (F05, F06)
+                          en revisión o publicado, sus acciones
 *                         Página no encontrada (con sesión)      (F01)
 /cursos/:idCurso/lecciones/:idLeccion
                           Reproductor de la lección, a pantalla  (F03)
@@ -64,16 +65,19 @@ Brote no se usa sin cuenta. En los dos clientes:
   se monta de nuevo al volver, así que muestra el avance actualizado.
 - De "Mi panel" a un detalle, "Cursos" (volver) regresa a "Mi panel". El
   panel se vuelve a cargar cada vez que se entra.
-- En "Cursos que creé" (F05), "Editar" abre el mapa de un borrador y "Ver curso"
-  abre el detalle de uno publicado. "Nuevo curso" lleva a `/editor/nuevo`; al
-  crearlo, el mapa reemplaza esa entrada del historial.
+- En "Cursos que creé" (F05, F06), todas las tarjetas abren el mapa: "Editar" en un
+  borrador y "Administrar" en uno en revisión o publicado. "Nuevo curso" lleva a
+  `/editor/nuevo`; al crearlo, el mapa reemplaza esa entrada del historial.
 - Del mapa, "Mi panel" vuelve a `/panel`, y cada lección abre su lienzo. Del
   lienzo, "Volver al curso" lleva al mapa.
 - "Probar lección" (F05) agrega una entrada de historial en la misma dirección,
   con `state.probando`: volver regresa al lienzo como estaba, sin preguntar.
   Recargar en modo de prueba vuelve al lienzo.
-- Un curso publicado no se abre en el editor (F05): el mapa y el lienzo muestran
-  el aviso y "Ver curso".
+- Un curso en revisión o publicado no se edita (F06): el mapa muestra su título, su
+  estado y sus acciones, sin datos ni lecciones, y cambia de estado sin recargar. El
+  lienzo muestra el mensaje y "Volver al curso", que abre el mapa.
+- "Ver curso", en el mapa de un curso publicado, abre su detalle; volver regresa al
+  mapa.
 
 ## Móvil (expo-router)
 
@@ -146,4 +150,5 @@ cambios; si entra otra cuenta, se descarta.
 | Mis cursos (móvil) / Mi panel (web) | Detalle del curso | `idCurso`, igual que desde el catálogo (F04) |
 | Mi panel | Mapa del curso | `idCurso`, en la dirección (F05) |
 | Mapa del curso | Lienzo de la lección | `idCurso`, `idLeccion`, en la dirección (F05) |
+| Mapa del curso | Detalle del curso | `idCurso`, en la dirección (F06) |
 | Lienzo de la lección | Probar lección | Nada: las actividades siguen en memoria. `state.probando` en el historial (F05) |

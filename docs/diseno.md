@@ -238,7 +238,9 @@ los dos clientes".
 | `CampoArea` | `id`, `etiqueta`, `valor`, `alCambiar`, `error`, `ayuda`, `maxLongitud`, `filas`, `codigo`, `deshabilitado` | `CampoTexto` de varias líneas, con el mismo aspecto. Con `codigo`, en `--fuente-codigo`. Expone su `ref`, para escribir donde está el cursor |
 | `ListaEditable` | `filas`, `dibujarFila`, `alAgregar`, `alQuitar`, `textoAgregar`, `minimo`, `maximo`, `deshabilitada` | Filas con "Quitar" y un `Boton` `secundario` chico con `Plus` para agregar. La usan los puntos clave, las opciones y las respuestas aceptadas |
 | `BotonesOrden` | `alSubir`, `alBajar`, `esPrimero`, `esUltimo`, `etiqueta` | "Subir" (`ChevronUp`) y "Bajar" (`ChevronDown`), de 44 px. En los extremos usan `aria-disabled`, no `disabled`, para no perder el foco |
-| `TarjetaCursoAutor` | `curso` | `Superficie` con portada, título, `Insignia` del estado, `Insignia` de lecciones y el texto de la acción. Toda la tarjeta es un enlace |
+| `TarjetaCursoAutor` | `curso` | `Superficie` con portada, título, `InsigniaEstadoCurso`, `Insignia` "Revisión no aprobada" si la hay, `Insignia` de lecciones y el texto de la acción: "Editar" en borrador y "Administrar" en los demás. Toda la tarjeta es un enlace al mapa |
+| `InsigniaEstadoCurso` | `estado` | La `Insignia` de "Estado de un curso" (sección 5). La usan `TarjetaCursoAutor`, los datos del mapa y la pantalla de un curso que no se edita |
+| `Aviso` (cambia) | `titulo`, `icono` | `titulo` en seminegrita sobre el texto. `icono` reemplaza al del tono. El texto respeta los saltos de línea. Solo en la web |
 | `PaletaActividades` | `alAgregar`, `deshabilitada`, `arrastre` | Grupos en `seccion`, tipos como botones con icono. Sin registro: texto en `textoSuave`, icono en `textoTenue` e `Insignia` `neutro` "Próximamente" |
 | `BloqueActividad` | `numero`, `etiqueta`, `icono`, `resumen`, `incompleta`, `seleccionado`, `alSeleccionar`, `alEliminar`, orden | `Superficie` con asa `GripVertical` y un `<button>` con número, tipo y resumen en una línea, hermano de los botones de orden y de "Eliminar". Seleccionado: borde `primario` y fondo `primarioSuave`. Incompleta: `Insignia` `acento` con `CircleAlert` |
 | `VistaPrevia` | `actividad`, `idBloque`, `mensaje` | `Superficie` `suave` con "VISTA PREVIA" en `seccion` y "Reiniciar" (`RotateCcw`). Monta la actividad en `AmbitoActividad` |
@@ -295,14 +297,26 @@ degradado índigo → violeta, seguido de "Brote" en `titulo3` peso 800.
   rejilla de "Listas de tarjetas". Cada feature que agregue un bloque suma
   su sección. "Cursos que creé" (F05) lleva "Nuevo curso" (`Boton` primario
   chico con `Plus`) a la derecha de su título.
-- **Estado de un curso** (F05): "Borrador" con `Insignia` `neutro` y
-  `PencilLine`; "Publicado" con `Insignia` `primario` y `Globe`. El lima no se
-  usa aquí: no es un avance del alumno.
+- **Estado de un curso** (F05, F06): "Borrador" con `Insignia` `neutro` y
+  `PencilLine`; "En revisión" con `Insignia` `acento` y `Hourglass`; "Publicado"
+  con `Insignia` `primario` y `Globe`. Aparte del estado, "Revisión no aprobada"
+  con `Insignia` `acento` y `MessageSquareWarning`. El lima no se usa aquí: no es
+  un avance del alumno.
 - **Mapa del curso** (web, F05): arriba, `Boton` `enlace` chico "Mi panel" con
   `ArrowLeft`. Una `Superficie` con los datos del curso y otra con las
   lecciones. "Guardar cambios" es el `Boton` primario de la pantalla; "Nueva
   lección" y "Agregar", `secundario`; el "Eliminar" de cada lección, `fantasma`
-  chico. "Eliminar curso" al final, como `Boton` `peligro`.
+  chico. "Eliminar curso" al final, como `Boton` `peligro`. A su lado, "Enviar a
+  revisión" (F06), `Boton` primario con `Send`; debajo, con cambios sin guardar, la
+  nota en `nota` `textoSuave`. Una lección vacía marcada cambia "Sin actividades" por
+  una `Insignia` `acento` con `CircleAlert`. El rechazo es un `Aviso` `calido` con
+  `MessageSquareWarning`, arriba de los datos.
+- **Curso que no se edita** (web, F06): el mapa de un curso en revisión o publicado.
+  Arriba, `Boton` `enlace` chico "Mi panel" con `ArrowLeft`. Una `Superficie` con
+  `PortadaCurso`, el título en `titulo1`, `InsigniaEstadoCurso`, el mensaje en
+  `titulo3`, el texto en `textoSuave` y los botones en fila: "Retirar de revisión"
+  (`secundario`, `Undo2`), "Ver curso" (primario, `Eye`) y "Retirar del catálogo"
+  (`secundario`, `EyeOff`).
 - **Lienzo de la lección** (web, F05): fuera del marco común. Barra superior
   `Superficie` pegajosa con "Volver al curso", el título, "Cambios sin guardar"
   o "Lección guardada" en `nota`, "Probar lección" (`secundario`, `Play`) y

@@ -111,48 +111,48 @@ Cada criterio se comprueba con [quickstart.md](./quickstart.md), secciones 2 y 3
 marca también en `spec.md`. Antes de los PR, las repeticiones de F02 y F05 de la sección 4:
 F06 cambia el mapa y el servicio del editor.
 
-- [ ] V01 [web] Con la cuenta autor, "Curso en borrador" muestra "Borrador" y "Editar"; "Curso en revisión", "En revisión" y "Administrar"; y "Git esencial", "Publicado" y "Administrar".
-- [ ] V02 [web] Las tres tarjetas abren el mapa de su curso.
-- [ ] V03 [web] Al enviar a revisión el curso de abajo y volver a "Mi panel", ese curso queda primero.
-- [ ] V04 [web] En el mapa de un borrador completo veo "Enviar a revisión". Al pulsarlo, pregunta "¿Enviar a revisión?" con "Mientras esté en revisión no podrás editarlo. Un administrador lo revisará antes de publicarlo.". "Cancelar" no cambia nada.
-- [ ] V05 [web] Con un borrador sin lecciones, al pulsar "Enviar a revisión" no se pregunta nada: veo "No se envió: el curso no tiene lecciones." y sigue en borrador.
-- [ ] V06 [web] Con dos lecciones vacías, al pulsar "Enviar a revisión" no se pregunta nada: veo "No se envió: hay 2 lecciones sin actividades." (con una, "No se envió: hay 1 lección sin actividades.") y esas lecciones llevan su marca con icono.
-- [ ] V07 [web] Con el mapa abierto, vacío una lección en otra pestaña. Al confirmar el envío veo "No se envió: hay 1 lección sin actividades." y el curso sigue en borrador.
-- [ ] V08 [web] Con el título del curso cambiado sin guardar, "Enviar a revisión" está deshabilitado y veo "Guarda los cambios para poder enviarlo.". Al guardar, se habilita.
-- [ ] V09 [web] Con un borrador completo, al confirmar veo "Curso enviado a revisión." y el mapa muestra "Este curso está en revisión y no se puede editar.", sin los datos del curso, sin las lecciones y sin "Eliminar curso". Sigue así al recargar y al cerrar sesión y volver a entrar.
-- [ ] V10 [web] Mientras se envía, "Enviar" muestra un indicador y no puedo repetir la acción.
-- [ ] V11 [web] Con el servidor apagado, al confirmar veo "No se pudo enviar el curso a revisión." y el curso sigue en borrador; al encender el servidor y enviarlo otra vez, se envía.
-- [ ] V12 [web, móvil] Un curso en revisión no aparece en el catálogo ni al buscar su título exacto, aunque entre con la cuenta de su autor.
-- [ ] V13 [web] La dirección del detalle de un curso en revisión muestra "Este curso no existe o ya no está disponible.", también con la cuenta de su autor.
-- [ ] V14 [web] "Retirar de revisión" deja el curso en "Borrador", sin preguntar, con el aviso "El curso volvió a borrador.", y el mapa se puede editar.
-- [ ] V15 [web] Con el servidor apagado, veo "No se pudo retirar el curso de revisión." y el curso sigue en revisión.
-- [ ] V16 [web] Un administrador aprueba "Curso en revisión". Al recargar "Mi panel" lo veo como "Publicado", y su mapa muestra "Este curso está publicado y no se puede editar.", "Ver curso" y "Retirar del catálogo".
-- [ ] V17 [web, móvil] Ese curso aparece en el catálogo, y un alumno lo cursa de principio a fin con su progreso guardado.
-- [ ] V18 [web] "Ver curso" abre su detalle, y volver regresa al mapa.
-- [ ] V19 [web] Un administrador rechaza un curso con un motivo. En "Mi panel" lo veo como "Borrador" con "Revisión no aprobada", y su mapa muestra "La revisión no se aprobó.", el motivo con sus saltos de línea y "Corrígelo y envíalo otra vez.".
-- [ ] V20 [web] Si lo rechaza sin motivo, veo lo mismo, sin motivo.
-- [ ] V21 [web] Un motivo con `<b>hola</b>` y `<script>` se ve tal cual, sin negritas y sin ejecutar nada.
-- [ ] V22 [web] Después de un rechazo, el curso se edita como cualquier borrador. Al enviarlo otra vez, el aviso y "Revisión no aprobada" desaparecen.
-- [ ] V23 [web] En el mapa de "Git esencial", "Retirar del catálogo" pregunta "¿Retirar este curso del catálogo?" con "Los alumnos dejarán de verlo y no podrán cursarlo, pero conservarán su progreso. Para publicarlo otra vez tendrás que enviarlo a revisión.". "Cancelar" no cambia nada.
-- [ ] V24 [web] Al confirmar veo "El curso se retiró del catálogo y volvió a borrador." y el mapa se puede editar.
-- [ ] V25 [web, móvil] El curso retirado no aparece en el catálogo, y su detalle muestra "Este curso no existe o ya no está disponible.".
-- [ ] V26 [web, móvil] El curso retirado desaparece de "Sigue aprendiendo" (web) y de "Mis cursos" (móvil) para el alumno que lo había empezado.
-- [ ] V27 [web, móvil] Con el curso retirado, le agrego una lección con actividades y lo envío; un administrador lo aprueba. El alumno ve otra vez sus lecciones completadas, y el total cuenta la lección nueva.
-- [ ] V28 [web, móvil] Si el curso se retira mientras el alumno cursa una lección, al terminarla ve "Esta lección ya no está disponible. Tu progreso no se guardó.".
-- [ ] V29 [web] Con el servidor apagado, al confirmar veo "No se pudo retirar el curso del catálogo." y el curso sigue publicado.
-- [ ] V30 [web] La dirección del lienzo de una lección de un curso en revisión muestra "Este curso está en revisión y no se puede editar."; la de uno publicado, "Este curso está publicado y no se puede editar.". En los dos casos, "Volver al curso" abre el mapa.
-- [ ] V31 [web] Con el lienzo abierto en una pestaña, envío el curso a revisión en otra. Al guardar veo "Este curso está en revisión y no se puede editar. Tus cambios no se guardaron." y lo que escribí sigue en pantalla.
-- [ ] V32 [web] Con el lienzo abierto, un administrador publica el curso. Al guardar veo "Este curso está publicado y no se puede editar. Tus cambios no se guardaron." y lo que escribí sigue en pantalla.
-- [ ] V33 [web] Con el mapa de un curso en revisión abierto, un administrador lo aprueba. Al pulsar "Retirar de revisión" veo "El estado de este curso cambió en otro lugar." y el mapa muestra el curso publicado.
-- [ ] V34 [web] Con el mapa de un borrador abierto en dos pestañas, lo envío en la primera. Al enviarlo en la segunda veo "El estado de este curso cambió en otro lugar." y el mapa muestra el curso en revisión.
-- [ ] V35 [web] Con el mapa de un borrador abierto, elimino el curso en otra pestaña. Al enviarlo veo "Este curso ya no existe.".
-- [ ] V36 [web] Dado que la sesión expiró, cuando confirmo el envío con un título escrito en "Nueva lección", llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar."; al entrar con la misma cuenta regreso al mapa con ese título, y el curso sigue en borrador.
-- [ ] V37 [web] Dado que la sesión expiró, cuando pulso "Retirar de revisión" o confirmo "Retirar del catálogo", llego a "Entrar" con el aviso; al entrar regreso al mapa y el curso sigue como estaba.
-- [ ] V38 [web] Con la cuenta B, la dirección del mapa de "Curso en revisión" muestra "Este curso no existe o ya no está disponible." y "Ir a Mi panel".
-- [ ] V39 [backend] Enviar o retirar sin sesión se rechaza. Enviar o retirar un curso de otra cuenta responde exactamente igual que con un identificador que no existe.
-- [ ] V40 [backend] Enviar, sin pasar por un cliente, un curso sin lecciones o con una lección vacía se rechaza y sigue en borrador.
-- [ ] V41 [backend] Enviar un curso en revisión o publicado, retirar de revisión un borrador y retirar del catálogo un borrador se rechazan y no cambian nada.
-- [ ] V42 [backend] Cambiar los datos, una lección o el orden de un curso en revisión con la sesión de su autor, o eliminarlo, se rechaza y no cambia nada.
+- [X] V01 [web] Con la cuenta autor, "Curso en borrador" muestra "Borrador" y "Editar"; "Curso en revisión", "En revisión" y "Administrar"; y "Git esencial", "Publicado" y "Administrar".
+- [X] V02 [web] Las tres tarjetas abren el mapa de su curso.
+- [X] V03 [web] Al enviar a revisión el curso de abajo y volver a "Mi panel", ese curso queda primero.
+- [X] V04 [web] En el mapa de un borrador completo veo "Enviar a revisión". Al pulsarlo, pregunta "¿Enviar a revisión?" con "Mientras esté en revisión no podrás editarlo. Un administrador lo revisará antes de publicarlo.". "Cancelar" no cambia nada.
+- [X] V05 [web] Con un borrador sin lecciones, al pulsar "Enviar a revisión" no se pregunta nada: veo "No se envió: el curso no tiene lecciones." y sigue en borrador.
+- [X] V06 [web] Con dos lecciones vacías, al pulsar "Enviar a revisión" no se pregunta nada: veo "No se envió: hay 2 lecciones sin actividades." (con una, "No se envió: hay 1 lección sin actividades.") y esas lecciones llevan su marca con icono.
+- [X] V07 [web] Con el mapa abierto, vacío una lección en otra pestaña. Al confirmar el envío veo "No se envió: hay 1 lección sin actividades." y el curso sigue en borrador. (Con la API, no con otra pestaña real.)
+- [X] V08 [web] Con el título del curso cambiado sin guardar, "Enviar a revisión" está deshabilitado y veo "Guarda los cambios para poder enviarlo.". Al guardar, se habilita.
+- [X] V09 [web] Con un borrador completo, al confirmar veo "Curso enviado a revisión." y el mapa muestra "Este curso está en revisión y no se puede editar.", sin los datos del curso, sin las lecciones y sin "Eliminar curso". Sigue así al recargar y al cerrar sesión y volver a entrar.
+- [X] V10 [web] Mientras se envía, "Enviar" muestra un indicador y no puedo repetir la acción.
+- [X] V11 [web] Con el servidor apagado, al confirmar veo "No se pudo enviar el curso a revisión." y el curso sigue en borrador; al encender el servidor y enviarlo otra vez, se envía.
+- [X] V12 [web, móvil] Un curso en revisión no aparece en el catálogo ni al buscar su título exacto, aunque entre con la cuenta de su autor. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V13 [web] La dirección del detalle de un curso en revisión muestra "Este curso no existe o ya no está disponible.", también con la cuenta de su autor.
+- [X] V14 [web] "Retirar de revisión" deja el curso en "Borrador", sin preguntar, con el aviso "El curso volvió a borrador.", y el mapa se puede editar.
+- [X] V15 [web] Con el servidor apagado, veo "No se pudo retirar el curso de revisión." y el curso sigue en revisión.
+- [X] V16 [web] Un administrador aprueba "Curso en revisión". Al recargar "Mi panel" lo veo como "Publicado", y su mapa muestra "Este curso está publicado y no se puede editar.", "Ver curso" y "Retirar del catálogo".
+- [X] V17 [web, móvil] Ese curso aparece en el catálogo, y un alumno lo cursa de principio a fin con su progreso guardado. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V18 [web] "Ver curso" abre su detalle, y volver regresa al mapa.
+- [X] V19 [web] Un administrador rechaza un curso con un motivo. En "Mi panel" lo veo como "Borrador" con "Revisión no aprobada", y su mapa muestra "La revisión no se aprobó.", el motivo con sus saltos de línea y "Corrígelo y envíalo otra vez.".
+- [X] V20 [web] Si lo rechaza sin motivo, veo lo mismo, sin motivo.
+- [X] V21 [web] Un motivo con `<b>hola</b>` y `<script>` se ve tal cual, sin negritas y sin ejecutar nada.
+- [X] V22 [web] Después de un rechazo, el curso se edita como cualquier borrador. Al enviarlo otra vez, el aviso y "Revisión no aprobada" desaparecen.
+- [X] V23 [web] En el mapa de "Git esencial", "Retirar del catálogo" pregunta "¿Retirar este curso del catálogo?" con "Los alumnos dejarán de verlo y no podrán cursarlo, pero conservarán su progreso. Para publicarlo otra vez tendrás que enviarlo a revisión.". "Cancelar" no cambia nada.
+- [X] V24 [web] Al confirmar veo "El curso se retiró del catálogo y volvió a borrador." y el mapa se puede editar.
+- [X] V25 [web, móvil] El curso retirado no aparece en el catálogo, y su detalle muestra "Este curso no existe o ya no está disponible.". (Móvil validado en Expo web, no en un teléfono.)
+- [X] V26 [web, móvil] El curso retirado desaparece de "Sigue aprendiendo" (web) y de "Mis cursos" (móvil) para el alumno que lo había empezado. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V27 [web, móvil] Con el curso retirado, le agrego una lección con actividades y lo envío; un administrador lo aprueba. El alumno ve otra vez sus lecciones completadas, y el total cuenta la lección nueva. (Móvil validado en Expo web, no en un teléfono; la lección nueva se agregó con la API.)
+- [X] V28 [web, móvil] Si el curso se retira mientras el alumno cursa una lección, al terminarla ve "Esta lección ya no está disponible. Tu progreso no se guardó.". (Móvil validado en Expo web, no en un teléfono; el autor retiró el curso con la API.)
+- [X] V29 [web] Con el servidor apagado, al confirmar veo "No se pudo retirar el curso del catálogo." y el curso sigue publicado.
+- [X] V30 [web] La dirección del lienzo de una lección de un curso en revisión muestra "Este curso está en revisión y no se puede editar."; la de uno publicado, "Este curso está publicado y no se puede editar.". En los dos casos, "Volver al curso" abre el mapa.
+- [X] V31 [web] Con el lienzo abierto en una pestaña, envío el curso a revisión en otra. Al guardar veo "Este curso está en revisión y no se puede editar. Tus cambios no se guardaron." y lo que escribí sigue en pantalla. (Con la API, no con otra pestaña real.)
+- [X] V32 [web] Con el lienzo abierto, un administrador publica el curso. Al guardar veo "Este curso está publicado y no se puede editar. Tus cambios no se guardaron." y lo que escribí sigue en pantalla.
+- [X] V33 [web] Con el mapa de un curso en revisión abierto, un administrador lo aprueba. Al pulsar "Retirar de revisión" veo "El estado de este curso cambió en otro lugar." y el mapa muestra el curso publicado.
+- [X] V34 [web] Con el mapa de un borrador abierto en dos pestañas, lo envío en la primera. Al enviarlo en la segunda veo "El estado de este curso cambió en otro lugar." y el mapa muestra el curso en revisión. (Con la API, no con otra pestaña real.)
+- [X] V35 [web] Con el mapa de un borrador abierto, elimino el curso en otra pestaña. Al enviarlo veo "Este curso ya no existe.". (Con la API, no con otra pestaña real.)
+- [X] V36 [web] Dado que la sesión expiró, cuando confirmo el envío con un título escrito en "Nueva lección", llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a entrar."; al entrar con la misma cuenta regreso al mapa con ese título, y el curso sigue en borrador.
+- [X] V37 [web] Dado que la sesión expiró, cuando pulso "Retirar de revisión" o confirmo "Retirar del catálogo", llego a "Entrar" con el aviso; al entrar regreso al mapa y el curso sigue como estaba.
+- [X] V38 [web] Con la cuenta B, la dirección del mapa de "Curso en revisión" muestra "Este curso no existe o ya no está disponible." y "Ir a Mi panel".
+- [X] V39 [backend] Enviar o retirar sin sesión se rechaza. Enviar o retirar un curso de otra cuenta responde exactamente igual que con un identificador que no existe.
+- [X] V40 [backend] Enviar, sin pasar por un cliente, un curso sin lecciones o con una lección vacía se rechaza y sigue en borrador.
+- [X] V41 [backend] Enviar un curso en revisión o publicado, retirar de revisión un borrador y retirar del catálogo un borrador se rechazan y no cambian nada.
+- [X] V42 [backend] Cambiar los datos, una lección o el orden de un curso en revisión con la sesión de su autor, o eliminarlo, se rechaza y no cambia nada.
 
 ---
 

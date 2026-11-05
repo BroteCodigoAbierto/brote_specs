@@ -267,129 +267,129 @@ Los estados son los de F05, salvo el estado Publicado, que cambia:
 
 ### Cursos que creé
 
-- [ ] [web] Con la cuenta autor, "Curso en borrador" muestra "Borrador" y "Editar";
+- [x] [web] Con la cuenta autor, "Curso en borrador" muestra "Borrador" y "Editar";
   "Curso en revisión", "En revisión" y "Administrar"; y "Git esencial", "Publicado"
   y "Administrar".
-- [ ] [web] Las tres tarjetas abren el mapa de su curso.
-- [ ] [web] Al enviar a revisión el curso de abajo y volver a "Mi panel", ese curso
+- [x] [web] Las tres tarjetas abren el mapa de su curso.
+- [x] [web] Al enviar a revisión el curso de abajo y volver a "Mi panel", ese curso
   queda primero.
 
 ### Enviar a revisión
 
-- [ ] [web] En el mapa de un borrador completo veo "Enviar a revisión". Al pulsarlo,
+- [x] [web] En el mapa de un borrador completo veo "Enviar a revisión". Al pulsarlo,
   pregunta "¿Enviar a revisión?" con "Mientras esté en revisión no podrás editarlo.
   Un administrador lo revisará antes de publicarlo.". "Cancelar" no cambia nada.
-- [ ] [web] Con un borrador sin lecciones, al pulsar "Enviar a revisión" no se
+- [x] [web] Con un borrador sin lecciones, al pulsar "Enviar a revisión" no se
   pregunta nada: veo "No se envió: el curso no tiene lecciones." y sigue en borrador.
-- [ ] [web] Con dos lecciones vacías, al pulsar "Enviar a revisión" no se pregunta
+- [x] [web] Con dos lecciones vacías, al pulsar "Enviar a revisión" no se pregunta
   nada: veo "No se envió: hay 2 lecciones sin actividades." (con una, "No se envió:
   hay 1 lección sin actividades.") y esas lecciones llevan su marca con icono.
-- [ ] [web] Con el mapa abierto, vacío una lección en otra pestaña. Al confirmar el
+- [x] [web] Con el mapa abierto, vacío una lección en otra pestaña. Al confirmar el
   envío veo "No se envió: hay 1 lección sin actividades." y el curso sigue en
   borrador.
-- [ ] [web] Con el título del curso cambiado sin guardar, "Enviar a revisión" está
+- [x] [web] Con el título del curso cambiado sin guardar, "Enviar a revisión" está
   deshabilitado y veo "Guarda los cambios para poder enviarlo.". Al guardar, se
   habilita.
-- [ ] [web] Con un borrador completo, al confirmar veo "Curso enviado a revisión." y
+- [x] [web] Con un borrador completo, al confirmar veo "Curso enviado a revisión." y
   el mapa muestra "Este curso está en revisión y no se puede editar.", sin los datos
   del curso, sin las lecciones y sin "Eliminar curso". Sigue así al recargar y al
   cerrar sesión y volver a entrar.
-- [ ] [web] Mientras se envía, "Enviar" muestra un indicador y no puedo repetir la
+- [x] [web] Mientras se envía, "Enviar" muestra un indicador y no puedo repetir la
   acción.
-- [ ] [web] Con el servidor apagado, al confirmar veo "No se pudo enviar el curso a
+- [x] [web] Con el servidor apagado, al confirmar veo "No se pudo enviar el curso a
   revisión." y el curso sigue en borrador; al encender el servidor y enviarlo otra
   vez, se envía.
-- [ ] [web, móvil] Un curso en revisión no aparece en el catálogo ni al buscar su
+- [x] [web, móvil] Un curso en revisión no aparece en el catálogo ni al buscar su
   título exacto, aunque entre con la cuenta de su autor.
-- [ ] [web] La dirección del detalle de un curso en revisión muestra "Este curso no
+- [x] [web] La dirección del detalle de un curso en revisión muestra "Este curso no
   existe o ya no está disponible.", también con la cuenta de su autor.
 
 ### Retirar de revisión
 
-- [ ] [web] "Retirar de revisión" deja el curso en "Borrador", sin preguntar, con el
+- [x] [web] "Retirar de revisión" deja el curso en "Borrador", sin preguntar, con el
   aviso "El curso volvió a borrador.", y el mapa se puede editar.
-- [ ] [web] Con el servidor apagado, veo "No se pudo retirar el curso de revisión." y
+- [x] [web] Con el servidor apagado, veo "No se pudo retirar el curso de revisión." y
   el curso sigue en revisión.
 
 ### Aprobar
 
-- [ ] [web] Un administrador aprueba "Curso en revisión". Al recargar "Mi panel" lo
+- [x] [web] Un administrador aprueba "Curso en revisión". Al recargar "Mi panel" lo
   veo como "Publicado", y su mapa muestra "Este curso está publicado y no se puede
   editar.", "Ver curso" y "Retirar del catálogo".
-- [ ] [web, móvil] Ese curso aparece en el catálogo, y un alumno lo cursa de principio
+- [x] [web, móvil] Ese curso aparece en el catálogo, y un alumno lo cursa de principio
   a fin con su progreso guardado.
-- [ ] [web] "Ver curso" abre su detalle, y volver regresa al mapa.
+- [x] [web] "Ver curso" abre su detalle, y volver regresa al mapa.
 
 ### Rechazar
 
-- [ ] [web] Un administrador rechaza un curso con un motivo. En "Mi panel" lo veo como
+- [x] [web] Un administrador rechaza un curso con un motivo. En "Mi panel" lo veo como
   "Borrador" con "Revisión no aprobada", y su mapa muestra "La revisión no se aprobó.",
   el motivo con sus saltos de línea y "Corrígelo y envíalo otra vez.".
-- [ ] [web] Si lo rechaza sin motivo, veo lo mismo, sin motivo.
-- [ ] [web] Un motivo con `<b>hola</b>` y `<script>` se ve tal cual, sin negritas y sin
+- [x] [web] Si lo rechaza sin motivo, veo lo mismo, sin motivo.
+- [x] [web] Un motivo con `<b>hola</b>` y `<script>` se ve tal cual, sin negritas y sin
   ejecutar nada.
-- [ ] [web] Después de un rechazo, el curso se edita como cualquier borrador. Al
+- [x] [web] Después de un rechazo, el curso se edita como cualquier borrador. Al
   enviarlo otra vez, el aviso y "Revisión no aprobada" desaparecen.
 
 ### Retirar del catálogo
 
-- [ ] [web] En el mapa de "Git esencial", "Retirar del catálogo" pregunta "¿Retirar
+- [x] [web] En el mapa de "Git esencial", "Retirar del catálogo" pregunta "¿Retirar
   este curso del catálogo?" con "Los alumnos dejarán de verlo y no podrán cursarlo,
   pero conservarán su progreso. Para publicarlo otra vez tendrás que enviarlo a
   revisión.". "Cancelar" no cambia nada.
-- [ ] [web] Al confirmar veo "El curso se retiró del catálogo y volvió a borrador." y
+- [x] [web] Al confirmar veo "El curso se retiró del catálogo y volvió a borrador." y
   el mapa se puede editar.
-- [ ] [web, móvil] El curso retirado no aparece en el catálogo, y su detalle muestra
+- [x] [web, móvil] El curso retirado no aparece en el catálogo, y su detalle muestra
   "Este curso no existe o ya no está disponible.".
-- [ ] [web, móvil] El curso retirado desaparece de "Sigue aprendiendo" (web) y de "Mis
+- [x] [web, móvil] El curso retirado desaparece de "Sigue aprendiendo" (web) y de "Mis
   cursos" (móvil) para el alumno que lo había empezado.
-- [ ] [web, móvil] Con el curso retirado, le agrego una lección con actividades y lo
+- [x] [web, móvil] Con el curso retirado, le agrego una lección con actividades y lo
   envío; un administrador lo aprueba. El alumno ve otra vez sus lecciones completadas,
   y el total cuenta la lección nueva.
-- [ ] [web, móvil] Si el curso se retira mientras el alumno cursa una lección, al
+- [x] [web, móvil] Si el curso se retira mientras el alumno cursa una lección, al
   terminarla ve "Esta lección ya no está disponible. Tu progreso no se guardó.".
-- [ ] [web] Con el servidor apagado, al confirmar veo "No se pudo retirar el curso del
+- [x] [web] Con el servidor apagado, al confirmar veo "No se pudo retirar el curso del
   catálogo." y el curso sigue publicado.
 
 ### Lienzo y cambios en otro lugar
 
-- [ ] [web] La dirección del lienzo de una lección de un curso en revisión muestra
+- [x] [web] La dirección del lienzo de una lección de un curso en revisión muestra
   "Este curso está en revisión y no se puede editar."; la de uno publicado, "Este curso
   está publicado y no se puede editar.". En los dos casos, "Volver al curso" abre el
   mapa.
-- [ ] [web] Con el lienzo abierto en una pestaña, envío el curso a revisión en otra. Al
+- [x] [web] Con el lienzo abierto en una pestaña, envío el curso a revisión en otra. Al
   guardar veo "Este curso está en revisión y no se puede editar. Tus cambios no se
   guardaron." y lo que escribí sigue en pantalla.
-- [ ] [web] Con el lienzo abierto, un administrador publica el curso. Al guardar veo
+- [x] [web] Con el lienzo abierto, un administrador publica el curso. Al guardar veo
   "Este curso está publicado y no se puede editar. Tus cambios no se guardaron." y lo
   que escribí sigue en pantalla.
-- [ ] [web] Con el mapa de un curso en revisión abierto, un administrador lo aprueba. Al
+- [x] [web] Con el mapa de un curso en revisión abierto, un administrador lo aprueba. Al
   pulsar "Retirar de revisión" veo "El estado de este curso cambió en otro lugar." y el
   mapa muestra el curso publicado.
-- [ ] [web] Con el mapa de un borrador abierto en dos pestañas, lo envío en la primera.
+- [x] [web] Con el mapa de un borrador abierto en dos pestañas, lo envío en la primera.
   Al enviarlo en la segunda veo "El estado de este curso cambió en otro lugar." y el
   mapa muestra el curso en revisión.
-- [ ] [web] Con el mapa de un borrador abierto, elimino el curso en otra pestaña. Al
+- [x] [web] Con el mapa de un borrador abierto, elimino el curso en otra pestaña. Al
   enviarlo veo "Este curso ya no existe.".
-- [ ] [web] Dado que la sesión expiró, cuando confirmo el envío con un título escrito
+- [x] [web] Dado que la sesión expiró, cuando confirmo el envío con un título escrito
   en "Nueva lección", llego a "Entrar" con el aviso "Tu sesión terminó. Vuelve a
   entrar."; al entrar con la misma cuenta regreso al mapa con ese título, y el curso
   sigue en borrador.
-- [ ] [web] Dado que la sesión expiró, cuando pulso "Retirar de revisión" o confirmo
+- [x] [web] Dado que la sesión expiró, cuando pulso "Retirar de revisión" o confirmo
   "Retirar del catálogo", llego a "Entrar" con el aviso; al entrar regreso al mapa y
   el curso sigue como estaba.
 
 ### Permisos
 
-- [ ] [web] Con la cuenta B, la dirección del mapa de "Curso en revisión" muestra "Este
+- [x] [web] Con la cuenta B, la dirección del mapa de "Curso en revisión" muestra "Este
   curso no existe o ya no está disponible." y "Ir a Mi panel".
-- [ ] [backend] Enviar o retirar sin sesión se rechaza. Enviar o retirar un curso de
+- [x] [backend] Enviar o retirar sin sesión se rechaza. Enviar o retirar un curso de
   otra cuenta responde exactamente igual que con un identificador que no existe.
-- [ ] [backend] Enviar, sin pasar por un cliente, un curso sin lecciones o con una
+- [x] [backend] Enviar, sin pasar por un cliente, un curso sin lecciones o con una
   lección vacía se rechaza y sigue en borrador.
-- [ ] [backend] Enviar un curso en revisión o publicado, retirar de revisión un borrador
+- [x] [backend] Enviar un curso en revisión o publicado, retirar de revisión un borrador
   y retirar del catálogo un borrador se rechazan y no cambian nada.
-- [ ] [backend] Cambiar los datos, una lección o el orden de un curso en revisión con la
+- [x] [backend] Cambiar los datos, una lección o el orden de un curso en revisión con la
   sesión de su autor, o eliminarlo, se rechaza y no cambia nada.
 
 ## Datos que toca

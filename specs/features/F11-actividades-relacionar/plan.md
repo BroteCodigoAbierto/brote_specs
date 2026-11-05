@@ -24,13 +24,13 @@ y reanimated, que ya están instalados (punto 3). No hay paquetes nuevos.
 | I. La spec manda | sí | El plan sigue la spec y sus tres aclaraciones. Al planear se le agregó una regla: a dónde va el foco al devolver un elemento |
 | II. Un producto, cuatro repos | sí | Tipos y constantes nuevos en `contrato/` 0.8.0, copiados a los tres repos |
 | III. El backend es la autoridad | sí | `validarActividades` comprueba cada regla, también que el banco se pueda llenar, aunque el cliente lo haya dejado pasar. Los textos solo se muestran como texto. Las respuestas ya viajaban al cliente desde F03: F04 sigue sin confiar en los aciertos |
-| IV. Actividades extensibles | sí | Cada tipo es lo que pide el principio: su variante, su validador, su componente en la web con su formulario y su componente en el móvil. El reproductor, la paleta, la secuencia y la vista previa no cambian. Sí se tocan piezas que no dependen del tipo: `BarraRespuesta` (punto 7), `MarcoActividad` y la raíz de la app (punto 3), y se generalizan dos piezas de completar espacios para no copiarlas (punto 9). La vista previa usa el componente del alumno |
+| IV. Actividades extensibles | con excepciones (ver "Excepciones a la constitución") | Cada tipo es lo que pide el principio: su variante, su validador, su componente en la web con su formulario y su componente en el móvil. El reproductor, la paleta, la secuencia y la vista previa no cambian. Sí se tocan piezas que no dependen del tipo: `BarraRespuesta` (punto 7), `MarcoActividad` y la raíz de la app (punto 3), y se generalizan dos piezas de completar espacios para no copiarlas (punto 9). La vista previa usa el componente del alumno |
 | V. Estados explícitos | sí | Abrir y guardar no cambian (F03, F05). Cada actividad tiene sus estados en la spec: sin responder, seleccionado, arrastrando, completa y respondida |
 | VI. Dependencias justificadas | sí | Ningún paquete nuevo. `react-native-gesture-handler` ya estaba en `package.json`, y lo que se agrega es usarlo (research.md, punto 3) |
-| VII. Estilo propio | sí | Identificadores en español sin acentos (`useArrastrarFicha`, `solucionBanco`) |
-| VIII. Terminado = validado | sí | Cada uno de los 106 criterios tiene pasos en `quickstart.md`. Las funciones de `relacionar.ts` no llevan pruebas automáticas (decisión 0012) |
+| VII. Estilo propio | sí | Identificadores en español sin acentos (`useArrastrarElemento`, `solucionBanco`) |
+| VIII. Terminado = validado | sí | Cada uno de los 108 criterios tiene pasos en `quickstart.md`. Las funciones de `relacionar.ts` no llevan pruebas automáticas (decisión 0012) |
 
-Revisión después del diseño: sin cambios ni excepciones.
+Revisión después del diseño: sin cambios; las excepciones están abajo.
 
 ## Cambios al contrato
 
@@ -63,10 +63,12 @@ los dos clientes con el mismo nombre.
 
   | Componente | Props clave | Notas |
   |---|---|---|
-  | `FichaRespuesta` | `texto`, `estado` (como `OpcionRespuesta`), `forma` (`tarjeta`, `ficha`), `marca`, `atenuada`, `resaltada`, `deshabilitada`, `etiqueta`, `alPulsar` | Elemento que se mueve o se une. Los colores de `OpcionRespuesta`, con icono al comprobar. `tarjeta`: 56 px de alto, radio `medio`. `ficha`: 44 px, radio `medio` y no `pildora`, porque el texto puede ocupar varias líneas. `marca`: número en un círculo `primarioSuave`. `atenuada`: opacidad 0.4. `resaltada`: borde `primario` y fondo `primarioSuave`, sin sombra. Respeta la sangría. En la web acepta `propsOrigen` y `propsDestino`; en el móvil se envuelve en `Arrastrable` y `DestinoArrastre` |
-  | `LugarFicha` | `numero`, `enLinea`, `estado` (`normal`, `correcto`, `incorrecto`), `esperada`, `resaltado`, `etiqueta`, `children` | Donde se coloca una `FichaRespuesta`. Vacío: borde punteado de 2 px en `bordeFuerte`. `numero`: lugar de ordenar, a la izquierda. `enLinea`: espacio del banco, dentro del texto. `esperada` va al lado en `nota` `broteFuerte`, como en `CampoEspacio` |
-  | `ZonaFichas` | `titulo`, `resaltada`, `etiqueta`, `alPulsar`, `children` | `Superficie` `suave` que agrupa fichas: los elementos sin colocar, el banco o una categoría. Sigue visible aunque esté vacía. Con `titulo`, es una categoría: el título es el botón y toda la zona se puede pulsar (research.md, punto 8) |
+  | `ElementoRespuesta` | `texto`, `estado` (como `OpcionRespuesta`), `forma` (`tarjeta`, `compacta`), `marca`, `atenuada`, `resaltada`, `deshabilitada`, `etiqueta`, `alPulsar` | Elemento que se mueve o se une. Los colores de `OpcionRespuesta`, con icono al comprobar. `tarjeta`: 56 px de alto, radio `medio`. `compacta`: 44 px, radio `medio` y no `pildora`, porque el texto puede ocupar varias líneas. `marca`: número en un círculo `primarioSuave`. `atenuada`: opacidad 0.4. `resaltada`: borde `primario` y fondo `primarioSuave`, sin sombra. Respeta la sangría. En la web acepta `propsOrigen` y `propsDestino`; en el móvil se envuelve en `Arrastrable` y `DestinoArrastre` |
+  | `LugarElemento` | `numero`, `enLinea`, `estado` (`normal`, `correcto`, `incorrecto`), `esperada`, `resaltado`, `etiqueta`, `children` | Donde se coloca una `ElementoRespuesta`. Vacío: borde punteado de 2 px en `bordeFuerte`. `numero`: lugar de ordenar, a la izquierda. `enLinea`: espacio del banco, dentro del texto. `esperada` va al lado en `nota` `broteFuerte`, como en `CampoEspacio`. En la web acepta `propsDestino`; en el móvil se envuelve en `DestinoArrastre` |
+  | `ZonaElementos` | `titulo`, `resaltada`, `etiqueta`, `alPulsar`, `children` | `Superficie` `suave` que agrupa elementos: los sin colocar, el banco o una categoría. Sigue visible aunque esté vacía. Con `titulo`, es una categoría: el título es el botón y toda la zona se puede pulsar (research.md, punto 8). En la web acepta `propsDestino`; en el móvil se envuelve en `DestinoArrastre` |
   | `BarraRespuesta` (cambia) | `enfocar` | Con `enfocar` en `true`, pasa el foco al botón (solo en la web: en el móvil no hay teclado). El detalle se desplaza a partir de cierta altura: 11rem en la web y 35 % del alto de la pantalla en el móvil (research.md, punto 7) |
+  | `TextoConEspacios` (solo móvil) | `texto`, `dibujarEspacio` | Dibuja las líneas de un texto con espacios, porque en el móvil no se puede poner una vista dentro de un `Text`. Lo usan completar espacios y banco de palabras |
+  | `CapaArrastre` (solo móvil) | `arrastre` | La copia flotante que sigue al dedo, con `pointerEvents="none"` y `sombraElevada`. La dibuja `MarcoActividad` fuera de su `ScrollView` |
 
 - **Editor (solo web)** (sección 4):
 
@@ -76,26 +78,26 @@ los dos clientes con el mismo nombre.
   | `CampoConEspacios` | `id`, `valor`, `alCambiar`, `ayuda`, `error`, `maxLongitud`, `deshabilitado` | El campo de texto en letra de código con "Agregar espacio". Lo usan completar espacios y banco de palabras |
 
 - **Actividades** (sección 6):
-  - **Emparejar**: dos columnas iguales de `FichaRespuesta` `tarjeta`, lado a lado también
+  - **Emparejar**: dos columnas iguales de `ElementoRespuesta` `tarjeta`, lado a lado también
     en el móvil. La pareja se ve por su `marca`.
-  - **Clasificar**: `ZonaFichas` con los elementos sin colocar y, debajo, una por
+  - **Clasificar**: `ZonaElementos` con los elementos sin colocar y, debajo, una por
     categoría. Las categorías se acomodan solas: lado a lado si caben al menos 14rem,
     una debajo de otra si no.
-  - **Ordenar**: los `LugarFicha` numerados en columna y, debajo, una `ZonaFichas` con las
-    `FichaRespuesta` `tarjeta`.
-  - **Banco de palabras**: el texto en una `Superficie`, con un `LugarFicha` `enLinea` en
-    cada espacio y, debajo, una `ZonaFichas` con las fichas.
+  - **Ordenar**: los `LugarElemento` numerados en columna y, debajo, una `ZonaElementos` con las
+    `ElementoRespuesta` `tarjeta`.
+  - **Banco de palabras**: el texto en una `Superficie`, con un `LugarElemento` `enLinea` en
+    cada espacio y, debajo, una `ZonaElementos` con las fichas.
   - **Arrastrar**: la copia que sigue al dedo lleva `sombraElevada`. El origen va
-    `atenuada` y el destino, `resaltada`. Con "reducir movimiento" no hay animación de
-    regreso.
+    `atenuada` y el destino, `resaltada`. Al soltar fuera no hay animación de regreso, con o
+    sin "reducir movimiento": la copia desaparece y el elemento ya está en su lugar.
   - **Teclado**: se agrega a dónde va el foco al colocar, emparejar y devolver.
-  - La primera regla de "Opciones" pasa a decir que estos tipos usan `FichaRespuesta`.
+  - La primera regla de "Opciones" pasa a decir que estos tipos usan `ElementoRespuesta`.
 
 ### Por pantalla
 
 | Pantalla | Usa | Nuevo |
 |---|---|---|
-| Reproductor de la lección (web y móvil) | `BarraRespuesta`, `Superficie` | Los cuatro componentes de actividad, con `FichaRespuesta`, `LugarFicha` y `ZonaFichas` |
+| Reproductor de la lección (web y móvil) | `BarraRespuesta`, `Superficie` | Los cuatro componentes de actividad, con `ElementoRespuesta`, `LugarElemento` y `ZonaElementos` |
 | Lienzo, inspector (web) | `CampoArea`, `CampoTexto`, `ListaEditable`, `BotonesOrden`, `Aviso`, `Boton` | Los cuatro formularios, `CampoSelector` y `CampoConEspacios` |
 | Lienzo, vista previa (web) | `VistaPrevia`, sin cambios | Nada: monta la actividad real |
 | Lienzo, paleta y secuencia (web) | `PaletaActividades`, `BloqueActividad`, sin cambios | Nada: se activan con `registroEditor` |
@@ -135,10 +137,10 @@ los dos clientes con el mismo nombre.
   - `registro.ts` y `registroEditor.ts`: una línea por tipo.
   - `CompletarEspacios/grupos.ts`: `ajustarGrupos` se vuelve genérica (research.md, punto 9).
   - `CompletarEspacios/FormularioCompletarEspacios.tsx`: usa `CampoConEspacios`.
-- **Componentes** (`src/componentes/`): `FichaRespuesta/`, `LugarFicha/`, `ZonaFichas/`,
+- **Componentes** (`src/componentes/`): `ElementoRespuesta/`, `LugarElemento/`, `ZonaElementos/`,
   `CampoSelector/` y `CampoConEspacios/`, nuevos. `BarraRespuesta/` cambia.
-- **Hooks**: `src/hooks/useArrastrarFicha.ts`, nuevo (research.md, punto 2).
-  `src/hooks/useFocoFichas.ts`, nuevo: el efecto del foco (research.md, punto 10).
+- **Hooks**: `src/hooks/useArrastrarElemento.ts`, nuevo (research.md, punto 2).
+  `src/hooks/useFocoElementos.ts`, nuevo: el efecto del foco (research.md, punto 10).
 - **Utilidades**: `src/utilidades/relacionar.ts`, nuevo (research.md, puntos 1, 5 y 6), con
   `hayFormaDeLlenar` además de lo que comparte con el móvil.
 - **Reproductor**: `ReproductorLeccion.module.css`, `.contenido` pasa a `20rem` de margen abajo
@@ -160,9 +162,9 @@ los dos clientes con el mismo nombre.
   - `MarcoActividad.tsx`: prop opcional `arrastre`, con la que da su `ScrollView`, apaga
     `scrollEnabled`, informa del desplazamiento y dibuja `CapaArrastre`.
   - `CompletarEspacios.tsx`: usa `TextoConEspacios`.
-  - `arrastre/`, nueva: `useArrastrarFicha.ts`, `Arrastrable.tsx`, `DestinoArrastre.tsx` y
+  - `arrastre/`, nueva: `useArrastrarElemento.ts`, `Arrastrable.tsx`, `DestinoArrastre.tsx` y
     `CapaArrastre.tsx`.
-- **Componentes** (`src/componentes/`): `FichaRespuesta.tsx`, `LugarFicha.tsx`, `ZonaFichas.tsx`
+- **Componentes** (`src/componentes/`): `ElementoRespuesta.tsx`, `LugarElemento.tsx`, `ZonaElementos.tsx`
   y `TextoConEspacios.tsx`, nuevos. `BarraRespuesta.tsx` cambia.
 - **Utilidades**: `src/utilidades/relacionar.ts`, nuevo, igual que el de la web pero sin
   `hayFormaDeLlenar`. `partirEnLineas` pasa a `utilidades/actividades.ts`.
@@ -198,4 +200,9 @@ móvil (research.md, puntos 2 y 3).
 
 ## Excepciones a la constitución
 
-Ninguna.
+| Qué | Por qué hace falta | Por qué no sirve la opción simple |
+|---|---|---|
+| `BarraRespuesta` en los dos clientes y `ReproductorLeccion.module.css` | Una respuesta de ordenar o banco puede tener 2000 caracteres y taparía "Continuar". La web también necesita pasarle el foco a "Comprobar" | Recortar el detalle en cada actividad escondería parte de la respuesta |
+| `MarcoActividad.tsx` y `src/app/_layout.tsx` (móvil) | Arrastrar necesita el `ScrollView` de la actividad y `GestureHandlerRootView` en la raíz | Un `ScrollView` propio por actividad repetiría lo mismo cuatro veces, y sin la raíz `GestureDetector` lanza un error |
+| `CompletarEspacios/grupos.ts`, `FormularioCompletarEspacios.tsx` (web) y `CompletarEspacios.tsx` (móvil) | El banco de palabras reutiliza sus grupos, su campo de texto y su dibujo de líneas | Copiarlos dejaría dos versiones de la misma regla |
+| `recortarTitulos` en `src/validacion/editor.ts` (backend) | Recorta las fichas, que se comparan por su texto exacto. Es un caso por tipo fuera del validador, como el que ya existe para la teoría | Rechazar fichas con espacios le pasaría al cliente una regla que hoy resuelve el servidor |

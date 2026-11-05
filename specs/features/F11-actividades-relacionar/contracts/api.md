@@ -51,7 +51,7 @@ Cuerpo: `CuerpoGuardarLeccion`, igual que en F05.
 | `emparejar` | `parejas` fuera de 3 a 8; un lado vacío o de más de 200; un texto repetido en una columna; un campo que no sea `izquierda` o `derecha`; `consigna` vacía o de más de 500 |
 | `clasificar` | `categorias` fuera de 2 a 4; `elementos` fuera de 2 a 12; textos vacíos o de más de 100; una categoría o un elemento repetido; `categoria` que no sea un índice de `categorias`; una categoría sin elementos; `consigna` vacía o de más de 500 |
 | `ordenar` | Sin `consigna`; `elementos` fuera de 3 a 10; un elemento vacío, repetido o de más de 200 |
-| `bancoPalabras` | `texto` vacío, de más de 2000, sin `___` o con más de 10; `fichas` fuera de 2 a 20; una ficha vacía o de más de 100; un número de `espacios` distinto al de `___`; un espacio sin `aceptadas`; una aceptada que no sea una ficha; que no haya forma de llenar todos los espacios con cada ficha una sola vez; `consigna` vacía o de más de 500 |
+| `bancoPalabras` | `texto` vacío, de más de 2000, sin `___` o con más de 10; `fichas` fuera de 2 a 20; una ficha vacía o de más de 100; un número de `espacios` distinto al de `___`; un espacio sin `aceptadas`; una aceptada que no sea una ficha; que no haya forma de llenar todos los espacios con cada ficha una sola vez; `consigna` vacía o de más de 500; más de 20 textos en un `aceptadas` |
 | Cualquier otro | Un tipo que no exista (por ejemplo, `retoCodigo`): `actividad N (retoCodigo): tipo desconocido` |
 
 ## Errores sin cambios

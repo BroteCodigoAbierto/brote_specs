@@ -16,8 +16,8 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
   | `unirPareja(parejas, izquierda, derecha)` | Deshace lo que tuvieran los dos y agrega la pareja con el número libre más bajo |
   | `deshacerPareja(parejas, lado, indice)` | Quita la pareja de ese elemento |
   | `primerLibre(lugares)` | El primer lugar vacío, o -1 |
-  | `colocarEnLugar(lugares, ficha, lugar)` | Pone la ficha en ese lugar. Si estaba ocupado, intercambia (ver "Soltar al arrastrar" en la spec) |
-  | `quitarDeLugar(lugares, ficha)` | La devuelve; su lugar queda libre y nada se recorre |
+  | `colocarEnLugar(lugares, elemento, lugar)` | Pone el elemento en ese lugar. Si estaba ocupado, intercambia (ver "Soltar al arrastrar" en la spec) |
+  | `quitarDeLugar(lugares, elemento)` | Lo devuelve; su lugar queda libre y nada se recorre |
   | `mezclarSinResolver(total)` | Índices mezclados, nunca en orden (punto 6) |
   | `solucionBanco(actividad, colocadas)` | La solución que se muestra (punto 5) |
 
@@ -32,7 +32,7 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
 ## 2. Arrastrar en la web: la API del navegador, con un hook nuevo
 
 - **Decisión**: arrastrar y soltar nativo, como F05 (research de F05, punto 13), en un
-  hook nuevo `src/hooks/useArrastrarFicha.ts`. La spec solo pide ratón en la web, y
+  hook nuevo `src/hooks/useArrastrarElemento.ts`. La spec solo pide ratón en la web, y
   Brote se valida en Chrome.
 - **Por qué no `useArrastrar`**: el de F05 ordena una lista: su destino es un número y
   la mitad del elemento decide si se suelta antes o después. Aquí el destino es un
@@ -41,7 +41,7 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
   (`propsOrigen`, `propsDestino`, `arrastrando`, `destino`), con un destino genérico:
 
   ```ts
-  useArrastrarFicha<Item, Destino>({ alSoltar: (item: Item, destino: Destino) => void })
+  useArrastrarElemento<Item, Destino>({ alSoltar: (item: Item, destino: Destino) => void })
   ```
 
 - **La vista previa no choca con el editor**: cada instancia solo acepta lo que empezó
@@ -88,9 +88,9 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
   arrastra, el hilo de JavaScript no hace nada más, y así la comprobación de destinos
   puede usar estado normal. La copia se mueve con valores compartidos.
 - **Dónde vive** (`src/actividades/arrastre/`):
-  - `useArrastrarFicha<Item, Destino>({ alSoltar })`: qué se arrastra, posición,
+  - `useArrastrarElemento<Item, Destino>({ alSoltar })`: qué se arrastra, posición,
     destinos registrados y el destino bajo el dedo. Mismos nombres que en la web.
-  - `Arrastrable`: envuelve una `FichaRespuesta` en un `GestureDetector`. Un
+  - `Arrastrable`: envuelve una `ElementoRespuesta` en un `GestureDetector`. Un
     `usePanGesture` por elemento, por eso es un componente.
   - `DestinoArrastre`: registra su vista como destino.
   - `CapaArrastre`: la copia flotante. Va fuera del `ScrollView`, en `MarcoActividad`,
@@ -198,11 +198,14 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
 
 ## 8. Componentes nuevos y no `OpcionRespuesta`
 
-- **Decisión**: tres componentes nuevos en los dos clientes: `FichaRespuesta`,
-  `LugarFicha` y `ZonaFichas` (detalle en plan.md, "Interfaz").
+- **Decisión**: tres componentes nuevos en los dos clientes: `ElementoRespuesta`,
+  `LugarElemento` y `ZonaElementos` (detalle en plan.md, "Interfaz").
 - **Por qué no `OpcionRespuesta`**: es un `radio` con `aria-checked` y tecla. Estos son
   botones que se mueven, llevan número y son origen y destino de un arrastre. Comparten
   el aspecto, y por eso reutilizan `EstadoOpcion` y sus colores.
+- **Nombres**: "ficha" significa solo una palabra del banco, en la spec y en el código
+  (`fichas`, `fichaMax`). Lo que se mueve en cualquier tipo es un "elemento", y de ahí
+  `ElementoRespuesta`, `LugarElemento` y `ZonaElementos`.
 - **Zona pulsable sin botones anidados**: una categoría tiene que reaccionar al pulsar
   en cualquier parte, incluso encima de un elemento colocado. En la web un `<button>` no
   puede contener otro, así que:
@@ -212,8 +215,12 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
     vuelve.
 
   En el móvil un `Pressable` sí puede contener a otro: gana el de adentro y aplica la
-  misma regla.
-- **Espacios en línea**: la web pone `LugarFicha` dentro de un texto con `pre-wrap`,
+  misma regla. Pero `Pressable` es accesible por defecto, y una vista accesible agrupa a
+  sus hijos: el lector de pantalla leería la categoría como un solo elemento. Por eso el
+  de la zona lleva `accessible={false}` y sigue atendiendo los toques, y el título es
+  otro `Pressable` con `accessibilityRole="button"`, el que usa el lector de pantalla. Es
+  el equivalente del botón en el título de la web.
+- **Espacios en línea**: la web pone `LugarElemento` dentro de un texto con `pre-wrap`,
   como `CampoEspacio`. En el móvil no se puede poner una vista dentro de un `Text`, así
   que `partirEnLineas` sale de `CompletarEspacios.tsx` a `utilidades/actividades.ts`,
   junto con un componente `TextoConEspacios` que dibuja las líneas y recibe qué poner en
@@ -259,8 +266,8 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
   pintado, con `querySelector` sobre la raíz de la actividad:
   - colocar: el primer `[data-sin-colocar]`;
   - formar pareja: el primer `[data-sin-pareja="<columna>"]`;
-  - devolver: el elemento devuelto, por `data-ficha`;
-  - si no queda nada: "Comprobar", con la prop nueva `enfocar` de `BarraRespuesta`, que
+  - devolver: el elemento devuelto, por `data-elemento`;
+  - si la respuesta quedó completa: "Comprobar", con la prop nueva `enfocar` de `BarraRespuesta`, que
     pasa el foco al botón cuando ya está habilitado.
 
   Solo al pulsar: al soltar un arrastre el foco no importa. En la vista previa no
@@ -272,8 +279,8 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
 
 ## 11. Datos de prueba
 
-- **Decisión**: se regenera `scripts/actividades-prototipo.ts` con el mismo script
-  desechable de F03 (tarea T012), ahora con nueve tipos. Son 120 actividades (93 + 27).
+- **Decisión**: se regenera `scripts/actividades-prototipo.ts` con un script
+  desechable como el de F03 (tarea T012), ahora con nueve tipos. Son 120 actividades (93 + 27).
   Como `bd:sembrar` borra y vuelve a crear los cursos de `@brote.test`, también borra su
   progreso.
 - **Correspondencia** (la reutiliza F07):

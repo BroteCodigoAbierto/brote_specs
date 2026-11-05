@@ -298,8 +298,9 @@ como un alumno.
 - **Teclado** (web):
   - Todo se hace con Tab, Enter y la barra espaciadora, sin arrastrar. Las teclas
     1 a 9 no hacen nada en estos tipos.
-  - Después de colocar algo, el foco pasa al siguiente elemento sin colocar; si
-    ya no queda ninguno, a "Comprobar".
+  - Después de colocar algo, el foco pasa al siguiente elemento sin colocar. Si
+    la respuesta ya está completa, pasa a "Comprobar", aunque en el banco sobren
+    fichas.
   - Después de formar una pareja, pasa al siguiente elemento sin pareja de la
     columna donde se empezó; si ya no queda ninguno, a "Comprobar".
   - Al devolver un elemento colocado, pasa a ese elemento.
@@ -509,7 +510,7 @@ No cambia (F05), salvo:
 - [ ] [web, móvil] Al abrir varias veces esa lección, los elementos no salen
   siempre en el mismo orden, y nunca en el orden correcto.
 - [ ] [web, móvil] Al pulsar un elemento va al lugar 1, y al pulsar otro, al lugar
-  2.
+  2. Pulsar un lugar vacío no hace nada.
 - [ ] [web, móvil] Con tres elementos colocados, al pulsar el del lugar 1 vuelve a
   los elementos sin colocar, los otros dos no se mueven y "Comprobar" se
   deshabilita. El siguiente que pulso va al lugar 1.
@@ -521,6 +522,9 @@ No cambia (F05), salvo:
 - [ ] [móvil] En "Patrones comunes con Flexbox" (Examen unidad 1, 11), con el orden
   equivocado, los elementos se leen completos y puedo leer toda la barra sin perder
   de vista "Continuar".
+- [ ] [web] En "Actividades de prueba", en el ordenar de 10 elementos, con el orden
+  equivocado, puedo leer toda la respuesta desplazando el texto de la barra, y
+  "Continuar" sigue a la vista.
 
 ### Banco de palabras
 
@@ -557,7 +561,8 @@ No cambia (F05), salvo:
   forman pareja, igual que pulsándolos. Al soltarlo sobre otro elemento de su misma
   columna, nada cambia.
 - [ ] [web, móvil] En clasificar, arrastro un elemento a una categoría, de ahí a la
-  otra y de vuelta a los elementos sin colocar.
+  otra y de vuelta a los elementos sin colocar. Con todos colocados, la zona de los
+  sin colocar sigue visible y se puede soltar ahí.
 - [ ] [web, móvil] En ordenar, con todos los lugares libres, arrastro un elemento
   al lugar 3 y queda ahí. Al pulsar otro, va al lugar 1.
 - [ ] [web, móvil] En ordenar, al soltar el elemento del lugar 1 sobre el lugar 2,
@@ -581,6 +586,8 @@ No cambia (F05), salvo:
   lección.
 - [ ] [móvil] Si la app pasa a segundo plano mientras arrastro, al volver el
   elemento está donde estaba.
+- [ ] [móvil] Con algo ya colocado, al pulsar el botón de atrás del teléfono mientras
+  arrastro otro elemento, el arrastre se cancela y veo "¿Salir de la lección?".
 - [ ] [web, móvil] Con "reducir movimiento" activado, al soltar fuera el elemento
   vuelve sin animación, y lo incorrecto no se sacude.
 
@@ -589,7 +596,8 @@ No cambia (F05), salvo:
 - [ ] [web] Resuelvo los cuatro tipos solo con Tab, Enter y la barra espaciadora,
   hasta "Continuar".
 - [ ] [web] En clasificar, ordenar y banco, después de colocar un elemento el foco
-  queda en el siguiente sin colocar, y después del último, en "Comprobar".
+  queda en el siguiente sin colocar y, cuando la respuesta queda completa, en
+  "Comprobar".
 - [ ] [web] En emparejar, después de formar una pareja el foco queda en el
   siguiente sin pareja de la columna donde empecé, y después de la última, en
   "Comprobar".
@@ -653,6 +661,7 @@ No cambia (F05), salvo:
   cursor y aparece el grupo "Espacio 1" con las palabras del banco como casillas.
   Escribir otro `___` a mano agrega "Espacio 2".
 - [ ] [web] Una palabra repetida en las fichas aparece una sola vez en las casillas.
+  Las fichas "Rojo" y "rojo" salen como dos casillas.
 - [ ] [web] Un espacio sin marcas muestra, al guardar, "Marca al menos una ficha.".
   Un texto sin `___` muestra "Agrega al menos un espacio con ___.", y con 11, "El
   texto puede tener hasta 10 espacios.".

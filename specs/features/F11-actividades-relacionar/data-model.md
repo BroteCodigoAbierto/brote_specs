@@ -27,7 +27,7 @@ Unicode. Los límites están en `LIMITES_ACTIVIDADES`.
 | `bancoPalabras` | `consigna` | texto | no | Si está, no vacía, de hasta 500 |
 | | `texto` | texto | sí | De hasta 2000, con 1 a 10 `___` (`MARCA_ESPACIO`) |
 | | `fichas` | lista de textos | sí | Entre 2 y 20. Cada una no vacía, de hasta 100. Se guardan recortadas. **Se pueden repetir** |
-| | `espacios` | lista de `{ aceptadas }` | sí | Uno por cada `___`. Cada `aceptadas` tiene al menos un texto, y cada texto es el de una ficha |
+| | `espacios` | lista de `{ aceptadas }` | sí | Uno por cada `___`. Cada `aceptadas` tiene de 1 a 20 textos (`fichasMax`), y cada texto es el de una ficha |
 
 ### Reglas que cruzan campos
 

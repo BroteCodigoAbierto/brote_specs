@@ -223,11 +223,12 @@ la segunda actividad. Bien: `if (x > 5) {`, `printf("Hola");` y `}`.
 |---|---|---|
 | [web, móvil] Inicio | Llega a ordenar | La consigna, tres lugares numerados y vacíos, y los tres elementos, con `printf("Hola");` con su sangría. "Comprobar" deshabilitado |
 | [web, móvil] Mezcla | Abre la lección unas seis veces | No siempre el mismo orden, y nunca el correcto |
-| [web, móvil] Primer lugar libre | Pulsa un elemento y luego otro | El primero va al lugar 1 y el segundo, al 2 |
+| [web, móvil] Primer lugar libre | Pulsa un elemento y luego otro. Pulsa un lugar vacío | El primero va al lugar 1 y el segundo, al 2. Pulsar un lugar vacío no hace nada |
 | [web, móvil] Devolver | Coloca los tres; pulsa el del lugar 1; pulsa el que quedó sin colocar | Vuelve a los sin colocar, los otros dos no se mueven y "Comprobar" se deshabilita. Después va al lugar 1 |
 | [web, móvil] Todo bien | Colócalos en el orden correcto y comprueba | Los tres correctos y "¡Correcto!" |
 | [web, móvil] Dos cambiados | Pon bien el lugar 1, cambia el 2 y el 3, y comprueba | Lugar 1 correcto, los otros incorrectos, y "Respuesta correcta:" con las tres líneas numeradas |
 | [móvil] Textos largos | Abre "Patrones comunes con Flexbox" (Examen unidad 1, 11) hasta ordenar, equivócate y comprueba | Los elementos se leen completos. El detalle de la barra se desplaza y "Continuar" sigue a la vista |
+| [web] Barra con respuesta larga | Corre L1. En "Actividades de prueba", 6, en el ordenar de 10 elementos, pon un orden equivocado y comprueba | El texto de la barra se desplaza y se lee completo. "Continuar" sigue a la vista |
 
 ### Banco de palabras
 
@@ -253,7 +254,7 @@ actividad. Para los de "Actividades de prueba", corre antes L1 y abre su lecció
 | Criterio | Pasos | Esperado |
 |---|---|---|
 | [web, móvil] Emparejar | En "Remotos", arrastra `git push` hasta su descripción. Arrastra `git pull` sobre `git fetch` | Forman pareja, como al pulsar. Lo segundo no cambia nada |
-| [web, móvil] Clasificar | En "Primeros pasos", arrastra `if` a una categoría, de ahí a la otra y de vuelta a los sin colocar | Queda en cada lugar |
+| [web, móvil] Clasificar | En "Primeros pasos", arrastra `if` a una categoría, de ahí a la otra y de vuelta a los sin colocar. Coloca todos y arrastra uno a la zona de los sin colocar | Queda en cada lugar. Con todos colocados, la zona sigue visible y se puede soltar ahí |
 | [web, móvil] Un lugar concreto | En "Condicionales", arrastra un elemento al lugar 3 y pulsa otro | El primero queda en el 3 y el segundo va al 1 |
 | [web, móvil] Intercambiar | Con el 1 y el 2 llenos, suelta el del 1 sobre el 2. Luego suelta el que queda sin colocar sobre el lugar 1 | Se intercambian. Después, el que estaba en el 1 vuelve a los sin colocar |
 | [web, móvil] Banco | Corre L1. En "Mis colores favoritos son ___ y ___.", arrastra una ficha al segundo espacio, con el primero libre. Devuélvela arrastrándola al banco | Queda en el segundo, y vuelve al banco |
@@ -265,6 +266,7 @@ actividad. Para los de "Actividades de prueba", corre antes L1 y abre su lecció
 | [móvil] Un dedo | Arrastra un elemento y, sin soltarlo, mantén otro dedo sobre otro elemento y muévelo | El segundo no se mueve ni se selecciona |
 | [móvil] Borde | Mantén pulsado un elemento de la columna izquierda y muévelo hacia el borde de la pantalla | No sale de la lección |
 | [móvil] Segundo plano | Arrastra un elemento y, sin soltarlo, manda la app a segundo plano. Vuelve | El elemento está donde estaba |
+| [móvil] Botón de atrás | Solo aplica en Android. Con algo ya colocado, arrastra otro elemento y, sin soltarlo, pulsa atrás | El arrastre se cancela y aparece "¿Salir de la lección?" |
 | [web, móvil] Reducir movimiento | Activa "reducir movimiento". Suelta un elemento fuera; luego equivócate en una actividad y comprueba | Vuelve sin animación, y lo incorrecto no se sacude |
 
 ### Teclado y accesibilidad
@@ -272,7 +274,7 @@ actividad. Para los de "Actividades de prueba", corre antes L1 y abre su lecció
 | Criterio | Pasos | Esperado |
 |---|---|---|
 | [web] Solo teclado | Resuelve un emparejar, un clasificar, un ordenar y un banco solo con Tab, Enter y la barra espaciadora | Se llega a "Continuar" en los cuatro |
-| [web] Foco al colocar | En clasificar, ordenar y banco, coloca con el teclado hasta el último | El foco queda en el siguiente sin colocar, y después del último, en "Comprobar" |
+| [web] Foco al colocar | En clasificar, ordenar y banco, coloca con el teclado hasta el último | El foco queda en el siguiente sin colocar y, cuando la respuesta queda completa, en "Comprobar" |
 | [web] Foco al emparejar | En emparejar, forma parejas empezando por la izquierda | El foco queda en el siguiente sin pareja de esa columna, y después de la última, en "Comprobar" |
 | [web] Foco al devolver | En clasificar, ordenar y banco, devuelve con el teclado un elemento colocado | El foco queda en ese elemento |
 | [web] Teclas 1 a 9 | En cada tipo, pulsa las teclas 1 a 9 | No pasa nada |
@@ -312,7 +314,7 @@ Con la cuenta A, en el lienzo de "Semillas".
 | [web] Ordenar | Agrega ordenar. Mira su ayuda, usa "Subir" y "Bajar", y guarda sin consigna | Tres elementos vacíos y "Escríbelos en el orden correcto. El alumno los verá mezclados.". Los botones cambian el orden, y la consigna muestra "Este campo es obligatorio." |
 | [web] Límites en ordenar | Agrega y quita hasta los topes; escribe dos elementos iguales y guarda | "Quitar" deshabilitado con 3 y "Agregar elemento" con 10. "Este elemento está repetido." |
 | [web] Espacios del banco | Agrega banco, escribe dos fichas, pulsa "Agregar espacio" y luego escribe otro `___` a mano | `___` aparece donde está el cursor, con "Espacio 1" y las dos palabras como casillas. Después aparece "Espacio 2" |
-| [web] Casillas sin repetir | Escribe dos fichas "int" | "int" sale una sola vez en cada grupo |
+| [web] Casillas sin repetir | Escribe dos fichas "int". Luego escribe "Rojo" y "rojo" | "int" sale una sola vez en cada grupo. "Rojo" y "rojo" salen como dos casillas |
 | [web] Errores del banco | Guarda con un espacio sin marcas; luego con un texto sin `___`; luego con 11 | "Marca al menos una ficha.", "Agrega al menos un espacio con ___." y "El texto puede tener hasta 10 espacios." |
 | [web] No alcanzan | Texto `___ y ___`, fichas `int` y `char`, y solo `int` marcada en los dos. Guarda. Agrega otra ficha `int` y guarda | "No alcanzan las fichas para llenar todos los espacios. Si una palabra va en dos, agrégala dos veces.". Después se guarda |
 | [web] Marcas de las fichas | Marca una ficha y corrige su texto. Luego quítala | Sigue marcada. Después su palabra desaparece de los grupos |

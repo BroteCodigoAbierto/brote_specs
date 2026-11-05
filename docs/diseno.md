@@ -217,13 +217,18 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | Volver (detalle) | — | `Boton` `enlace` chico con `ArrowLeft` y "Cursos"; regresa a la pantalla anterior con su estado |
 | `BarraProgreso` | `actual`, `total`, `etiqueta`, `textoValor` | Barra de la lección (sección 6) y del avance de un curso. Web: `role="progressbar"` con `aria-label={etiqueta}` y `aria-valuetext={textoValor}`; móvil: `accessibilityRole="progressbar"` con las mismas etiquetas. Las dos props son opcionales (F04): sin ellas, "Progreso de la lección" y "Actividad {n} de {total}" (o "Lección completada") |
 | `AvanceCurso` | `completadas`, `total` | Avance de un curso (F04): "{c} de {t} lecciones" (con `t = 1`, "lección") en `cuerpoChico` seminegrita y debajo `BarraProgreso` con `etiqueta` "Avance del curso" y `textoValor` "{c} de {t} lecciones completadas". Con el curso terminado, además una `Insignia` `brote` con `CircleCheck` "Curso terminado" |
-| `BarraRespuesta` | `estado` (`neutro`, `correcto`, `incorrecto`), `titulo`, `detalle`, `textoBoton`, `deshabilitado`, `alPulsar` | Barra inferior fija de cada actividad, con el `Boton` primario a ancho completo. `correcto`: fondo `broteSuave`, título en `broteFuerte` con `CircleCheck`; `incorrecto`: fondo `errorSuave`, título en `error` con `CircleX`. Anuncia el cambio (`aria-live` / `accessibilityLiveRegion`) y, al dejar de ser `neutro`, pasa el foco al botón |
+| `BarraRespuesta` | `estado` (`neutro`, `correcto`, `incorrecto`), `titulo`, `detalle`, `textoBoton`, `deshabilitado`, `alPulsar` | Barra inferior fija de cada actividad, con el `Boton` primario a ancho completo. `correcto`: fondo `broteSuave`, título en `broteFuerte` con `CircleCheck`; `incorrecto`: fondo `errorSuave`, título en `error` con `CircleX`. Anuncia el cambio (`aria-live` / `accessibilityLiveRegion`) y, al dejar de ser `neutro`, pasa el foco al botón. El `detalle` se desplaza a partir de 11rem en la web y del 35 % del alto de la pantalla en el móvil; el título y el botón quedan fijos (F11). `enfocar` (F11, solo en la web, porque en el móvil no hay teclado): al ponerse en `true`, pasa el foco al botón |
 | `OpcionRespuesta` | `estado` (`normal`, `seleccionada`, `correcta`, `incorrecta`), `texto` o `simbolo`, `numero` (solo web), `deshabilitada`, `alElegir` | Opción de la sección 6 (radio). Con `simbolo`, mosaico cuadrado con el símbolo en `display` |
 | `BloqueCodigo` | `codigo` | Panel `codigoFondo`, radio `medio`, `codigo` 14/22. Una fila por línea; las de diff (`+`, `-`, `@@`) con sus colores. Se desplaza hacia los lados en vez de cortar líneas |
 | `TarjetaVolteable` | `frente`, `reverso`, `volteada`, `alVoltear` | Dos caras de `Superficie` elevada (mínimo 200 px), texto `titulo2` centrado; gira sobre el eje vertical en `lento` |
 | `CampoEspacio` | `valor`, `alCambiar`, `estado` (`normal`, `correcto`, `incorrecto`), `esperada`, `etiqueta`, `deshabilitado` | Campo en línea con el texto, de radio `chico`; bordes y fondos como las opciones. `esperada` va a su lado en `nota` `broteFuerte` |
 | `Dialogo` (web) | `abierto`, `titulo`, `texto`, `textoConfirmar`, `textoCancelar`, `alConfirmar`, `alCancelar` | `<dialog>` modal: `Superficie` sólida, radio `enorme`, título `titulo2`, botones `secundario` (cancelar, con el foco) y `peligro` (confirmar). Esc cancela. En el móvil, la misma confirmación es `Alert.alert` nativo, con cancelar como `cancel` y confirmar como `destructive` |
 | `ResultadoLeccion` | `titulo`, `aciertos`, `preguntas`, `alVolver`, `guardado`, `alReintentar` | Fin de lección (sección 6). `guardado` (F04) es el estado del progreso, en una zona entre los aciertos y el botón que anuncia sus cambios (`aria-live="polite"` / `accessibilityLiveRegion="polite"`): `"guardando"` ("Guardando tu progreso…" en `nota` `textoSuave` con un indicador chico, y "Volver al curso" con `enviando`); `"guardado"` (`CircleCheck` y "Progreso guardado" en `nota` `broteFuerte`); `"error"` y `"sinConexion"` (`Aviso` `error` con su texto y `Boton` `secundario` chico "Reintentar" → `alReintentar`); `"noDisponible"` (`Aviso` `error` sin "Reintentar") |
+| `ElementoRespuesta` | `texto`, `estado` (como `OpcionRespuesta`), `forma` (`tarjeta`, `compacta`), `marca`, `atenuada`, `resaltada`, `deshabilitada`, `etiqueta`, `alPulsar` | Elemento que se mueve o se une (F11). Los colores de `OpcionRespuesta`, con icono al comprobar. `tarjeta`: 56 px de alto, radio `medio`. `compacta`: 44 px, radio `medio` y no `pildora`, porque el texto puede ocupar varias líneas. `marca`: número en un círculo `primarioSuave`. `atenuada`: opacidad 0.4. `resaltada`: borde `primario` y fondo `primarioSuave`, sin sombra. Respeta la sangría. En la web acepta `propsOrigen` y `propsDestino`; en el móvil se envuelve en `Arrastrable` y `DestinoArrastre` |
+| `LugarElemento` | `numero`, `enLinea`, `estado` (`normal`, `correcto`, `incorrecto`), `esperada`, `resaltado`, `etiqueta`, `children` | Donde se coloca un `ElementoRespuesta` (F11). Vacío: borde punteado de 2 px en `bordeFuerte`. `numero`: lugar de ordenar, a la izquierda. `enLinea`: espacio del banco, dentro del texto. `esperada` va al lado en `nota` `broteFuerte`, como en `CampoEspacio`. En la web acepta `propsDestino`; en el móvil se envuelve en `DestinoArrastre` |
+| `ZonaElementos` | `titulo`, `resaltada`, `etiqueta`, `alPulsar`, `children` | `Superficie` `suave` que agrupa elementos: los sin colocar, el banco o una categoría (F11). Sigue visible aunque esté vacía. Con `titulo`, es una categoría: el título es el botón y toda la zona se puede pulsar. En la web acepta `propsDestino`; en el móvil se envuelve en `DestinoArrastre` |
+| `TextoConEspacios` (móvil) | `texto`, `dibujarEspacio` | Dibuja las líneas de un texto con espacios, porque en el móvil no se puede poner una vista dentro de un `Text`. Lo usan completar espacios y banco de palabras (F11). En la web no hace falta: los espacios van dentro del texto |
+| `CapaArrastre` (móvil) | `arrastre` | La copia flotante que sigue al dedo, con `pointerEvents="none"` y `sombraElevada`. La dibuja `MarcoActividad` fuera de su `ScrollView` (F11). En la web, esa copia la dibuja el navegador |
 
 ### Editor (solo web)
 
@@ -236,6 +241,8 @@ los dos clientes".
 |---|---|---|
 | `CampoTexto` (cambia) | `maxLongitud`, `deshabilitado` | Solo en la web |
 | `CampoArea` | `id`, `etiqueta`, `valor`, `alCambiar`, `error`, `ayuda`, `maxLongitud`, `filas`, `codigo`, `deshabilitado` | `CampoTexto` de varias líneas, con el mismo aspecto. Con `codigo`, en `--fuente-codigo`. Expone su `ref`, para escribir donde está el cursor |
+| `CampoSelector` | `id`, `etiqueta`, `valor`, `opciones`, `textoVacio`, `alCambiar`, `error`, `deshabilitado` | `<select>` nativo con el aspecto de `CampoTexto` (F11) |
+| `CampoConEspacios` | `id`, `valor`, `alCambiar`, `ayuda`, `error`, `maxLongitud`, `deshabilitado` | El campo de texto en letra de código con "Agregar espacio". Lo usan completar espacios y banco de palabras (F11) |
 | `ListaEditable` | `filas`, `dibujarFila`, `alAgregar`, `alQuitar`, `textoAgregar`, `minimo`, `maximo`, `deshabilitada` | Filas con "Quitar" y un `Boton` `secundario` chico con `Plus` para agregar. La usan los puntos clave, las opciones y las respuestas aceptadas |
 | `BotonesOrden` | `alSubir`, `alBajar`, `esPrimero`, `esUltimo`, `etiqueta` | "Subir" (`ChevronUp`) y "Bajar" (`ChevronDown`), de 44 px. En los extremos usan `aria-disabled`, no `disabled`, para no perder el foco |
 | `TarjetaCursoAutor` | `curso` | `Superficie` con portada, título, `InsigniaEstadoCurso`, `Insignia` "Revisión no aprobada" si la hay, `Insignia` de lecciones y el texto de la acción: "Editar" en borrador y "Administrar" en los demás. Toda la tarjeta es un enlace al mapa |
@@ -335,7 +342,8 @@ son la base para todas las actividades; cada spec de actividad las concreta.
   degradado a `#84CC16`) que avanza con animación `medio`.
 - **Consigna** en `titulo2`; el contenido de la actividad en `Superficie`.
 - **Opciones** (opción múltiple, emparejar, ordenar): tarjetas de vidrio de
-  al menos 56 px de alto con borde de 2 px.
+  al menos 56 px de alto con borde de 2 px. La opción múltiple usa
+  `OpcionRespuesta`; emparejar y ordenar, `ElementoRespuesta`.
   - Normal: borde `borde`. Hover: borde `bordeFuerte`.
   - Seleccionada: borde `primario`, fondo `primarioSuave`, sombra elevada.
   - Correcta: borde `broteFuerte`, fondo `broteSuave`, icono de palomita.
@@ -368,6 +376,19 @@ son la base para todas las actividades; cada spec de actividad las concreta.
   `suave` con "SOLUCIÓN DE REFERENCIA" en `seccion` y la solución; luego
   "¿La tuviste bien?" con "La tuve bien" y "No la tuve" (`Boton`
   `secundario`). La barra inferior dice "¡Correcto!" o "A repasar".
+- **Emparejar** (F11): dos columnas iguales de `ElementoRespuesta` `tarjeta`, lado a
+  lado también en el móvil. La pareja se ve por su `marca`.
+- **Clasificar** (F11): `ZonaElementos` con los elementos sin colocar y, debajo, una
+  por categoría. Las categorías se acomodan solas: lado a lado si caben al menos
+  14rem, una debajo de otra si no.
+- **Ordenar** (F11): los `LugarElemento` numerados en columna y, debajo, una
+  `ZonaElementos` con los `ElementoRespuesta` `tarjeta`.
+- **Banco de palabras** (F11): el texto en una `Superficie`, con un `LugarElemento`
+  `enLinea` en cada espacio y, debajo, una `ZonaElementos` con las fichas.
+- **Arrastrar** (F11): la copia que sigue al dedo lleva `sombraElevada`. El origen va
+  `atenuada` y el destino, `resaltada`. Al soltar fuera no hay animación de regreso,
+  con o sin "reducir movimiento": la copia desaparece y el elemento ya está en su
+  lugar.
 - **Salir de la lección**: la X es un `Boton` `fantasma` chico con la etiqueta
   "Salir de la lección". Si el alumno ya hizo algo, salir (con la X, el botón
   de volver o el gesto de atrás) pide confirmación con `Dialogo` en la web y
@@ -377,7 +398,12 @@ son la base para todas las actividades; cada spec de actividad las concreta.
   pantalla) y Enter pulsa el botón de la barra inferior, salvo con el foco en
   un `<textarea>`, un botón o un enlace. En completar espacios, Tab pasa al
   siguiente espacio y Enter comprueba. Al comprobar, el foco pasa a
-  "Continuar"; al pasar de actividad, al título de la nueva.
+  "Continuar"; al pasar de actividad, al título de la nueva. En las actividades de
+  relacionar (F11), las teclas 1 a 9 no hacen nada, y todo se hace con Tab, Enter y
+  la barra espaciadora. Después de colocar algo, el foco pasa al siguiente elemento
+  sin colocar; después de formar una pareja, al siguiente sin pareja de la columna
+  donde se empezó; con la respuesta completa, a "Comprobar"; y al devolver un
+  elemento, a ese elemento.
 - **Vista previa** (web, F05): la actividad real en un recuadro, dentro de
   `AmbitoActividad`. No toma el foco al actualizarse, sus teclas solo actúan con
   el foco dentro y su barra de respuesta va en línea.

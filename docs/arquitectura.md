@@ -77,10 +77,22 @@ El prototipo guardaba cada curso como una carpeta de archivos JSON. En Brote:
 
 ## Publicación de cursos
 
-`borrador → en revisión → publicado`. El autor envía su curso a revisión desde
-la web. La aprobación, por ahora, la hace un administrador cambiando
-`publicado` a `true` directamente en la base de datos; no hay pantalla de
-moderación en el MVP.
+`borrador → en revisión → publicado`. El autor envía su curso a revisión desde la web,
+y puede retirarlo de revisión o, ya publicado, retirarlo del catálogo: vuelve a ser
+borrador y, para publicarlo otra vez, pasa de nuevo por revisión. Sus alumnos conservan
+el progreso. No hay pantalla de moderación en el MVP: un administrador aprueba, rechaza
+y retira directamente en la base de datos:
+
+```sql
+UPDATE curso SET publicado = true  WHERE id = '…';   -- aprobar
+UPDATE curso SET publicado = false WHERE id = '…';   -- retirar
+UPDATE curso SET revision = 'rechazada', motivo_rechazo = '…'
+  WHERE id = '…' AND revision = 'pendiente';         -- rechazar; el motivo es opcional
+```
+
+Un trigger limpia la revisión cuando cambia `publicado`, y un `CHECK` rechaza lo que se
+escriba mal. Son reglas en la base porque ese camino no pasa por el backend: es la
+excepción al principio III del plan de F06.
 
 ## Contrato compartido
 

@@ -99,7 +99,7 @@ description: "Lista de tareas de F06 Enviar un curso a revisión y publicarlo"
 
 - [X] T030 [specs] Integrar [data-model.md](./data-model.md) a `specs/02-modelo-datos.md`: en Curso, `revision`, `motivo_rechazo`, `estado` con tres valores, `revisionRechazada`, la restricción y el trigger. Quitar "hasta F06" y "F06 lo distingue". En "Entidades previstas", sacar el estado "en revisión"
 - [X] T031 [specs] Integrar "Cambios a la navegación" de [plan.md](./plan.md) a `specs/01-navegacion.md`: las tarjetas de "Cursos que creé", el mapa en revisión o publicado, "Ver curso" desde el mapa y "Volver al curso" en el lienzo. Quitar "Un curso publicado no se abre en el editor". Agregar Mapa → Detalle a "Qué viaja entre pantallas"
-- [ ] T032 [P] [specs] En `docs/arquitectura.md`, "Publicación de cursos": el rechazo con motivo, retirar del catálogo y el trigger, con los `UPDATE` que usa el administrador para aprobar, rechazar y retirar
+- [X] T032 [P] [specs] En `docs/arquitectura.md`, "Publicación de cursos": el rechazo con motivo, retirar del catálogo y el trigger, con los `UPDATE` que usa el administrador para aprobar, rechazar y retirar
 - [ ] T033 [specs] `npm run contrato:revisar`: las tres copias coinciden con la oficial
 - [ ] T034 [specs] Revisar que `specs/features/F06-publicar-curso/spec.md` coincide con lo que se construyó; si algo cambió, actualizarla
 

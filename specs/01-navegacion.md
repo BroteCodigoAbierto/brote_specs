@@ -121,7 +121,7 @@ leccion/[idCurso]/[idLeccion]
 ## Salir de una lección (F03)
 
 En los dos clientes, si el alumno ya hizo algo (pasó de la primera
-actividad, o eligió, escribió o volteó algo), salir antes de terminar pide
+actividad, o eligió, escribió, volteó, colocó o unió algo), salir antes de terminar pide
 confirmación: "¿Salir de la lección?", "Perderás tu avance en esta lección.",
 "Seguir aquí" y "Salir". La piden la X, el botón de volver del navegador
 (web) y el botón o gesto de atrás del teléfono (móvil). Recargar la página o

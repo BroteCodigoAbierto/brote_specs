@@ -45,10 +45,10 @@ description: "Lista de tareas de F06 Enviar un curso a revisión y publicarlo"
 - [X] T002 [specs] En `contrato/contrato.ts`, aplicar [contracts/contrato.md](./contracts/contrato.md) tal cual: `EstadoCurso`, `CursoDelAutor`, `CursoEnEditor` y `MENSAJES_EDITOR`, y quitar el comentario `// F06 agrega "enRevision".`. Subir `contrato/VERSION` de `0.6.0` a `0.7.0`
 - [X] T003 [specs] En `docs/diseno.md`, sección 4, "Editor (solo web)", de plan.md: agregar `InsigniaEstadoCurso` (`estado`); agregar `Aviso` (cambia) con `titulo`, `icono` y saltos de línea, "Solo en la web"; y cambiar `TarjetaCursoAutor`: siempre enlaza al mapa, con la acción "Editar" o "Administrar" y la `Insignia` "Revisión no aprobada"
 - [X] T004 [specs] En `docs/diseno.md`, sección 5, de plan.md: en **Estado de un curso**, "En revisión" con `Insignia` `acento` y `Hourglass`, y "Revisión no aprobada" con `Insignia` `acento` y `MessageSquareWarning`. En **Mapa del curso**, "Enviar a revisión" (`Boton` primario, `Send`) junto a "Eliminar curso", su nota, la marca de lección vacía (`Insignia` `acento`, `CircleAlert`) y el rechazo (`Aviso` `calido`). Patrón nuevo **Curso que no se edita**
-- [ ] T005 [back] En `brote_backend_express`: `git switch dev && git pull --ff-only` y crear `feature/F06-publicar-curso` desde `dev`
-- [ ] T006 [P] [web] Igual que T005 en `brote_web_react`
-- [ ] T007 [P] [movil] Igual que T005 en `brote_mobile_expo`
-- [ ] T008 [specs] Copiar el contrato 0.7.0 a los tres repos: `npm run contrato:copiar` en brote_specs. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo. Es el único cambio del móvil, y ahí `npm run tipos` pasa. En la web también pasa. En el backend falla hasta T010, porque `CursoEnEditor` y `CursoDelAutor` ganan campos obligatorios
+- [X] T005 [back] En `brote_backend_express`: `git switch dev && git pull --ff-only` y crear `feature/F06-publicar-curso` desde `dev`
+- [X] T006 [P] [web] Igual que T005 en `brote_web_react`
+- [X] T007 [P] [movil] Igual que T005 en `brote_mobile_expo`
+- [X] T008 [specs] Copiar el contrato 0.7.0 a los tres repos: `npm run contrato:copiar` en brote_specs. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo. Es el único cambio del móvil, y ahí `npm run tipos` pasa. En la web también pasa. En el backend falla hasta T010, porque `CursoEnEditor` y `CursoDelAutor` ganan campos obligatorios
 
 ---
 

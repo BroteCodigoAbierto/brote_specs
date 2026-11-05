@@ -175,7 +175,7 @@ teléfono, la parte móvil de cada tabla de [quickstart.md](./quickstart.md), se
 - [X] T056 [specs] Integrar "Cambios a la navegación" de [plan.md](./plan.md) a `specs/01-navegacion.md`: en "Salir de una lección", que salir también pide confirmación si el alumno colocó o unió algo
 - [X] T057 [specs] En `specs/features/F05-crear-editar-curso/research.md`, punto 13, una nota de que F11 justificó arrastrar con el dedo en el móvil, con gesture handler, y que la web sigue con ratón
 - [X] T058 [specs] `npm run contrato:revisar`: las tres copias coinciden con la oficial
-- [ ] T059 [specs] Revisar que `specs/features/F11-actividades-relacionar/spec.md` coincide con lo que se construyó; si algo cambió, actualizarla, junto con lo que T051 haya anotado en `research.md`
+- [X] T059 [specs] Revisar que `specs/features/F11-actividades-relacionar/spec.md` coincide con lo que se construyó; si algo cambió, actualizarla, junto con lo que T051 haya anotado en `research.md`
 
 ---
 

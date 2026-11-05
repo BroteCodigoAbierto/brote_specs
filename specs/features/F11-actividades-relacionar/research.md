@@ -20,6 +20,10 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
   | `quitarDeLugar(lugares, elemento)` | Lo devuelve; su lugar queda libre y nada se recorre |
   | `mezclarSinResolver(total)` | Índices mezclados, nunca en orden (punto 6) |
   | `solucionBanco(actividad, colocadas)` | La solución que se muestra (punto 5) |
+  | `pulsarEnEmparejar(estado, elemento)` | "Pulsar en emparejar" de la spec, completo |
+  | `pulsarCategoria` y `pulsarElementoClasificar` | "Pulsar en clasificar" de la spec |
+  | `soltarEnClasificar` y `soltarEnLugares` | "Soltar al arrastrar" de la spec |
+  | `claveDe` y `elementoDe` | Los elementos de emparejar como texto, para comparar con `===` al arrastrar |
 
 - **Estado de cada actividad**: local, con `useState`, como en F03. Nada sale de la
   actividad salvo `alInteractuar` y `alTerminar`, así que el reproductor no cambia.
@@ -102,6 +106,16 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
 - **El desplazamiento**: al activarse, `MarcoActividad` recibe `scrollEnabled={false}`
   para que el `ScrollView` no pelee con el dedo. A menos de 72 px del borde de la zona
   visible, un ciclo de `requestAnimationFrame` llama a `scrollTo` con 8 px por cuadro.
+- **Al implementarlo** (T047 a T049):
+  - El móvil tiene React Compiler: los valores compartidos van con `.get()` y `.set()`, y
+    una función no se puede llamar a sí misma desde un `useCallback`.
+  - La configuración de `usePanGesture` va memorizada, con funciones estables: si cambia,
+    se vuelve a mandar al lado nativo, también a mitad de un arrastre.
+  - `terminar` recibe qué elemento termina, para que el gesto fallido de otro dedo no corte
+    este arrastre. `canceled` también es `true` en un gesto que nunca se activó.
+  - El hook tiene una opción más, `acepta(item, destino)`, para no resaltar lo que no es un
+    destino de ese elemento: en emparejar, los de su misma columna. La web la necesitará
+    igual.
 - **Un elemento a la vez**: `maxPointers: 1` cubre el mismo elemento. Para otro, cada
   `Arrastrable` se apaga con `enabled` mientras haya arrastre, y `onPress` lo ignora.
 - **Cancelar**: en `onFinalize`, `canceled` significa llamada, segundo plano o diálogo:
@@ -117,7 +131,7 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
   | Qué se supone | Si no se cumple |
   |---|---|
   | `absoluteX/Y` y `measureInWindow` usan el mismo origen | Se mide también la capa y se resta |
-  | Al activarse el arrastre, `Pressable` se cancela en Android y en iOS | Ya está el filtro de `onPress` |
+  | Al activarse el arrastre, `Pressable` se cancela en Android y en iOS. `cancelsJSResponder` viene en `true` en los dos (`GestureHandler.kt`, `RNGestureHandler.mm`): falta verlo en un teléfono | Ya está el filtro de `onPress` |
   | El gesto de atrás no se activa desde un elemento | `gestureEnabled: false` mientras se arrastra en iOS, y en Android ampliar el margen de la actividad |
   | Abrir la confirmación de salida cancela el arrastre | Cancelarlo a mano desde `usePreventRemove` |
 - **Alternativa descartada**: `PanResponder` de React Native. No necesita raíz, pero

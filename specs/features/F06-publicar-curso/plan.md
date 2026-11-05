@@ -213,8 +213,8 @@ Ningún repo agrega paquetes. Los iconos vienen en Lucide: `Hourglass`, `Send`,
   2026-11-04): `brote_specs` en `962da45`, backend en `e5e543b`, web en `fceacca` y móvil
   en `03fe3cc`. `feature/F06-publicar-curso` se crea desde `dev` en cada uno (decisión
   0013).
-- En `brote_specs` todavía no hay rama y la spec y este plan están sin commit. Ahí se
-  editan, antes que el código, `contrato/` 0.7.0 y `docs/diseno.md`. Después se copia el
-  contrato a cada repo, en su rama de F06.
+- La spec y este plan ya están en `dev` de `brote_specs`, y ahí todavía no hay rama. En
+  ella se editan, antes que el código, `contrato/` 0.7.0 y `docs/diseno.md`. Después se
+  copia el contrato a cada repo, en su rama de F06.
 - La decisión 0014 no cambia, porque aprobar sigue siendo cambiar `publicado`. Su
   pendiente sobre editar un curso publicado queda resuelto en la spec.

@@ -63,7 +63,7 @@ Cerrar sesión borra la fila de ese dispositivo; las demás siguen.
 Detalle de las cuatro tablas en
 [`features/F01-crear-cuenta/data-model.md`](./features/F01-crear-cuenta/data-model.md).
 
-### Curso (F02, F05)
+### Curso (F02, F05, F06)
 
 Curso creado por un usuario, que es su autor. Tabla `curso`; en el contrato
 viaja como `ResumenCurso` (catálogo), `DetalleCurso` (detalle), `CursoDelAutor`
@@ -74,14 +74,25 @@ viaja como `ResumenCurso` (catálogo), `DetalleCurso` (detalle), `CursoDelAutor`
 | `id` | `id` | texto | sí | UUID v7, lo genera la base |
 | `titulo` | `titulo` | texto | sí | De 1 a 100 caracteres. Se guarda recortado |
 | `descripcion` | `descripcion` | texto | sí | De 1 a 1000 caracteres. Puede tener saltos de línea. Se guarda tal como se escribió |
-| — | `publicado` | booleano | sí | Por defecto `false`. Solo los `true` se ven en el catálogo y el detalle, para cualquier usuario, incluido su autor. Lo cambia un administrador en la base (decisión 0014). En F02 "en revisión" es lo mismo que no publicado; F06 lo distingue. Un curso publicado no se edita ni se elimina hasta F06 |
-| `estado` | — | texto | sí | No se guarda: `"publicado"` si `publicado`, si no `"borrador"`. F06 agrega `"enRevision"` |
+| — | `publicado` | booleano | sí | Por defecto `false`. Solo los `true` se ven en el catálogo y el detalle, para cualquier usuario, incluido su autor. Lo pone en `true` un administrador en la base (decisión 0014), y en `false` también su autor, con "Retirar del catálogo". Un curso publicado no se edita ni se elimina |
+| — | `revision` | texto | no | `null`, `"pendiente"` o `"rechazada"`. No viaja por la API. Un curso pendiente no se edita ni se elimina; uno rechazado es un borrador |
+| `motivoRechazo` | `motivo_rechazo` | texto | no | Hasta 1000 caracteres. Solo con `revision = "rechazada"`. Puede tener saltos de línea. Se muestra siempre como texto |
+| `estado` | — | texto | sí | No se guarda: `"publicado"` si `publicado`, `"enRevision"` si `revision = "pendiente"` y `"borrador"` en cualquier otro caso |
+| `revisionRechazada` | — | booleano | sí | No se guarda: `revision = "rechazada"`. Sin motivo también es `true` |
 | `autor` | `id_autor` | texto | sí | → `user.id`, sin borrado en cascada (borrar cuentas está fuera del MVP). En el contrato, `{ id, nombre }` con el nombre actual del usuario |
 | `cantidadLecciones` | — | entero | sí | No se guarda: se cuenta al responder |
 | — | `creado_en` | fecha | sí | Por defecto, el momento de crearlo. Desempata el orden |
 | — | `actualizado_en` | fecha | sí | Ordena "Cursos que creé". Se actualiza también al cambiar sus lecciones |
 
 - Un curso no publicado y uno que no existe dan la misma respuesta.
+- **Restricción** `curso_revision_valida` (`CHECK`): `revision` solo tiene sus dos
+  valores, un curso publicado no tiene `revision`, y `motivo_rechazo` solo existe con
+  `revision = "rechazada"` y tiene hasta 1000 caracteres.
+- **Trigger** `curso_publicado_limpia_revision`: cuando `publicado` cambia de valor,
+  pone `revision` y `motivo_rechazo` en `NULL`. Aprobar y retirar a mano siguen siendo
+  un `UPDATE` de `publicado`. Es la excepción al principio III del plan de F06.
+- Para enviar a revisión hace falta al menos una lección, y que ninguna esté vacía. Al
+  enviar se borran el rechazo y su motivo.
 - Un curso tiene hasta 100 lecciones.
 - Solo su autor abre, cambia o elimina un borrador. Para cualquier otro, un curso
   ajeno da la misma respuesta que uno que no existe.
@@ -114,6 +125,8 @@ Detalle de las dos tablas, la migración y la búsqueda en
 [`features/F02-explorar-catalogo/data-model.md`](./features/F02-explorar-catalogo/data-model.md).
 Lo que agrega el editor, en
 [`features/F05-crear-editar-curso/data-model.md`](./features/F05-crear-editar-curso/data-model.md).
+Los estados de un curso, en
+[`features/F06-publicar-curso/data-model.md`](./features/F06-publicar-curso/data-model.md).
 
 ### Actividad (F03)
 
@@ -201,6 +214,6 @@ spec de cada feature.
 | Entidad | Qué representa | Feature |
 |---|---|---|
 | Actividad: los demás tipos | Emparejar, ordenar, banco de palabras, clasificar, código, terminal, grafo de commits y escuchar y repetir (8 del prototipo) | F11, F12, F14 |
-| Curso: lo que falta | El estado "en revisión" (F06), el idioma (F07) y la configuración de gamificación (F08) | F06, F07, F08 |
+| Curso: lo que falta | El idioma (F07) y la configuración de gamificación (F08) | F07, F08 |
 | Puntos / Insignia | Recompensas de un usuario en un curso | F08 |
 | EntradaGlosario | Término y definición, derivados de lecciones completadas o agregados por el alumno | F09 |

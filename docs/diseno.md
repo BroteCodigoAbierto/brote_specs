@@ -297,14 +297,26 @@ degradado índigo → violeta, seguido de "Brote" en `titulo3` peso 800.
   rejilla de "Listas de tarjetas". Cada feature que agregue un bloque suma
   su sección. "Cursos que creé" (F05) lleva "Nuevo curso" (`Boton` primario
   chico con `Plus`) a la derecha de su título.
-- **Estado de un curso** (F05): "Borrador" con `Insignia` `neutro` y
-  `PencilLine`; "Publicado" con `Insignia` `primario` y `Globe`. El lima no se
-  usa aquí: no es un avance del alumno.
+- **Estado de un curso** (F05, F06): "Borrador" con `Insignia` `neutro` y
+  `PencilLine`; "En revisión" con `Insignia` `acento` y `Hourglass`; "Publicado"
+  con `Insignia` `primario` y `Globe`. Aparte del estado, "Revisión no aprobada"
+  con `Insignia` `acento` y `MessageSquareWarning`. El lima no se usa aquí: no es
+  un avance del alumno.
 - **Mapa del curso** (web, F05): arriba, `Boton` `enlace` chico "Mi panel" con
   `ArrowLeft`. Una `Superficie` con los datos del curso y otra con las
   lecciones. "Guardar cambios" es el `Boton` primario de la pantalla; "Nueva
   lección" y "Agregar", `secundario`; el "Eliminar" de cada lección, `fantasma`
-  chico. "Eliminar curso" al final, como `Boton` `peligro`.
+  chico. "Eliminar curso" al final, como `Boton` `peligro`. A su lado, "Enviar a
+  revisión" (F06), `Boton` primario con `Send`; debajo, con cambios sin guardar, la
+  nota en `nota` `textoSuave`. Una lección vacía marcada cambia "Sin actividades" por
+  una `Insignia` `acento` con `CircleAlert`. El rechazo es un `Aviso` `calido` con
+  `MessageSquareWarning`, arriba de los datos.
+- **Curso que no se edita** (web, F06): el mapa de un curso en revisión o publicado.
+  Arriba, `Boton` `enlace` chico "Mi panel" con `ArrowLeft`. Una `Superficie` con
+  `PortadaCurso`, el título en `titulo1`, `InsigniaEstadoCurso`, el mensaje en
+  `titulo3`, el texto en `textoSuave` y los botones en fila: "Retirar de revisión"
+  (`secundario`, `Undo2`), "Ver curso" (primario, `Eye`) y "Retirar del catálogo"
+  (`secundario`, `EyeOff`).
 - **Lienzo de la lección** (web, F05): fuera del marco común. Barra superior
   `Superficie` pegajosa con "Volver al curso", el título, "Cambios sin guardar"
   o "Lección guardada" en `nota`, "Probar lección" (`secundario`, `Play`) y

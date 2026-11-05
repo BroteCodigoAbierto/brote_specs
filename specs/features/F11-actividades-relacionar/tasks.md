@@ -62,10 +62,10 @@ description: "Lista de tareas de F11 Actividades de relacionar"
 - [X] T002 [specs] En `contrato/contrato.ts`, aplicar [contracts/contrato.md](./contracts/contrato.md) tal cual: `EspacioRespuesta` (comentario), las cuatro variantes en `Actividad`, `CONSIGNA_POR_DEFECTO`, las claves nuevas de `LIMITES_ACTIVIDADES` y `MENSAJES_EDITOR`, y los cuatro `true` de `CALIFICA_ACTIVIDAD`. Subir `contrato/VERSION` de `0.7.0` a `0.8.0`
 - [X] T003 [specs] En `docs/diseno.md`, sección 4, agregar de plan.md ("Lo que se agrega a docs/diseno.md"): a la tabla general, `ElementoRespuesta`, `LugarElemento` y `ZonaElementos`; a "Editor (solo web)", `CampoSelector` y `CampoConEspacios`. También `TextoConEspacios` y `CapaArrastre`, con la nota de que solo existen en el móvil. En la fila general de `BarraRespuesta`, la prop `enfocar` (solo en la web) y que el detalle se desplaza a partir de 11rem en la web y del 35 % del alto de la pantalla en el móvil
 - [X] T004 [specs] En `docs/diseno.md`, sección 6, agregar de plan.md: **Emparejar**, **Clasificar**, **Ordenar**, **Banco de palabras** y **Arrastrar**. En "Teclado", a dónde va el foco al colocar, emparejar y devolver. En "Opciones", que emparejar y ordenar usan `ElementoRespuesta`
-- [ ] T005 [back] En `brote_backend_express`: `git switch dev && git pull --ff-only` y crear `feature/F11-actividades-relacionar` desde `dev`
-- [ ] T006 [P] [web] Igual que T005 en `brote_web_react`
-- [ ] T007 [P] [movil] Igual que T005 en `brote_mobile_expo`
-- [ ] T008 [specs] Copiar el contrato 0.8.0 a los tres repos: `npm run contrato:copiar` en brote_specs. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo. **A diferencia de F05, aquí `npm run tipos` deja de pasar** hasta tener las entradas de sus `Record`: en back con T012, en web con T029 y T038, y en movil con T054. Es lo que busca el principio IV
+- [X] T005 [back] En `brote_backend_express`: `git switch dev && git pull --ff-only` y crear `feature/F11-actividades-relacionar` desde `dev`
+- [X] T006 [P] [web] Igual que T005 en `brote_web_react`
+- [X] T007 [P] [movil] Igual que T005 en `brote_mobile_expo`
+- [X] T008 [specs] Copiar el contrato 0.8.0 a los tres repos: `npm run contrato:copiar` en brote_specs. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo. **A diferencia de F05, aquí `npm run tipos` deja de pasar** hasta tener las entradas de sus `Record`: en back con T012, en web con T029 y T038, y en movil con T054. Es lo que busca el principio IV
 
 ---
 

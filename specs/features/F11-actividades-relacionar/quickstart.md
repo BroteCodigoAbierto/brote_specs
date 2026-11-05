@@ -286,7 +286,7 @@ actividad. Para los de "Actividades de prueba", corre antes L1 y abre su lecció
 | Criterio | Pasos | Esperado |
 |---|---|---|
 | [web, móvil] Aciertos | En "Números del 1 al 5": une `一` con `1`, `二` con `2`, `三` con `3` y `四` con `4`; elige `五`; voltea la tarjeta; pon mal el orden | "Acertaste 2 de 3" |
-| [web, móvil] Sin parciales | Repite con una sola pareja mal y lo demás bien | "Acertaste 2 de 3": emparejar cuenta como fallada |
+| [web, móvil] Sin parciales | Repite uniendo `三` con `4` y `四` con `3` (con una sola pareja mal no se puede: la otra queda mal también), y pon bien la opción múltiple y el orden | "Acertaste 2 de 3": emparejar cuenta como fallada |
 | [web, móvil] Progreso | Pulsa "Volver al curso" | La lección muestra "2 de 3 aciertos" |
 | [web, móvil] Confirmar al salir | Abre "Números del 1 al 5" y pulsa la X. Ábrela otra vez, elige un elemento, pulsa la X y luego "Seguir aquí" | La primera vez sale directo. La segunda pregunta, y "Seguir aquí" deja lo elegido |
 | [web, móvil] Salir pierde lo hecho | Forma parejas, pulsa la X, "Salir", y abre otra vez la lección | Empieza sin respuestas |

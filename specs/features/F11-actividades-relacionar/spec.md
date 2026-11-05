@@ -436,123 +436,123 @@ No cambia (F05), salvo:
 
 ### Cursos de prueba
 
-- [ ] [backend] Los cuatro cursos de prueba tienen, entre todos, 9 actividades de
+- [x] [backend] Los cuatro cursos de prueba tienen, entre todos, 9 actividades de
   emparejar, 9 de clasificar, 6 de ordenar y 3 de banco de palabras.
-- [ ] [web, móvil] "Números del 1 al 5" (Japonés sencillo, 3) muestra, en este
+- [x] [web, móvil] "Números del 1 al 5" (Japonés sencillo, 3) muestra, en este
   orden: emparejar, opción múltiple, tarjeta y ordenar.
-- [ ] [web, móvil] "Tu primer commit" (Git esencial, 2) muestra su teoría y luego
+- [x] [web, móvil] "Tu primer commit" (Git esencial, 2) muestra su teoría y luego
   clasificar, con "Clasifica cada comando según lo que afecta.".
 
 ### Emparejar
 
-- [ ] [web, móvil] En "Remotos: compartir tu trabajo" (Git esencial, 5) veo
+- [x] [web, móvil] En "Remotos: compartir tu trabajo" (Git esencial, 5) veo
   "Empareja los conceptos", a la izquierda `git clone <url>`, `git push`,
   `git pull` y `git fetch`, en ese orden y con `<url>` tal cual, y a la derecha
   sus cuatro descripciones. "Comprobar" está deshabilitado.
-- [ ] [web, móvil] Al abrir varias veces esa lección, la columna derecha no sale
+- [x] [web, móvil] Al abrir varias veces esa lección, la columna derecha no sale
   siempre en el mismo orden, y nunca con cada comando frente a su descripción.
-- [ ] [web, móvil] Al pulsar `git push` queda seleccionado; al pulsar "Sube tus
+- [x] [web, móvil] Al pulsar `git push` queda seleccionado; al pulsar "Sube tus
   commits locales al remoto", los dos llevan el mismo número. Empezando por la
   columna derecha pasa lo mismo.
-- [ ] [web, móvil] Con `git push` seleccionado, al pulsar `git pull` la selección
+- [x] [web, móvil] Con `git push` seleccionado, al pulsar `git pull` la selección
   pasa a `git pull`; al pulsarlo otra vez ya no hay nada seleccionado.
-- [ ] [web, móvil] Al pulsar un elemento que ya tiene pareja, los dos pierden su
+- [x] [web, móvil] Al pulsar un elemento que ya tiene pareja, los dos pierden su
   número.
-- [ ] [web, móvil] Con `git push` unido a una descripción, al seleccionar `git
+- [x] [web, móvil] Con `git push` unido a una descripción, al seleccionar `git
   pull` y pulsar esa misma descripción, forman pareja y `git push` se queda sin
   pareja.
-- [ ] [web, móvil] "Comprobar" se habilita al formar la cuarta pareja y se
+- [x] [web, móvil] "Comprobar" se habilita al formar la cuarta pareja y se
   deshabilita si deshago una.
-- [ ] [web, móvil] Con las cuatro parejas bien, al comprobar todas quedan marcadas
+- [x] [web, móvil] Con las cuatro parejas bien, al comprobar todas quedan marcadas
   como correctas y la barra dice "¡Correcto!". Ya no puedo cambiar nada y el botón
   dice "Continuar".
-- [ ] [web, móvil] Con `git pull` y `git fetch` cruzadas, al comprobar esas dos
+- [x] [web, móvil] Con `git pull` y `git fetch` cruzadas, al comprobar esas dos
   parejas quedan incorrectas y las otras dos correctas, y la barra muestra
   "Respuesta correcta:" con dos líneas: `git pull → Descarga y combina los commits
   nuevos del remoto` y `git fetch → Descarga los commits nuevos sin combinarlos
   todavía`.
-- [ ] [móvil] En "align-items: el eje cruzado" (Examen unidad 1, 7), las dos
+- [x] [móvil] En "align-items: el eje cruzado" (Examen unidad 1, 7), las dos
   columnas van lado a lado y las descripciones se leen completas, sin "…".
 
 ### Clasificar
 
-- [ ] [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1) veo
+- [x] [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1) veo
   "Clasifica cada elemento", los seis elementos sin colocar y las categorías "Tipo
   de dato" y "Palabra clave", en ese orden. "Comprobar" está deshabilitado.
-- [ ] [web, móvil] Al abrir varias veces esa lección, los elementos no salen
+- [x] [web, móvil] Al abrir varias veces esa lección, los elementos no salen
   siempre en el mismo orden.
-- [ ] [web, móvil] Al pulsar `if` queda seleccionado; al pulsar "Palabra clave",
+- [x] [web, móvil] Al pulsar `if` queda seleccionado; al pulsar "Palabra clave",
   queda en esa categoría. Sin elemento seleccionado, pulsar una categoría no hace
   nada.
-- [ ] [web, móvil] Sin nada seleccionado, al pulsar `if` ya colocado vuelve a los
+- [x] [web, móvil] Sin nada seleccionado, al pulsar `if` ya colocado vuelve a los
   elementos sin colocar.
-- [ ] [web, móvil] Con `while` seleccionado, al pulsar encima de `if` ya colocado en
+- [x] [web, móvil] Con `while` seleccionado, al pulsar encima de `if` ya colocado en
   "Palabra clave", `while` queda en esa categoría e `if` sigue ahí.
-- [ ] [web, móvil] "Comprobar" se habilita al colocar el último elemento y se
+- [x] [web, móvil] "Comprobar" se habilita al colocar el último elemento y se
   deshabilita si devuelvo uno.
-- [ ] [web, móvil] Con todos bien, al comprobar quedan marcados como correctos y
+- [x] [web, móvil] Con todos bien, al comprobar quedan marcados como correctos y
   la barra dice "¡Correcto!".
-- [ ] [web, móvil] Con `if` en "Tipo de dato" y los demás bien, al comprobar `if`
+- [x] [web, móvil] Con `if` en "Tipo de dato" y los demás bien, al comprobar `if`
   queda incorrecto, los demás correctos, y la barra muestra "Respuesta correcta:"
   con `if → Palabra clave`.
-- [ ] [web, móvil] En "Estructura semántica de HTML" (Examen unidad 1, 4), las
+- [x] [web, móvil] En "Estructura semántica de HTML" (Examen unidad 1, 4), las
   categorías "Va dentro de <head>" y "Va dentro de <body>" y los elementos
   `<title>` y `<article>` se ven tal cual.
-- [ ] [web] En una ventana ancha las categorías van lado a lado; en una angosta
+- [x] [web] En una ventana ancha las categorías van lado a lado; en una angosta
   y en la vista previa, una debajo de otra.
-- [ ] [móvil] Las categorías van una debajo de otra.
+- [x] [móvil] Las categorías van una debajo de otra.
 
 ### Ordenar
 
-- [ ] [web, móvil] En "Condicionales y operadores" (Programación en C sencilla, 2)
+- [x] [web, móvil] En "Condicionales y operadores" (Programación en C sencilla, 2)
   veo la consigna, tres lugares numerados y vacíos y los tres elementos sin
   colocar, con `printf("Hola");` con su sangría. "Comprobar" está deshabilitado.
-- [ ] [web, móvil] Al abrir varias veces esa lección, los elementos no salen
+- [x] [web, móvil] Al abrir varias veces esa lección, los elementos no salen
   siempre en el mismo orden, y nunca en el orden correcto.
-- [ ] [web, móvil] Al pulsar un elemento va al lugar 1, y al pulsar otro, al lugar
+- [x] [web, móvil] Al pulsar un elemento va al lugar 1, y al pulsar otro, al lugar
   2. Pulsar un lugar vacío no hace nada.
-- [ ] [web, móvil] Con tres elementos colocados, al pulsar el del lugar 1 vuelve a
+- [x] [web, móvil] Con tres elementos colocados, al pulsar el del lugar 1 vuelve a
   los elementos sin colocar, los otros dos no se mueven y "Comprobar" se
   deshabilita. El siguiente que pulso va al lugar 1.
-- [ ] [web, móvil] En el orden correcto, al comprobar los tres lugares quedan
+- [x] [web, móvil] En el orden correcto, al comprobar los tres lugares quedan
   correctos y la barra dice "¡Correcto!".
-- [ ] [web, móvil] Con los lugares 2 y 3 cambiados, al comprobar el lugar 1 queda
+- [x] [web, móvil] Con los lugares 2 y 3 cambiados, al comprobar el lugar 1 queda
   correcto, los otros dos incorrectos, y la barra muestra "Respuesta correcta:" con
   el orden completo, en líneas numeradas.
-- [ ] [móvil] En "Patrones comunes con Flexbox" (Examen unidad 1, 11), con el orden
+- [x] [móvil] En "Patrones comunes con Flexbox" (Examen unidad 1, 11), con el orden
   equivocado, los elementos se leen completos y puedo leer toda la barra sin perder
   de vista "Continuar".
-- [ ] [web] En "Actividades de prueba", en el ordenar de 10 elementos, con el orden
+- [x] [web] En "Actividades de prueba", en el ordenar de 10 elementos, con el orden
   equivocado, puedo leer toda la respuesta desplazando el texto de la barra, y
   "Continuar" sigue a la vista.
 
 ### Banco de palabras
 
-- [ ] [web, móvil] En "Funciones" (Programación en C sencilla, 3) veo "Completa con
+- [x] [web, móvil] En "Funciones" (Programación en C sencilla, 3) veo "Completa con
   las fichas del banco", `___ suma(int a, int b) {` con un espacio y las fichas
   `int`, `void` y `char`. "Comprobar" está deshabilitado.
-- [ ] [web, móvil] Al abrir varias veces esa lección, las fichas no salen siempre
+- [x] [web, móvil] Al abrir varias veces esa lección, las fichas no salen siempre
   en el mismo orden.
-- [ ] [web, móvil] Al pulsar `void`, sale del banco y queda en el espacio, y
+- [x] [web, móvil] Al pulsar `void`, sale del banco y queda en el espacio, y
   "Comprobar" se habilita. Al pulsarla en el espacio, vuelve al banco y "Comprobar"
   se deshabilita.
-- [ ] [web, móvil] Con el espacio lleno, pulsar otra ficha no hace nada.
-- [ ] [web, móvil] Con `int`, al comprobar el espacio queda correcto y la barra
+- [x] [web, móvil] Con el espacio lleno, pulsar otra ficha no hace nada.
+- [x] [web, móvil] Con `int`, al comprobar el espacio queda correcto y la barra
   dice "¡Correcto!".
-- [ ] [web, móvil] Con `void`, al comprobar el espacio queda incorrecto, aparece
+- [x] [web, móvil] Con `void`, al comprobar el espacio queda incorrecto, aparece
   `int` junto a él y la barra muestra "Respuesta correcta:" con `int suma(int a,
   int b) {`.
-- [ ] [web, móvil] En "Saludos" (Japonés sencillo, 2), el texto `こんにちは、___
+- [x] [web, móvil] En "Saludos" (Japonés sencillo, 2), el texto `こんにちは、___
   ですか？` se ve con su espacio, y `元気` lo completa correctamente.
-- [ ] [web, móvil] En "Actividades de prueba", en "Mis colores favoritos son ___ y
+- [x] [web, móvil] En "Actividades de prueba", en "Mis colores favoritos son ___ y
   ___." (donde los dos espacios aceptan "rojo" y "azul"), tanto "rojo y azul" como
   "azul y rojo" dan "¡Correcto!".
-- [ ] [web, móvil] En esa actividad, después de colocar `rojo` ya no hay otra
+- [x] [web, móvil] En esa actividad, después de colocar `rojo` ya no hay otra
   ficha `rojo` en el banco.
-- [ ] [web, móvil] En esa actividad, con `verde` en el primer espacio y `rojo` en
+- [x] [web, móvil] En esa actividad, con `verde` en el primer espacio y `rojo` en
   el segundo, el primero queda incorrecto con `azul` junto a él, el segundo
   correcto, y la barra muestra "Mis colores favoritos son azul y rojo.".
-- [ ] [web, móvil] En "Actividades de prueba", en `___ doble(___ x)`, el banco
+- [x] [web, móvil] En "Actividades de prueba", en `___ doble(___ x)`, el banco
   tiene dos fichas `int`, y con una en cada espacio da "¡Correcto!".
 
 ### Arrastrar
@@ -593,17 +593,17 @@ No cambia (F05), salvo:
 
 ### Teclado y accesibilidad
 
-- [ ] [web] Resuelvo los cuatro tipos solo con Tab, Enter y la barra espaciadora,
+- [x] [web] Resuelvo los cuatro tipos solo con Tab, Enter y la barra espaciadora,
   hasta "Continuar".
-- [ ] [web] En clasificar, ordenar y banco, después de colocar un elemento el foco
+- [x] [web] En clasificar, ordenar y banco, después de colocar un elemento el foco
   queda en el siguiente sin colocar y, cuando la respuesta queda completa, en
   "Comprobar".
-- [ ] [web] En emparejar, después de formar una pareja el foco queda en el
+- [x] [web] En emparejar, después de formar una pareja el foco queda en el
   siguiente sin pareja de la columna donde empecé, y después de la última, en
   "Comprobar".
-- [ ] [web] En clasificar, ordenar y banco, al devolver un elemento colocado el foco
+- [x] [web] En clasificar, ordenar y banco, al devolver un elemento colocado el foco
   queda en ese elemento.
-- [ ] [web] En estos tipos, las teclas 1 a 9 no hacen nada.
+- [x] [web] En estos tipos, las teclas 1 a 9 no hacen nada.
 - [ ] [web, móvil] Con un lector de pantalla, cada elemento anuncia su estado
   ("Seleccionado", "Pareja {n}", "En {categoría}", "Lugar {n}" o "Espacio {n}"), y
   se anuncia cada cambio al hacerlo.
@@ -611,12 +611,12 @@ No cambia (F05), salvo:
 
 ### Resultado y salir
 
-- [ ] [web, móvil] En "Números del 1 al 5" (Japonés sencillo, 3), acertando emparejar
+- [x] [web, móvil] En "Números del 1 al 5" (Japonés sencillo, 3), acertando emparejar
   y la opción múltiple, y fallando ordenar, al terminar veo "Acertaste 2 de 3": la
   tarjeta no cuenta.
-- [ ] [web, móvil] En esa lección, con una sola pareja mal, emparejar cuenta como
-  fallada.
-- [ ] [web, móvil] Al volver al curso, esa lección muestra "2 de 3 aciertos".
+- [x] [web, móvil] En esa lección, con dos parejas cruzadas y lo demás bien,
+  emparejar cuenta como fallada.
+- [x] [web, móvil] Al volver al curso, esa lección muestra "2 de 3 aciertos".
 - [ ] [web, móvil] En "Números del 1 al 5", sin haber hecho nada, la X lleva directo
   al detalle del curso. Después de elegir un elemento, pide confirmación, y "Seguir
   aquí" me deja con lo que había elegido.
@@ -625,110 +625,110 @@ No cambia (F05), salvo:
 
 ### Paleta y bloques
 
-- [ ] [web] En la paleta, Emparejar, Clasificar, Ordenar y Banco de palabras se
+- [x] [web] En la paleta, Emparejar, Clasificar, Ordenar y Banco de palabras se
   pueden agregar y no dicen "Próximamente". Reto de código, Terminal simulada, Grafo
   de commits y Escuchar y repetir siguen deshabilitados, con "Próximamente".
-- [ ] [web] Al arrastrar o pulsar cada uno de los cuatro, queda en la secuencia con
+- [x] [web] Al arrastrar o pulsar cada uno de los cuatro, queda en la secuencia con
   la marca "Incompleta", seleccionado y con el foco en su primer campo.
-- [ ] [web] El bloque de emparejar muestra la consigna y, sin ella, el texto
+- [x] [web] El bloque de emparejar muestra la consigna y, sin ella, el texto
   izquierdo de la primera pareja. El de clasificar, la consigna o la primera
   categoría. El de ordenar, la consigna. El de banco de palabras, la consigna o el
   texto. Sin nada de eso, "Sin contenido".
 
 ### Formularios
 
-- [ ] [web] Emparejar empieza con tres parejas vacías. Con 3, "Quitar" está
+- [x] [web] Emparejar empieza con tres parejas vacías. Con 3, "Quitar" está
   deshabilitado; con 8, también "Agregar pareja".
-- [ ] [web] Con dos textos iguales en una columna (también " git " y "git"), al
+- [x] [web] Con dos textos iguales en una columna (también " git " y "git"), al
   guardar el repetido muestra "Este texto está repetido.". Un mismo texto en las dos
   columnas sí se acepta, y "git" y "Git" también.
-- [ ] [web] Clasificar empieza con dos categorías y dos elementos vacíos. Un
+- [x] [web] Clasificar empieza con dos categorías y dos elementos vacíos. Un
   elemento sin categoría muestra, al guardar, "Elige una categoría.", y una categoría
   sin elementos, "Esta categoría no tiene elementos.".
-- [ ] [web] El selector de cada elemento muestra los nombres de las categorías, y
+- [x] [web] El selector de cada elemento muestra los nombres de las categorías, y
   "Categoría {n}" en una sin nombre. Al cambiarle el nombre a una categoría, el
   selector lo muestra.
-- [ ] [web] Al quitar una categoría, sus elementos se quedan sin categoría.
-- [ ] [web] Dos categorías iguales muestran "Esta categoría está repetida.", y dos
+- [x] [web] Al quitar una categoría, sus elementos se quedan sin categoría.
+- [x] [web] Dos categorías iguales muestran "Esta categoría está repetida.", y dos
   elementos iguales, "Este elemento está repetido.". Clasificar deja tener de 2 a 4
   categorías y de 2 a 12 elementos.
-- [ ] [web] Ordenar empieza con tres elementos vacíos y la ayuda "Escríbelos en el
+- [x] [web] Ordenar empieza con tres elementos vacíos y la ayuda "Escríbelos en el
   orden correcto. El alumno los verá mezclados.". "Subir" y "Bajar" cambian el orden
   correcto. Sin consigna, al guardar veo "Este campo es obligatorio.".
-- [ ] [web] Ordenar deja tener de 3 a 10 elementos, y dos iguales muestran "Este
+- [x] [web] Ordenar deja tener de 3 a 10 elementos, y dos iguales muestran "Este
   elemento está repetido.".
-- [ ] [web] En banco de palabras, "Agregar espacio" escribe `___` donde está el
+- [x] [web] En banco de palabras, "Agregar espacio" escribe `___` donde está el
   cursor y aparece el grupo "Espacio 1" con las palabras del banco como casillas.
   Escribir otro `___` a mano agrega "Espacio 2".
-- [ ] [web] Una palabra repetida en las fichas aparece una sola vez en las casillas.
+- [x] [web] Una palabra repetida en las fichas aparece una sola vez en las casillas.
   Las fichas "Rojo" y "rojo" salen como dos casillas.
-- [ ] [web] Un espacio sin marcas muestra, al guardar, "Marca al menos una ficha.".
+- [x] [web] Un espacio sin marcas muestra, al guardar, "Marca al menos una ficha.".
   Un texto sin `___` muestra "Agrega al menos un espacio con ___.", y con 11, "El
   texto puede tener hasta 10 espacios.".
-- [ ] [web] Con dos espacios que solo aceptan `int` y una sola ficha `int`, al
+- [x] [web] Con dos espacios que solo aceptan `int` y una sola ficha `int`, al
   guardar veo "No alcanzan las fichas para llenar todos los espacios. Si una palabra
   va en dos, agrégala dos veces."; al agregar otra ficha `int`, se guarda.
-- [ ] [web] Al corregir el texto de una ficha marcada, sigue marcada. Al quitarla,
+- [x] [web] Al corregir el texto de una ficha marcada, sigue marcada. Al quitarla,
   su palabra desaparece de los grupos.
-- [ ] [web] Con dos espacios con marcas, al borrar un `___` del texto los dos grupos
+- [x] [web] Con dos espacios con marcas, al borrar un `___` del texto los dos grupos
   siguen ahí, con "Hay más grupos de respuestas que espacios en el texto. Quita los
   que sobran." y "Quitar espacio". Si el grupo que sobra no tenía marcas, desaparece
   solo.
-- [ ] [web] Banco de palabras deja tener de 2 a 20 fichas.
-- [ ] [web] Cada campo no deja escribir más del límite de "Datos de entrada".
-- [ ] [web] Las ayudas de la consigna dicen qué verá el alumno si se deja vacía, en
+- [x] [web] Banco de palabras deja tener de 2 a 20 fichas.
+- [x] [web] Cada campo no deja escribir más del límite de "Datos de entrada".
+- [x] [web] Las ayudas de la consigna dicen qué verá el alumno si se deja vacía, en
   los tres tipos en los que es opcional.
 
 ### Vista previa y prueba
 
-- [ ] [web] Una actividad completa de cada tipo se ve en la vista previa como en el
+- [x] [web] Una actividad completa de cada tipo se ve en la vista previa como en el
   reproductor, y se responde pulsando y arrastrando.
-- [ ] [web] Arrastrar un elemento dentro de la vista previa no mueve ningún bloque ni
+- [x] [web] Arrastrar un elemento dentro de la vista previa no mueve ningún bloque ni
   agrega actividades. Arrastrar un bloque o un tipo de la paleta encima de la vista
   previa no cambia la actividad.
-- [ ] [web] Al cambiar la actividad en el inspector, la vista previa vuelve a
+- [x] [web] Al cambiar la actividad en el inspector, la vista previa vuelve a
   empezar y el foco se queda en el campo. "Reiniciar" la devuelve al principio.
-- [ ] [web] Una actividad incompleta de estos tipos muestra "Completa esta actividad
+- [x] [web] Una actividad incompleta de estos tipos muestra "Completa esta actividad
   para ver su vista previa.".
-- [ ] [web] "Probar lección" recorre una lección con los cuatro tipos, y al terminar
+- [x] [web] "Probar lección" recorre una lección con los cuatro tipos, y al terminar
   veo "Acertaste {aciertos} de 4".
 
 ### Guardar y servidor
 
-- [ ] [web] Una lección con los cuatro tipos se guarda y, al recargar, sigue igual,
+- [x] [web] Una lección con los cuatro tipos se guarda y, al recargar, sigue igual,
   con sus datos y en su orden. Un elemento de ordenar con sangría conserva su
   sangría.
-- [ ] [web] Una ficha escrita con espacios al inicio y al final se guarda sin ellos.
+- [x] [web] Una ficha escrita con espacios al inicio y al final se guarda sin ellos.
   Una consigna vacía no se guarda: el alumno ve el texto por defecto.
-- [ ] [web, móvil] Armo una lección con los cuatro tipos, un administrador publica el
+- [x] [web, móvil] Armo una lección con los cuatro tipos, un administrador publica el
   curso, y un alumno la cursa de principio a fin: en la web y en el móvil se ve igual
   que en la vista previa y su resultado cuenta las cuatro preguntas.
-- [ ] [backend] Guardar, sin pasar por un cliente, emparejar con 2 o con 9 parejas, o
+- [x] [backend] Guardar, sin pasar por un cliente, emparejar con 2 o con 9 parejas, o
   con un texto repetido en una columna, se rechaza y la lección queda como estaba.
-- [ ] [backend] Guardar clasificar con 1 o con 5 categorías, con 13 elementos, con un
+- [x] [backend] Guardar clasificar con 1 o con 5 categorías, con 13 elementos, con un
   elemento repetido, con un elemento sin categoría o con una que no existe, o con una
   categoría sin elementos, se rechaza y la lección queda como estaba.
-- [ ] [backend] Guardar ordenar sin consigna, con 2 o con 11 elementos, o con un
+- [x] [backend] Guardar ordenar sin consigna, con 2 o con 11 elementos, o con un
   elemento repetido, se rechaza y la lección queda como estaba.
-- [ ] [backend] Guardar banco de palabras con 11 espacios, con 21 fichas, con un
+- [x] [backend] Guardar banco de palabras con 11 espacios, con 21 fichas, con un
   número de grupos distinto al de `___`, con un espacio sin fichas que valgan, con
   una palabra que vale y no está en el banco, o sin forma de llenar todos los
   espacios con cada ficha una sola vez, se rechaza y la lección queda como estaba.
-- [ ] [backend] Guardar un texto más largo que su límite en cualquiera de los cuatro
+- [x] [backend] Guardar un texto más largo que su límite en cualquiera de los cuatro
   tipos, o un campo que el tipo no tiene, se rechaza y la lección queda como estaba.
-- [ ] [backend] Guardar una actividad de un tipo que todavía no existe (por ejemplo,
+- [x] [backend] Guardar una actividad de un tipo que todavía no existe (por ejemplo,
   reto de código) se rechaza y la lección queda como estaba.
 
 ### Contenido
 
-- [ ] [web, móvil] En "Actividades de prueba", la lección con `<b>hola</b>` y
+- [x] [web, móvil] En "Actividades de prueba", la lección con `<b>hola</b>` y
   `<script>` en los textos de una actividad de cada uno de los cuatro tipos los
   muestra tal cual, también en la barra inferior, sin negritas y sin ejecutar nada.
-- [ ] [web] Con esos textos, el formulario, el bloque y la vista previa los muestran
+- [x] [web] Con esos textos, el formulario, el bloque y la vista previa los muestran
   tal cual.
-- [ ] [web, móvil] En "Resolviendo conflictos" (Git esencial, 6), el elemento "Ver los
+- [x] [web, móvil] En "Resolviendo conflictos" (Git esencial, 6), el elemento "Ver los
   marcadores <<<<<<< ======= >>>>>>>" se ve tal cual.
-- [ ] [web, móvil] Las actividades de "Actividades de prueba" con los límites más
+- [x] [web, móvil] Las actividades de "Actividades de prueba" con los límites más
   altos (8 parejas, 12 elementos y 4 categorías, 10 elementos para ordenar y 20
   fichas) se pueden responder de principio a fin, con los textos completos.
 

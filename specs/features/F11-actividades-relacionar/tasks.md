@@ -189,49 +189,49 @@ Expo web, pero aquí no sirve: mantener pulsado, deslizar, el segundo dedo, el b
 plano son gestos reales. Si algún criterio de móvil no se puede probar en un teléfono, se anota en
 su línea, como en F05.
 
-- [ ] V01 [backend] Los cuatro cursos de prueba tienen, entre todos, 9 actividades de emparejar, 9 de clasificar, 6 de ordenar y 3 de banco de palabras.
-- [ ] V02 [web, móvil] "Números del 1 al 5" (Japonés sencillo, 3) muestra, en este orden: emparejar, opción múltiple, tarjeta y ordenar.
-- [ ] V03 [web, móvil] "Tu primer commit" (Git esencial, 2) muestra su teoría y luego clasificar, con "Clasifica cada comando según lo que afecta.".
-- [ ] V04 [web, móvil] En "Remotos: compartir tu trabajo" (Git esencial, 5) veo "Empareja los conceptos", a la izquierda `git clone <url>`, `git push`, `git pull` y `git fetch`, en ese orden y con `<url>` tal cual, y a la derecha sus cuatro descripciones. "Comprobar" está deshabilitado.
-- [ ] V05 [web, móvil] Al abrir varias veces esa lección, la columna derecha no sale siempre en el mismo orden, y nunca con cada comando frente a su descripción.
-- [ ] V06 [web, móvil] Al pulsar `git push` queda seleccionado; al pulsar "Sube tus commits locales al remoto", los dos llevan el mismo número. Empezando por la columna derecha pasa lo mismo.
-- [ ] V07 [web, móvil] Con `git push` seleccionado, al pulsar `git pull` la selección pasa a `git pull`; al pulsarlo otra vez ya no hay nada seleccionado.
-- [ ] V08 [web, móvil] Al pulsar un elemento que ya tiene pareja, los dos pierden su número.
-- [ ] V09 [web, móvil] Con `git push` unido a una descripción, al seleccionar `git pull` y pulsar esa misma descripción, forman pareja y `git push` se queda sin pareja.
-- [ ] V10 [web, móvil] "Comprobar" se habilita al formar la cuarta pareja y se deshabilita si deshago una.
-- [ ] V11 [web, móvil] Con las cuatro parejas bien, al comprobar todas quedan marcadas como correctas y la barra dice "¡Correcto!". Ya no puedo cambiar nada y el botón dice "Continuar".
-- [ ] V12 [web, móvil] Con `git pull` y `git fetch` cruzadas, al comprobar esas dos parejas quedan incorrectas y las otras dos correctas, y la barra muestra "Respuesta correcta:" con dos líneas: `git pull → Descarga y combina los commits nuevos del remoto` y `git fetch → Descarga los commits nuevos sin combinarlos todavía`.
-- [ ] V13 [móvil] En "align-items: el eje cruzado" (Examen unidad 1, 7), las dos columnas van lado a lado y las descripciones se leen completas, sin "…".
-- [ ] V14 [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1) veo "Clasifica cada elemento", los seis elementos sin colocar y las categorías "Tipo de dato" y "Palabra clave", en ese orden. "Comprobar" está deshabilitado.
-- [ ] V15 [web, móvil] Al abrir varias veces esa lección, los elementos no salen siempre en el mismo orden.
-- [ ] V16 [web, móvil] Al pulsar `if` queda seleccionado; al pulsar "Palabra clave", queda en esa categoría. Sin elemento seleccionado, pulsar una categoría no hace nada.
-- [ ] V17 [web, móvil] Sin nada seleccionado, al pulsar `if` ya colocado vuelve a los elementos sin colocar.
-- [ ] V18 [web, móvil] Con `while` seleccionado, al pulsar encima de `if` ya colocado en "Palabra clave", `while` queda en esa categoría e `if` sigue ahí.
-- [ ] V19 [web, móvil] "Comprobar" se habilita al colocar el último elemento y se deshabilita si devuelvo uno.
-- [ ] V20 [web, móvil] Con todos bien, al comprobar quedan marcados como correctos y la barra dice "¡Correcto!".
-- [ ] V21 [web, móvil] Con `if` en "Tipo de dato" y los demás bien, al comprobar `if` queda incorrecto, los demás correctos, y la barra muestra "Respuesta correcta:" con `if → Palabra clave`.
-- [ ] V22 [web, móvil] En "Estructura semántica de HTML" (Examen unidad 1, 4), las categorías "Va dentro de <head>" y "Va dentro de <body>" y los elementos `<title>` y `<article>` se ven tal cual.
-- [ ] V23 [web] En una ventana ancha las categorías van lado a lado; en una angosta y en la vista previa, una debajo de otra.
-- [ ] V24 [móvil] Las categorías van una debajo de otra.
-- [ ] V25 [web, móvil] En "Condicionales y operadores" (Programación en C sencilla, 2) veo la consigna, tres lugares numerados y vacíos y los tres elementos sin colocar, con `printf("Hola");` con su sangría. "Comprobar" está deshabilitado.
-- [ ] V26 [web, móvil] Al abrir varias veces esa lección, los elementos no salen siempre en el mismo orden, y nunca en el orden correcto.
-- [ ] V27 [web, móvil] Al pulsar un elemento va al lugar 1, y al pulsar otro, al lugar 2. Pulsar un lugar vacío no hace nada.
-- [ ] V28 [web, móvil] Con tres elementos colocados, al pulsar el del lugar 1 vuelve a los elementos sin colocar, los otros dos no se mueven y "Comprobar" se deshabilita. El siguiente que pulso va al lugar 1.
-- [ ] V29 [web, móvil] En el orden correcto, al comprobar los tres lugares quedan correctos y la barra dice "¡Correcto!".
-- [ ] V30 [web, móvil] Con los lugares 2 y 3 cambiados, al comprobar el lugar 1 queda correcto, los otros dos incorrectos, y la barra muestra "Respuesta correcta:" con el orden completo, en líneas numeradas.
-- [ ] V31 [móvil] En "Patrones comunes con Flexbox" (Examen unidad 1, 11), con el orden equivocado, los elementos se leen completos y puedo leer toda la barra sin perder de vista "Continuar".
-- [ ] V32 [web] En "Actividades de prueba", en el ordenar de 10 elementos, con el orden equivocado, puedo leer toda la respuesta desplazando el texto de la barra, y "Continuar" sigue a la vista.
-- [ ] V33 [web, móvil] En "Funciones" (Programación en C sencilla, 3) veo "Completa con las fichas del banco", `___ suma(int a, int b) {` con un espacio y las fichas `int`, `void` y `char`. "Comprobar" está deshabilitado.
-- [ ] V34 [web, móvil] Al abrir varias veces esa lección, las fichas no salen siempre en el mismo orden.
-- [ ] V35 [web, móvil] Al pulsar `void`, sale del banco y queda en el espacio, y "Comprobar" se habilita. Al pulsarla en el espacio, vuelve al banco y "Comprobar" se deshabilita.
-- [ ] V36 [web, móvil] Con el espacio lleno, pulsar otra ficha no hace nada.
-- [ ] V37 [web, móvil] Con `int`, al comprobar el espacio queda correcto y la barra dice "¡Correcto!".
-- [ ] V38 [web, móvil] Con `void`, al comprobar el espacio queda incorrecto, aparece `int` junto a él y la barra muestra "Respuesta correcta:" con `int suma(int a, int b) {`.
-- [ ] V39 [web, móvil] En "Saludos" (Japonés sencillo, 2), el texto `こんにちは、___ ですか？` se ve con su espacio, y `元気` lo completa correctamente.
-- [ ] V40 [web, móvil] En "Actividades de prueba", en "Mis colores favoritos son ___ y ___." (donde los dos espacios aceptan "rojo" y "azul"), tanto "rojo y azul" como "azul y rojo" dan "¡Correcto!".
-- [ ] V41 [web, móvil] En esa actividad, después de colocar `rojo` ya no hay otra ficha `rojo` en el banco.
-- [ ] V42 [web, móvil] En esa actividad, con `verde` en el primer espacio y `rojo` en el segundo, el primero queda incorrecto con `azul` junto a él, el segundo correcto, y la barra muestra "Mis colores favoritos son azul y rojo.".
-- [ ] V43 [web, móvil] En "Actividades de prueba", en `___ doble(___ x)`, el banco tiene dos fichas `int`, y con una en cada espacio da "¡Correcto!".
+- [X] V01 [backend] Los cuatro cursos de prueba tienen, entre todos, 9 actividades de emparejar, 9 de clasificar, 6 de ordenar y 3 de banco de palabras.
+- [X] V02 [web, móvil] "Números del 1 al 5" (Japonés sencillo, 3) muestra, en este orden: emparejar, opción múltiple, tarjeta y ordenar. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V03 [web, móvil] "Tu primer commit" (Git esencial, 2) muestra su teoría y luego clasificar, con "Clasifica cada comando según lo que afecta.". (Móvil validado en Expo web, no en un teléfono.)
+- [X] V04 [web, móvil] En "Remotos: compartir tu trabajo" (Git esencial, 5) veo "Empareja los conceptos", a la izquierda `git clone <url>`, `git push`, `git pull` y `git fetch`, en ese orden y con `<url>` tal cual, y a la derecha sus cuatro descripciones. "Comprobar" está deshabilitado. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V05 [web, móvil] Al abrir varias veces esa lección, la columna derecha no sale siempre en el mismo orden, y nunca con cada comando frente a su descripción. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V06 [web, móvil] Al pulsar `git push` queda seleccionado; al pulsar "Sube tus commits locales al remoto", los dos llevan el mismo número. Empezando por la columna derecha pasa lo mismo. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V07 [web, móvil] Con `git push` seleccionado, al pulsar `git pull` la selección pasa a `git pull`; al pulsarlo otra vez ya no hay nada seleccionado. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V08 [web, móvil] Al pulsar un elemento que ya tiene pareja, los dos pierden su número. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V09 [web, móvil] Con `git push` unido a una descripción, al seleccionar `git pull` y pulsar esa misma descripción, forman pareja y `git push` se queda sin pareja. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V10 [web, móvil] "Comprobar" se habilita al formar la cuarta pareja y se deshabilita si deshago una. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V11 [web, móvil] Con las cuatro parejas bien, al comprobar todas quedan marcadas como correctas y la barra dice "¡Correcto!". Ya no puedo cambiar nada y el botón dice "Continuar". (Móvil validado en Expo web, no en un teléfono.)
+- [X] V12 [web, móvil] Con `git pull` y `git fetch` cruzadas, al comprobar esas dos parejas quedan incorrectas y las otras dos correctas, y la barra muestra "Respuesta correcta:" con dos líneas: `git pull → Descarga y combina los commits nuevos del remoto` y `git fetch → Descarga los commits nuevos sin combinarlos todavía`. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V13 [móvil] En "align-items: el eje cruzado" (Examen unidad 1, 7), las dos columnas van lado a lado y las descripciones se leen completas, sin "…". (Móvil validado en Expo web, no en un teléfono.)
+- [X] V14 [web, móvil] En "Primeros pasos" (Programación en C sencilla, 1) veo "Clasifica cada elemento", los seis elementos sin colocar y las categorías "Tipo de dato" y "Palabra clave", en ese orden. "Comprobar" está deshabilitado. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V15 [web, móvil] Al abrir varias veces esa lección, los elementos no salen siempre en el mismo orden. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V16 [web, móvil] Al pulsar `if` queda seleccionado; al pulsar "Palabra clave", queda en esa categoría. Sin elemento seleccionado, pulsar una categoría no hace nada. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V17 [web, móvil] Sin nada seleccionado, al pulsar `if` ya colocado vuelve a los elementos sin colocar. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V18 [web, móvil] Con `while` seleccionado, al pulsar encima de `if` ya colocado en "Palabra clave", `while` queda en esa categoría e `if` sigue ahí. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V19 [web, móvil] "Comprobar" se habilita al colocar el último elemento y se deshabilita si devuelvo uno. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V20 [web, móvil] Con todos bien, al comprobar quedan marcados como correctos y la barra dice "¡Correcto!". (Móvil validado en Expo web, no en un teléfono.)
+- [X] V21 [web, móvil] Con `if` en "Tipo de dato" y los demás bien, al comprobar `if` queda incorrecto, los demás correctos, y la barra muestra "Respuesta correcta:" con `if → Palabra clave`. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V22 [web, móvil] En "Estructura semántica de HTML" (Examen unidad 1, 4), las categorías "Va dentro de <head>" y "Va dentro de <body>" y los elementos `<title>` y `<article>` se ven tal cual. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V23 [web] En una ventana ancha las categorías van lado a lado; en una angosta y en la vista previa, una debajo de otra. (La ventana angosta se simuló con un iframe de 400 px: la ventana de Chrome no baja de 657 px.)
+- [X] V24 [móvil] Las categorías van una debajo de otra. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V25 [web, móvil] En "Condicionales y operadores" (Programación en C sencilla, 2) veo la consigna, tres lugares numerados y vacíos y los tres elementos sin colocar, con `printf("Hola");` con su sangría. "Comprobar" está deshabilitado. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V26 [web, móvil] Al abrir varias veces esa lección, los elementos no salen siempre en el mismo orden, y nunca en el orden correcto. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V27 [web, móvil] Al pulsar un elemento va al lugar 1, y al pulsar otro, al lugar 2. Pulsar un lugar vacío no hace nada. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V28 [web, móvil] Con tres elementos colocados, al pulsar el del lugar 1 vuelve a los elementos sin colocar, los otros dos no se mueven y "Comprobar" se deshabilita. El siguiente que pulso va al lugar 1. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V29 [web, móvil] En el orden correcto, al comprobar los tres lugares quedan correctos y la barra dice "¡Correcto!". (Móvil validado en Expo web, no en un teléfono.)
+- [X] V30 [web, móvil] Con los lugares 2 y 3 cambiados, al comprobar el lugar 1 queda correcto, los otros dos incorrectos, y la barra muestra "Respuesta correcta:" con el orden completo, en líneas numeradas. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V31 [móvil] En "Patrones comunes con Flexbox" (Examen unidad 1, 11), con el orden equivocado, los elementos se leen completos y puedo leer toda la barra sin perder de vista "Continuar". (Móvil validado en Expo web, no en un teléfono; ahí la respuesta cupo entera sin desplazarse.)
+- [X] V32 [web] En "Actividades de prueba", en el ordenar de 10 elementos, con el orden equivocado, puedo leer toda la respuesta desplazando el texto de la barra, y "Continuar" sigue a la vista.
+- [X] V33 [web, móvil] En "Funciones" (Programación en C sencilla, 3) veo "Completa con las fichas del banco", `___ suma(int a, int b) {` con un espacio y las fichas `int`, `void` y `char`. "Comprobar" está deshabilitado. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V34 [web, móvil] Al abrir varias veces esa lección, las fichas no salen siempre en el mismo orden. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V35 [web, móvil] Al pulsar `void`, sale del banco y queda en el espacio, y "Comprobar" se habilita. Al pulsarla en el espacio, vuelve al banco y "Comprobar" se deshabilita. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V36 [web, móvil] Con el espacio lleno, pulsar otra ficha no hace nada. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V37 [web, móvil] Con `int`, al comprobar el espacio queda correcto y la barra dice "¡Correcto!". (Móvil validado en Expo web, no en un teléfono.)
+- [X] V38 [web, móvil] Con `void`, al comprobar el espacio queda incorrecto, aparece `int` junto a él y la barra muestra "Respuesta correcta:" con `int suma(int a, int b) {`. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V39 [web, móvil] En "Saludos" (Japonés sencillo, 2), el texto `こんにちは、___ ですか？` se ve con su espacio, y `元気` lo completa correctamente. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V40 [web, móvil] En "Actividades de prueba", en "Mis colores favoritos son ___ y ___." (donde los dos espacios aceptan "rojo" y "azul"), tanto "rojo y azul" como "azul y rojo" dan "¡Correcto!". (Móvil validado en Expo web, no en un teléfono.)
+- [X] V41 [web, móvil] En esa actividad, después de colocar `rojo` ya no hay otra ficha `rojo` en el banco. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V42 [web, móvil] En esa actividad, con `verde` en el primer espacio y `rojo` en el segundo, el primero queda incorrecto con `azul` junto a él, el segundo correcto, y la barra muestra "Mis colores favoritos son azul y rojo.". (Móvil validado en Expo web, no en un teléfono.)
+- [X] V43 [web, móvil] En "Actividades de prueba", en `___ doble(___ x)`, el banco tiene dos fichas `int`, y con una en cada espacio da "¡Correcto!". (Móvil validado en Expo web, no en un teléfono.)
 - [ ] V44 [web, móvil] En emparejar, al arrastrar `git push` hasta su descripción forman pareja, igual que pulsándolos. Al soltarlo sobre otro elemento de su misma columna, nada cambia.
 - [ ] V45 [web, móvil] En clasificar, arrastro un elemento a una categoría, de ahí a la otra y de vuelta a los elementos sin colocar. Con todos colocados, la zona de los sin colocar sigue visible y se puede soltar ahí.
 - [ ] V46 [web, móvil] En ordenar, con todos los lugares libres, arrastro un elemento al lugar 3 y queda ahí. Al pulsar otro, va al lugar 1.
@@ -247,56 +247,56 @@ su línea, como en F05.
 - [ ] V56 [móvil] Si la app pasa a segundo plano mientras arrastro, al volver el elemento está donde estaba.
 - [ ] V57 [móvil] Con algo ya colocado, al pulsar el botón de atrás del teléfono mientras arrastro otro elemento, el arrastre se cancela y veo "¿Salir de la lección?".
 - [ ] V58 [web, móvil] Con "reducir movimiento" activado, al soltar fuera el elemento vuelve sin animación, y lo incorrecto no se sacude.
-- [ ] V59 [web] Resuelvo los cuatro tipos solo con Tab, Enter y la barra espaciadora, hasta "Continuar".
-- [ ] V60 [web] En clasificar, ordenar y banco, después de colocar un elemento el foco queda en el siguiente sin colocar y, cuando la respuesta queda completa, en "Comprobar".
-- [ ] V61 [web] En emparejar, después de formar una pareja el foco queda en el siguiente sin pareja de la columna donde empecé, y después de la última, en "Comprobar".
-- [ ] V62 [web] En clasificar, ordenar y banco, al devolver un elemento colocado el foco queda en ese elemento.
-- [ ] V63 [web] En estos tipos, las teclas 1 a 9 no hacen nada.
+- [X] V59 [web] Resuelvo los cuatro tipos solo con Tab, Enter y la barra espaciadora, hasta "Continuar".
+- [X] V60 [web] En clasificar, ordenar y banco, después de colocar un elemento el foco queda en el siguiente sin colocar y, cuando la respuesta queda completa, en "Comprobar".
+- [X] V61 [web] En emparejar, después de formar una pareja el foco queda en el siguiente sin pareja de la columna donde empecé, y después de la última, en "Comprobar".
+- [X] V62 [web] En clasificar, ordenar y banco, al devolver un elemento colocado el foco queda en ese elemento.
+- [X] V63 [web] En estos tipos, las teclas 1 a 9 no hacen nada.
 - [ ] V64 [web, móvil] Con un lector de pantalla, cada elemento anuncia su estado ("Seleccionado", "Pareja {n}", "En {categoría}", "Lugar {n}" o "Espacio {n}"), y se anuncia cada cambio al hacerlo.
 - [ ] V65 [web, móvil] Lo correcto y lo incorrecto llevan icono además de color.
-- [ ] V66 [web, móvil] En "Números del 1 al 5" (Japonés sencillo, 3), acertando emparejar y la opción múltiple, y fallando ordenar, al terminar veo "Acertaste 2 de 3": la tarjeta no cuenta.
-- [ ] V67 [web, móvil] En esa lección, con una sola pareja mal, emparejar cuenta como fallada.
-- [ ] V68 [web, móvil] Al volver al curso, esa lección muestra "2 de 3 aciertos".
+- [X] V66 [web, móvil] En "Números del 1 al 5" (Japonés sencillo, 3), acertando emparejar y la opción múltiple, y fallando ordenar, al terminar veo "Acertaste 2 de 3": la tarjeta no cuenta. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V67 [web, móvil] En esa lección, con dos parejas cruzadas y lo demás bien, emparejar cuenta como fallada. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V68 [web, móvil] Al volver al curso, esa lección muestra "2 de 3 aciertos". (Móvil validado en Expo web, no en un teléfono.)
 - [ ] V69 [web, móvil] En "Números del 1 al 5", sin haber hecho nada, la X lleva directo al detalle del curso. Después de elegir un elemento, pide confirmación, y "Seguir aquí" me deja con lo que había elegido.
 - [ ] V70 [web, móvil] Con parejas formadas, confirmar la salida y abrir otra vez la lección empieza sin respuestas.
-- [ ] V71 [web] En la paleta, Emparejar, Clasificar, Ordenar y Banco de palabras se pueden agregar y no dicen "Próximamente". Reto de código, Terminal simulada, Grafo de commits y Escuchar y repetir siguen deshabilitados, con "Próximamente".
-- [ ] V72 [web] Al arrastrar o pulsar cada uno de los cuatro, queda en la secuencia con la marca "Incompleta", seleccionado y con el foco en su primer campo.
-- [ ] V73 [web] El bloque de emparejar muestra la consigna y, sin ella, el texto izquierdo de la primera pareja. El de clasificar, la consigna o la primera categoría. El de ordenar, la consigna. El de banco de palabras, la consigna o el texto. Sin nada de eso, "Sin contenido".
-- [ ] V74 [web] Emparejar empieza con tres parejas vacías. Con 3, "Quitar" está deshabilitado; con 8, también "Agregar pareja".
-- [ ] V75 [web] Con dos textos iguales en una columna (también " git " y "git"), al guardar el repetido muestra "Este texto está repetido.". Un mismo texto en las dos columnas sí se acepta, y "git" y "Git" también.
-- [ ] V76 [web] Clasificar empieza con dos categorías y dos elementos vacíos. Un elemento sin categoría muestra, al guardar, "Elige una categoría.", y una categoría sin elementos, "Esta categoría no tiene elementos.".
-- [ ] V77 [web] El selector de cada elemento muestra los nombres de las categorías, y "Categoría {n}" en una sin nombre. Al cambiarle el nombre a una categoría, el selector lo muestra.
-- [ ] V78 [web] Al quitar una categoría, sus elementos se quedan sin categoría.
-- [ ] V79 [web] Dos categorías iguales muestran "Esta categoría está repetida.", y dos elementos iguales, "Este elemento está repetido.". Clasificar deja tener de 2 a 4 categorías y de 2 a 12 elementos.
-- [ ] V80 [web] Ordenar empieza con tres elementos vacíos y la ayuda "Escríbelos en el orden correcto. El alumno los verá mezclados.". "Subir" y "Bajar" cambian el orden correcto. Sin consigna, al guardar veo "Este campo es obligatorio.".
-- [ ] V81 [web] Ordenar deja tener de 3 a 10 elementos, y dos iguales muestran "Este elemento está repetido.".
-- [ ] V82 [web] En banco de palabras, "Agregar espacio" escribe `___` donde está el cursor y aparece el grupo "Espacio 1" con las palabras del banco como casillas. Escribir otro `___` a mano agrega "Espacio 2".
-- [ ] V83 [web] Una palabra repetida en las fichas aparece una sola vez en las casillas. Las fichas "Rojo" y "rojo" salen como dos casillas.
-- [ ] V84 [web] Un espacio sin marcas muestra, al guardar, "Marca al menos una ficha.". Un texto sin `___` muestra "Agrega al menos un espacio con ___.", y con 11, "El texto puede tener hasta 10 espacios.".
-- [ ] V85 [web] Con dos espacios que solo aceptan `int` y una sola ficha `int`, al guardar veo "No alcanzan las fichas para llenar todos los espacios. Si una palabra va en dos, agrégala dos veces."; al agregar otra ficha `int`, se guarda.
-- [ ] V86 [web] Al corregir el texto de una ficha marcada, sigue marcada. Al quitarla, su palabra desaparece de los grupos.
-- [ ] V87 [web] Con dos espacios con marcas, al borrar un `___` del texto los dos grupos siguen ahí, con "Hay más grupos de respuestas que espacios en el texto. Quita los que sobran." y "Quitar espacio". Si el grupo que sobra no tenía marcas, desaparece solo.
-- [ ] V88 [web] Banco de palabras deja tener de 2 a 20 fichas.
-- [ ] V89 [web] Cada campo no deja escribir más del límite de "Datos de entrada".
-- [ ] V90 [web] Las ayudas de la consigna dicen qué verá el alumno si se deja vacía, en los tres tipos en los que es opcional.
-- [ ] V91 [web] Una actividad completa de cada tipo se ve en la vista previa como en el reproductor, y se responde pulsando y arrastrando.
-- [ ] V92 [web] Arrastrar un elemento dentro de la vista previa no mueve ningún bloque ni agrega actividades. Arrastrar un bloque o un tipo de la paleta encima de la vista previa no cambia la actividad.
-- [ ] V93 [web] Al cambiar la actividad en el inspector, la vista previa vuelve a empezar y el foco se queda en el campo. "Reiniciar" la devuelve al principio.
-- [ ] V94 [web] Una actividad incompleta de estos tipos muestra "Completa esta actividad para ver su vista previa.".
-- [ ] V95 [web] "Probar lección" recorre una lección con los cuatro tipos, y al terminar veo "Acertaste {aciertos} de 4".
-- [ ] V96 [web] Una lección con los cuatro tipos se guarda y, al recargar, sigue igual, con sus datos y en su orden. Un elemento de ordenar con sangría conserva su sangría.
-- [ ] V97 [web] Una ficha escrita con espacios al inicio y al final se guarda sin ellos. Una consigna vacía no se guarda: el alumno ve el texto por defecto.
-- [ ] V98 [web, móvil] Armo una lección con los cuatro tipos, un administrador publica el curso, y un alumno la cursa de principio a fin: en la web y en el móvil se ve igual que en la vista previa y su resultado cuenta las cuatro preguntas.
-- [ ] V99 [backend] Guardar, sin pasar por un cliente, emparejar con 2 o con 9 parejas, o con un texto repetido en una columna, se rechaza y la lección queda como estaba.
-- [ ] V100 [backend] Guardar clasificar con 1 o con 5 categorías, con 13 elementos, con un elemento repetido, con un elemento sin categoría o con una que no existe, o con una categoría sin elementos, se rechaza y la lección queda como estaba.
-- [ ] V101 [backend] Guardar ordenar sin consigna, con 2 o con 11 elementos, o con un elemento repetido, se rechaza y la lección queda como estaba.
-- [ ] V102 [backend] Guardar banco de palabras con 11 espacios, con 21 fichas, con un número de grupos distinto al de `___`, con un espacio sin fichas que valgan, con una palabra que vale y no está en el banco, o sin forma de llenar todos los espacios con cada ficha una sola vez, se rechaza y la lección queda como estaba.
-- [ ] V103 [backend] Guardar un texto más largo que su límite en cualquiera de los cuatro tipos, o un campo que el tipo no tiene, se rechaza y la lección queda como estaba.
-- [ ] V104 [backend] Guardar una actividad de un tipo que todavía no existe (por ejemplo, reto de código) se rechaza y la lección queda como estaba.
-- [ ] V105 [web, móvil] En "Actividades de prueba", la lección con `<b>hola</b>` y `<script>` en los textos de una actividad de cada uno de los cuatro tipos los muestra tal cual, también en la barra inferior, sin negritas y sin ejecutar nada.
-- [ ] V106 [web] Con esos textos, el formulario, el bloque y la vista previa los muestran tal cual.
-- [ ] V107 [web, móvil] En "Resolviendo conflictos" (Git esencial, 6), el elemento "Ver los marcadores <<<<<<< ======= >>>>>>>" se ve tal cual.
-- [ ] V108 [web, móvil] Las actividades de "Actividades de prueba" con los límites más altos (8 parejas, 12 elementos y 4 categorías, 10 elementos para ordenar y 20 fichas) se pueden responder de principio a fin, con los textos completos.
+- [X] V71 [web] En la paleta, Emparejar, Clasificar, Ordenar y Banco de palabras se pueden agregar y no dicen "Próximamente". Reto de código, Terminal simulada, Grafo de commits y Escuchar y repetir siguen deshabilitados, con "Próximamente".
+- [X] V72 [web] Al arrastrar o pulsar cada uno de los cuatro, queda en la secuencia con la marca "Incompleta", seleccionado y con el foco en su primer campo. (Dos se agregaron arrastrando con eventos sintéticos de la API del navegador, no con el ratón.)
+- [X] V73 [web] El bloque de emparejar muestra la consigna y, sin ella, el texto izquierdo de la primera pareja. El de clasificar, la consigna o la primera categoría. El de ordenar, la consigna. El de banco de palabras, la consigna o el texto. Sin nada de eso, "Sin contenido".
+- [X] V74 [web] Emparejar empieza con tres parejas vacías. Con 3, "Quitar" está deshabilitado; con 8, también "Agregar pareja".
+- [X] V75 [web] Con dos textos iguales en una columna (también " git " y "git"), al guardar el repetido muestra "Este texto está repetido.". Un mismo texto en las dos columnas sí se acepta, y "git" y "Git" también.
+- [X] V76 [web] Clasificar empieza con dos categorías y dos elementos vacíos. Un elemento sin categoría muestra, al guardar, "Elige una categoría.", y una categoría sin elementos, "Esta categoría no tiene elementos.".
+- [X] V77 [web] El selector de cada elemento muestra los nombres de las categorías, y "Categoría {n}" en una sin nombre. Al cambiarle el nombre a una categoría, el selector lo muestra.
+- [X] V78 [web] Al quitar una categoría, sus elementos se quedan sin categoría.
+- [X] V79 [web] Dos categorías iguales muestran "Esta categoría está repetida.", y dos elementos iguales, "Este elemento está repetido.". Clasificar deja tener de 2 a 4 categorías y de 2 a 12 elementos.
+- [X] V80 [web] Ordenar empieza con tres elementos vacíos y la ayuda "Escríbelos en el orden correcto. El alumno los verá mezclados.". "Subir" y "Bajar" cambian el orden correcto. Sin consigna, al guardar veo "Este campo es obligatorio.".
+- [X] V81 [web] Ordenar deja tener de 3 a 10 elementos, y dos iguales muestran "Este elemento está repetido.".
+- [X] V82 [web] En banco de palabras, "Agregar espacio" escribe `___` donde está el cursor y aparece el grupo "Espacio 1" con las palabras del banco como casillas. Escribir otro `___` a mano agrega "Espacio 2".
+- [X] V83 [web] Una palabra repetida en las fichas aparece una sola vez en las casillas. Las fichas "Rojo" y "rojo" salen como dos casillas.
+- [X] V84 [web] Un espacio sin marcas muestra, al guardar, "Marca al menos una ficha.". Un texto sin `___` muestra "Agrega al menos un espacio con ___.", y con 11, "El texto puede tener hasta 10 espacios.".
+- [X] V85 [web] Con dos espacios que solo aceptan `int` y una sola ficha `int`, al guardar veo "No alcanzan las fichas para llenar todos los espacios. Si una palabra va en dos, agrégala dos veces."; al agregar otra ficha `int`, se guarda.
+- [X] V86 [web] Al corregir el texto de una ficha marcada, sigue marcada. Al quitarla, su palabra desaparece de los grupos.
+- [X] V87 [web] Con dos espacios con marcas, al borrar un `___` del texto los dos grupos siguen ahí, con "Hay más grupos de respuestas que espacios en el texto. Quita los que sobran." y "Quitar espacio". Si el grupo que sobra no tenía marcas, desaparece solo.
+- [X] V88 [web] Banco de palabras deja tener de 2 a 20 fichas.
+- [X] V89 [web] Cada campo no deja escribir más del límite de "Datos de entrada". (Se probó escribiendo con el teclado, no pegando.)
+- [X] V90 [web] Las ayudas de la consigna dicen qué verá el alumno si se deja vacía, en los tres tipos en los que es opcional.
+- [X] V91 [web] Una actividad completa de cada tipo se ve en la vista previa como en el reproductor, y se responde pulsando y arrastrando. (El arrastre, con eventos sintéticos de la API del navegador, no con el ratón.)
+- [X] V92 [web] Arrastrar un elemento dentro de la vista previa no mueve ningún bloque ni agrega actividades. Arrastrar un bloque o un tipo de la paleta encima de la vista previa no cambia la actividad. (Con eventos sintéticos de la API del navegador, no con el ratón.)
+- [X] V93 [web] Al cambiar la actividad en el inspector, la vista previa vuelve a empezar y el foco se queda en el campo. "Reiniciar" la devuelve al principio.
+- [X] V94 [web] Una actividad incompleta de estos tipos muestra "Completa esta actividad para ver su vista previa.".
+- [X] V95 [web] "Probar lección" recorre una lección con los cuatro tipos, y al terminar veo "Acertaste {aciertos} de 4".
+- [X] V96 [web] Una lección con los cuatro tipos se guarda y, al recargar, sigue igual, con sus datos y en su orden. Un elemento de ordenar con sangría conserva su sangría.
+- [X] V97 [web] Una ficha escrita con espacios al inicio y al final se guarda sin ellos. Una consigna vacía no se guarda: el alumno ve el texto por defecto.
+- [X] V98 [web, móvil] Armo una lección con los cuatro tipos, un administrador publica el curso, y un alumno la cursa de principio a fin: en la web y en el móvil se ve igual que en la vista previa y su resultado cuenta las cuatro preguntas. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V99 [backend] Guardar, sin pasar por un cliente, emparejar con 2 o con 9 parejas, o con un texto repetido en una columna, se rechaza y la lección queda como estaba.
+- [X] V100 [backend] Guardar clasificar con 1 o con 5 categorías, con 13 elementos, con un elemento repetido, con un elemento sin categoría o con una que no existe, o con una categoría sin elementos, se rechaza y la lección queda como estaba.
+- [X] V101 [backend] Guardar ordenar sin consigna, con 2 o con 11 elementos, o con un elemento repetido, se rechaza y la lección queda como estaba.
+- [X] V102 [backend] Guardar banco de palabras con 11 espacios, con 21 fichas, con un número de grupos distinto al de `___`, con un espacio sin fichas que valgan, con una palabra que vale y no está en el banco, o sin forma de llenar todos los espacios con cada ficha una sola vez, se rechaza y la lección queda como estaba.
+- [X] V103 [backend] Guardar un texto más largo que su límite en cualquiera de los cuatro tipos, o un campo que el tipo no tiene, se rechaza y la lección queda como estaba.
+- [X] V104 [backend] Guardar una actividad de un tipo que todavía no existe (por ejemplo, reto de código) se rechaza y la lección queda como estaba.
+- [X] V105 [web, móvil] En "Actividades de prueba", la lección con `<b>hola</b>` y `<script>` en los textos de una actividad de cada uno de los cuatro tipos los muestra tal cual, también en la barra inferior, sin negritas y sin ejecutar nada. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V106 [web] Con esos textos, el formulario, el bloque y la vista previa los muestran tal cual.
+- [X] V107 [web, móvil] En "Resolviendo conflictos" (Git esencial, 6), el elemento "Ver los marcadores <<<<<<< ======= >>>>>>>" se ve tal cual. (Móvil validado en Expo web, no en un teléfono.)
+- [X] V108 [web, móvil] Las actividades de "Actividades de prueba" con los límites más altos (8 parejas, 12 elementos y 4 categorías, 10 elementos para ordenar y 20 fichas) se pueden responder de principio a fin, con los textos completos. (Móvil validado en Expo web, no en un teléfono.)
 
 ---
 

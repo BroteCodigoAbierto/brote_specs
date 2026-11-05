@@ -45,9 +45,11 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
   (`propsOrigen`, `propsDestino`, `arrastrando`, `destino`), con un destino genérico:
 
   ```ts
-  useArrastrarElemento<Item, Destino>({ alSoltar: (item: Item, destino: Destino) => void })
+  useArrastrarElemento<Item, Destino>({ alSoltar, alEmpezar, acepta })
   ```
 
+- **Destinos que no valen**: `acepta(item, destino)` deja fuera lo que no es un destino de
+  ese elemento, para no resaltarlo. Lo usa emparejar, con los de su misma columna.
 - **La vista previa no choca con el editor**: cada instancia solo acepta lo que empezó
   ella (`item === null` en `onDragOver`), igual que `useArrastrar`. Lo que se arrastra
   en la vista previa no lo acepta la secuencia, y un tipo de la paleta no lo acepta la
@@ -114,8 +116,7 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
   - `terminar` recibe qué elemento termina, para que el gesto fallido de otro dedo no corte
     este arrastre. `canceled` también es `true` en un gesto que nunca se activó.
   - El hook tiene una opción más, `acepta(item, destino)`, para no resaltar lo que no es un
-    destino de ese elemento: en emparejar, los de su misma columna. La web la necesitará
-    igual.
+    destino de ese elemento: en emparejar, los de su misma columna. La web la tiene igual.
 - **Un elemento a la vez**: `maxPointers: 1` cubre el mismo elemento. Para otro, cada
   `Arrastrable` se apaga con `enabled` mientras haya arrastre, y `onPress` lo ignora.
 - **Cancelar**: en `onFinalize`, `canceled` significa llamada, segundo plano o diálogo:

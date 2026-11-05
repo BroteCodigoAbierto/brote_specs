@@ -239,7 +239,7 @@ los dos clientes".
 
 | Componente | Props clave | Notas |
 |---|---|---|
-| `CampoTexto` (cambia) | `maxLongitud`, `deshabilitado` | Solo en la web |
+| `CampoTexto` (cambia) | `maxLongitud`, `deshabilitado`, `invalido` | `invalido` (F11): marca el campo como inválido sin mensaje propio, cuando el error se muestra en otro lado. Solo en la web |
 | `CampoArea` | `id`, `etiqueta`, `valor`, `alCambiar`, `error`, `ayuda`, `maxLongitud`, `filas`, `codigo`, `deshabilitado` | `CampoTexto` de varias líneas, con el mismo aspecto. Con `codigo`, en `--fuente-codigo`. Expone su `ref`, para escribir donde está el cursor |
 | `CampoSelector` | `id`, `etiqueta`, `valor`, `opciones`, `textoVacio`, `alCambiar`, `error`, `deshabilitado` | `<select>` nativo con el aspecto de `CampoTexto` (F11) |
 | `CampoConEspacios` | `id`, `valor`, `alCambiar`, `ayuda`, `error`, `maxLongitud`, `deshabilitado` | El campo de texto en letra de código con "Agregar espacio". Lo usan completar espacios y banco de palabras (F11) |

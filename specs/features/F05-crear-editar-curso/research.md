@@ -247,6 +247,9 @@ cuatro cosas que se rompen junto a un formulario:
 - **Alternativa descartada**: `@dnd-kit`. Da animaciones, tacto y teclado, pero son
   varios paquetes para resolver lo que los botones ya resuelven. Si después se
   quiere arrastrar con el dedo, se justifica en esa feature.
+- **Después (F11)**: F11 justificó arrastrar con el dedo, pero en el móvil y con gesture
+  handler, que ya estaba instalado. La web sigue con ratón y la API del navegador, en un
+  hook aparte, `useArrastrarElemento` (research de F11, puntos 2 y 3).
 
 ## 14. Salir sin guardar
 

@@ -134,6 +134,13 @@ tipo → componente, borradores del editor, vista previa en un ámbito) no se re
   | Al activarse el arrastre, `Pressable` se cancela en Android y en iOS. `cancelsJSResponder` viene en `true` en los dos (`GestureHandler.kt`, `RNGestureHandler.mm`): falta verlo en un teléfono | Ya está el filtro de `onPress` |
   | El gesto de atrás no se activa desde un elemento | `gestureEnabled: false` mientras se arrastra en iOS, y en Android ampliar el margen de la actividad |
   | Abrir la confirmación de salida cancela el arrastre | Cancelarlo a mano desde `usePreventRemove` |
+
+  **Resultado de T051** (2026-11-05, con emparejar en un iPhone con Expo Go): los tres
+  primeros se cumplen, sin aplicar ninguna salida. El destino resaltado es el que está
+  bajo el dedo, soltar no dispara también el pulso y arrastrar hacia el borde no sale de
+  la lección. Falta probarlos en Android. El cuarto no se probó: el botón de atrás solo
+  existe en Android y no hubo un teléfono con él, así que el criterio de ese caso sigue
+  sin validar.
 - **Alternativa descartada**: `PanResponder` de React Native. No necesita raíz, pero
   compite mal con el `ScrollView` en Android y no da la activación por tiempo.
 

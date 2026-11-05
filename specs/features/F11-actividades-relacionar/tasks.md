@@ -156,7 +156,7 @@ funcionaba.
 ### El primer tipo, para probar el arrastre
 
 - [X] T050 [movil] Crear `src/actividades/Emparejar.tsx`, con las mismas reglas que T025: `MarcoActividad`, dos columnas de `ElementoRespuesta` `tarjeta`, cada una en `Arrastrable` y `DestinoArrastre`, y anuncios con `AccessibilityInfo.announceForAccessibility`. En `src/actividades/registro.ts`, agregar `emparejar`. `npm run tipos` sigue sin pasar, pero Metro no lo necesita: `actividadesConocidas` se salta los otros tres
-- [ ] T051 [movil] En **un teléfono con Expo Go**, no en Expo web, comprobar con "Remotos: compartir tu trabajo" los cuatro supuestos de research.md, punto 3: que el destino resaltado es el que está bajo el dedo, que soltar no dispara también el pulso, que el arrastre desde un elemento de la izquierda no sale de la lección y que abrir la confirmación de salida lo cancela. Si uno falla, aplicar su salida de la tabla antes de seguir, y anotar en `research.md` lo que resultó. Hacerlo aquí evita repetir el arreglo en tres tipos más
+- [X] T051 [movil] En **un teléfono con Expo Go**, no en Expo web, comprobar con "Remotos: compartir tu trabajo" los cuatro supuestos de research.md, punto 3: que el destino resaltado es el que está bajo el dedo, que soltar no dispara también el pulso, que el arrastre desde un elemento de la izquierda no sale de la lección y que abrir la confirmación de salida lo cancela. Si uno falla, aplicar su salida de la tabla antes de seguir, y anotar en `research.md` lo que resultó. Hacerlo aquí evita repetir el arreglo en tres tipos más (Comprobado en un iPhone. El cuarto supuesto solo aplica en Android y no se probó: ver research.md, punto 3.)
 
 ### Los otros tres tipos (docs/diseno.md, sección 6)
 

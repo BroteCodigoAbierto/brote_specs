@@ -467,7 +467,7 @@ No cambia (F05), salvo:
 
 ### Cursos de prueba
 
-- [ ] [backend] Los cuatro cursos de prueba tienen, entre todos, 13 retos de código (3
+- [x] [backend] Los cuatro cursos de prueba tienen, entre todos, 13 retos de código (3
   en C y 10 en CSS), 12 terminales simuladas y 1 grafo de commits.
 - [ ] [web, móvil] "Tu primer commit" (Git esencial, 2) muestra, en este orden: teoría,
   cuatro terminales y clasificar.
@@ -688,21 +688,21 @@ No cambia (F05), salvo:
 - [ ] [web, móvil] Armo una lección con los tres tipos, un administrador publica el
   curso, y un alumno la cursa de principio a fin: en la web y en el móvil se ve igual
   que en la vista previa y su resultado cuenta las tres preguntas.
-- [ ] [backend] Guardar, sin pasar por un cliente, un reto sin consigna, sin solución o
+- [x] [backend] Guardar, sin pasar por un cliente, un reto sin consigna, sin solución o
   con un lenguaje que no está en la lista, se rechaza y la lección queda como estaba.
-- [ ] [backend] Guardar una terminal sin comandos, con 11, con un comando repetido (también
+- [x] [backend] Guardar una terminal sin comandos, con 11, con un comando repetido (también
   si solo cambian los espacios o las comillas tipográficas) o con un salto de línea en la carpeta o en un comando,
   se rechaza y la lección queda como estaba.
-- [ ] [backend] Guardar un grafo con 1 o con 11 commits, con un nombre de commit repetido o
+- [x] [backend] Guardar un grafo con 1 o con 11 commits, con un nombre de commit repetido o
   de 5 caracteres, con el primer commit con padre, con otro sin padre, con tres padres
   o con dos iguales, con un padre que no existe o que está más abajo en la lista, o con
   más de 6 columnas, se rechaza y la lección queda como estaba.
-- [ ] [backend] Guardar un grafo con 5 ramas, con una rama repetida, llamada `HEAD` o que
+- [x] [backend] Guardar un grafo con 5 ramas, con una rama repetida, llamada `HEAD` o que
   apunta a un commit que no existe, con HEAD apuntando a algo que no existe, o con una
   respuesta que no es uno de sus commits, se rechaza y la lección queda como estaba.
-- [ ] [backend] Guardar un texto más largo que su límite en cualquiera de los tres tipos, o
+- [x] [backend] Guardar un texto más largo que su límite en cualquiera de los tres tipos, o
   un campo que el tipo no tiene, se rechaza y la lección queda como estaba.
-- [ ] [backend] Guardar una actividad de escuchar y repetir se rechaza y la lección queda
+- [x] [backend] Guardar una actividad de escuchar y repetir se rechaza y la lección queda
   como estaba.
 
 ### Contenido

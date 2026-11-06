@@ -178,7 +178,7 @@ Cada criterio se comprueba con [quickstart.md](./quickstart.md), sección 3, y s
 enviar y el ancho de 360 son del teléfono real. Si un criterio de móvil se ve en Expo web o en el
 simulador, se anota en su línea, como en F11.
 
-- [ ] V01 [backend] Los cuatro cursos de prueba tienen, entre todos, 13 retos de código (3 en C y 10 en CSS), 12 terminales simuladas y 1 grafo de commits.
+- [X] V01 [backend] Los cuatro cursos de prueba tienen, entre todos, 13 retos de código (3 en C y 10 en CSS), 12 terminales simuladas y 1 grafo de commits.
 - [ ] V02 [web, móvil] "Tu primer commit" (Git esencial, 2) muestra, en este orden: teoría, cuatro terminales y clasificar.
 - [ ] V03 [web, móvil] "Ramas: trabajar en paralelo" (Git esencial, 4) muestra, en este orden: teoría, terminal, grafo, teoría, terminal y terminal.
 - [ ] V04 [web, móvil] "Patrones comunes con Flexbox" (Examen unidad 1, 11) muestra, en este orden: teoría, opción múltiple, reto, reto, ordenar, reto, tarjeta y pregunta abierta.
@@ -255,12 +255,12 @@ simulador, se anota en su línea, como en F11.
 - [ ] V75 [web] "Probar lección" recorre una lección con los tres tipos, y al terminar veo "Acertaste {aciertos} de 3".
 - [ ] V76 [web] Una lección con los tres tipos se guarda y, al recargar, sigue igual, con sus datos y en su orden. El código inicial y la solución conservan su sangría y sus líneas en blanco. Un campo opcional vacío no se guarda.
 - [ ] V77 [web, móvil] Armo una lección con los tres tipos, un administrador publica el curso, y un alumno la cursa de principio a fin: en la web y en el móvil se ve igual que en la vista previa y su resultado cuenta las tres preguntas.
-- [ ] V78 [backend] Guardar, sin pasar por un cliente, un reto sin consigna, sin solución o con un lenguaje que no está en la lista, se rechaza y la lección queda como estaba.
-- [ ] V79 [backend] Guardar una terminal sin comandos, con 11, con un comando repetido (también si solo cambian los espacios o las comillas tipográficas) o con un salto de línea en la carpeta o en un comando, se rechaza y la lección queda como estaba.
-- [ ] V80 [backend] Guardar un grafo con 1 o con 11 commits, con un nombre de commit repetido o de 5 caracteres, con el primer commit con padre, con otro sin padre, con tres padres o con dos iguales, con un padre que no existe o que está más abajo en la lista, o con más de 6 columnas, se rechaza y la lección queda como estaba.
-- [ ] V81 [backend] Guardar un grafo con 5 ramas, con una rama repetida, llamada `HEAD` o que apunta a un commit que no existe, con HEAD apuntando a algo que no existe, o con una respuesta que no es uno de sus commits, se rechaza y la lección queda como estaba.
-- [ ] V82 [backend] Guardar un texto más largo que su límite en cualquiera de los tres tipos, o un campo que el tipo no tiene, se rechaza y la lección queda como estaba.
-- [ ] V83 [backend] Guardar una actividad de escuchar y repetir se rechaza y la lección queda como estaba.
+- [X] V78 [backend] Guardar, sin pasar por un cliente, un reto sin consigna, sin solución o con un lenguaje que no está en la lista, se rechaza y la lección queda como estaba.
+- [X] V79 [backend] Guardar una terminal sin comandos, con 11, con un comando repetido (también si solo cambian los espacios o las comillas tipográficas) o con un salto de línea en la carpeta o en un comando, se rechaza y la lección queda como estaba.
+- [X] V80 [backend] Guardar un grafo con 1 o con 11 commits, con un nombre de commit repetido o de 5 caracteres, con el primer commit con padre, con otro sin padre, con tres padres o con dos iguales, con un padre que no existe o que está más abajo en la lista, o con más de 6 columnas, se rechaza y la lección queda como estaba.
+- [X] V81 [backend] Guardar un grafo con 5 ramas, con una rama repetida, llamada `HEAD` o que apunta a un commit que no existe, con HEAD apuntando a algo que no existe, o con una respuesta que no es uno de sus commits, se rechaza y la lección queda como estaba.
+- [X] V82 [backend] Guardar un texto más largo que su límite en cualquiera de los tres tipos, o un campo que el tipo no tiene, se rechaza y la lección queda como estaba.
+- [X] V83 [backend] Guardar una actividad de escuchar y repetir se rechaza y la lección queda como estaba.
 - [ ] V84 [web, móvil] En "Actividades de prueba", la lección con `<b>hola</b>` y `<script>` en los textos de una actividad de cada tipo (también un commit llamado `<b>` y una rama `<script>`) los muestra tal cual, también en la barra inferior, sin negritas y sin ejecutar nada.
 - [ ] V85 [web] Con esos textos, el formulario, el bloque y la vista previa los muestran tal cual.
 - [ ] V86 [web, móvil] Las actividades de "Actividades de prueba" con los límites más altos (código y solución de 2000 caracteres, 10 comandos y salidas de 2000, y el grafo al límite) se pueden responder de principio a fin, con los textos completos.

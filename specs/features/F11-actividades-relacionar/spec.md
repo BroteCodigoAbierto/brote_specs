@@ -557,34 +557,34 @@ No cambia (F05), salvo:
 
 ### Arrastrar
 
-- [ ] [web, móvil] En emparejar, al arrastrar `git push` hasta su descripción
+- [x] [web, móvil] En emparejar, al arrastrar `git push` hasta su descripción
   forman pareja, igual que pulsándolos. Al soltarlo sobre otro elemento de su misma
   columna, nada cambia.
-- [ ] [web, móvil] En clasificar, arrastro un elemento a una categoría, de ahí a la
+- [x] [web, móvil] En clasificar, arrastro un elemento a una categoría, de ahí a la
   otra y de vuelta a los elementos sin colocar. Con todos colocados, la zona de los
   sin colocar sigue visible y se puede soltar ahí.
-- [ ] [web, móvil] En ordenar, con todos los lugares libres, arrastro un elemento
+- [x] [web, móvil] En ordenar, con todos los lugares libres, arrastro un elemento
   al lugar 3 y queda ahí. Al pulsar otro, va al lugar 1.
-- [ ] [web, móvil] En ordenar, al soltar el elemento del lugar 1 sobre el lugar 2,
+- [x] [web, móvil] En ordenar, al soltar el elemento del lugar 1 sobre el lugar 2,
   se intercambian. Al soltar un elemento sin colocar sobre un lugar ocupado, el que
   estaba ahí vuelve a los elementos sin colocar.
-- [ ] [web, móvil] En "Mis colores favoritos son ___ y ___.", arrastro una ficha al
+- [x] [web, móvil] En "Mis colores favoritos son ___ y ___.", arrastro una ficha al
   segundo espacio con el primero libre, y de ahí de vuelta al banco.
-- [ ] [web, móvil] Mientras arrastro, el elemento sigue al puntero o al dedo, su
+- [x] [web, móvil] Mientras arrastro, el elemento sigue al puntero o al dedo, su
   lugar de origen se ve atenuado y el destino debajo se resalta. Al soltarlo fuera
   de cualquier destino vuelve a donde estaba y nada cambia.
-- [ ] [web, móvil] Con un elemento seleccionado, al empezar a arrastrar otro la
+- [x] [web, móvil] Con un elemento seleccionado, al empezar a arrastrar otro la
   selección se quita.
 - [ ] [web, móvil] En "Actividades de prueba", en el clasificar de 12 elementos y 4
   categorías, con la última categoría fuera de la vista, al acercar un elemento al
   borde de la pantalla esta se desplaza sola y puedo soltarlo en esa categoría.
-- [ ] [web, móvil] Después de "Comprobar", nada se puede arrastrar ni pulsar.
+- [x] [web, móvil] Después de "Comprobar", nada se puede arrastrar ni pulsar.
 - [ ] [móvil] Al deslizar el dedo sobre un elemento sin mantenerlo pulsado, la
   pantalla se desplaza y el elemento no se mueve.
 - [ ] [móvil] Mientras arrastro, un segundo dedo no arrastra otro elemento.
-- [ ] [móvil] Arrastrar un elemento desde el borde de la pantalla no sale de la
+- [x] [móvil] Arrastrar un elemento desde el borde de la pantalla no sale de la
   lección.
-- [ ] [móvil] Si la app pasa a segundo plano mientras arrastro, al volver el
+- [x] [móvil] Si la app pasa a segundo plano mientras arrastro, al volver el
   elemento está donde estaba.
 - [ ] [móvil] Con algo ya colocado, al pulsar el botón de atrás del teléfono mientras
   arrastro otro elemento, el arrastre se cancela y veo "¿Salir de la lección?".
@@ -617,10 +617,10 @@ No cambia (F05), salvo:
 - [x] [web, móvil] En esa lección, con dos parejas cruzadas y lo demás bien,
   emparejar cuenta como fallada.
 - [x] [web, móvil] Al volver al curso, esa lección muestra "2 de 3 aciertos".
-- [ ] [web, móvil] En "Números del 1 al 5", sin haber hecho nada, la X lleva directo
+- [x] [web, móvil] En "Números del 1 al 5", sin haber hecho nada, la X lleva directo
   al detalle del curso. Después de elegir un elemento, pide confirmación, y "Seguir
   aquí" me deja con lo que había elegido.
-- [ ] [web, móvil] Con parejas formadas, confirmar la salida y abrir otra vez la
+- [x] [web, móvil] Con parejas formadas, confirmar la salida y abrir otra vez la
   lección empieza sin respuestas.
 
 ### Paleta y bloques

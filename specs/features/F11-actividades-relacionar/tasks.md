@@ -232,19 +232,19 @@ su línea, como en F05.
 - [X] V41 [web, móvil] En esa actividad, después de colocar `rojo` ya no hay otra ficha `rojo` en el banco. (Móvil validado en Expo web, no en un teléfono.)
 - [X] V42 [web, móvil] En esa actividad, con `verde` en el primer espacio y `rojo` en el segundo, el primero queda incorrecto con `azul` junto a él, el segundo correcto, y la barra muestra "Mis colores favoritos son azul y rojo.". (Móvil validado en Expo web, no en un teléfono.)
 - [X] V43 [web, móvil] En "Actividades de prueba", en `___ doble(___ x)`, el banco tiene dos fichas `int`, y con una en cada espacio da "¡Correcto!". (Móvil validado en Expo web, no en un teléfono.)
-- [ ] V44 [web, móvil] En emparejar, al arrastrar `git push` hasta su descripción forman pareja, igual que pulsándolos. Al soltarlo sobre otro elemento de su misma columna, nada cambia.
-- [ ] V45 [web, móvil] En clasificar, arrastro un elemento a una categoría, de ahí a la otra y de vuelta a los elementos sin colocar. Con todos colocados, la zona de los sin colocar sigue visible y se puede soltar ahí.
-- [ ] V46 [web, móvil] En ordenar, con todos los lugares libres, arrastro un elemento al lugar 3 y queda ahí. Al pulsar otro, va al lugar 1.
-- [ ] V47 [web, móvil] En ordenar, al soltar el elemento del lugar 1 sobre el lugar 2, se intercambian. Al soltar un elemento sin colocar sobre un lugar ocupado, el que estaba ahí vuelve a los elementos sin colocar.
-- [ ] V48 [web, móvil] En "Mis colores favoritos son ___ y ___.", arrastro una ficha al segundo espacio con el primero libre, y de ahí de vuelta al banco.
-- [ ] V49 [web, móvil] Mientras arrastro, el elemento sigue al puntero o al dedo, su lugar de origen se ve atenuado y el destino debajo se resalta. Al soltarlo fuera de cualquier destino vuelve a donde estaba y nada cambia.
-- [ ] V50 [web, móvil] Con un elemento seleccionado, al empezar a arrastrar otro la selección se quita.
+- [X] V44 [web, móvil] En emparejar, al arrastrar `git push` hasta su descripción forman pareja, igual que pulsándolos. Al soltarlo sobre otro elemento de su misma columna, nada cambia. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
+- [X] V45 [web, móvil] En clasificar, arrastro un elemento a una categoría, de ahí a la otra y de vuelta a los elementos sin colocar. Con todos colocados, la zona de los sin colocar sigue visible y se puede soltar ahí. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
+- [X] V46 [web, móvil] En ordenar, con todos los lugares libres, arrastro un elemento al lugar 3 y queda ahí. Al pulsar otro, va al lugar 1. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
+- [X] V47 [web, móvil] En ordenar, al soltar el elemento del lugar 1 sobre el lugar 2, se intercambian. Al soltar un elemento sin colocar sobre un lugar ocupado, el que estaba ahí vuelve a los elementos sin colocar. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
+- [X] V48 [web, móvil] En "Mis colores favoritos son ___ y ___.", arrastro una ficha al segundo espacio con el primero libre, y de ahí de vuelta al banco. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
+- [X] V49 [web, móvil] Mientras arrastro, el elemento sigue al puntero o al dedo, su lugar de origen se ve atenuado y el destino debajo se resalta. Al soltarlo fuera de cualquier destino vuelve a donde estaba y nada cambia. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
+- [X] V50 [web, móvil] Con un elemento seleccionado, al empezar a arrastrar otro la selección se quita. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
 - [ ] V51 [web, móvil] En "Actividades de prueba", en el clasificar de 12 elementos y 4 categorías, con la última categoría fuera de la vista, al acercar un elemento al borde de la pantalla esta se desplaza sola y puedo soltarlo en esa categoría.
-- [ ] V52 [web, móvil] Después de "Comprobar", nada se puede arrastrar ni pulsar.
+- [X] V52 [web, móvil] Después de "Comprobar", nada se puede arrastrar ni pulsar. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
 - [ ] V53 [móvil] Al deslizar el dedo sobre un elemento sin mantenerlo pulsado, la pantalla se desplaza y el elemento no se mueve.
 - [ ] V54 [móvil] Mientras arrastro, un segundo dedo no arrastra otro elemento.
-- [ ] V55 [móvil] Arrastrar un elemento desde el borde de la pantalla no sale de la lección.
-- [ ] V56 [móvil] Si la app pasa a segundo plano mientras arrastro, al volver el elemento está donde estaba.
+- [X] V55 [móvil] Arrastrar un elemento desde el borde de la pantalla no sale de la lección. (Validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
+- [X] V56 [móvil] Si la app pasa a segundo plano mientras arrastro, al volver el elemento está donde estaba. (Validado en un iPhone por iPhone Mirroring: segundo plano con Cmd+1 y de vuelta con Cmd+2.)
 - [ ] V57 [móvil] Con algo ya colocado, al pulsar el botón de atrás del teléfono mientras arrastro otro elemento, el arrastre se cancela y veo "¿Salir de la lección?".
 - [ ] V58 [web, móvil] Con "reducir movimiento" activado, al soltar fuera el elemento vuelve sin animación, y lo incorrecto no se sacude.
 - [X] V59 [web] Resuelvo los cuatro tipos solo con Tab, Enter y la barra espaciadora, hasta "Continuar".
@@ -257,8 +257,8 @@ su línea, como en F05.
 - [X] V66 [web, móvil] En "Números del 1 al 5" (Japonés sencillo, 3), acertando emparejar y la opción múltiple, y fallando ordenar, al terminar veo "Acertaste 2 de 3": la tarjeta no cuenta. (Móvil validado en Expo web, no en un teléfono.)
 - [X] V67 [web, móvil] En esa lección, con dos parejas cruzadas y lo demás bien, emparejar cuenta como fallada. (Móvil validado en Expo web, no en un teléfono.)
 - [X] V68 [web, móvil] Al volver al curso, esa lección muestra "2 de 3 aciertos". (Móvil validado en Expo web, no en un teléfono.)
-- [ ] V69 [web, móvil] En "Números del 1 al 5", sin haber hecho nada, la X lleva directo al detalle del curso. Después de elegir un elemento, pide confirmación, y "Seguir aquí" me deja con lo que había elegido.
-- [ ] V70 [web, móvil] Con parejas formadas, confirmar la salida y abrir otra vez la lección empieza sin respuestas.
+- [X] V69 [web, móvil] En "Números del 1 al 5", sin haber hecho nada, la X lleva directo al detalle del curso. Después de elegir un elemento, pide confirmación, y "Seguir aquí" me deja con lo que había elegido. (Móvil validado en un iPhone por iPhone Mirroring.)
+- [X] V70 [web, móvil] Con parejas formadas, confirmar la salida y abrir otra vez la lección empieza sin respuestas. (Móvil validado en un iPhone por iPhone Mirroring.)
 - [X] V71 [web] En la paleta, Emparejar, Clasificar, Ordenar y Banco de palabras se pueden agregar y no dicen "Próximamente". Reto de código, Terminal simulada, Grafo de commits y Escuchar y repetir siguen deshabilitados, con "Próximamente".
 - [X] V72 [web] Al arrastrar o pulsar cada uno de los cuatro, queda en la secuencia con la marca "Incompleta", seleccionado y con el foco en su primer campo. (Dos se agregaron arrastrando con eventos sintéticos de la API del navegador, no con el ratón.)
 - [X] V73 [web] El bloque de emparejar muestra la consigna y, sin ella, el texto izquierdo de la primera pareja. El de clasificar, la consigna o la primera categoría. El de ordenar, la consigna. El de banco de palabras, la consigna o el texto. Sin nada de eso, "Sin contenido".

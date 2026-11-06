@@ -242,7 +242,10 @@ como un alumno.
   `Git init` no es `git init`, y si el único comando aceptado es `git commit -m
   "Primer commit"`, escribir `git commit -m 'Primer commit'` es incorrecto. El comando
   que se muestra como respuesta correcta es el primero de los aceptados, tal como lo
-  escribió el autor.
+  escribió el autor. Como lo que escribe el alumno no cambia (ver abajo), si el autor
+  escribe comillas tipográficas (“ ” ‘ ’), una raya (—) o puntos suspensivos (…) en un
+  comando aceptado, al comparar cuentan como `"`, `'`, `--` y `...`: así el comando se
+  puede acertar.
 - **Lo que se escribe no cambia**: en el campo de código y en la terminal no hay
   corrector ortográfico, autocorrección ni mayúsculas automáticas. Las comillas se
   quedan rectas (`"` y `'`) y no pasan a comillas tipográficas (“ ” ‘ ’), dos guiones
@@ -296,8 +299,8 @@ como un alumno.
     tenga fila.
   - Sin ramas, la primera fila sale del último commit de la lista.
   - Las líneas unen cada commit con sus padres. Un merge tiene dos.
-  - **Ancho**: el grafo ocupa el ancho disponible y no se desplaza hacia los lados, en
-    la web, el móvil y la vista previa, también con 6 columnas en un teléfono de 360
+  - **Ancho**: el grafo cabe en el ancho disponible, sin estirarse de más en una ventana
+    ancha, y no se desplaza hacia los lados, en la web, el móvil y la vista previa, también con 6 columnas en un teléfono de 360
     px de ancho. Cada commit se pulsa en un área de al menos 44 px que no se encima con
     la de otro. Con letra grande en el teléfono, el grafo se puede desplazar hacia los
     lados antes que cortar o encimar un nombre.
@@ -335,7 +338,8 @@ como un alumno.
   de línea.
 - **Repetidos**: se comparan sin los espacios al inicio y al final, respetando las
   mayúsculas, como las opciones de F05. Los comandos, además, cuentan varios espacios
-  seguidos como uno, igual que al cursar.
+  seguidos como uno y las comillas tipográficas, la raya y los puntos suspensivos como
+  sus versiones rectas, igual que al cursar.
 - **Reto de código**: sin lenguaje, "Elige un lenguaje.".
 - **Terminal simulada**:
   - Dos comandos iguales muestran "Este comando está repetido.". `git init` y `Git
@@ -581,7 +585,7 @@ No cambia (F05), salvo:
   prueba" (10 commits, 6 columnas y 4 ramas con nombres de 20 caracteres, una con
   HEAD) cabe sin desplazarse hacia los lados, con los nombres y las etiquetas completos
   y sin encimarse, y puedo pulsar cada commit sin pulsar el de al lado.
-- [ ] [web] En una ventana ancha y en la vista previa, ese grafo ocupa el ancho
+- [ ] [web] En una ventana ancha y en la vista previa, ese grafo cabe en el ancho
   disponible sin desplazarse hacia los lados.
 
 ### Teclado y accesibilidad
@@ -687,7 +691,7 @@ No cambia (F05), salvo:
 - [ ] [backend] Guardar, sin pasar por un cliente, un reto sin consigna, sin solución o
   con un lenguaje que no está en la lista, se rechaza y la lección queda como estaba.
 - [ ] [backend] Guardar una terminal sin comandos, con 11, con un comando repetido (también
-  si solo cambian los espacios) o con un salto de línea en la carpeta o en un comando,
+  si solo cambian los espacios o las comillas tipográficas) o con un salto de línea en la carpeta o en un comando,
   se rechaza y la lección queda como estaba.
 - [ ] [backend] Guardar un grafo con 1 o con 11 commits, con un nombre de commit repetido o
   de 5 caracteres, con el primer commit con padre, con otro sin padre, con tres padres
@@ -836,3 +840,12 @@ Decidida al escribir la spec:
 - P: ¿Qué tan grande puede ser un grafo, para que se ajuste al ancho del teléfono? → R:
   Hasta 10 commits y como máximo 6 columnas, con los commits en paralelo en la misma
   columna, y nombres de commit de hasta 4 caracteres dentro del círculo.
+
+### Sesión 2026-11-06
+
+Decidida al analizar spec, plan y tareas:
+
+- P: Lo que escribe el alumno nunca tiene comillas tipográficas, rayas ni puntos
+  suspensivos. ¿Qué pasa si el autor los pone en un comando aceptado? → R: Al comparar,
+  y al buscar comandos repetidos, cuentan como sus versiones rectas (`"`, `'`, `--` y
+  `...`). La respuesta correcta se muestra tal como la escribió el autor.

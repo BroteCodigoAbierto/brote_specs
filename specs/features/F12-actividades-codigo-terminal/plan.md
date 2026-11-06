@@ -17,9 +17,13 @@ generaciones y una fila por rama, research.md, punto 2), `normalizarComando` y
 dibuja con SVG y botones encima (punto 3), con `react-native-svg` en el móvil, que ya está
 instalado. No hay paquetes nuevos.
 
-Las ramas salen de `dev` **cuando F11 ya esté integrada**: el plan usa su código (contrato
-0.8.0, `CampoSelector`, `BarraRespuesta` con detalle desplazable y la lección de prueba de
-F11).
+El plan usa el código de F11 (contrato 0.8.0, `CampoSelector`, `BarraRespuesta` con detalle
+desplazable y la lección de prueba de F11). Como F11 todavía no está en `dev` (le faltan 7
+criterios que piden el teléfono en la mano), **las ramas de F12 salen de
+`feature/F11-actividades-relacionar`** en los tres repos de código, por decisión del usuario
+(2026-11-06). Es una excepción, solo para F12, a la decisión 0013 (ramas desde `dev`): en
+cuanto F11 se fusione, cada rama de F12 hace `git merge origin/dev`, y su PR va a `dev`
+después del de F11.
 
 ## Revisión contra la constitución
 
@@ -78,7 +82,7 @@ dos clientes con el mismo nombre.
 
   | Componente | Props clave | Notas |
   |---|---|---|
-  | `CampoCodigo` | `valor`, `alCambiar`, `lenguaje`, `soloLectura`, `etiqueta` | Panel `codigoFondo`, radio `medio`, con la etiqueta del lenguaje arriba a la derecha (píldora `codigoEtiquetaFondo`, `nota` en `codigoTenue`; sin ella con `lenguaje` nulo). El texto en `codigo` 14/22, `codigoTexto`, con el cursor `codigoCursor`; en solo lectura, `codigoTenue`. Pasa todo cambio por `textoTecleado`. Web: un `textarea` sin ajuste de línea, de al menos 6 filas, con Tab, Mayús+Tab y Esc (research.md, punto 4) y debajo el texto de ayuda en `nota` `textoSuave`; foco: anillo `primario` en el panel. Móvil: de 6 a 12 líneas y después se desplaza por dentro |
+  | `CampoCodigo` | `valor`, `alCambiar`, `lenguaje`, `soloLectura`, `etiqueta` (nombre accesible) | Panel `codigoFondo`, radio `medio`, con la etiqueta del lenguaje arriba a la derecha (píldora `codigoEtiquetaFondo`, `nota` en `codigoTenue`; sin ella con `lenguaje` nulo). El texto en `codigo` 14/22, `codigoTexto`, con el cursor `codigoCursor`; en solo lectura, `codigoTenue`. Pasa todo cambio por `textoTecleado`. Web: un `textarea` sin ajuste de línea, de al menos 6 filas, con Tab, Mayús+Tab y Esc (research.md, punto 4; las teclas modificadoras no quitan la marca de Esc) y debajo el texto de ayuda en `nota` `textoSuave`; foco: anillo `primario` en el panel. Móvil: de 6 a 12 líneas y después se desplaza por dentro |
   | `PanelTerminal` | `salidaPrevia`, `carpeta`, `comando`, `alCambiar`, `alEnviar`, `soloLectura`, `salida` | Panel `codigoFondo`, radio `medio`, `codigo` 14/22. La salida previa en `codigoTexto`, luego la línea del comando: la carpeta en `codigoTenue`, `$` en `codigoCursor` y el comando, que pasa a la línea siguiente si no cabe. `salida` va debajo del comando. Pulsar en el panel enfoca la línea. Foco: anillo `primario` en el panel |
   | `DiagramaCommits` | `actividad`, `elegido`, `comprobado`, `alElegir` | El grafo de `acomodarGrafo` dentro de una `Superficie`. Líneas de 2 px en `textoTenue`. Cada commit es un círculo de 40 px en un área de 44, con el nombre en `codigo`: normal, fondo `vidrioOpaco` y borde de 2 px `textoTenue`; elegido, borde `primario` y fondo `primarioSuave`; correcto e incorrecto, como las opciones (sección 6), con `CircleCheck` o `CircleX` de 16 px en la esquina. Las ramas, píldoras `primarioSuave` con el nombre en `codigo` `primario`; HEAD, píldora `primario` con `sobrePrimario`. Van encima de su commit y suben un nivel si se enciman (research.md, punto 3) |
   | `BloqueCodigo` (cambia) | `lenguaje`, `diff` | `lenguaje`: la etiqueta de `CampoCodigo`, arriba a la derecha. `diff={false}`: sin colores de diff. Por defecto `true`, como hasta ahora |

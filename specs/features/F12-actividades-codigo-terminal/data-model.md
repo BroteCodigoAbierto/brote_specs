@@ -38,9 +38,11 @@ ni `\r`.
 ### Reglas que cruzan campos
 
 - **Repetidos**: se comparan recortados, respetando las mayúsculas, como las opciones de
-  F05. Los comandos, además, con cada racha de espacios contada como uno
-  (`normalizarComando`, research.md, punto 6): `git init` y `git  init` son el mismo, y
-  `git init` y `Git init`, no.
+  F05. Los comandos, además, con cada racha de espacios contada como uno y con `“ ” „ ‟`
+  como `"`, `‘ ’ ‚ ‛` como `'`, `—` como `--` y `…` como `...` (`normalizarComando`,
+  research.md, punto 6): `git init` y `git  init` son el mismo, `git commit -m "Uno"` y
+  `git commit -m “Uno”` también, y `git init` y `Git init`, no. Los comandos se guardan
+  como los escribió el autor (solo recortados).
 - **`HEAD` como nombre de rama**: se compara recortado y respetando las mayúsculas: `head`
   sí se acepta, como en Git.
 - **Columnas**: el primer commit va en la columna 0 y cada uno de los demás, en 1 más la

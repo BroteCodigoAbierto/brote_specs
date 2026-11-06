@@ -144,7 +144,9 @@ tipo → componente, borradores del editor, vista previa en un ámbito, ids en l
   `setRangeText` y cambiar `value` lo borran. Si un día deja de existir, Tab sigue
   funcionando con `setRangeText`, sin poder deshacerlo.
 - **Esc**: pone una marca en un `ref`. El siguiente Tab, con la marca, no se cancela y el
-  navegador mueve el foco. Cualquier otra tecla y `blur` quitan la marca.
+  navegador mueve el foco. Cualquier otra tecla y `blur` quitan la marca, **menos las
+  modificadoras** (`Shift`, `Control`, `Alt` y `Meta`): Mayús+Tab llega como un `keydown`
+  de `Shift` y luego otro de `Tab`, y sin esa excepción Esc y Mayús+Tab metería espacios.
 - **El texto de ayuda**: un `<p>` debajo del panel, enlazado con `aria-describedby`, así
   que el lector de pantalla lo lee al entrar al campo. Desaparece en solo lectura, cuando
   Tab ya sale del campo.
@@ -174,7 +176,12 @@ tipo → componente, borradores del editor, vista previa en un ámbito, ids en l
 - **El cursor**: los dos primeros reemplazos no cambian la longitud y el cursor no se
   mueve. `—` → `--` y `…` → `...` la cambian; en el móvil un `TextInput` controlado
   puede dejar el cursor al final. Se comprueba en el teléfono escribiendo `--` a mitad de
-  una línea, y si pasa, se corrige con `selection`.
+  una línea, y si pasa, se corrige con `selection`. En la web pasa siempre: si el valor
+  que se guarda no es el del `textarea`, React lo reemplaza y el cursor salta al final. Ahí
+  se restaura con `setSelectionRange` después de pintar, corrido por lo que creció el
+  texto antes del cursor (en ese caso se pierde el deshacer de ese cambio, que es raro).
+- **El largo**: como `…` → `...` alarga el texto, después de `textoTecleado` se recorta al
+  límite del campo (`respuestaCodigoMax` o `comandoMax`).
 - **En la web**: Chrome no cambia la puntuación en un `<textarea>`, pero macOS sí lo hace
   si el usuario tiene las sustituciones activadas en el sistema. `textoTecleado` también lo
   cubre.
@@ -184,18 +191,26 @@ tipo → componente, borradores del editor, vista previa en un ámbito, ids en l
 
 ## 6. La terminal
 
-- **Comparar**: `normalizarComando(texto)` recorta y cambia cada racha de espacios
-  (`/\s+/`) por uno. `comandoAceptado(escrito, comandos)` compara con `===` después de
-  normalizar los dos. Es una copia en los tres repos, como `normalizarRespuesta`: el
-  backend la usa para los comandos repetidos.
+- **Comparar**: `normalizarComando(texto)` aplica los reemplazos de `textoTecleado`
+  (punto 5), recorta y cambia cada racha de espacios (`/\s+/`) por uno.
+  `comandoAceptado(escrito, comandos)` compara con `===` después de normalizar los dos. Es
+  una copia en los tres repos, como `normalizarRespuesta`: el backend la usa para los
+  comandos repetidos, con sus propios reemplazos (no hay `textoTecleado` en el backend).
+  - **Por qué también los reemplazos**: lo que escribe el alumno nunca tiene `“`, `—` ni
+    `…`. Si el autor los pone en un comando aceptado (por ejemplo, al pegarlo de un
+    documento), sin esto nadie podría acertarlo. Lo que se muestra como respuesta
+    correcta sigue siendo el comando tal como lo escribió el autor (spec, "Aclaraciones",
+    sesión 2026-11-06).
 - **La línea del comando crece**: la spec pide que un comando largo pase a la línea
   siguiente mientras se escribe, y un `<input>` no lo hace.
   - Web: un `<textarea rows={1}>` sin bordes ni fondo, con `caret-color` brote. Enter lo
     cancela y comprueba; el alto se ajusta a `scrollHeight` en cada cambio
     (`useAlturaAutomatica`, hook nuevo). Va en un `<form>`, como completar espacios.
-  - Móvil: un `TextInput` `multiline` con `submitBehavior`: `"blurAndSubmit"` con algo
-    escrito (comprueba y cierra el teclado, como pide la spec) y `"submit"` vacío (no hace
-    nada ni cierra el teclado). `returnKeyType="send"` y, en iOS,
+  - Móvil: un `TextInput` `multiline` con `submitBehavior`: `"blurAndSubmit"` con el
+    comando recortado no vacío (comprueba y cierra el teclado, como pide la spec) y
+    `"submit"` vacío o solo con espacios (no hace nada ni cierra el teclado). Comprobar con
+    el botón de la barra también cierra el teclado (`Keyboard.dismiss()`), porque
+    `keyboardShouldPersistTaps="handled"` lo deja abierto al pulsar un botón. `returnKeyType="send"` y, en iOS,
     `enablesReturnKeyAutomatically`.
 - **Pegar con saltos de línea**: en los dos, cada cambio pasa por
   `texto.replace(/\r?\n/g, " ")` antes de `textoTecleado`. Un `multiline` acepta el salto

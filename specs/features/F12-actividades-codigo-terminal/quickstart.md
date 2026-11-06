@@ -8,8 +8,8 @@ Cómo levantar los repos y comprobar a mano cada criterio de aceptación de
 ## 1. Preparar
 
 Requisitos: los de F01 a F11 (Node 24, PostgreSQL, Chrome y Expo Go para el SDK 58, en un
-teléfono). Cada repo en su rama `feature/F12-actividades-codigo-terminal`, que sale de `dev`
-con F11 ya integrada.
+teléfono). Cada repo en su rama `feature/F12-actividades-codigo-terminal`, que sale de
+`feature/F11-actividades-relacionar` mientras F11 no esté en `dev` (plan.md, "Resumen").
 
 ```bash
 # brote_specs: copiar el contrato 0.9.0 y comprobar las copias
@@ -157,11 +157,12 @@ guardar '{"tipo":"retoCodigo","consigna":"Escribe","lenguaje":"c"}'
 guardar '{"tipo":"retoCodigo","consigna":"Escribe","lenguaje":"CSS","solucion":"x"}'
 guardar '{"tipo":"retoCodigo","consigna":"Escribe","lenguaje":"Otro","solucion":"x"}'
 
-# B3. Terminal: sin comandos, 11 comandos, uno repetido que solo cambia en los espacios, y un
-# salto de línea en la carpeta y en un comando
+# B3. Terminal: sin comandos, 11 comandos, uno repetido que solo cambia en los espacios, otro
+# que solo cambia en las comillas tipográficas, y un salto de línea en la carpeta y en un comando
 guardar '{"tipo":"terminalSimulada","consigna":"Inicia","comandos":[]}'
 guardar "{\"tipo\":\"terminalSimulada\",\"consigna\":\"Inicia\",\"comandos\":$(lista 11 "'ls '+i")}"
 guardar '{"tipo":"terminalSimulada","consigna":"Inicia","comandos":["git init","git  init"]}'
+guardar '{"tipo":"terminalSimulada","consigna":"Inicia","comandos":["git commit -m \"Uno\"","git commit -m “Uno”"]}'
 guardar '{"tipo":"terminalSimulada","consigna":"Inicia","carpeta":"~/a\nb","comandos":["git init"]}'
 guardar '{"tipo":"terminalSimulada","consigna":"Inicia","comandos":["git\ninit"]}'
 
@@ -285,7 +286,7 @@ actividad. Para los de "Actividades de prueba", corre antes L1 y abre su lecció
 | [web, móvil] HEAD suelto | En el tercer grafo | "HEAD", sin flecha, sobre `c2`, a la mitad de la fila |
 | [web, móvil] Sin explicación | En el tercer grafo, comprueba con `c2`; en otra vuelta, con `c3` | La barra solo dice "¡Correcto!", o "Respuesta correcta:" con `c2` |
 | [móvil] Al límite en el teléfono | En un teléfono de 360 dp de ancho (o el emulador de Android con un dispositivo de ese ancho), abre "Actividades de prueba", 11, hasta el grafo | Las 6 columnas caben sin desplazarse hacia los lados. Las etiquetas de 20 caracteres y "HEAD → funcion-del-registro" se leen completas, y la de `m5e5` está un nivel más arriba que la de `m6f6`. Cada commit se pulsa sin elegir el de al lado |
-| [web] Al límite en la web | Abre ese grafo en una ventana ancha y, con la cuenta autor, en la vista previa de la lección 11 | Ocupa el ancho disponible sin desplazarse hacia los lados |
+| [web] Al límite en la web | Abre ese grafo en una ventana ancha y, con la cuenta autor, en la vista previa de la lección 11 | Cabe en el ancho disponible sin desplazarse hacia los lados, sin estirarse de más |
 
 ### Teclado y accesibilidad
 
@@ -355,7 +356,7 @@ En la lección "Semillas". "Al guardar" es pulsar "Guardar lección".
 | [web] Guardar | Guarda la lección con los tres tipos; recarga. Corre P2 | Sigue igual, en su orden. El código inicial y la solución con su sangría y líneas en blanco. Sin `salidaPrevia` ni `explicacion` en P2 |
 | [web, móvil] De principio a fin | Corre P1 y cursa "Semillas" con la cuenta B en la web y en el móvil | Se ve igual que en la vista previa, y el resultado cuenta 3 preguntas |
 | [backend] Reto | Corre B2 | Las cuatro, 400; la lección queda igual |
-| [backend] Terminal | Corre B3 | Las cinco, 400; la lección queda igual |
+| [backend] Terminal | Corre B3 | Las seis, 400; la lección queda igual |
 | [backend] Grafo, commits | Corre B4 | Las once, 400; la lección queda igual |
 | [backend] Grafo, lo demás | Corre B5 | Las siete, 400; la lección queda igual |
 | [backend] Largos y campos | Corre B6 | Las ocho, 400; la lección queda igual |

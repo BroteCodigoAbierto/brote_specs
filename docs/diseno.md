@@ -63,7 +63,7 @@ en los dos y en estas tablas.
 | `errorSuave` | `#FDECEF` | `rgba(255,107,133,0.14)` | Fondo de campo con error y de avisos de error |
 | `texto` | `#1E1B3A` | `#ECEBFA` | Texto principal |
 | `textoSuave` | `#5B5878` | `#A9A6C9` | Texto secundario, etiquetas, metadatos |
-| `textoTenue` | `#8784A3` | `#6E6B8F` | Solo marcadores de posición e iconos inactivos |
+| `textoTenue` | `#8784A3` | `#6E6B8F` | Solo marcadores de posición, iconos inactivos y, en el grafo de commits (F12), las líneas y el borde de los commits (3.5:1 sobre el vidrio, en los dos modos) |
 | `borde` | `#E4E2F3` | `rgba(255,255,255,0.10)` | Separadores, bordes de campos |
 | `bordeFuerte` | `#CFCCE8` | `rgba(255,255,255,0.18)` | Borde de botón secundario, campo en hover |
 | `fondo` | `#F6F5FD` | `#0F0E1F` | Color base debajo del fondo ambiental |
@@ -74,17 +74,21 @@ en los dos y en estas tablas.
 
 **Código** (F03): el panel de código es oscuro también en modo claro, así que
 estos tokens valen lo mismo en los dos modos. Contraste comprobado contra su
-fondo: texto 15.2:1, agregado 9.6:1, eliminado 7.5:1, encabezado 7.5:1.
+fondo: texto 15.2:1, agregado 9.6:1, eliminado 7.5:1, encabezado 7.5:1, tenue
+7.6:1 (5.8:1 sobre la etiqueta del lenguaje) y cursor 11.9:1.
 
 | Token | Valor | Uso |
 |---|---|---|
-| `codigoFondo` | `#16142E` | Fondo de `BloqueCodigo` (y de la terminal simulada) |
+| `codigoFondo` | `#16142E` | Fondo de `BloqueCodigo`, `CampoCodigo` y `PanelTerminal` |
 | `codigoTexto` | `#ECEBFA` | Texto normal del código |
 | `codigoAgregado` | `#BEF264` | Texto de una línea de diff que empieza con `+` |
 | `codigoAgregadoFondo` | `rgba(163,230,53,0.16)` | Fondo de esa línea |
 | `codigoEliminado` | `#FDA4AF` | Texto de una línea de diff que empieza con `-` |
 | `codigoEliminadoFondo` | `rgba(255,107,133,0.16)` | Fondo de esa línea |
 | `codigoEncabezado` | `#A29DFF` | Línea de diff que empieza con `@@` |
+| `codigoTenue` | `#A9A6C9` | La carpeta antes del `$`, la etiqueta del lenguaje y el código de solo lectura (F12). 7.6:1 |
+| `codigoCursor` | `#A3E635` | El cursor del campo de código y de la terminal, y el `$` ("cursor brote", F12). 11.9:1 |
+| `codigoEtiquetaFondo` | `rgba(255,255,255,0.10)` | Fondo de la etiqueta del lenguaje (F12) |
 
 **Fondo ambiental** (`fondoAmbiental`): debajo de todo, nunca detrás de texto
 sin vidrio.
@@ -217,9 +221,12 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | Volver (detalle) | — | `Boton` `enlace` chico con `ArrowLeft` y "Cursos"; regresa a la pantalla anterior con su estado |
 | `BarraProgreso` | `actual`, `total`, `etiqueta`, `textoValor` | Barra de la lección (sección 6) y del avance de un curso. Web: `role="progressbar"` con `aria-label={etiqueta}` y `aria-valuetext={textoValor}`; móvil: `accessibilityRole="progressbar"` con las mismas etiquetas. Las dos props son opcionales (F04): sin ellas, "Progreso de la lección" y "Actividad {n} de {total}" (o "Lección completada") |
 | `AvanceCurso` | `completadas`, `total` | Avance de un curso (F04): "{c} de {t} lecciones" (con `t = 1`, "lección") en `cuerpoChico` seminegrita y debajo `BarraProgreso` con `etiqueta` "Avance del curso" y `textoValor` "{c} de {t} lecciones completadas". Con el curso terminado, además una `Insignia` `brote` con `CircleCheck` "Curso terminado" |
-| `BarraRespuesta` | `estado` (`neutro`, `correcto`, `incorrecto`), `titulo`, `detalle`, `textoBoton`, `deshabilitado`, `alPulsar` | Barra inferior fija de cada actividad, con el `Boton` primario a ancho completo. `correcto`: fondo `broteSuave`, título en `broteFuerte` con `CircleCheck`; `incorrecto`: fondo `errorSuave`, título en `error` con `CircleX`. Anuncia el cambio (`aria-live` / `accessibilityLiveRegion`) y, al dejar de ser `neutro`, pasa el foco al botón. El `detalle` se desplaza a partir de 11rem en la web y del 35 % del alto de la pantalla en el móvil; el título y el botón quedan fijos (F11). `enfocar` (F11, solo en la web, porque en el móvil no hay teclado): al ponerse en `true`, pasa el foco al botón |
+| `BarraRespuesta` | `estado` (`neutro`, `correcto`, `incorrecto`), `titulo`, `detalle`, `textoBoton`, `deshabilitado`, `alPulsar` | Barra inferior fija de cada actividad, con el `Boton` primario a ancho completo. `correcto`: fondo `broteSuave`, título en `broteFuerte` con `CircleCheck`; `incorrecto`: fondo `errorSuave`, título en `error` con `CircleX`. Anuncia el cambio (`aria-live` / `accessibilityLiveRegion`) y, al dejar de ser `neutro`, pasa el foco al botón. El `detalle` se desplaza a partir de 11rem en la web y del 35 % del alto de la pantalla en el móvil; el título y el botón quedan fijos (F11). `enfocar` (F11, solo en la web, porque en el móvil no hay teclado): al ponerse en `true`, pasa el foco al botón. `codigo` (F12): un comando o el nombre de un commit, entre el título y el detalle, en `codigo` y sin panel (la barra ya tiene su color), respetando sus espacios y partiendo las líneas largas; va en la misma zona que el `detalle` y se desplaza con él. En el móvil, el anuncio lo lee entre el título y el detalle |
 | `OpcionRespuesta` | `estado` (`normal`, `seleccionada`, `correcta`, `incorrecta`), `texto` o `simbolo`, `numero` (solo web), `deshabilitada`, `alElegir` | Opción de la sección 6 (radio). Con `simbolo`, mosaico cuadrado con el símbolo en `display` |
-| `BloqueCodigo` | `codigo` | Panel `codigoFondo`, radio `medio`, `codigo` 14/22. Una fila por línea; las de diff (`+`, `-`, `@@`) con sus colores. Se desplaza hacia los lados en vez de cortar líneas |
+| `BloqueCodigo` | `codigo`, `lenguaje`, `diff` | Panel `codigoFondo`, radio `medio`, `codigo` 14/22. Una fila por línea; las de diff (`+`, `-`, `@@`) con sus colores. Se desplaza hacia los lados en vez de cortar líneas. `lenguaje` (F12): la etiqueta del lenguaje de `CampoCodigo`, arriba a la derecha (sin ella con `otro`). `diff` (F12, por defecto `true`): con `false`, todas las líneas se ven normales, sin colores de diff |
+| `CampoCodigo` | `valor`, `alCambiar`, `lenguaje`, `soloLectura`, `etiqueta` (nombre accesible) | Campo de código del reto (F12). Panel `codigoFondo`, radio `medio`, con la etiqueta del lenguaje arriba a la derecha: píldora `codigoEtiquetaFondo` con el nombre en `nota` `codigoTenue` (sin ella con `otro`). El texto en `codigo` 14/22, `codigoTexto`, con el cursor `codigoCursor`; en solo lectura, `codigoTenue`. Sin corrector, autocorrección ni mayúsculas automáticas, y todo cambio pasa por `textoTecleado`, así que las comillas, `--` y `...` quedan como se escribieron. Nombre accesible: `etiqueta` y el lenguaje (si no es `otro`). **Web**: un `textarea` sin ajuste de línea (las líneas largas se desplazan hacia los lados), de al menos 6 filas y que crece con el código, con Tab, Mayús+Tab y Esc (sección 6, "Teclado"); debajo, "Tab agrega dos espacios. Para salir del campo, pulsa Esc y luego Tab." en `nota` `textoSuave`, enlazado como descripción del campo, que desaparece en solo lectura. Foco: anillo `primario` en el panel. **Móvil**: de 6 a 12 líneas y, con más, se desplaza por dentro |
+| `PanelTerminal` | `salidaPrevia`, `carpeta`, `comando`, `alCambiar`, `alEnviar`, `soloLectura`, `salida` | Terminal simulada (F12). Panel `codigoFondo`, radio `medio`, `codigo` 14/22. Arriba, la salida previa en `codigoTexto`; luego la línea del comando: la carpeta en `codigoTenue`, `$` en `codigoCursor` y el comando, con el cursor `codigoCursor`, que pasa a la línea siguiente si no cabe; y debajo, `salida`. La salida previa y `salida` respetan sus saltos de línea, sangría y tabulaciones, y parten las líneas largas. Pulsar en cualquier parte del panel enfoca la línea (en el móvil, abre el teclado). Enter (la tecla de enviar en el móvil) llama a `alEnviar` solo con algo escrito. Nombre accesible: "Comando", con la carpeta como descripción. Foco: anillo `primario` en el panel |
+| `DiagramaCommits` | `actividad`, `elegido`, `comprobado`, `alElegir` | Grafo de commits (F12), dentro de una `Superficie`, de izquierda a derecha con el acomodo de `acomodarGrafo`. Líneas de 2 px en `textoTenue`: rectas en la misma fila y con una curva al cambiar de fila. Cada commit es un botón de 44 px con un círculo de 40 y el nombre en `codigo`: normal, fondo `vidrioOpaco` y borde de 2 px `textoTenue`; elegido, borde `primario` y fondo `primarioSuave`; correcto e incorrecto, como las opciones (sección 6), con `CircleCheck` o `CircleX` de 16 px en la esquina. Las etiquetas van encima de su commit: cada rama, una píldora `primarioSuave` con el nombre en `codigo` `primario` ("HEAD → {rama}" si HEAD apunta a ella); HEAD suelto, una píldora `primario` "HEAD" en `sobrePrimario`. Si dos etiquetas de una fila se enciman, una sube un nivel. Cabe en el ancho disponible sin estirarse de más (separación entre columnas de 48 a 96 px); con letra grande, si no cabe, se desplaza hacia los lados. El nombre accesible de cada commit dice su nombre, sus padres, sus ramas y HEAD y su estado ("Commit c2, padre c1, elegido") |
 | `TarjetaVolteable` | `frente`, `reverso`, `volteada`, `alVoltear` | Dos caras de `Superficie` elevada (mínimo 200 px), texto `titulo2` centrado; gira sobre el eje vertical en `lento` |
 | `CampoEspacio` | `valor`, `alCambiar`, `estado` (`normal`, `correcto`, `incorrecto`), `esperada`, `etiqueta`, `deshabilitado` | Campo en línea con el texto, de radio `chico`; bordes y fondos como las opciones. `esperada` va a su lado en `nota` `broteFuerte` |
 | `Dialogo` (web) | `abierto`, `titulo`, `texto`, `textoConfirmar`, `textoCancelar`, `alConfirmar`, `alCancelar` | `<dialog>` modal: `Superficie` sólida, radio `enorme`, título `titulo2`, botones `secundario` (cancelar, con el foco) y `peligro` (confirmar). Esc cancela. En el móvil, la misma confirmación es `Alert.alert` nativo, con cancelar como `cancel` y confirmar como `destructive` |
@@ -239,7 +246,7 @@ los dos clientes".
 
 | Componente | Props clave | Notas |
 |---|---|---|
-| `CampoTexto` (cambia) | `maxLongitud`, `deshabilitado`, `invalido` | `invalido` (F11): marca el campo como inválido sin mensaje propio, cuando el error se muestra en otro lado. Solo en la web |
+| `CampoTexto` (cambia) | `maxLongitud`, `deshabilitado`, `invalido`, `codigo` | `invalido` (F11): marca el campo como inválido sin mensaje propio, cuando el error se muestra en otro lado. `codigo` (F12): en `--fuente-codigo` y sin corrector, como `CampoArea`. Solo en la web |
 | `CampoArea` | `id`, `etiqueta`, `valor`, `alCambiar`, `error`, `ayuda`, `maxLongitud`, `filas`, `codigo`, `deshabilitado` | `CampoTexto` de varias líneas, con el mismo aspecto. Con `codigo`, en `--fuente-codigo`. Expone su `ref`, para escribir donde está el cursor |
 | `CampoSelector` | `id`, `etiqueta`, `valor`, `opciones`, `textoVacio`, `alCambiar`, `error`, `deshabilitado` | `<select>` nativo con el aspecto de `CampoTexto` (F11) |
 | `CampoConEspacios` | `id`, `valor`, `alCambiar`, `ayuda`, `error`, `maxLongitud`, `deshabilitado` | El campo de texto en letra de código con "Agregar espacio". Lo usan completar espacios y banco de palabras (F11) |
@@ -354,8 +361,9 @@ son la base para todas las actividades; cada spec de actividad las concreta.
 - **Retroalimentación**: al comprobar, la barra inferior cambia a `broteSuave`
   ("¡Correcto!" en `broteFuerte` con icono) o `errorSuave` (la respuesta
   correcta en texto), y el botón pasa a "Continuar".
-- **Terminal simulada y código**: panel oscuro fijo `#16142E` con texto
-  `ui-monospace` 14/22 y cursor `brote`, también en modo claro.
+- **Terminal simulada y código**: panel oscuro fijo `codigoFondo` (`#16142E`)
+  con texto `codigo` 14/22 (`ui-monospace`) y el cursor brote, `codigoCursor`,
+  también en modo claro.
 - **Fin de lección**: pantalla de resultado con `display`, insignias de logro
   en `broteSuave` y una celebración breve (`lento`), sin sonido por defecto.
   En F03 (`ResultadoLeccion`): icono `PartyPopper` en un círculo `broteSuave`
@@ -385,6 +393,17 @@ son la base para todas las actividades; cada spec de actividad las concreta.
   `ZonaElementos` con los `ElementoRespuesta` `tarjeta`.
 - **Banco de palabras** (F11): el texto en una `Superficie`, con un `LugarElemento`
   `enLinea` en cada espacio y, debajo, una `ZonaElementos` con las fichas.
+- **Reto de código** (F12): la consigna y `CampoCodigo`. Al comprobar, el campo queda
+  de solo lectura y aparece una `Superficie` `suave` con "SOLUCIÓN DE REFERENCIA" en
+  `seccion` y `BloqueCodigo` con `lenguaje` y `diff={false}`; luego la autoevaluación,
+  como la pregunta abierta. La barra inferior dice "¡Correcto!" o "A repasar".
+- **Terminal simulada** (F12): la consigna y `PanelTerminal`. Al comprobar, el comando
+  queda fijo en su línea. Al acertar, la salida va en el panel, debajo del comando, y la
+  barra dice "¡Correcto!"; al fallar, la barra lleva "Respuesta correcta:", el comando
+  esperado en `codigo` y la pista en `detalle`.
+- **Grafo de commits** (F12): la consigna y `DiagramaCommits`. Los commits se eligen como
+  opciones; al comprobar se marcan como ellas. La barra inferior lleva el nombre del
+  commit correcto en `codigo` (si falló) y la explicación en `detalle`.
 - **Arrastrar** (F11): la copia que sigue al dedo lleva `sombraElevada`. El origen va
   `atenuada` y el destino, `resaltada`. Al soltar fuera no hay animación de regreso,
   con o sin "reducir movimiento": la copia desaparece y el elemento ya está en su
@@ -404,6 +423,18 @@ son la base para todas las actividades; cada spec de actividad las concreta.
   sin colocar; después de formar una pareja, al siguiente sin pareja de la columna
   donde se empezó; con la respuesta completa, a "Comprobar"; y al devolver un
   elemento, a ese elemento.
+  En las actividades de código y terminal (F12), las teclas 1 a 9 tampoco hacen nada:
+  - `CampoCodigo`: Tab mete dos espacios donde está el cursor (con varias líneas
+    seleccionadas, al inicio de cada una) y Mayús+Tab quita hasta dos del inicio de
+    cada línea; los dos se deshacen con Ctrl+Z (Cmd+Z). Después de Esc, el siguiente
+    Tab sale del campo hacia adelante y Mayús+Tab hacia atrás; cualquier otra tecla,
+    salvo las modificadoras (Mayús, Control, Alt y Cmd), o salir del campo, devuelven
+    Tab a meter espacios. Enter salta de línea. De solo lectura, Tab sale del campo.
+  - Terminal: Enter, con el foco en la línea del comando, comprueba.
+  - Grafo: Tab recorre los commits por columnas, de izquierda a derecha y, en cada
+    una, de arriba abajo; Enter o la barra espaciadora eligen el commit con el foco.
+  - Al comprobar la terminal o el grafo, el foco pasa a "Continuar"; en el reto, como
+    en la pregunta abierta, a la autoevaluación y, al autoevaluarse, a "Continuar".
 - **Vista previa** (web, F05): la actividad real en un recuadro, dentro de
   `AmbitoActividad`. No toma el foco al actualizarse, sus teclas solo actúan con
   el foco dentro y su barra de respuesta va en línea.

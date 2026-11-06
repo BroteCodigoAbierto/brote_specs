@@ -65,24 +65,36 @@ Lee continuar.md y sigue con "<sección>" de F0X.
   hechas. **Validados 101 de 108 criterios** (2026-11-06, en el iPhone por iPhone Mirroring).
   Los 7 que faltan necesitan el teléfono en la mano, y el usuario lo dejó en pausa (ver
   "Chat: cerrar F11"). Hay commits locales sin subir en `brote_specs` y `brote_mobile_expo`.
-- **F12 (en curso)**: spec (86 criterios), plan, tareas (55, de T001 a T055) y análisis hechos en
-  `brote_specs`, rama `feature/F12-actividades-codigo-terminal`, que ya tiene F11 fusionada
-  (`0ded499`) y esta guía. Commits `F12: tareas` y `F12: análisis (...)`, **sin subir** (25
-  commits por delante de `origin`, contando los de F11). Los repos de código todavía no tienen
-  rama de F12. Lo que se decidió al analizar (2026-11-06):
+- **F12 (en curso)**: spec, plan, tareas, análisis e implementación hechos. Rama
+  `feature/F12-actividades-codigo-terminal` en los cuatro repos, **nada subido** (las de código no
+  tienen `origin` todavía). **53 de 55 tareas**: falta T047 (el teclado del iPhone en la terminal,
+  con el teléfono en la mano: iPhone Mirroring escribe con el teclado de la Mac y no sirve) y
+  T055, cuya revisión ya se hizo el 2026-11-06 (la spec coincide con lo construido) y solo espera
+  lo que T047 anote en `research.md`. `contrato:revisar` (0.9.0), `tipos` y `lint` en los tres
+  repos y `build` en la web pasan. **0 de 86 criterios validados.**
+  - **Coautor**: 25 commits locales de F12 (6 en specs, 5 en back, 7 en web y 7 en móvil) llevan
+    `Co-Authored-By`, contra "Sin coautor". Hay que quitarlo antes del push (ver "Cómo trabajar
+    con el usuario").
+  Lo que se decidió al analizar (2026-11-06):
   - **Ramas**: el usuario eligió no esperar a F11. Las ramas de F12 en back, web y móvil salen de
     `feature/F11-actividades-relacionar` (excepción a la decisión 0013, solo para F12: plan.md,
     "Resumen"). Cuando F11 se fusione, cada rama de F12 hace `git merge origin/dev`, y sus PRs van
     después de los de F11.
   - **Comillas**: al comparar comandos y al buscar repetidos, `“ ”`, `‘ ’`, `—` y `…` del autor
     cuentan como `"`, `'`, `--` y `...` (spec, "Aclaraciones", sesión 2026-11-06).
-  - Quedan dos hallazgos bajos sin tocar, de redacción: un commit o rama sin nombre se vería como
-    "Commit Commit 3" en el selector de HEAD, y "Excepciones" del plan no anota `tokens.css` ni
-    `tema.ts`. Pregúntale si los arregla antes de implementar.
+  - Dos hallazgos bajos de redacción: el de "Commit Commit 3" en el selector de HEAD se evitó al
+    implementar (sin nombre dice "Commit 3"); "Excepciones" del plan sigue sin anotar `tokens.css`
+    ni `tema.ts`, que el plan sí lista en "Estilos" y "Tema". No estorba.
 - **Orden que sigue**: F12 → F13 → F14 → F07 → F15 → F09 → F08 → F10 (`specs/00-proyecto.md`).
 
-**Lo siguiente**: el chat 3 (F12, implementar), con el mensaje de arriba. El chat 1 (cerrar F11)
-sigue pendiente de los 7 criterios con el teléfono en la mano, y se puede hacer en paralelo.
+**Lo siguiente** (mientras él no pueda probar en el teléfono):
+
+1. Quitar el coautor de los 25 commits locales de F12, si él lo aprueba.
+2. Un chat nuevo de `valida` de F12, **solo backend y web**: V01 y V78 a V83 con curl, y la web en
+   Chrome. Los de móvil se quedan sin marcar.
+3. Con el teléfono en la mano, una sola sesión: lo que falta de F11 ("Chat: cerrar F11"), T047 y
+   T055 de F12, y los criterios de móvil de F12.
+4. `push`: primero F11 y después F12.
 
 ## Cómo trabajar con el usuario
 

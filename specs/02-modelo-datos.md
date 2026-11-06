@@ -128,7 +128,7 @@ Lo que agrega el editor, en
 Los estados de un curso, en
 [`features/F06-publicar-curso/data-model.md`](./features/F06-publicar-curso/data-model.md).
 
-### Actividad (F03, F05, F11)
+### Actividad (F03, F05, F11, F12)
 
 Ejercicio o bloque de teoría de una lección. No tiene tabla ni `id`: es un
 elemento de `leccion.actividades`, y su lugar en la lista es su orden. En el
@@ -162,25 +162,60 @@ su forma: el backend la valida antes de guardarla.
 | | `texto` | texto | sí | De hasta 2000, con 1 a 10 `___` (`MARCA_ESPACIO`) |
 | | `fichas` | lista de textos | sí | Entre 2 y 20. Cada una no vacía, de hasta 100. Se guardan recortadas. **Se pueden repetir** |
 | | `espacios` | lista de `{ aceptadas }` | sí | Uno por cada `___`. Cada `aceptadas` tiene de 1 a 20 textos (`fichasMax`), y cada texto es el de una ficha |
+| `retoCodigo` | `consigna` | texto | sí | No vacía, de hasta 500 |
+| | `lenguaje` | texto | sí | Uno de `LENGUAJES_CODIGO`: `c`, `css`, `html`, `javascript`, `python`, `sql`, `bash` u `otro` |
+| | `codigoInicial` | texto | no | Si está, no vacío, de hasta 2000 |
+| | `solucion` | texto | sí | No vacía, de hasta 2000 |
+| `terminalSimulada` | `consigna` | texto | sí | No vacía, de hasta 500 |
+| | `carpeta` | texto | no | Si está, no vacía, de una línea, de hasta 100. Se guarda recortada |
+| | `salidaPrevia` | texto | no | Si está, no vacía, de hasta 2000 |
+| | `comandos` | lista de textos | sí | Entre 1 y 10. Cada uno no vacío, de una línea, de hasta 200. Se guardan recortados. No se repiten (ver abajo). El primero es el que se muestra como respuesta correcta |
+| | `salidaAcierto` | texto | no | Si está, no vacía, de hasta 2000 |
+| | `pista` | texto | no | Si está, no vacía, de hasta 500 |
+| `grafoCommits` | `consigna` | texto | sí | No vacía, de hasta 500 |
+| | `commits` | lista de `{ nombre, padres }` | sí | Entre 2 y 10, **del más antiguo al más nuevo**. A lo más 6 columnas (ver abajo) |
+| | `commits[].nombre` | texto | sí | No vacío, de una línea, de hasta 4. Se guarda recortado. No se repite |
+| | `commits[].padres` | lista de enteros | sí | Índices en `commits`, menores que el del commit. El primero tiene `[]`; los demás, uno o dos, distintos |
+| | `ramas` | lista de `{ nombre, commit }` | sí | Entre 0 y 4, en el orden del autor (ordena las filas) |
+| | `ramas[].nombre` | texto | sí | No vacío, de una línea, de hasta 20. Se guarda recortado. No se repite. No es `HEAD` |
+| | `ramas[].commit` | entero | sí | Índice en `commits` |
+| | `head` | `{ rama }` o `{ commit }` | no | Un solo campo: un índice en `ramas` o en `commits` |
+| | `respuesta` | entero | sí | Índice en `commits` |
+| | `explicacion` | texto | no | Si está, no vacía, de hasta 500 |
 
 - "No vacío": recortado, tiene al menos un carácter. Un campo que el tipo no
-  tiene se rechaza.
+  tiene se rechaza. "De una línea": sin `\n` ni `\r` (F12).
 - Las respuestas viajan al cliente, que califica sin volver a pedir nada
   (research de F03, punto 2). Por eso el servidor no puede confiar en los
   aciertos que mande el cliente: F04 solo comprueba que el resultado cuadre
   con la lección (ver Progreso), y F08 decide si eso basta para los puntos.
 - Qué tipos son preguntas lo dice `CALIFICA_ACTIVIDAD` en el contrato (F04):
   `opcionMultiple`, `completarEspacios`, `preguntaAbierta`, `emparejar`,
-  `clasificar`, `ordenar` y `bancoPalabras`. Con esa
-  constante cuentan las preguntas el backend y los dos clientes.
+  `clasificar`, `ordenar`, `bancoPalabras`, `retoCodigo`, `terminalSimulada` y
+  `grafoCommits`, diez en total. Con esa constante cuentan las preguntas el backend y
+  los dos clientes.
 - En el banco de palabras tiene que haber una forma de llenar todos los espacios
   usando cada ficha una sola vez; una ficha se compara por su texto exacto. Sin
   consigna, los clientes usan `CONSIGNA_POR_DEFECTO` (F11).
 - Los repetidos se comparan recortados, respetando las mayúsculas. Lo que se guarda
   conserva sus espacios al inicio, que en `ordenar` son la sangría de una línea de
   código (F11).
-- Los otros 4 tipos del prototipo llegan con sus features, y el glosario de cada
-  actividad, con F09.
+- Los comandos de la terminal no se repiten: se comparan recortados, con cada racha
+  de espacios como una y con `“ ” „ ‟` como `"`, `‘ ’ ‚ ‛` como `'`, `—` como `--` y
+  `…` como `...`, respetando las mayúsculas (`git init` y `git  init` son el mismo;
+  `git init` y `Git init`, no). Se guardan como los escribió el autor, solo recortados
+  (F12).
+- En el grafo, los commits se apuntan **por índice** (los padres, las ramas, HEAD y la
+  respuesta), del más antiguo al más nuevo: un padre siempre va antes que su hijo, así
+  que no hay ciclos y solo el primero no tiene padres. El acomodo (columnas por
+  generaciones y una fila por rama) no se guarda: lo calcula cada cliente. Las columnas
+  se cuentan igual en el servidor: el primero va en la 0 y cada uno de los demás en 1
+  más la mayor de sus padres; no pasan de 6 (`columnasGrafoMax`). Una rama llamada
+  `HEAD` se rechaza respetando las mayúsculas: `head` sí vale (F12).
+- El código inicial, la solución y las salidas se guardan tal como se escribieron, con
+  su sangría (F12).
+- Falta un tipo del prototipo, escuchar y repetir, que llega con F14. El glosario de
+  cada actividad llega con F09.
 - Las longitudes cuentan caracteres Unicode. Los límites están en
   `LIMITES_ACTIVIDADES` (F05).
 
@@ -188,6 +223,8 @@ Detalle en
 [`features/F03-cursar-leccion/data-model.md`](./features/F03-cursar-leccion/data-model.md).
 Los tipos de relacionar, en
 [`features/F11-actividades-relacionar/data-model.md`](./features/F11-actividades-relacionar/data-model.md).
+Los de código y terminal, en
+[`features/F12-actividades-codigo-terminal/data-model.md`](./features/F12-actividades-codigo-terminal/data-model.md).
 
 ### Progreso (F04)
 
@@ -233,7 +270,7 @@ spec de cada feature.
 
 | Entidad | Qué representa | Feature |
 |---|---|---|
-| Actividad: los demás tipos | Código, terminal, grafo de commits y escuchar y repetir (4 del prototipo) | F12, F14 |
+| Actividad: escuchar y repetir | El último tipo del prototipo | F14 |
 | Curso: lo que falta | El idioma (F07) y la configuración de gamificación (F08) | F07, F08 |
 | Puntos / Insignia | Recompensas de un usuario en un curso | F08 |
 | EntradaGlosario | Término y definición, derivados de lecciones completadas o agregados por el alumno | F09 |

@@ -93,6 +93,7 @@ dos clientes con el mismo nombre.
   | Componente | Props clave | Notas |
   |---|---|---|
   | `CampoTexto` (cambia) | `codigo` | Letra `--fuente-codigo` y sin corrector, como `CampoArea` |
+  | `CampoSelector` (cambia) | `ayuda`, `invalido` | Como en `CampoTexto`. La ayuda del lenguaje va debajo del selector, y `invalido` marca el "Padre" del último commit con el error de columnas, que va en un `Aviso` (agregado al implementar) |
 
 - **Actividades** (sección 6):
   - **Reto de código**: la consigna y `CampoCodigo`. Al comprobar, una `Superficie` `suave`
@@ -155,7 +156,8 @@ dos clientes con el mismo nombre.
   - `TerminalSimulada/` y `GrafoCommits/`, igual.
   - `registro.ts` y `registroEditor.ts`: una línea por tipo.
 - **Componentes** (`src/componentes/`): `CampoCodigo/`, `PanelTerminal/` y
-  `DiagramaCommits/`, nuevos. `BloqueCodigo/`, `BarraRespuesta/` y `CampoTexto/` cambian.
+  `DiagramaCommits/`, nuevos. `BloqueCodigo/`, `BarraRespuesta/`, `CampoTexto/` y
+  `CampoSelector/` cambian.
 - **Hooks**: `src/hooks/useAncho.ts` (el ancho de un elemento, con `ResizeObserver`) y
   `src/hooks/useAlturaAutomatica.ts` (la línea de la terminal), nuevos.
 - **Utilidades**:
@@ -229,5 +231,6 @@ Se descartaron un editor de código (CodeMirror o Monaco) y una librería de gra
 | `BarraRespuesta` en los dos clientes | La spec pide el comando y el nombre del commit en letra monoespaciada | Ponerlos en `detalle` los dejaría en letra normal, y un `ReactNode` rompería el anuncio de iOS (research.md, punto 8) |
 | `BloqueCodigo` en los dos clientes | La solución del reto lleva la etiqueta del lenguaje y no colorea el diff | Un bloque propio en el reto copiaría el panel, el desplazamiento lateral y las líneas vacías |
 | `CampoTexto` (web) | Los comandos van en letra monoespaciada y sin corrector | Usar `CampoArea` de una fila dejaría escribir saltos de línea en un campo de una línea |
+| `CampoSelector` (web) | La spec pide una ayuda debajo del selector de lenguaje, y el foco del primer error busca `aria-invalid` | Poner la ayuda en un párrafo aparte no la enlazaría al selector, y sin `invalido` el error de columnas no tendría a dónde llevar el foco |
 | `recortarTextos` en `src/validacion/editor.ts` (backend) | Recorta la carpeta, los comandos y los nombres, que se comparan recortados | Rechazar los espacios de sobra le pasaría al cliente una regla que hoy resuelve el servidor, como en F11 |
 | `MarcoActividad.tsx` (móvil), solo si hace falta | Dejar a la vista el campo con el foco al abrir el teclado en iOS | Un `ScrollView` propio en dos actividades repetiría el marco (research.md, punto 7) |

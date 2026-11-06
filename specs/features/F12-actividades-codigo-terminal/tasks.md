@@ -60,10 +60,10 @@ decisión 0013, solo para F12: plan.md, "Resumen")
 - [X] T003 [specs] En `docs/diseno.md`, sección 2.1, tabla "Código": agregar `codigoTenue` (`#A9A6C9`), `codigoCursor` (`#A3E635`) y `codigoEtiquetaFondo` (`rgba(255,255,255,0.10)`), con su uso y su contraste, de plan.md ("Lo que se agrega a docs/diseno.md"). Valen lo mismo en los dos modos. En la fila de `textoTenue`, el uso nuevo: las líneas y el borde de los commits del grafo
 - [X] T004 [specs] En `docs/diseno.md`, sección 4, de plan.md: a la tabla general, `CampoCodigo`, `PanelTerminal` y `DiagramaCommits` con sus props y notas; en la fila de `BloqueCodigo`, las props `lenguaje` y `diff` (por defecto `true`); en la de `BarraRespuesta`, la prop `codigo`, que va entre el título y el detalle y se desplaza con él. En "Editor (solo web)", la prop `codigo` de `CampoTexto`
 - [X] T005 [specs] En `docs/diseno.md`, sección 6, de plan.md: **Reto de código**, **Terminal simulada** y **Grafo de commits**. En "Teclado", lo de `CampoCodigo` (Tab, Mayús+Tab, Esc y Enter), Enter en la terminal y Tab por columnas en el grafo, sin teclas 1 a 9. La regla "Terminal simulada y código" pasa a citar `codigoCursor`
-- [ ] T006 [back] En `brote_backend_express`: `git fetch`, `git switch feature/F11-actividades-relacionar && git pull --ff-only` y crear `feature/F12-actividades-codigo-terminal` desde ahí. Si para entonces F11 ya está en `origin/dev`, crearla desde `dev` como siempre. Cuando F11 se fusione, la rama de F12 hace `git merge origin/dev`, y su PR va después del de F11
-- [ ] T007 [P] [web] Igual que T006 en `brote_web_react`
-- [ ] T008 [P] [movil] Igual que T006 en `brote_mobile_expo`
-- [ ] T009 [specs] Copiar el contrato 0.9.0 a los tres repos: `npm run contrato:copiar` en `brote_specs`. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo. **`npm run tipos` deja de pasar** hasta tener las entradas de sus `Record`: en back con T014, en web con T034 y T039, y en movil con T051 (principio IV)
+- [X] T006 [back] En `brote_backend_express`: `git fetch`, `git switch feature/F11-actividades-relacionar && git pull --ff-only` y crear `feature/F12-actividades-codigo-terminal` desde ahí. Si para entonces F11 ya está en `origin/dev`, crearla desde `dev` como siempre. Cuando F11 se fusione, la rama de F12 hace `git merge origin/dev`, y su PR va después del de F11
+- [X] T007 [P] [web] Igual que T006 en `brote_web_react`
+- [X] T008 [P] [movil] Igual que T006 en `brote_mobile_expo`
+- [X] T009 [specs] Copiar el contrato 0.9.0 a los tres repos: `npm run contrato:copiar` en `brote_specs`. Escribe `src/tipos/contrato.ts` en back, web y movil; cada copia se commitea en su repo. **`npm run tipos` deja de pasar** hasta tener las entradas de sus `Record`: en back con T014, en web con T034 y T039, y en movil con T051 (principio IV)
 
 ---
 

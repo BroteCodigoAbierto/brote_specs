@@ -12,9 +12,14 @@ const RAIZ = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const REPOS = ["brote_backend_express", "brote_web_react", "brote_mobile_expo"];
 const DESTINO = join("src", "tipos", "contrato.ts");
 
+// En Windows, git puede dejar los archivos con \r\n: se comparan y se escriben con \n
+function leerTexto(ruta) {
+  return readFileSync(ruta, "utf8").replace(/\r\n/g, "\n");
+}
+
 function copiaEsperada() {
   const version = readFileSync(join(RAIZ, "contrato", "VERSION"), "utf8").trim();
-  const contrato = readFileSync(join(RAIZ, "contrato", "contrato.ts"), "utf8");
+  const contrato = leerTexto(join(RAIZ, "contrato", "contrato.ts"));
   const encabezado =
     `// GENERADO desde brote_specs/contrato/contrato.ts (versión ${version}).\n` +
     "// No editar a mano: cambia la copia oficial y corre `npm run contrato:copiar` en brote_specs.\n\n";
@@ -57,7 +62,7 @@ function revisar(repos) {
     if (!existsSync(ruta)) {
       console.error(`✗ ${repo}: falta ${DESTINO}`);
       diferencias++;
-    } else if (readFileSync(ruta, "utf8") !== texto) {
+    } else if (leerTexto(ruta) !== texto) {
       console.error(`✗ ${repo}: ${DESTINO} no coincide con la v${version} oficial`);
       diferencias++;
     } else {

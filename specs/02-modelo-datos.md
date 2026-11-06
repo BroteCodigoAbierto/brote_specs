@@ -128,7 +128,7 @@ Lo que agrega el editor, en
 Los estados de un curso, en
 [`features/F06-publicar-curso/data-model.md`](./features/F06-publicar-curso/data-model.md).
 
-### Actividad (F03)
+### Actividad (F03, F05, F11)
 
 Ejercicio o bloque de teoría de una lección. No tiene tabla ni `id`: es un
 elemento de `leccion.actividades`, y su lugar en la lista es su orden. En el
@@ -151,6 +151,17 @@ su forma: el backend la valida antes de guardarla.
 | | `espacios` | lista de `{ aceptadas }` | sí | Uno por cada `___`. De 1 a 10 aceptadas por espacio, no vacías y de hasta 100 caracteres; la primera es la que se muestra como esperada |
 | `preguntaAbierta` | `pregunta` | texto | sí | No vacía, de hasta 500 |
 | | `solucion` | texto | sí | No vacía, de hasta 2000 |
+| `emparejar` | `consigna` | texto | no | Si está, no vacía, de hasta 500 |
+| | `parejas` | lista de `{ izquierda, derecha }` | sí | Entre 3 y 8, en el orden del autor. Cada texto no vacío, de hasta 200. No se repite en su columna |
+| `clasificar` | `consigna` | texto | no | Si está, no vacía, de hasta 500 |
+| | `categorias` | lista de textos | sí | Entre 2 y 4, en el orden del autor. Cada una no vacía, de hasta 100. No se repiten |
+| | `elementos` | lista de `{ texto, categoria }` | sí | Entre 2 y 12. `texto`, no vacío, de hasta 100, sin repetirse. `categoria`, índice en `categorias`. Toda categoría tiene al menos un elemento |
+| `ordenar` | `consigna` | texto | sí | No vacía, de hasta 500 |
+| | `elementos` | lista de textos | sí | Entre 3 y 10, **en el orden correcto**. Cada uno no vacío, de hasta 200. No se repiten |
+| `bancoPalabras` | `consigna` | texto | no | Si está, no vacía, de hasta 500 |
+| | `texto` | texto | sí | De hasta 2000, con 1 a 10 `___` (`MARCA_ESPACIO`) |
+| | `fichas` | lista de textos | sí | Entre 2 y 20. Cada una no vacía, de hasta 100. Se guardan recortadas. **Se pueden repetir** |
+| | `espacios` | lista de `{ aceptadas }` | sí | Uno por cada `___`. Cada `aceptadas` tiene de 1 a 20 textos (`fichasMax`), y cada texto es el de una ficha |
 
 - "No vacío": recortado, tiene al menos un carácter. Un campo que el tipo no
   tiene se rechaza.
@@ -159,15 +170,24 @@ su forma: el backend la valida antes de guardarla.
   aciertos que mande el cliente: F04 solo comprueba que el resultado cuadre
   con la lección (ver Progreso), y F08 decide si eso basta para los puntos.
 - Qué tipos son preguntas lo dice `CALIFICA_ACTIVIDAD` en el contrato (F04):
-  `opcionMultiple`, `completarEspacios` y `preguntaAbierta`. Con esa
+  `opcionMultiple`, `completarEspacios`, `preguntaAbierta`, `emparejar`,
+  `clasificar`, `ordenar` y `bancoPalabras`. Con esa
   constante cuentan las preguntas el backend y los dos clientes.
-- Los otros 8 tipos del prototipo llegan con sus features, y el glosario de cada
+- En el banco de palabras tiene que haber una forma de llenar todos los espacios
+  usando cada ficha una sola vez; una ficha se compara por su texto exacto. Sin
+  consigna, los clientes usan `CONSIGNA_POR_DEFECTO` (F11).
+- Los repetidos se comparan recortados, respetando las mayúsculas. Lo que se guarda
+  conserva sus espacios al inicio, que en `ordenar` son la sangría de una línea de
+  código (F11).
+- Los otros 4 tipos del prototipo llegan con sus features, y el glosario de cada
   actividad, con F09.
 - Las longitudes cuentan caracteres Unicode. Los límites están en
   `LIMITES_ACTIVIDADES` (F05).
 
 Detalle en
 [`features/F03-cursar-leccion/data-model.md`](./features/F03-cursar-leccion/data-model.md).
+Los tipos de relacionar, en
+[`features/F11-actividades-relacionar/data-model.md`](./features/F11-actividades-relacionar/data-model.md).
 
 ### Progreso (F04)
 
@@ -213,7 +233,7 @@ spec de cada feature.
 
 | Entidad | Qué representa | Feature |
 |---|---|---|
-| Actividad: los demás tipos | Emparejar, ordenar, banco de palabras, clasificar, código, terminal, grafo de commits y escuchar y repetir (8 del prototipo) | F11, F12, F14 |
+| Actividad: los demás tipos | Código, terminal, grafo de commits y escuchar y repetir (4 del prototipo) | F12, F14 |
 | Curso: lo que falta | El idioma (F07) y la configuración de gamificación (F08) | F07, F08 |
 | Puntos / Insignia | Recompensas de un usuario en un curso | F08 |
 | EntradaGlosario | Término y definición, derivados de lecciones completadas o agregados por el alumno | F09 |

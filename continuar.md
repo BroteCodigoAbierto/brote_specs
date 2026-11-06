@@ -53,8 +53,9 @@ Lee continuar.md y sigue con "<sección>" de F0X.
 - **Hecho y fusionado en `dev`**: F01, F02, F03, F04, F05 y F06.
 - **F11 (en curso)**: rama `feature/F11-actividades-relacionar` en los cuatro repos, todo subido.
   Los PRs no se sabe si existen (en Windows no había `gh`): compruébalo. Las 59 tareas están
-  hechas. **Validados 89 de 108 criterios**. Los 19 que faltan necesitan el iPhone o un lector
-  de pantalla (ver "Chat: cerrar F11").
+  hechas. **Validados 101 de 108 criterios** (2026-11-06, en el iPhone por iPhone Mirroring).
+  Los 7 que faltan necesitan el teléfono en la mano, y el usuario lo dejó en pausa (ver
+  "Chat: cerrar F11"). Hay commits locales sin subir en `brote_specs` y `brote_mobile_expo`.
 - **F12 (en curso)**: la spec (86 criterios) y el plan están hechos y subidos en `brote_specs`,
   rama `feature/F12-actividades-codigo-terminal`. Esa rama se creó desde `dev` **antes** de que
   F11 se fusionara, solo para no perderlos al cambiar de computadora: no tiene esta guía ni lo de
@@ -168,22 +169,23 @@ Valida en el iPhone lo que falta, deja la guía al día e integra cuando él dig
 
 ### Lo que falta validar
 
-Validados 89 de 108 (commit `F11: validación (89 de 108 criterios)`): backend con curl, web en
-Chrome y los criterios de móvil que no dependen de gestos en Expo web, con su nota. Sin marcar:
+Validados 101 de 108 (commit `F11: validación (101 de 108 criterios)`): backend con curl, web en
+Chrome, y el móvil en Expo web y, el 2026-11-06, en el iPhone por iPhone Mirroring (otro chat de
+la app de Claude, con computer use, siguiendo un encargo). Cada V lleva su nota. El arrastre de
+la web (V44 a V52) pasó con eventos sintéticos: el arrastre real con el ratón no se probó, y va
+así en el PR. Sin marcar:
 
 | Criterios | Qué falta |
 |---|---|
-| V44 a V52 (arrastre) | El móvil, en el iPhone. La web pasó con eventos sintéticos, que no muestran que el elemento siga al ratón: el arrastre real con el ratón queda para él |
-| V53 (deslizar sin mantener pulsado), V55 (arrastrar desde el borde) y V56 (segundo plano a mitad del arrastre) | Solo en el iPhone |
-| V54 (segundo dedo) | Solo en el iPhone, con su mano |
-| V57 (botón de atrás) | Solo Android, y no tiene uno: pregúntale si se deja sin validar y se anota así en el PR |
-| V58 (reducir movimiento) | Web (DevTools, Rendering, `prefers-reduced-motion`) e iPhone |
-| V64 (lector de pantalla) | VoiceOver en el iPhone y un lector en la web (en la Mac, VoiceOver con Chrome). Las etiquetas y los avisos ya se revisaron en el DOM |
-| V65 (iconos) | La web pasó; en el iPhone, confirmar que el icono se ve completo en la columna derecha de emparejar de "align-items" (en Expo web se encoge a un punto) |
-| V69 y V70 (salir) | La web pasó; en el iPhone, porque Expo web no muestra `Alert` |
+| V51 (desplazarse sola) | En el iPhone, **en clasificar** (la segunda actividad de la lección 6 de "Actividades de prueba"). Se probó en emparejar, la primera, y pasó, pero el criterio es de clasificar |
+| V53 (deslizar sin mantener pulsado) | Con la mano: iPhone Mirroring no convierte un arrastre del ratón en deslizar |
+| V54 (segundo dedo) | Con la mano |
+| V57 (botón de atrás) | Solo Android, y no tiene uno. Propuesta: sin validar, anotado así en el PR (falta que él lo confirme) |
+| V58 (reducir movimiento) y V64 (lector de pantalla) | Él decidió saltar la accesibilidad por ahora. Si no se retoma, se anotan sin validar en el PR |
+| V65 (iconos) | Volver a verlo en el iPhone con el arreglo de abajo: en "Remotos" y en "align-items", equivocarse y comprobar; ninguna palabra se parte y la insignia se ve completa |
 
-También queda para el iPhone la regresión de F03 de salir con el gesto de atrás (deslizar desde el
-borde izquierdo).
+También queda, con la mano, la regresión de F03 de salir con el gesto de atrás (deslizar desde el
+borde izquierdo): en iPhone Mirroring no hizo nada, pero ahí no hay gestos de deslizar.
 
 Para validarlos:
 
@@ -202,6 +204,22 @@ Lo que se encontró al validar, ya corregido:
 - `contrato:revisar` fallaba en Windows por los saltos de línea; se corrigió el script.
 - V67 decía "con una sola pareja mal", que no se puede: se corrigió a "dos parejas cruzadas" en la
   spec, `tasks.md` y el quickstart.
+- En el iPhone, al comprobar emparejar, el texto de la columna derecha se partía a mitad de palabra
+  ("combina/rlos"): el icono al borde le quitaba ~30 px. Él eligió que, con número, el icono vaya
+  de insignia (14 px) en la esquina del número. Solo en el móvil (`docs/diseno.md`,
+  `ElementoRespuesta`). Commits `F11: en el móvil, el icono de un elemento con número va de
+  insignia` (specs) y `F11: con número, el icono de correcto o incorrecto va de insignia y no parte
+  el texto` (móvil). Falta verlo en el iPhone (V65).
+
+Lo que se vio y no es defecto:
+
+- En la lección 5, después de colocar una ficha y devolverla, la X pregunta "¿Salir de la
+  lección?". Es lo que pide la spec: colocar algo cuenta como haber hecho algo (igual que en F03).
+- El engranaje flotante que tapa las tarjetas es el botón de herramientas de Expo Go.
+- Una caída de la API, la web y Expo a media prueba fue porque se cerró WebStorm, donde corrían.
+
+Para levantar todo: `./correr` (o `./correr tunel`) en `~/github/organizations/brote`, fuera de los
+repos. Expo queda al frente y Ctrl+C apaga la API y la web.
 
 ### Pasos
 

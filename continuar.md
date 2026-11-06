@@ -72,9 +72,8 @@ Lee continuar.md y sigue con "<sección>" de F0X.
   T055, cuya revisión ya se hizo el 2026-11-06 (la spec coincide con lo construido) y solo espera
   lo que T047 anote en `research.md`. `contrato:revisar` (0.9.0), `tipos` y `lint` en los tres
   repos y `build` en la web pasan. **0 de 86 criterios validados.**
-  - **Coautor**: 25 commits locales de F12 (6 en specs, 5 en back, 7 en web y 7 en móvil) llevan
-    `Co-Authored-By`, contra "Sin coautor". Hay que quitarlo antes del push (ver "Cómo trabajar
-    con el usuario").
+  - **Coautor**: 25 commits locales de F12 llevan `Co-Authored-By`. El usuario decidió dejarlos así
+    (2026-11-06).
   Lo que se decidió al analizar (2026-11-06):
   - **Ramas**: el usuario eligió no esperar a F11. Las ramas de F12 en back, web y móvil salen de
     `feature/F11-actividades-relacionar` (excepción a la decisión 0013, solo para F12: plan.md,
@@ -89,12 +88,11 @@ Lee continuar.md y sigue con "<sección>" de F0X.
 
 **Lo siguiente** (mientras él no pueda probar en el teléfono):
 
-1. Quitar el coautor de los 25 commits locales de F12, si él lo aprueba.
-2. Un chat nuevo de `valida` de F12, **solo backend y web**: V01 y V78 a V83 con curl, y la web en
+1. Un chat nuevo de `valida` de F12, **solo backend y web**: V01 y V78 a V83 con curl, y la web en
    Chrome. Los de móvil se quedan sin marcar.
-3. Con el teléfono en la mano, una sola sesión: lo que falta de F11 ("Chat: cerrar F11"), T047 y
+2. Con el teléfono en la mano, una sola sesión: lo que falta de F11 ("Chat: cerrar F11"), T047 y
    T055 de F12, y los criterios de móvil de F12.
-4. `push`: primero F11 y después F12.
+3. `push`: primero F11 y después F12.
 
 ## Cómo trabajar con el usuario
 

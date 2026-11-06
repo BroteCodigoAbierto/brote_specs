@@ -25,12 +25,21 @@ Claude Code se abre en `~/github/organizations/brote/brote_specs` (ver
 | 4 | F12: validar e integrar | "Chat: validar e integrar" |
 | 5 en adelante | F13, F14, F07, F15, F09, F08 y F10: tres chats cada una (especificar, implementar, validar) | "Las features que siguen" |
 
-**Mensaje para abrir el chat 1** (esta guía todavía está solo en la rama de F11):
+**Mensaje para abrir el chat 1** (esta guía todavía no está en `dev`):
 
 ```text
 En ~/github/organizations/brote/brote_specs: git fetch, cámbiate a
 feature/F11-actividades-relacionar y haz git pull. Lee continuar.md y sigue con
 "Chat: cerrar F11", empezando por "Preparar la Mac".
+```
+
+**Mensaje para el chat 3** (F12, implementar), mientras F11 no esté en `dev`. La guía al día
+está en la rama de F12 de `brote_specs`:
+
+```text
+En ~/github/organizations/brote/brote_specs: git fetch y cámbiate a
+feature/F12-actividades-codigo-terminal. Lee continuar.md y sigue con
+"Chat: implementar" de F12.
 ```
 
 **Mensaje para los demás chats** (con F11 ya en `dev`, la guía también está ahí):
@@ -56,13 +65,24 @@ Lee continuar.md y sigue con "<sección>" de F0X.
   hechas. **Validados 101 de 108 criterios** (2026-11-06, en el iPhone por iPhone Mirroring).
   Los 7 que faltan necesitan el teléfono en la mano, y el usuario lo dejó en pausa (ver
   "Chat: cerrar F11"). Hay commits locales sin subir en `brote_specs` y `brote_mobile_expo`.
-- **F12 (en curso)**: la spec (86 criterios) y el plan están hechos y subidos en `brote_specs`,
-  rama `feature/F12-actividades-codigo-terminal`. Esa rama se creó desde `dev` **antes** de que
-  F11 se fusionara, solo para no perderlos al cambiar de computadora: no tiene esta guía ni lo de
-  F11. Los repos de código todavía no tienen rama de F12. Falta `/speckit-tasks`.
+- **F12 (en curso)**: spec (86 criterios), plan, tareas (55, de T001 a T055) y análisis hechos en
+  `brote_specs`, rama `feature/F12-actividades-codigo-terminal`, que ya tiene F11 fusionada
+  (`0ded499`) y esta guía. Commits `F12: tareas` y `F12: análisis (...)`, **sin subir** (25
+  commits por delante de `origin`, contando los de F11). Los repos de código todavía no tienen
+  rama de F12. Lo que se decidió al analizar (2026-11-06):
+  - **Ramas**: el usuario eligió no esperar a F11. Las ramas de F12 en back, web y móvil salen de
+    `feature/F11-actividades-relacionar` (excepción a la decisión 0013, solo para F12: plan.md,
+    "Resumen"). Cuando F11 se fusione, cada rama de F12 hace `git merge origin/dev`, y sus PRs van
+    después de los de F11.
+  - **Comillas**: al comparar comandos y al buscar repetidos, `“ ”`, `‘ ’`, `—` y `…` del autor
+    cuentan como `"`, `'`, `--` y `...` (spec, "Aclaraciones", sesión 2026-11-06).
+  - Quedan dos hallazgos bajos sin tocar, de redacción: un commit o rama sin nombre se vería como
+    "Commit Commit 3" en el selector de HEAD, y "Excepciones" del plan no anota `tokens.css` ni
+    `tema.ts`. Pregúntale si los arregla antes de implementar.
 - **Orden que sigue**: F12 → F13 → F14 → F07 → F15 → F09 → F08 → F10 (`specs/00-proyecto.md`).
 
-**Lo siguiente**: el chat 1.
+**Lo siguiente**: el chat 3 (F12, implementar), con el mensaje de arriba. El chat 1 (cerrar F11)
+sigue pendiente de los 7 criterios con el teléfono en la mano, y se puede hacer en paralelo.
 
 ## Cómo trabajar con el usuario
 
@@ -240,8 +260,10 @@ repos. Expo queda al frente y Ctrl+C apaga la API y la web.
 
 ## Chat: F12, tareas
 
-**Precondición**: F11 fusionada en `dev` en los cuatro repos. Si no lo está, para y vuelve al
-chat 1.
+**Hecho el 2026-11-06** (commits `F12: tareas` y `F12: análisis (...)`). Se hizo con F11 todavía
+fuera de `dev`, por decisión del usuario (ver "Dónde vamos").
+
+**Precondición** (la original): F11 fusionada en `dev` en los cuatro repos.
 
 Lo que hay: en `specs/features/F12-actividades-codigo-terminal/` están `spec.md` (86 criterios,
 sin `[POR ACLARAR]`), `checklists/requisitos.md`, `plan.md`, `research.md`, `data-model.md`,
@@ -279,7 +301,12 @@ el contrato a 0.9.0 y no agrega paquetes (`react-native-svg` ya está en el móv
 
 Él corre `/speckit-implement` en este chat nuevo. Crea `feature/F0X-nombre` desde `dev`
 actualizado en cada repo de código que toca (en `brote_specs` ya existe), hace un commit por
-tarea en su repo, sin preguntar y sin push. Si cambia el contrato: "Cuando cambia el contrato" de
+tarea en su repo, sin preguntar y sin push.
+
+**En F12**, mientras F11 no esté en `dev`, las ramas de código salen de
+`feature/F11-actividades-relacionar` (T006 a T008 de su `tasks.md`), y T001 trae a la rama de F12
+de `brote_specs` lo último de F11. Lo más incierto es el teclado del iPhone: T045 a T047 lo
+prueban con la terminal antes de hacer el reto y el grafo en el móvil. Si cambia el contrato: "Cuando cambia el contrato" de
 `docs/flujo-trabajo.md`. Al terminar, `npm run contrato:revisar`, `tipos` y `lint` en los tres
 repos y `build` en la web, y la guía al día.
 

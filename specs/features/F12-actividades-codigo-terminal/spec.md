@@ -502,14 +502,14 @@ No cambia (F05), salvo:
   etiqueta.
 - [ ] [web, móvil] En "Actividades de prueba", en el reto al límite, una línea más ancha
   que el panel se lee completa en el campo y en la solución.
-- [ ] [web] Con el cursor al final de la segunda línea, Tab mete dos espacios más y
+- [x] [web] Con el cursor al final de la segunda línea, Tab mete dos espacios más y
   Mayús+Tab los quita. Con tres líneas seleccionadas, Tab mete dos espacios al inicio de cada una, y
   Ctrl+Z (Cmd+Z en Mac) lo deshace.
-- [ ] [web] Debajo del campo veo "Tab agrega dos espacios. Para salir del campo, pulsa
+- [x] [web] Debajo del campo veo "Tab agrega dos espacios. Para salir del campo, pulsa
   Esc y luego Tab.". Después de Esc, Tab lleva el foco a lo que sigue y Mayús+Tab a lo
   anterior. Al volver al campo, Tab mete espacios otra vez.
-- [ ] [web] Enter en el campo salta de línea y no comprueba.
-- [ ] [web] Después de comprobar, Tab sale del campo y el texto sobre Tab ya no
+- [x] [web] Enter en el campo salta de línea y no comprueba.
+- [x] [web] Después de comprobar, Tab sale del campo y el texto sobre Tab ya no
   aparece.
 - [ ] [móvil] En el campo de código, el teclado no corrige palabras ni pone mayúscula al
   empezar una línea, `"` y `'` quedan rectas, y `...` se queda como tres puntos.
@@ -585,17 +585,17 @@ No cambia (F05), salvo:
   prueba" (10 commits, 6 columnas y 4 ramas con nombres de 20 caracteres, una con
   HEAD) cabe sin desplazarse hacia los lados, con los nombres y las etiquetas completos
   y sin encimarse, y puedo pulsar cada commit sin pulsar el de al lado.
-- [ ] [web] En una ventana ancha y en la vista previa, ese grafo cabe en el ancho
+- [x] [web] En una ventana ancha y en la vista previa, ese grafo cabe en el ancho
   disponible sin desplazarse hacia los lados.
 
 ### Teclado y accesibilidad
 
-- [ ] [web] Resuelvo los tres tipos solo con el teclado, hasta "Continuar": en el reto
+- [x] [web] Resuelvo los tres tipos solo con el teclado, hasta "Continuar": en el reto
   salgo del campo con Esc y Tab; en la terminal escribo y pulso Enter; en el grafo
   recorro los commits con Tab, de izquierda a derecha y, en la misma columna, de arriba
   abajo, y elijo con Enter o la barra espaciadora.
-- [ ] [web] En el grafo, las teclas 1 a 9 no eligen commits.
-- [ ] [web] Al comprobar la terminal o el grafo, y al autoevaluarme en el reto, el foco
+- [x] [web] En el grafo, las teclas 1 a 9 no eligen commits.
+- [x] [web] Al comprobar la terminal o el grafo, y al autoevaluarme en el reto, el foco
   queda en "Continuar".
 - [ ] [web, móvil] Con un lector de pantalla, el campo de código se anuncia como "Tu
   código" con su lenguaje (y en la web, con el texto sobre Tab), la terminal como
@@ -608,81 +608,82 @@ No cambia (F05), salvo:
 - [ ] [web, móvil] En "Tu primer commit" (Git esencial, 2), acertando las cuatro
   terminales y fallando clasificar, al terminar veo "Acertaste 4 de 5".
 - [ ] [web, móvil] Al volver al curso, esa lección muestra "4 de 5 aciertos".
-- [ ] [web, móvil] En "Ramas: trabajar en paralelo", en la primera terminal, sin haber
-  escrito nada la X lleva directo al detalle del curso. Después de escribir, pide
-  confirmación, y "Seguir aquí" me deja con lo que escribí. En el grafo, elegir un
-  commit también pide confirmación al salir.
+- [ ] [web, móvil] En "Actividades de prueba", en la terminal mínima (la primera actividad
+  de su lección), sin haber escrito nada la X lleva directo al detalle del curso. Después
+  de escribir, pide confirmación, y "Seguir aquí" me deja con lo que escribí. En el grafo
+  con un merge (también el primero de su lección), elegir un commit también pide
+  confirmación al salir.
 - [ ] [web, móvil] En "Condicionales y operadores", después de escribir en el reto,
   confirmar la salida y abrir otra vez la lección empieza desde la primera actividad, y
   el reto tiene otra vez su código inicial.
 
 ### Paleta y bloques
 
-- [ ] [web] En la paleta, Reto de código, Terminal simulada y Grafo de commits se pueden
+- [x] [web] En la paleta, Reto de código, Terminal simulada y Grafo de commits se pueden
   agregar y no dicen "Próximamente". Escuchar y repetir sigue deshabilitado, con
   "Próximamente".
-- [ ] [web] Al arrastrar o pulsar cada uno de los tres, queda en la secuencia con la
+- [x] [web] Al arrastrar o pulsar cada uno de los tres, queda en la secuencia con la
   marca "Incompleta", seleccionado y con el foco en su primer campo.
-- [ ] [web] El bloque de cada uno muestra el inicio de la consigna y, sin ella, "Sin
+- [x] [web] El bloque de cada uno muestra el inicio de la consigna y, sin ella, "Sin
   contenido".
 
 ### Formularios
 
-- [ ] [web] El reto tiene un selector con "Elige un lenguaje" y, en este orden, C, CSS,
+- [x] [web] El reto tiene un selector con "Elige un lenguaje" y, en este orden, C, CSS,
   HTML, JavaScript, Python, SQL, Bash y Otro. Sin lenguaje, al guardar veo "Elige un
   lenguaje.". El código inicial y la solución van en letra monoespaciada.
-- [ ] [web] En el reto, la terminal y el grafo, sin consigna, al guardar veo "Este campo
+- [x] [web] En el reto, la terminal y el grafo, sin consigna, al guardar veo "Este campo
   es obligatorio.". En el reto, también sin solución.
-- [ ] [web] La terminal empieza con un comando vacío, con la nota "Es el que ve el alumno
+- [x] [web] La terminal empieza con un comando vacío, con la nota "Es el que ve el alumno
   como respuesta correcta". Con 1 comando, "Quitar" está deshabilitado; con 10,
   también "Agregar comando".
-- [ ] [web] Con `git init` y `git  init ` como comandos, al guardar el segundo muestra
+- [x] [web] Con `git init` y `git  init ` como comandos, al guardar el segundo muestra
   "Este comando está repetido."; `git init` y `Git init` sí se aceptan.
-- [ ] [web] Un comando escrito con espacios al inicio y al final se guarda sin ellos.
-- [ ] [web] El grafo empieza con dos commits sin nombre: el primero dice "Primer commit:
+- [x] [web] Un comando escrito con espacios al inicio y al final se guarda sin ellos.
+- [x] [web] El grafo empieza con dos commits sin nombre: el primero dice "Primer commit:
   no tiene padre" y el segundo tiene al primero como padre. "Agregar commit" suma uno
   con el último como padre. Con 2 commits, "Quitar" está deshabilitado; con 10,
   también "Agregar commit".
-- [ ] [web] El selector "Padre" de cada commit solo ofrece los commits de arriba, y
+- [x] [web] El selector "Padre" de cada commit solo ofrece los commits de arriba, y
   muestra "Commit {n}" en uno sin nombre. Al cambiarle el nombre a un commit, los
   selectores lo muestran y siguen eligiendo el mismo.
-- [ ] [web] Un nombre de commit no deja escribir más de 4 caracteres. Dos commits con el
+- [x] [web] Un nombre de commit no deja escribir más de 4 caracteres. Dos commits con el
   mismo nombre muestran, al guardar, "Este nombre ya lo tiene otro commit.".
-- [ ] [web] Un segundo padre igual al primero muestra "El segundo padre tiene que ser
+- [x] [web] Un segundo padre igual al primero muestra "El segundo padre tiene que ser
   otro commit.".
-- [ ] [web] Al quitar un commit que era padre, commit de una rama y respuesta, al
+- [x] [web] Al quitar un commit que era padre, commit de una rama y respuesta, al
   guardar veo "Elige un padre.", "Elige un commit." y "Elige la respuesta.". Si era
   segundo padre, vuelve a "Ninguno", y si HEAD apuntaba a él, a "Sin HEAD".
-- [ ] [web] Al quitar el primer commit, el que seguía dice "Primer commit: no tiene
+- [x] [web] Al quitar el primer commit, el que seguía dice "Primer commit: no tiene
   padre".
-- [ ] [web] Con 7 commits seguidos, al guardar veo "El grafo puede tener hasta 6 commits
+- [x] [web] Con 7 commits seguidos, al guardar veo "El grafo puede tener hasta 6 commits
   seguidos de izquierda a derecha. Pon alguno en paralelo o quita alguno.". Al cambiar
   el padre del último para que vaya en paralelo, se guarda.
-- [ ] [web] Con 4 ramas, "Agregar rama" está deshabilitado. Dos ramas iguales muestran
+- [x] [web] Con 4 ramas, "Agregar rama" está deshabilitado. Dos ramas iguales muestran
   "Esta rama está repetida."; una llamada `HEAD`, "Una rama no se puede llamar HEAD.";
   y una sin commit, "Elige un commit.".
-- [ ] [web] El selector de HEAD muestra "Sin HEAD", las ramas y los commits. Al quitar
+- [x] [web] El selector de HEAD muestra "Sin HEAD", las ramas y los commits. Al quitar
   la rama a la que apunta, vuelve a "Sin HEAD".
-- [ ] [web] Cada campo no deja escribir más del límite de "Datos de entrada", y los
+- [x] [web] Cada campo no deja escribir más del límite de "Datos de entrada", y los
   formularios muestran las ayudas de "Formulario de cada tipo".
 
 ### Vista previa y prueba
 
-- [ ] [web] Una actividad completa de cada tipo se ve en la vista previa como en el
+- [x] [web] Una actividad completa de cada tipo se ve en la vista previa como en el
   reproductor y se responde igual.
-- [ ] [web] En la vista previa, Tab en el campo de código mete espacios, Enter en la
+- [x] [web] En la vista previa, Tab en el campo de código mete espacios, Enter en la
   terminal comprueba solo esa actividad, y pulsar un commit no selecciona ningún
   bloque.
-- [ ] [web] Al cambiar la actividad en el inspector, la vista previa vuelve a empezar y
+- [x] [web] Al cambiar la actividad en el inspector, la vista previa vuelve a empezar y
   el foco se queda en el campo. "Reiniciar" la devuelve al principio.
-- [ ] [web] Una actividad incompleta de estos tipos, y un grafo de más de 6 columnas,
+- [x] [web] Una actividad incompleta de estos tipos, y un grafo de más de 6 columnas,
   muestran "Completa esta actividad para ver su vista previa.".
-- [ ] [web] "Probar lección" recorre una lección con los tres tipos, y al terminar veo
+- [x] [web] "Probar lección" recorre una lección con los tres tipos, y al terminar veo
   "Acertaste {aciertos} de 3".
 
 ### Guardar y servidor
 
-- [ ] [web] Una lección con los tres tipos se guarda y, al recargar, sigue igual, con sus
+- [x] [web] Una lección con los tres tipos se guarda y, al recargar, sigue igual, con sus
   datos y en su orden. El código inicial y la solución conservan su sangría y sus líneas
   en blanco. Un campo opcional vacío no se guarda.
 - [ ] [web, móvil] Armo una lección con los tres tipos, un administrador publica el
@@ -711,7 +712,7 @@ No cambia (F05), salvo:
   en los textos de una actividad de cada tipo (también un commit llamado `<b>` y una
   rama `<script>`) los muestra tal cual, también en la barra inferior, sin negritas y
   sin ejecutar nada.
-- [ ] [web] Con esos textos, el formulario, el bloque y la vista previa los muestran tal
+- [x] [web] Con esos textos, el formulario, el bloque y la vista previa los muestran tal
   cual.
 - [ ] [web, móvil] Las actividades de "Actividades de prueba" con los límites más altos
   (código y solución de 2000 caracteres, 10 comandos y salidas de 2000, y el grafo al

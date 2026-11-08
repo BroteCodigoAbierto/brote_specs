@@ -191,10 +191,10 @@ simulador, se anota en su línea, como en F11.
 - [ ] V11 [web, móvil] En "Actividades de prueba", el reto de SQL sin código inicial empieza con el campo vacío y "Comprobar" deshabilitado. Su solución, con una línea `-- Todos los alumnos`, se ve sin colores, igual que las demás líneas.
 - [ ] V12 [web, móvil] En "Actividades de prueba", el reto con lenguaje "Otro" no muestra etiqueta.
 - [ ] V13 [web, móvil] En "Actividades de prueba", en el reto al límite, una línea más ancha que el panel se lee completa en el campo y en la solución.
-- [ ] V14 [web] Con el cursor al final de la segunda línea, Tab mete dos espacios más y Mayús+Tab los quita. Con tres líneas seleccionadas, Tab mete dos espacios al inicio de cada una, y Ctrl+Z (Cmd+Z en Mac) lo deshace.
-- [ ] V15 [web] Debajo del campo veo "Tab agrega dos espacios. Para salir del campo, pulsa Esc y luego Tab.". Después de Esc, Tab lleva el foco a lo que sigue y Mayús+Tab a lo anterior. Al volver al campo, Tab mete espacios otra vez.
-- [ ] V16 [web] Enter en el campo salta de línea y no comprueba.
-- [ ] V17 [web] Después de comprobar, Tab sale del campo y el texto sobre Tab ya no aparece.
+- [X] V14 [web] Con el cursor al final de la segunda línea, Tab mete dos espacios más y Mayús+Tab los quita. Con tres líneas seleccionadas, Tab mete dos espacios al inicio de cada una, y Ctrl+Z (Cmd+Z en Mac) lo deshace.
+- [X] V15 [web] Debajo del campo veo "Tab agrega dos espacios. Para salir del campo, pulsa Esc y luego Tab.". Después de Esc, Tab lleva el foco a lo que sigue y Mayús+Tab a lo anterior. Al volver al campo, Tab mete espacios otra vez.
+- [X] V16 [web] Enter en el campo salta de línea y no comprueba.
+- [X] V17 [web] Después de comprobar, Tab sale del campo y el texto sobre Tab ya no aparece.
 - [ ] V18 [móvil] En el campo de código, el teclado no corrige palabras ni pone mayúscula al empezar una línea, `"` y `'` quedan rectas, y `...` se queda como tres puntos.
 - [ ] V19 [móvil] Con más de 12 líneas, el campo deja de crecer y se desplaza por dentro, y la línea que escribo sigue a la vista con el teclado abierto.
 - [ ] V20 [web, móvil] En "Tu primer commit" (Git esencial, 2), la primera terminal muestra "Estás en una carpeta con un proyecto nuevo. Conviértela en un repositorio Git.", la salida previa `README.md` e `index.html` en dos líneas y, debajo, `~/proyectos/mi-app $` con el cursor. "Comprobar" está deshabilitado.
@@ -220,40 +220,40 @@ simulador, se anota en su línea, como en F11.
 - [ ] V40 [web, móvil] En "Actividades de prueba", en el grafo con HEAD en un commit, la etiqueta "HEAD", sin flecha, va en ese commit, a la mitad de la fila.
 - [ ] V41 [web, móvil] En "Actividades de prueba", en el grafo sin explicación, la barra muestra solo "¡Correcto!" o "Respuesta correcta: {commit}".
 - [ ] V42 [móvil] En un teléfono de 360 px de ancho, el grafo al límite de "Actividades de prueba" (10 commits, 6 columnas y 4 ramas con nombres de 20 caracteres, una con HEAD) cabe sin desplazarse hacia los lados, con los nombres y las etiquetas completos y sin encimarse, y puedo pulsar cada commit sin pulsar el de al lado.
-- [ ] V43 [web] En una ventana ancha y en la vista previa, ese grafo cabe en el ancho disponible sin desplazarse hacia los lados.
-- [ ] V44 [web] Resuelvo los tres tipos solo con el teclado, hasta "Continuar": en el reto salgo del campo con Esc y Tab; en la terminal escribo y pulso Enter; en el grafo recorro los commits con Tab, de izquierda a derecha y, en la misma columna, de arriba abajo, y elijo con Enter o la barra espaciadora.
-- [ ] V45 [web] En el grafo, las teclas 1 a 9 no eligen commits.
-- [ ] V46 [web] Al comprobar la terminal o el grafo, y al autoevaluarme en el reto, el foco queda en "Continuar".
+- [X] V43 [web] En una ventana ancha y en la vista previa, ese grafo cabe en el ancho disponible sin desplazarse hacia los lados. (Validado en Chrome en una ventana de 1536 px y en la vista previa, con la cuenta autor.)
+- [X] V44 [web] Resuelvo los tres tipos solo con el teclado, hasta "Continuar": en el reto salgo del campo con Esc y Tab; en la terminal escribo y pulso Enter; en el grafo recorro los commits con Tab, de izquierda a derecha y, en la misma columna, de arriba abajo, y elijo con Enter o la barra espaciadora.
+- [X] V45 [web] En el grafo, las teclas 1 a 9 no eligen commits.
+- [X] V46 [web] Al comprobar la terminal o el grafo, y al autoevaluarme en el reto, el foco queda en "Continuar".
 - [ ] V47 [web, móvil] Con un lector de pantalla, el campo de código se anuncia como "Tu código" con su lenguaje (y en la web, con el texto sobre Tab), la terminal como "Comando" con su carpeta, y cada commit con su nombre, sus padres, sus ramas y HEAD y si está elegido, correcto o incorrecto.
 - [ ] V48 [web, móvil] Lo correcto y lo incorrecto del grafo llevan icono además de color.
 - [ ] V49 [web, móvil] En "Tu primer commit" (Git esencial, 2), acertando las cuatro terminales y fallando clasificar, al terminar veo "Acertaste 4 de 5".
 - [ ] V50 [web, móvil] Al volver al curso, esa lección muestra "4 de 5 aciertos".
-- [ ] V51 [web, móvil] En "Ramas: trabajar en paralelo", en la primera terminal, sin haber escrito nada la X lleva directo al detalle del curso. Después de escribir, pide confirmación, y "Seguir aquí" me deja con lo que escribí. En el grafo, elegir un commit también pide confirmación al salir.
+- [ ] V51 [web, móvil] En "Actividades de prueba", en la terminal mínima (la primera actividad de su lección), sin haber escrito nada la X lleva directo al detalle del curso. Después de escribir, pide confirmación, y "Seguir aquí" me deja con lo que escribí. En el grafo con un merge (también el primero de su lección), elegir un commit también pide confirmación al salir.
 - [ ] V52 [web, móvil] En "Condicionales y operadores", después de escribir en el reto, confirmar la salida y abrir otra vez la lección empieza desde la primera actividad, y el reto tiene otra vez su código inicial.
-- [ ] V53 [web] En la paleta, Reto de código, Terminal simulada y Grafo de commits se pueden agregar y no dicen "Próximamente". Escuchar y repetir sigue deshabilitado, con "Próximamente".
-- [ ] V54 [web] Al arrastrar o pulsar cada uno de los tres, queda en la secuencia con la marca "Incompleta", seleccionado y con el foco en su primer campo.
-- [ ] V55 [web] El bloque de cada uno muestra el inicio de la consigna y, sin ella, "Sin contenido".
-- [ ] V56 [web] El reto tiene un selector con "Elige un lenguaje" y, en este orden, C, CSS, HTML, JavaScript, Python, SQL, Bash y Otro. Sin lenguaje, al guardar veo "Elige un lenguaje.". El código inicial y la solución van en letra monoespaciada.
-- [ ] V57 [web] En el reto, la terminal y el grafo, sin consigna, al guardar veo "Este campo es obligatorio.". En el reto, también sin solución.
-- [ ] V58 [web] La terminal empieza con un comando vacío, con la nota "Es el que ve el alumno como respuesta correcta". Con 1 comando, "Quitar" está deshabilitado; con 10, también "Agregar comando".
-- [ ] V59 [web] Con `git init` y `git  init ` como comandos, al guardar el segundo muestra "Este comando está repetido."; `git init` y `Git init` sí se aceptan.
-- [ ] V60 [web] Un comando escrito con espacios al inicio y al final se guarda sin ellos.
-- [ ] V61 [web] El grafo empieza con dos commits sin nombre: el primero dice "Primer commit: no tiene padre" y el segundo tiene al primero como padre. "Agregar commit" suma uno con el último como padre. Con 2 commits, "Quitar" está deshabilitado; con 10, también "Agregar commit".
-- [ ] V62 [web] El selector "Padre" de cada commit solo ofrece los commits de arriba, y muestra "Commit {n}" en uno sin nombre. Al cambiarle el nombre a un commit, los selectores lo muestran y siguen eligiendo el mismo.
-- [ ] V63 [web] Un nombre de commit no deja escribir más de 4 caracteres. Dos commits con el mismo nombre muestran, al guardar, "Este nombre ya lo tiene otro commit.".
-- [ ] V64 [web] Un segundo padre igual al primero muestra "El segundo padre tiene que ser otro commit.".
-- [ ] V65 [web] Al quitar un commit que era padre, commit de una rama y respuesta, al guardar veo "Elige un padre.", "Elige un commit." y "Elige la respuesta.". Si era segundo padre, vuelve a "Ninguno", y si HEAD apuntaba a él, a "Sin HEAD".
-- [ ] V66 [web] Al quitar el primer commit, el que seguía dice "Primer commit: no tiene padre".
-- [ ] V67 [web] Con 7 commits seguidos, al guardar veo "El grafo puede tener hasta 6 commits seguidos de izquierda a derecha. Pon alguno en paralelo o quita alguno.". Al cambiar el padre del último para que vaya en paralelo, se guarda.
-- [ ] V68 [web] Con 4 ramas, "Agregar rama" está deshabilitado. Dos ramas iguales muestran "Esta rama está repetida."; una llamada `HEAD`, "Una rama no se puede llamar HEAD."; y una sin commit, "Elige un commit.".
-- [ ] V69 [web] El selector de HEAD muestra "Sin HEAD", las ramas y los commits. Al quitar la rama a la que apunta, vuelve a "Sin HEAD".
-- [ ] V70 [web] Cada campo no deja escribir más del límite de "Datos de entrada", y los formularios muestran las ayudas de "Formulario de cada tipo".
-- [ ] V71 [web] Una actividad completa de cada tipo se ve en la vista previa como en el reproductor y se responde igual.
-- [ ] V72 [web] En la vista previa, Tab en el campo de código mete espacios, Enter en la terminal comprueba solo esa actividad, y pulsar un commit no selecciona ningún bloque.
-- [ ] V73 [web] Al cambiar la actividad en el inspector, la vista previa vuelve a empezar y el foco se queda en el campo. "Reiniciar" la devuelve al principio.
-- [ ] V74 [web] Una actividad incompleta de estos tipos, y un grafo de más de 6 columnas, muestran "Completa esta actividad para ver su vista previa.".
-- [ ] V75 [web] "Probar lección" recorre una lección con los tres tipos, y al terminar veo "Acertaste {aciertos} de 3".
-- [ ] V76 [web] Una lección con los tres tipos se guarda y, al recargar, sigue igual, con sus datos y en su orden. El código inicial y la solución conservan su sangría y sus líneas en blanco. Un campo opcional vacío no se guarda.
+- [X] V53 [web] En la paleta, Reto de código, Terminal simulada y Grafo de commits se pueden agregar y no dicen "Próximamente". Escuchar y repetir sigue deshabilitado, con "Próximamente".
+- [X] V54 [web] Al arrastrar o pulsar cada uno de los tres, queda en la secuencia con la marca "Incompleta", seleccionado y con el foco en su primer campo. (El arrastre desde la paleta se validó con eventos sintéticos; pulsar, con clics.)
+- [X] V55 [web] El bloque de cada uno muestra el inicio de la consigna y, sin ella, "Sin contenido".
+- [X] V56 [web] El reto tiene un selector con "Elige un lenguaje" y, en este orden, C, CSS, HTML, JavaScript, Python, SQL, Bash y Otro. Sin lenguaje, al guardar veo "Elige un lenguaje.". El código inicial y la solución van en letra monoespaciada.
+- [X] V57 [web] En el reto, la terminal y el grafo, sin consigna, al guardar veo "Este campo es obligatorio.". En el reto, también sin solución.
+- [X] V58 [web] La terminal empieza con un comando vacío, con la nota "Es el que ve el alumno como respuesta correcta". Con 1 comando, "Quitar" está deshabilitado; con 10, también "Agregar comando".
+- [X] V59 [web] Con `git init` y `git  init ` como comandos, al guardar el segundo muestra "Este comando está repetido."; `git init` y `Git init` sí se aceptan.
+- [X] V60 [web] Un comando escrito con espacios al inicio y al final se guarda sin ellos.
+- [X] V61 [web] El grafo empieza con dos commits sin nombre: el primero dice "Primer commit: no tiene padre" y el segundo tiene al primero como padre. "Agregar commit" suma uno con el último como padre. Con 2 commits, "Quitar" está deshabilitado; con 10, también "Agregar commit".
+- [X] V62 [web] El selector "Padre" de cada commit solo ofrece los commits de arriba, y muestra "Commit {n}" en uno sin nombre. Al cambiarle el nombre a un commit, los selectores lo muestran y siguen eligiendo el mismo.
+- [X] V63 [web] Un nombre de commit no deja escribir más de 4 caracteres. Dos commits con el mismo nombre muestran, al guardar, "Este nombre ya lo tiene otro commit.".
+- [X] V64 [web] Un segundo padre igual al primero muestra "El segundo padre tiene que ser otro commit.".
+- [X] V65 [web] Al quitar un commit que era padre, commit de una rama y respuesta, al guardar veo "Elige un padre.", "Elige un commit." y "Elige la respuesta.". Si era segundo padre, vuelve a "Ninguno", y si HEAD apuntaba a él, a "Sin HEAD".
+- [X] V66 [web] Al quitar el primer commit, el que seguía dice "Primer commit: no tiene padre".
+- [X] V67 [web] Con 7 commits seguidos, al guardar veo "El grafo puede tener hasta 6 commits seguidos de izquierda a derecha. Pon alguno en paralelo o quita alguno.". Al cambiar el padre del último para que vaya en paralelo, se guarda.
+- [X] V68 [web] Con 4 ramas, "Agregar rama" está deshabilitado. Dos ramas iguales muestran "Esta rama está repetida."; una llamada `HEAD`, "Una rama no se puede llamar HEAD."; y una sin commit, "Elige un commit.".
+- [X] V69 [web] El selector de HEAD muestra "Sin HEAD", las ramas y los commits. Al quitar la rama a la que apunta, vuelve a "Sin HEAD".
+- [X] V70 [web] Cada campo no deja escribir más del límite de "Datos de entrada", y los formularios muestran las ayudas de "Formulario de cada tipo".
+- [X] V71 [web] Una actividad completa de cada tipo se ve en la vista previa como en el reproductor y se responde igual.
+- [X] V72 [web] En la vista previa, Tab en el campo de código mete espacios, Enter en la terminal comprueba solo esa actividad, y pulsar un commit no selecciona ningún bloque.
+- [X] V73 [web] Al cambiar la actividad en el inspector, la vista previa vuelve a empezar y el foco se queda en el campo. "Reiniciar" la devuelve al principio.
+- [X] V74 [web] Una actividad incompleta de estos tipos, y un grafo de más de 6 columnas, muestran "Completa esta actividad para ver su vista previa.".
+- [X] V75 [web] "Probar lección" recorre una lección con los tres tipos, y al terminar veo "Acertaste {aciertos} de 3".
+- [X] V76 [web] Una lección con los tres tipos se guarda y, al recargar, sigue igual, con sus datos y en su orden. El código inicial y la solución conservan su sangría y sus líneas en blanco. Un campo opcional vacío no se guarda.
 - [ ] V77 [web, móvil] Armo una lección con los tres tipos, un administrador publica el curso, y un alumno la cursa de principio a fin: en la web y en el móvil se ve igual que en la vista previa y su resultado cuenta las tres preguntas.
 - [X] V78 [backend] Guardar, sin pasar por un cliente, un reto sin consigna, sin solución o con un lenguaje que no está en la lista, se rechaza y la lección queda como estaba.
 - [X] V79 [backend] Guardar una terminal sin comandos, con 11, con un comando repetido (también si solo cambian los espacios o las comillas tipográficas) o con un salto de línea en la carpeta o en un comando, se rechaza y la lección queda como estaba.
@@ -262,7 +262,7 @@ simulador, se anota en su línea, como en F11.
 - [X] V82 [backend] Guardar un texto más largo que su límite en cualquiera de los tres tipos, o un campo que el tipo no tiene, se rechaza y la lección queda como estaba.
 - [X] V83 [backend] Guardar una actividad de escuchar y repetir se rechaza y la lección queda como estaba.
 - [ ] V84 [web, móvil] En "Actividades de prueba", la lección con `<b>hola</b>` y `<script>` en los textos de una actividad de cada tipo (también un commit llamado `<b>` y una rama `<script>`) los muestra tal cual, también en la barra inferior, sin negritas y sin ejecutar nada.
-- [ ] V85 [web] Con esos textos, el formulario, el bloque y la vista previa los muestran tal cual.
+- [X] V85 [web] Con esos textos, el formulario, el bloque y la vista previa los muestran tal cual.
 - [ ] V86 [web, móvil] Las actividades de "Actividades de prueba" con los límites más altos (código y solución de 2000 caracteres, 10 comandos y salidas de 2000, y el grafo al límite) se pueden responder de principio a fin, con los textos completos.
 
 ---

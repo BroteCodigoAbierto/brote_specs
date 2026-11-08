@@ -71,6 +71,11 @@ El prototipo guardaba cada curso como una carpeta de archivos JSON. En Brote:
 - **Actividades de una lección**: una columna JSONB con la lista de
   actividades, porque hay muchos tipos con formas distintas. El backend valida
   cada actividad contra su tipo del contrato antes de guardarla.
+- **Imágenes** (F13): sus bytes van en PostgreSQL, en la tabla `imagen`, una por archivo
+  subido a un curso (decisión 0016). La API las recibe en
+  `POST /editor/cursos/:idCurso/imagenes` y las sirve en `GET /imagenes/:idImagen`, con los
+  permisos del curso: las de un borrador, solo a su autor. Las actividades y la portada las
+  apuntan por su id.
 - **Importar/exportar**: el formato JSON de un curso completo es parte del
   contrato, para poder moverlo entre instancias de Brote (y para migrar los
   cursos del prototipo, que están en `referencia/cursos-prototipo/`).

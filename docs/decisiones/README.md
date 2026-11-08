@@ -26,3 +26,4 @@ mismo y para poder explicar el proyecto.
 | [0014](0014-publicacion-con-revision.md) | Publicación con revisión manual | Aceptada |
 | [0015](0015-sistema-de-diseno-vidrio.md) | Sistema de diseño de vidrio, compartido por web y móvil | Aceptada |
 | [0016](0016-imagenes-en-postgresql.md) | Imágenes de los cursos en PostgreSQL | Aceptada |
+| [0017](0017-audios-en-postgresql.md) | Audios de los cursos en PostgreSQL | Aceptada |

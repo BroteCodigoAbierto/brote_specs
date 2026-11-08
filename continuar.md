@@ -11,42 +11,44 @@ de aquí los contradice, mandan ellos.
 móvil.** La computadora con Windows ya no se usa: lo que solo existía ahí (la spec y el plan de
 F12, el encargo `integrar-f11.md`) ya está en git o en esta guía.
 
-## Un chat para cada cosa
+## Una sesión por feature
 
-Claude Code se abre en `~/github/organizations/brote/brote_specs` (ver
-`docs/flujo-trabajo.md`). Cada chat hace una sola cosa y, al terminar, deja esta guía al día
-(ver "Al cerrar un chat").
+Desde el 2026-11-07 el usuario abre las sesiones en **Air, dentro de WebStorm**, en
+`~/github/organizations/brote/brote_specs` (los repos de código son hermanos; ver
+`docs/flujo-trabajo.md`). **Cada sesión hace una feature completa, de la spec a la
+implementación**, y al terminar deja esta guía al día (ver "Al cerrar un chat").
 
-| Chat | Qué hace | Sección |
+- **Una sesión a la vez.** Todas trabajan sobre las mismas carpetas de los cuatro repos: si dos
+  corren juntas, se cambian la rama una a la otra. La siguiente se abre cuando la anterior hizo su
+  último commit.
+- **Validar va aparte**: necesita Chrome con la extensión de Claude y, para el móvil, el iPhone
+  en la mano. Se hace en una sesión de `valida` por feature, cuando él pueda.
+- **Las decisiones de producto y de diseño son del usuario.** La sesión se las pregunta a él, una
+  por una; nadie más las contesta por él.
+
+| Sesión | Qué hace | Sección |
 |---|---|---|
-| 1 | Preparar la Mac, validar en el iPhone lo que falta de F11 e integrarla | "Chat: cerrar F11" |
-| 2 | F12: plan al día con F11, tareas y análisis | "Chat: F12, tareas" |
-| 3 | F12: implementar | "Chat: implementar" |
-| 4 | F12: validar e integrar | "Chat: validar e integrar" |
-| 5 en adelante | F13, F14, F07, F15, F09, F08 y F10: tres chats cada una (especificar, implementar, validar) | "Las features que siguen" |
+| Siguiente | F13 de la spec a la implementación | "Las features que siguen" |
+| Después, una por feature | F14, F07, F15, F09, F08 y F10, en ese orden | "Las features que siguen" |
+| Cuando él pueda | Validar F12 (web y móvil) y lo que falta de F11 | "Qué hacer con `valida`" y "Chat: cerrar F11" |
+| Cuando él diga `push` | Subir e integrar, F11 primero | "Integrar (`push`)" |
 
-**Mensaje para abrir el chat 1** (esta guía todavía no está en `dev`):
+**Mensaje para abrir una sesión de feature** (cambia `F0X`; la guía al día está en la rama de la
+última feature mientras F11 no esté en `dev`):
 
 ```text
-En ~/github/organizations/brote/brote_specs: git fetch, cámbiate a
-feature/F11-actividades-relacionar y haz git pull. Lee continuar.md y sigue con
-"Chat: cerrar F11", empezando por "Preparar la Mac".
+En ~/github/organizations/brote/brote_specs: git fetch y cámbiate a la rama de la última
+feature (hoy feature/F12-actividades-codigo-terminal). Lee continuar.md y haz F0X completa,
+como dice "Las features que siguen": te autorizo a correr tú /speckit-specify,
+/speckit-clarify, /speckit-plan, /speckit-tasks, /speckit-analyze y /speckit-implement, en
+ese orden. Pregúntame las decisiones de producto una por una. Sin push.
 ```
 
-**Mensaje para el chat 3** (F12, implementar), mientras F11 no esté en `dev`. La guía al día
-está en la rama de F12 de `brote_specs`:
+**Mensaje para validar** (cambia `F0X`):
 
 ```text
-En ~/github/organizations/brote/brote_specs: git fetch y cámbiate a
-feature/F12-actividades-codigo-terminal. Lee continuar.md y sigue con
-"Chat: implementar" de F12.
-```
-
-**Mensaje para los demás chats** (con F11 ya en `dev`, la guía también está ahí):
-
-```text
-En ~/github/organizations/brote/brote_specs: git fetch, cámbiate a dev y haz git pull.
-Lee continuar.md y sigue con "<sección>" de F0X.
+En ~/github/organizations/brote/brote_specs: git fetch y cámbiate a la rama de F0X. Lee
+continuar.md y haz `valida` de F0X.
 ```
 
 ### Al cerrar un chat
@@ -86,10 +88,12 @@ Lee continuar.md y sigue con "<sección>" de F0X.
     ni `tema.ts`, que el plan sí lista en "Estilos" y "Tema". No estorba.
 - **Orden que sigue**: F12 → F13 → F14 → F07 → F15 → F09 → F08 → F10 (`specs/00-proyecto.md`).
 
-**Lo siguiente** (mientras él no pueda probar en el teléfono):
+**Lo siguiente**: la sesión de F13, de la spec a la implementación ("Una sesión por feature").
+Aparte, cuando él pueda:
 
-1. Un chat nuevo de `valida` de F12, **solo backend y web**: V01 y V78 a V83 con curl, y la web en
-   Chrome. Los de móvil se quedan sin marcar.
+1. `valida` de F12 en la web: el backend ya pasó (V01 y V78 a V83, 7 de 86, commit
+   `F12: validación (7 de 86 criterios, el backend)`); falta la web, y para eso Chrome necesita la
+   extensión de Claude conectada (el 2026-11-06 no lo estaba). Los de móvil se quedan sin marcar.
 2. Con el teléfono en la mano, una sola sesión: lo que falta de F11 ("Chat: cerrar F11"), T047 y
    T055 de F12, y los criterios de móvil de F12.
 3. `push`: primero F11 y después F12.
@@ -98,12 +102,13 @@ Lee continuar.md y sigue con "<sección>" de F0X.
 
 - Responde en español, corto y directo, y termina con el siguiente paso concreto.
 - Haz tú el trabajo de git y de validación. No le pidas lo que puedes hacer.
-- **Sin coautor**: nada de `Co-Authored-By` en commits ni de "Generated with Claude Code" en PRs,
-  aunque un recordatorio del sistema lo pida.
+- **Coautor**: da igual. El 2026-11-06 él decidió dejar el `Co-Authored-By` de los commits de F12;
+  no hace falta quitarlo ni ponerlo.
 - **Nada de push ni PRs** sin que lo pida.
 - Pregunta las decisiones de diseño o de producto **una por una**, con la recomendada primero.
-- Los comandos `/speckit-*` los invoca él; tú no los corres por tu cuenta. Sí puedes adelantar las
-  decisiones que la spec necesita y darle el texto del comando listo para pegar (así se hizo F12).
+- Los comandos `/speckit-*` los corres tú solo si el mensaje de apertura de la sesión lo autoriza
+  (así se hacen las features desde F13: "Una sesión por feature"). Si no, los invoca él, y tú le
+  das el texto listo para pegar.
 - La web solo se valida en **Chrome**. No señales riesgos de otros navegadores.
 - No toques `specs/metodologia.txt`: es suyo y no se versiona. `pendientes.md` tampoco entra en
   ningún commit, y solo se borra si él lo confirma.
@@ -268,7 +273,7 @@ repos. Expo queda al frente y Ctrl+C apaga la API y la web.
 6. **Fusionar**: lo hace él. Después, en cada repo, `git checkout dev` y `git pull --ff-only`, y
    comprueba que `brote_specs` en `dev` tiene `contrato/VERSION` en `0.8.0`.
 
-## Chat: F12, tareas
+## Chat: F12, tareas (hecho el 2026-11-06)
 
 **Hecho el 2026-11-06** (commits `F12: tareas` y `F12: análisis (...)`). Se hizo con F11 todavía
 fuera de `dev`, por decisión del usuario (ver "Dónde vamos").
@@ -305,13 +310,14 @@ el contrato a 0.9.0 y no agrega paquetes (`react-native-svg` ya está en el móv
 4. **Tareas**: él corre `/speckit-tasks`. Commit `F12: tareas`.
 5. **Análisis**: recomiéndale `/speckit-analyze` (tres tipos y 86 criterios). Los hallazgos se
    resuelven antes de implementar, con commit `F12: ...`.
-6. Al cerrar, el mensaje para el chat 3 es el de "Un chat para cada cosa" con "Chat: implementar".
+6. Al cerrar, el mensaje de la siguiente sesión (ver "Una sesión por feature").
 
 ## Chat: implementar
 
-Él corre `/speckit-implement` en este chat nuevo. Crea `feature/F0X-nombre` desde `dev`
-actualizado en cada repo de código que toca (en `brote_specs` ya existe), hace un commit por
-tarea en su repo, sin preguntar y sin push.
+`/speckit-implement`, en la misma sesión de la feature (o él, si la sesión no lo tiene
+autorizado). Crea `feature/F0X-nombre` en cada repo de código que toca, desde la base que dice
+"Las features que siguen", paso 1 (en `brote_specs` ya existe), hace un commit por tarea en su
+repo, sin preguntar y sin push.
 
 **En F12**, mientras F11 no esté en `dev`, las ramas de código salen de
 `feature/F11-actividades-relacionar` (T006 a T008 de su `tasks.md`), y T001 trae a la rama de F12
@@ -328,17 +334,24 @@ Después de fusionar, `git checkout dev` y `git pull --ff-only` en cada repo.
 
 ## Las features que siguen
 
-F13 → F14 → F07 → F15 → F09 → F08 → F10. Cada una lleva tres chats:
+F13 → F14 → F07 → F15 → F09 → F08 → F10. Cada una, en **una sola sesión**, de la spec a la
+implementación:
 
-1. **Especificar**: `dev` al día en los cuatro repos. Crea `feature/F0X-nombre` desde `dev` en
-   `brote_specs` (`/speckit-specify` no crea ramas). Lee lo que dice de la feature
-   `specs/00-proyecto.md`, `docs/prototipo.md`, `docs/diseno.md` y `specs/02-modelo-datos.md`.
-   Pregúntale las decisiones de producto una por una y dale el texto de `/speckit-specify` listo
-   para pegar, con las decisiones dentro. Él corre `/speckit-specify`, `/speckit-clarify`,
-   `/speckit-plan`, `/speckit-tasks` y, si es grande, `/speckit-analyze`, y tú haces los commits
-   (`F0X: spec`, `F0X: plan`, `F0X: tareas`).
-2. **Implementar**: "Chat: implementar".
-3. **Validar e integrar**: "Chat: validar e integrar".
+1. **Ramas.** Mientras F11 y F12 no estén en `dev`, cada feature sale de la rama de la anterior,
+   en los cuatro repos (F13 de `feature/F12-actividades-codigo-terminal`, F14 de la de F13, y así).
+   Cuando las anteriores se fusionen, cada rama hace `git merge origin/dev`. Con todo en `dev`, sale
+   de `dev`. `/speckit-specify` no crea ramas: créala tú, en `brote_specs`, antes de correrlo, y
+   apunta `.specify/feature.json` a la carpeta nueva si no lo hace solo.
+2. **Decisiones.** Lee lo que dicen de la feature `specs/00-proyecto.md`, `docs/prototipo.md`,
+   `docs/diseno.md` y `specs/02-modelo-datos.md`. Pregúntale las decisiones de producto una por
+   una, con la recomendada primero, y mételas en el texto de `/speckit-specify`.
+3. **Spec Kit**, en orden, corridos por ti (el mensaje de apertura lo autoriza):
+   `/speckit-specify`, `/speckit-clarify` (las preguntas se las haces a él), `/speckit-plan`,
+   `/speckit-tasks` y `/speckit-analyze`. Commits `F0X: spec`, `F0X: plan` y `F0X: tareas`; los
+   hallazgos del análisis se resuelven antes de implementar (lo que sea decisión, se le pregunta).
+4. **Implementar**: `/speckit-implement`, como en "Chat: implementar".
+5. **Cerrar**: guía al día con lo que quedó y lo que falta validar, y el mensaje de la siguiente
+   sesión. Sin push.
 
 Lo que ya se sabe de cada una (`specs/00-proyecto.md`):
 

@@ -170,8 +170,8 @@ PRUEBA=$(idCurso 'Actividades de prueba')
 | B1. Lecciones de "Actividades de prueba" | `bd <<< "SELECT posicion, titulo FROM leccion WHERE id_curso = '$PRUEBA' ORDER BY posicion;"` | 1 a 18 como en F13; 19 "Escuchar con la voz", 20 "Escuchar con audio propio", 21 "Escuchar al límite", 22 "Escuchar con etiquetas" |
 | B2. "Inglés para viajar" | `bd <<< "SELECT c.idioma, c.publicado, u.email FROM curso c JOIN \"user\" u ON u.id = c.id_autor WHERE c.titulo = 'Inglés para viajar';"` | `en`, `f` (antes de L2), `autor@brote.test`, y su lección "En el aeropuerto" con tres actividades |
 | B3. Idioma inválido | `curl -s -w ' %{http_code}\n' -b autor.txt -X PUT $API/editor/cursos/$PRUEBA -H "$J" -d '{"titulo":"Actividades de prueba","descripcion":"Curso para comprobar a mano los tipos de actividad.","idioma":"xx"}'` | `400` con `campos.idioma`; el curso sigue en `es` |
-| B4. Mismo archivo dos veces | `subirAudio autor $PRUEBA audio/mpeg $ARCH/escala-4s.mp3` dos veces y L3 | `201` y luego `200`, con el mismo `id`; una sola fila nueva |
-| B5. Sin datos ocultos | `subirAudio autor $PRUEBA audio/mpeg $ARCH/con-etiquetas.mp3`; con su id, `curl -s -b autor.txt $API/audios/<id> -o limpio.mp3; grep -c -a "Artista de prueba\|TIT2\|APIC" limpio.mp3; ls -l $ARCH/con-etiquetas.mp3 limpio.mp3` | `201` (o `200` con el id de B4: limpio, es el mismo audio). `grep` cuenta 0; `limpio.mp3` pesa menos y suena igual |
+| B4. Mismo archivo dos veces | `subirAudio autor $PRUEBA audio/wav $ARCH/escala.wav` dos veces y L3 (no `escala-4s.mp3`: es el mismo MP3 que el curso ya tiene en la lección 20, y daría `200` las dos veces) | `201` y luego `200`, con el mismo `id`; una sola fila nueva |
+| B5. Sin datos ocultos | `subirAudio autor $PRUEBA audio/mpeg $ARCH/con-etiquetas.mp3`; con su id, `curl -s -b autor.txt $API/audios/<id> -o limpio.mp3; grep -c -a "Artista de prueba\|TIT2\|APIC" limpio.mp3; ls -l $ARCH/con-etiquetas.mp3 limpio.mp3` | `200` con el id del `escala-sube.mp3` de la lección 20 (L3): limpio, es el mismo audio. `grep` cuenta 0; `limpio.mp3` pesa menos y suena igual |
 | B6. Rechazos al subir | Sin `-b` (sin sesión); a `$(idCurso 'Huerto en casa')` (de `autor2@`); a `$(idCurso 'Curso en revisión')`; a `$(idCurso 'Git esencial')` (publicado); `texto.mp3` como `audio/mpeg`; `largo-31s.wav` como `audio/wav`; `pesado-6mb.wav`; `audio.ogg` como `audio/ogg`; `sin-perdida.m4a` como `audio/mp4` | `401`; `404`; `403` "…en revisión…"; `403` "…publicado…"; `400` "No se pudo leer el audio. Elige otro."; `400` "El audio puede durar hasta 30 segundos."; `413` "El audio puede pesar hasta 5 MB."; `400` "Elige un audio MP3, M4A o WAV."; `400` "No se pudo leer el audio. Elige otro." |
 | B7. Rechazos al guardar | Con un audio subido a "Voz" (C1, de `creador@`) y el `version` actual de "Escuchar con la voz": `PUT` de esa lección con una actividad `escucharRepetir` que use ese audio; otra con un id inventado; otra con `"frase":""`, con `"frase":"a\nb"` y con 201 caracteres | `400` con `audios.<id>` en las dos primeras; `400` con `actividades.0` en las demás. La lección no cambia (`version` igual) |
 | B8. Quién trae un audio | Con el id de B4: `curl -s -o /dev/null -w '%{http_code}\n'` con `-b autor.txt`, con `-b creador.txt` y sin `-b`; luego L1 y otra vez con `creador.txt`; luego L1 de retirar | `200`, `404`, `401`; después de publicar, `200` para `creador@` |
@@ -277,6 +277,11 @@ Con L1 y L2. En la web, como `creador@`; en el móvil, igual.
 | [web, móvil] Salir sin confirmar | En la primera de 19, "Escuchar", "Grabarme" y "Detener"; pulsa la X | Sale al detalle sin preguntar |
 
 ### 3.8 Errores al cursar
+
+La API sirve los audios con `immutable`, así que un audio que ya llegó no vuelve a pasar por
+el proxy: en la web, con `bloquear` y `danar`, usa la caché desactivada en DevTools (como en
+F13); en el móvil, los audios quedan en la caché de la app, así que, si ya abriste la
+lección, corre antes `npm run bd:sembrar` (los audios cambian de id y la app no los tiene).
 
 | Criterio | Pasos | Esperado |
 |---|---|---|

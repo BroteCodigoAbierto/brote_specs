@@ -70,6 +70,12 @@ va lo que el audio cambia.
 - **Duración**: se compara redondeada a décimas (`Math.round(duracion / 100) * 100 <=
   LIMITES_AUDIOS.duracionMax`): un audio de 30.04 s, por el relleno que agrega el
   codificador, cuenta como 30. La web usa la misma regla.
+  - **Visto al implementar**: la duración de un MP3 cuenta también su cuadro `Info` y la de
+    un M4A, el relleno de AAC del inicio y del final que guarda `mdhd` (el MP3 de 4.0 s de
+    los cursos de prueba mide 4.1 s; el M4A de 4.0 s a 22 050 Hz, 4.13 s). Cabe de sobra
+    en los audios de prueba, pero un M4A de 30.0 s justos puede medir 30.1 s y rechazarse
+    en el servidor aunque la web lo deje pasar (el navegador descuenta ese relleno con
+    `iTunSMPB`, que va en `udta` y se quita al limpiar).
 - **Seguridad**: el audio limpio se guarda y se sirve sin interpretarlo, con `nosniff` y
   la CSP de las imágenes.
 
@@ -200,7 +206,10 @@ va lo que el audio cambia.
     sale del almacén, para que el siguiente "Escuchar" lo traiga otra vez (un audio dañado
     en el camino, spec "La frase no logra sonar").
   - La vista previa del editor da su propio almacén, así que la actividad funciona igual
-    dentro y fuera del reproductor.
+    dentro y fuera del reproductor. El idioma se lo da el `ContextoIdioma` del lienzo, no una
+    prop: a la vista previa la dibuja el inspector, que no cambia.
+  - Un audio que llegó dañado también queda en la caché del navegador (`immutable`), así que
+    el almacén lo vuelve a traer con `cache: "reload"`.
 - **"Detener"**: `speechSynthesis.cancel()` o `pause()` y volver al inicio.
 
 ## 10. Escuchar en el móvil
@@ -226,6 +235,11 @@ va lo que el audio cambia.
   - `createAudioPlayer({ uri })`, `setPlaybackRate(1 | 0.6, "high")` y `shouldCorrectPitch
     = true`; `playing` cuenta como que sonó, `didJustFinish` como que terminó y `error`
     como que no logró sonar (y borra el archivo, como la web saca el audio del almacén).
+  - **Visto al implementar**: `expo-audio` 58 no tiene un evento `error`: el audio que no se
+    puede abrir llega en `playbackStatusUpdate` con `playbackState: "failed"` y un campo
+    `error` (iOS). Se toma eso, y además no empezar a sonar en 3 s, como con la voz.
+  - Como los audios quedan en la caché de la app, el modo `danar` del proxy solo se nota
+    con un audio que la app no tiene todavía (quickstart, sección 3.8).
 - **Segundo plano**: al pasar la app a segundo plano (`AppState`), la actividad detiene la
   voz, el audio y la grabación.
 - **Descartada**: reproducir directo de la API con `{ uri, headers }` (`expo-audio` lo

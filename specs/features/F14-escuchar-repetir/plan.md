@@ -210,8 +210,8 @@ casilla en la sección 4, se agrega como `CampoCasilla` (`id`, `etiqueta`, `ayud
 - **Editor** (`src/editor/`): `archivos.ts`, nuevo, con lo genérico de `imagenes.ts`
   (research.md, punto 15); `audios.ts`, nuevo (`ValorAudio`, `valorAudioVacio`,
   `aValorAudio`, `errorAudio`); `estadoLeccion.ts` con `archivoSubido`, `archivoNoSubido` y
-  `marcarArchivosPerdidos`; `VistaPrevia/VistaPrevia.tsx` con prop `idioma` y sus
-  proveedores; `ProbarLeccion/ProbarLeccion.tsx` pasa `idioma`.
+  `marcarArchivosPerdidos`; `VistaPrevia/VistaPrevia.tsx` con su propio
+  `ContextoAudios` (el idioma, del `ContextoIdioma` del lienzo); `ProbarLeccion/ProbarLeccion.tsx` pasa `idioma`.
 - **Hooks**: `useEditorLeccion.ts` (`subirAudio`, el peso con los dos, `audios.<id>` de un
   `400`), y nuevos `usePrecargarAudios.ts`, `useFrase.ts` y `useGrabacion.ts` (research.md,
   puntos 9, 12 y 14).

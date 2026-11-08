@@ -215,7 +215,7 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | `CampoTexto` | `etiqueta`, `error`, `ayuda`, `icono` | Fondo `vidrioSuave`; foco: borde `primario` + halo de 3 px `primarioSuave`; error: borde y fondo de error, mensaje con icono debajo |
 | `CampoContrasena` | igual que `CampoTexto` | Botón de ojo de 44 px dentro del campo |
 | `Buscador` | `valor`, `buscando` | Icono de lupa, botón para limpiar, indicador a la derecha mientras busca |
-| `Aviso` | `tono` (`info`, `exito`, `error`, `calido`), `titulo` | Banda con icono para mensajes generales de formulario y estados |
+| `Aviso` | `tono` (`info`, `exito`, `error`, `calido`), `titulo`, `accion` (móvil) | Banda con icono para mensajes generales de formulario y estados. El texto respeta los saltos de línea en los dos clientes (F14: el aviso de sin permiso lleva su segunda línea). `accion` (F14, en el móvil): lo que va debajo del texto, como el `Boton` `secundario` chico "Abrir ajustes" del aviso de sin permiso |
 | `IndicadorCarga` | `etiqueta` | Anillo índigo; nunca un texto "Cargando…" solo |
 | `EstadoVacio` | `icono`, `titulo`, `texto`, `accion` | Icono en círculo de vidrio, título y texto centrados |
 | `ErrorCarga` | `mensaje`, `alReintentar` | `EstadoVacio` con icono de nube tachada y botón "Reintentar" |
@@ -249,6 +249,10 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | `VisorImagen` | `imagen`, `abierto`, `alCerrar` | La imagen a pantalla completa (F13), sobre `fondoVisor`, `contener` con margen espacio 5, y "Cerrar" (`X`) arriba a la derecha con el aspecto de `BotonPausa`. Un GIF lleva su `BotonPausa`, en el estado que tenía. Se anuncia como "Imagen ampliada". Web: `<dialog>` modal; Esc y pulsar el fondo lo cierran y el foco vuelve a la imagen. Móvil: `Modal` con pellizcar (de 1 a 4 veces) y arrastrar; el botón de volver de Android lo cierra |
 | `MosaicoImagen` | `imagen`, `quieta` | Cuadro con fondo `vidrioSuave` y `ImagenCurso` `contener` con relleno espacio 2 (F13). Llena el cuadro que le dé quien lo usa: lo que sobra se ve con su fondo, también detrás de un PNG transparente |
 | `MiniaturaImagen` | `imagen` | `miniatura` (48 px), radio `chico`, fondo `vidrioOpaco`, `ImagenCurso` `contener` `quieta` (F13). Decorativa: el texto alternativo va a su lado |
+| `BotonEscuchar` | `velocidad` (`normal`, `lenta`), `sonando`, `cargando`, `deshabilitado`, `alPulsar`, `etiqueta`, `tamano` | Escuchar y repetir (F14). `Boton` `secundario` con `Volume2` "Escuchar" o `Snail` "Más lento". Sonando: `Square` y "Detener". Cargando: un `IndicadorCarga` chico en lugar del icono, sin poder pulsarse. Nombre: "Escuchar la frase", "Escuchar la frase más lento" o "Detener". Con `etiqueta` (para "Escuchar mi grabación" y el audio del editor), ese texto y ese nombre, con `Volume2`. `tamano` como en `Boton` |
+| `BotonGrabar` | `estado` (`listo`, `grabando`, `conGrabacion`), `segundos`, `deshabilitado`, `alPulsar` | F14. `Boton` `secundario` con `Mic` "Grabarme" (o "Volver a grabarme" con grabación); grabando, `Square` "Detener" y al lado "Grabando… 0:05 de 0:30" en `nota` `textoSuave`, con un punto de 8 px en `error` que late (`lento`); con "reducir movimiento", quieto. Nombre: "Grabarme", "Detener la grabación" o "Volver a grabarme". "Grabando" (al empezar) y "Grabación lista" (al terminar) se anuncian (`aria-live="polite"` / `accessibilityLiveRegion`, y en iOS `announceForAccessibility`) |
+| `FraseEscuchar` | `frase`, `idioma`, `oculta` | La frase de escuchar y repetir (F14), en `titulo2`, centrada, partida en renglones sin cortarse (`overflow-wrap: anywhere` en la web). Marcada con `ETIQUETA_VOZ[idioma]` (web `lang`, iOS `accessibilityLanguage`) para que el lector de pantalla la lea con su voz de ese idioma. Oculta: "El texto aparece al comprobar." en `cuerpo` `textoSuave`, y la frase no se dibuja (tampoco está en el árbol de accesibilidad). Siempre como texto |
+| `EstadoAudio` | `estado` (`noCargo`) | El audio que no cargó (F14): `VolumeX` de 20 px en `textoTenue` y "No se pudo cargar el audio" en `nota` `textoSuave`, en una fila, debajo de los botones. Se anuncia (`role="status"` / `accessibilityLiveRegion="polite"`) |
 
 ### Editor (solo web)
 
@@ -261,13 +265,13 @@ los dos clientes".
 |---|---|---|
 | `CampoTexto` (cambia) | `maxLongitud`, `deshabilitado`, `invalido`, `codigo` | `invalido` (F11): marca el campo como inválido sin mensaje propio, cuando el error se muestra en otro lado. `codigo` (F12): en `--fuente-codigo` y sin corrector, como `CampoArea`. Solo en la web |
 | `CampoArea` | `id`, `etiqueta`, `valor`, `alCambiar`, `error`, `ayuda`, `maxLongitud`, `filas`, `codigo`, `deshabilitado` | `CampoTexto` de varias líneas, con el mismo aspecto. Con `codigo`, en `--fuente-codigo`. Expone su `ref`, para escribir donde está el cursor |
-| `CampoSelector` | `id`, `etiqueta`, `valor`, `opciones`, `textoVacio`, `alCambiar`, `error`, `ayuda`, `invalido`, `deshabilitado` | `<select>` nativo con el aspecto de `CampoTexto` (F11). `ayuda` e `invalido` (F12), como en `CampoTexto`: la ayuda va debajo, y `invalido` lo marca sin mensaje propio (el error de columnas del grafo va en un `Aviso`) |
+| `CampoSelector` | `id`, `etiqueta`, `valor`, `opciones`, `textoVacio`, `alCambiar`, `error`, `ayuda`, `invalido`, `deshabilitado` | `<select>` nativo con el aspecto de `CampoTexto` (F11). `ayuda` e `invalido` (F12), como en `CampoTexto`: la ayuda va debajo, y `invalido` lo marca sin mensaje propio (el error de columnas del grafo va en un `Aviso`). `textoVacio` es opcional (F14): sin él no hay opción vacía, como en el "Idioma" del curso, que siempre tiene uno |
 | `CampoConEspacios` | `id`, `valor`, `alCambiar`, `ayuda`, `error`, `maxLongitud`, `deshabilitado` | El campo de texto en letra de código con "Agregar espacio". Lo usan completar espacios y banco de palabras (F11) |
 | `ListaEditable` | `filas`, `dibujarFila`, `alAgregar`, `alQuitar`, `textoAgregar`, `minimo`, `maximo`, `deshabilitada` | Filas con "Quitar" y un `Boton` `secundario` chico con `Plus` para agregar. La usan los puntos clave, las opciones y las respuestas aceptadas |
 | `BotonesOrden` | `alSubir`, `alBajar`, `esPrimero`, `esUltimo`, `etiqueta` | "Subir" (`ChevronUp`) y "Bajar" (`ChevronDown`), de 44 px. En los extremos usan `aria-disabled`, no `disabled`, para no perder el foco |
 | `TarjetaCursoAutor` | `curso` | `Superficie` con portada, título, `InsigniaEstadoCurso`, `Insignia` "Revisión no aprobada" si la hay, `Insignia` de lecciones y el texto de la acción: "Editar" en borrador y "Administrar" en los demás. Toda la tarjeta es un enlace al mapa |
 | `InsigniaEstadoCurso` | `estado` | La `Insignia` de "Estado de un curso" (sección 5). La usan `TarjetaCursoAutor`, los datos del mapa y la pantalla de un curso que no se edita |
-| `Aviso` (cambia) | `titulo`, `icono` | `titulo` en seminegrita sobre el texto. `icono` reemplaza al del tono. El texto respeta los saltos de línea. Solo en la web |
+| `Aviso` (cambia) | `titulo`, `icono` | `titulo` en seminegrita sobre el texto. `icono` reemplaza al del tono. Solo en la web |
 | `PaletaActividades` | `alAgregar`, `deshabilitada`, `arrastre` | Grupos en `seccion`, tipos como botones con icono. Sin registro: texto en `textoSuave`, icono en `textoTenue` e `Insignia` `neutro` "Próximamente" |
 | `BloqueActividad` | `numero`, `etiqueta`, `icono`, `resumen`, `incompleta`, `seleccionado`, `alSeleccionar`, `alEliminar`, orden | `Superficie` con asa `GripVertical` y un `<button>` con número, tipo y resumen en una línea, hermano de los botones de orden y de "Eliminar". Seleccionado: borde `primario` y fondo `primarioSuave`. Incompleta: `Insignia` `acento` con `CircleAlert` |
 | `VistaPrevia` | `actividad`, `idBloque`, `mensaje` | `Superficie` `suave` con "VISTA PREVIA" en `seccion` y "Reiniciar" (`RotateCcw`). Monta la actividad en `AmbitoActividad` |
@@ -276,7 +280,9 @@ los dos clientes".
 | `BarraRespuesta` (cambia) | — | Dentro de un `AmbitoActividad` va en línea, no fija. Solo en la web |
 | `CampoImagen` | `id`, `etiqueta`, `valor`, `alCambiar`, `alElegirArchivo`, `error`, `soloFotos`, `conTextoAlternativo`, `deshabilitado` | El campo de una imagen (F13). Vacío: `Boton` `secundario` chico "Elegir imagen" con `ImagePlus` y la nota de formatos en `nota` `textoSuave`. Subiendo: un `IndicadorCarga` chico y "Subiendo imagen…". Con imagen: `ImagenCurso` de 96 px, "{ancho} × {alto} px · {peso}" en `nota`, "Cambiar" y "Quitar" (`fantasma` chico) y, con `conTextoAlternativo`, un `CampoTexto` "Texto alternativo" con su ayuda. El error, debajo, como en `CampoTexto`. El `<input type="file">` acepta `image/*` y está oculto |
 | `VistaPortada` | `idCurso`, `titulo`, `portada` | La portada en el mapa (F13): dos `PortadaCurso` lado a lado, en tarjeta (16:9) y en detalle (cuadrada) |
-| `PesoImagenes` | `peso`, `maximo`, `texto` | "{texto}: {x} de {máximo} MB" en `nota` `textoSuave` (F13); si pasa del máximo, en `error` con `CircleAlert` |
+| `PesoArchivos` | `peso`, `maximo`, `texto` | "{texto}: {x} de {máximo} MB" en `nota` `textoSuave` (F13, antes `PesoImagenes`); si pasa del máximo, en `error` con `CircleAlert`. Cuenta imágenes y audios (F14): "Archivos de esta lección" en el lienzo y "Archivos del curso" en el mapa |
+| `CampoAudio` | `id`, `etiqueta`, `ayuda`, `valor`, `alCambiar`, `alElegirArchivo`, `error`, `mostrarErrores`, `deshabilitado` | El audio de la frase de escuchar y repetir (F14), como `CampoImagen`. Vacío: `Boton` `secundario` chico "Elegir audio" con `FileAudio` y la nota "MP3, M4A o WAV de hasta 30 segundos y 5 MB." en `nota` `textoSuave`. Subiendo: un `IndicadorCarga` chico y "Subiendo audio…". Con audio: un `BotonEscuchar` chico ("Escuchar", o "Detener" mientras suena), "0:04 · 86 KB" en `nota` y "Cambiar" y "Quitar" (`fantasma` chico; "Quitar" no pide confirmación). La ayuda va debajo, como en `CampoTexto`; el error, debajo de todo, con icono. El `<input type="file">` acepta `audio/*,.mp3,.m4a,.wav` y está oculto |
+| `CampoCasilla` | `id`, `etiqueta`, `ayuda`, `valor`, `alCambiar`, `deshabilitado` | Una casilla (F14): `<input type="checkbox">` nativo de 20 px con `accent-color: primario`, la etiqueta a su derecha en `cuerpo`, la ayuda debajo como en `CampoTexto` (enlazada con `aria-describedby`) y el anillo de foco de la sección 7. Toda la fila mide al menos 44 px. "Mostrar el texto desde el inicio" |
 
 **Iconos**: [Lucide](https://lucide.dev), `lucide-react` en la web y
 `lucide-react-native` en el móvil. Trazo 2, tamaño 20 (16 en insignias, 24 en
@@ -435,6 +441,17 @@ son la base para todas las actividades; cada spec de actividad las concreta.
   - **Visor**: tocar una imagen de la teoría o de la pregunta abre `VisorImagen`; los
     mosaicos no se amplían, porque tocarlos los elige. Abrirlo no cuenta como haber hecho
     algo.
+- **Escuchar y repetir** (F14), de arriba abajo: la consigna (`CONSIGNA_ESCUCHAR_REPETIR`)
+  en `titulo2`; `FraseEscuchar`; una fila con los dos `BotonEscuchar` ("Escuchar" y "Más
+  lento"); `EstadoAudio`, si el audio no cargó, o el `Aviso` `info` de sin voz, de no logró
+  sonar, de sin permiso (con su segunda línea y, en el móvil, "Abrir ajustes" como
+  `accion`) o de sin micrófono; y una fila con `BotonGrabar` y, con grabación, "Escuchar mi
+  grabación" (`BotonEscuchar` con `etiqueta`). Al comprobar, la autoevaluación como en la
+  pregunta abierta: "¿Lo dijiste bien?" con "Lo dije bien" y "No me salió" (`Boton`
+  `secundario`). La barra inferior, como en el reto de código: "Comprobar" deshabilitado
+  hasta que la frase suena (o se sabe que no se puede oír), y luego "¡Correcto!" o "A
+  repasar" con "Continuar". Escuchar y grabarse no cuentan como haber hecho algo; comprobar,
+  sí.
 - **Arrastrar** (F11): la copia que sigue al dedo lleva `sombraElevada`. El origen va
   `atenuada` y el destino, `resaltada`. Al soltar fuera no hay animación de regreso,
   con o sin "reducir movimiento": la copia desaparece y el elemento ya está en su
@@ -469,6 +486,10 @@ son la base para todas las actividades; cada spec de actividad las concreta.
   Con imágenes (F13), Tab llega a cada `ImagenAmpliable` y a cada `BotonPausa`, y Enter o
   la barra espaciadora los pulsan; en la opción múltiple, las teclas 1 a 9 siguen eligiendo
   los mosaicos según su lugar en pantalla.
+  En escuchar y repetir (F14), las teclas 1 a 9 no hacen nada; Tab recorre sus botones en
+  orden ("Escuchar", "Más lento", "Grabarme", "Escuchar mi grabación") y Enter o la barra
+  espaciadora los pulsan. Al comprobar, el foco pasa a "Lo dije bien" y, al autoevaluarse,
+  a "Continuar", como en el reto de código.
 - **Vista previa** (web, F05): la actividad real en un recuadro, dentro de
   `AmbitoActividad`. No toma el foco al actualizarse, sus teclas solo actúan con
   el foco dentro y su barra de respuesta va en línea.
@@ -481,7 +502,9 @@ son la base para todas las actividades; cada spec de actividad las concreta.
   `ArrowDownUp`, Banco de palabras `WholeWord`, Reto de código `Code`, Terminal
   simulada `SquareTerminal`, Grafo de commits `GitGraph`, Escuchar y repetir
   `Mic`. Imágenes (F13): `ImageOff` (no cargó), `Pause` y `Play` (GIF), `X` (cerrar el
-  visor) e `ImagePlus` (elegir imagen).
+  visor) e `ImagePlus` (elegir imagen). Escuchar y repetir (F14): `Volume2` (escuchar),
+  `Snail` (más lento), `Square` (detener), `Mic` (grabar), `VolumeX` (el audio no cargó) y
+  `FileAudio` (elegir audio).
 
 ## 7. Accesibilidad (checklist de cada pantalla)
 

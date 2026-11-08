@@ -62,7 +62,9 @@ ls $ARCH
 |---|---|
 | `foto-4000x3000.jpg` | JPEG de 4000 × 3000 px, de unos 2 MB |
 | `foto-800x600.jpg` | JPEG de 800 × 600 px |
-| `transparente.png` | PNG de 600 × 600 px con un círculo sobre fondo transparente |
+| `transparente.png` | PNG de 600 × 600 px con un círculo sobre fondo transparente, sin bloques de texto |
+| `figura.png` | PNG de 400 × 400 px con un cuadrado, sin bloques de texto (para curl) |
+| `animado.png` | PNG con un bloque `acTL`: un PNG animado |
 | `de-lado.jpg` | JPEG de 800 × 600 px con una flecha que apunta a la izquierda y la orientación EXIF 6: bien enderezado, mide 600 × 800 y la flecha apunta hacia arriba |
 | `con-ubicacion.jpg` | JPEG con ubicación (19.43° N, 99.13° O) y el modelo de cámara "Brote Cam" en su EXIF |
 | `gif-2mb.gif` | GIF animado de unos 2 MB |
@@ -162,6 +164,8 @@ curl -s -w ' %{http_code}\n' -X POST $API/editor/cursos/$IMAGENES/imagenes -H 'C
 subir creador2 $IMAGENES image/png $FIG/transparente.png       # 404: curso ajeno
 subir creador $IMAGENES image/png $FIG/texto.png               # 400 "No se pudo leer la imagen. Elige otra."
 subir creador $IMAGENES image/jpeg $FIG/foto-4000x3000.jpg     # 400 "La imagen puede medir hasta 1600 px por lado."
+subir creador $IMAGENES image/jpeg $FIG/con-ubicacion.jpg      # 400 "La imagen trae datos ocultos o una animación. Súbela desde el editor de Brote."
+subir creador $IMAGENES image/png $FIG/animado.png             # 400, el mismo mensaje
 subir creador $IMAGENES image/gif $FIG/gif-6mb.gif             # 400 "Un GIF puede pesar hasta 5 MB."
 subir creador $IMAGENES image/jpeg $FIG/grande-11mb.jpg        # 413 "La imagen puede pesar hasta 10 MB."
 subir creador $IMAGENES text/plain $FIG/texto.png              # 400 "Elige una imagen JPEG, PNG, WebP o GIF."
@@ -202,7 +206,7 @@ curl -s -w ' %{http_code}\n' -b creador.txt -X PUT $API/editor/cursos/$IMAGENES 
 
 # B7. Borrar a un día: una imagen sin usar, con subida_en de hace dos días, se va al subir otra
 bd <<< "UPDATE imagen SET subida_en = now() - interval '2 days' WHERE id = '$MIA';"
-subir creador $IMAGENES image/jpeg $FIG/foto-800x600.jpg
+subir creador $IMAGENES image/png $FIG/figura.png
 bd <<< "SELECT count(*) FROM imagen WHERE id = '$MIA';"          # 0
 
 # B8. Eliminar una lección y el curso, en un curso aparte con una imagen en cada lección
@@ -210,7 +214,7 @@ curl -s -o /dev/null -b creador.txt -X POST $API/editor/cursos -H "$J" -d '{"tit
 BORRAR=$(idCurso 'Borrar')
 for t in Una Dos; do curl -s -o /dev/null -b creador.txt -X POST $API/editor/cursos/$BORRAR/lecciones -H "$J" -d "{\"titulo\":\"$t\"}"; done
 subir creador $BORRAR image/png $FIG/transparente.png
-subir creador $BORRAR image/jpeg $FIG/foto-800x600.jpg
+subir creador $BORRAR image/png $FIG/figura.png
 set -- $(psql -X -q -t -A postgresql://brote:brote@localhost:5432/brote <<< "SELECT string_agg(id, ' ' ORDER BY subida_en) FROM imagen WHERE id_curso = '$BORRAR';")
 teoria() { echo "{\"tipo\":\"teoria\",\"texto\":\"[imagen]\",\"imagenes\":[$(img $1)]}"; }
 curl -s -o /dev/null -b creador.txt -X PUT $API/editor/cursos/$BORRAR/lecciones/$(idLeccion 'Borrar' 1) -H "$J" -d "{\"titulo\":\"Una\",\"version\":1,\"actividades\":[$(teoria $1)]}"

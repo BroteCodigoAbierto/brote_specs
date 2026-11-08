@@ -72,6 +72,8 @@ export const MENSAJES_IMAGENES = {
   gifPesado: "Un GIF puede pesar hasta 5 MB.",
   imagenIlegible: "No se pudo leer la imagen. Elige otra.",
   imagenGrande: "La imagen puede medir hasta 1600 px por lado.", // solo sin la web
+  // solo sin la web: el editor le quita los datos ocultos y deja quieta una animación
+  imagenSinPreparar: "La imagen trae datos ocultos o una animación. Súbela desde el editor de Brote.",
   cursoLleno: "Este curso ya tiene 200 MB de imágenes. Quita alguna y guarda para hacer espacio.",
   leccionPesada: "Las imágenes de esta lección pesan más de 25 MB. Quita alguna.",
   subidaFallida: "No se pudo subir la imagen. Inténtalo de nuevo.",

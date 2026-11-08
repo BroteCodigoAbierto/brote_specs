@@ -77,7 +77,7 @@ Cada imagen que usa una actividad es una `ImagenActividad`: la `Imagen` (`id`, `
 | Regla | Web (al editar) | Servidor |
 |---|---|---|
 | Formato por tipo o extensión, peso, que se pueda abrir | `prepararImagen` | — |
-| Formato real, que se pueda leer, peso, 1600 px por lado (sin GIF) | — | `leerImagen`, al subir |
+| Formato real, que se pueda leer, peso, 1600 px por lado y sin datos ocultos ni animación (sin GIF) | — | `leerImagen` y `comprobarImagenSubida`, al subir |
 | Espacio del curso (200 MB) | — | `subirImagen`, con el curso bloqueado |
 | Forma de cada imagen, marcas, misma forma por grupo, repetidas, texto alternativo | `validar` de cada `editorX.ts` | `validarActividades` |
 | Cada imagen existe y es del curso; peso de la lección (25 MB) | el peso, `pesoLeccion` | `guardarLeccion` |

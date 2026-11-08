@@ -359,7 +359,9 @@ como un alumno.
 - **Fotos**: una foto se guarda derecha, como se ve en el visor de fotos de la
   computadora aunque se haya tomado de lado, y sin sus datos ocultos (como el lugar
   donde se tomó o el modelo de la cámara). Solo los GIF se mueven: un PNG o un WebP
-  animado se guarda quieto. El nombre del archivo no se guarda ni se muestra.
+  animado se guarda quieto. El nombre del archivo no se guarda ni se muestra. Como el
+  editor prepara así cada foto, el servidor rechaza un JPEG, PNG o WebP que todavía traiga
+  esos datos o una animación: solo llega así si alguien sube la imagen sin el editor.
 - **Espacio del curso**:
   - Cuenta las imágenes que el curso usa (en sus lecciones guardadas y en su portada) y
     las que se subieron y todavía no se guardan. Una imagen que se usa en varios lugares
@@ -385,8 +387,8 @@ como un alumno.
   subieron a ese mismo curso. Para usar la misma imagen en otro curso, se sube otra vez.
 - **El servidor comprueba todo**, al subir y cada vez que se guarda una lección o los
   datos del curso: el formato real del archivo (no su nombre), su peso, que un JPEG, PNG
-  o WebP no pase de 1600 px por lado, el espacio del curso, el peso de la lección, quién
-  sube, que cada imagen
+  o WebP no pase de 1600 px por lado ni traiga datos ocultos o una animación, el espacio
+  del curso, el peso de la lección, quién sube, que cada imagen
   usada exista y sea de ese curso, que la portada no sea GIF, que haya una imagen por
   marca y las reglas de arriba. Si algo no cumple, rechaza el cambio y no guarda nada,
   como en F05.
@@ -718,7 +720,7 @@ generada completa.
   cuenta una vez.
 - [ ] [backend] El servidor rechaza subir sin sesión, a un curso ajeno, en revisión o
   publicado, un archivo que no es imagen aunque se llame `.png`, un JPEG de más de 1600
-  px por lado y un GIF de más de 5 MB.
+  px por lado, un JPEG con su ubicación, un PNG animado y un GIF de más de 5 MB.
 - [ ] [backend] El servidor rechaza guardar una lección con una imagen de otro curso, una
   imagen que no existe, imágenes de más de 25 MB entre todas, una teoría con más imágenes
   que marcas, o mosaicos de una columna con imágenes y textos mezclados. No guarda

@@ -30,7 +30,7 @@ anteriores se fusionen, cada rama hace `git merge origin/dev`, y sus PRs van des
 |---|---|---|
 | I. La spec manda | sí | El plan sigue la spec y sus aclaraciones. Al planear se corrigió que "Actividades de prueba" tiene 12 lecciones, no 14 |
 | II. Un producto, cuatro repos | sí | `Imagen`, `ImagenActividad`, los límites y los mensajes en `contrato/` 0.10.0, copiados a los tres repos |
-| III. El backend es la autoridad | sí | El servidor lee el formato real de los bytes, el peso y los lados, cuenta el espacio con el curso bloqueado, comprueba que cada imagen usada es del curso y reescribe sus datos. Las imágenes de un borrador solo las trae su autor. Se sirven con `nosniff` y una CSP que impide abrirlas como página, y el texto alternativo se muestra siempre como texto |
+| III. El backend es la autoridad | sí | El servidor lee el formato real de los bytes, el peso y los lados, rechaza una foto que todavía trae datos ocultos o una animación (la web se los quita, research.md, punto 3), cuenta el espacio con el curso bloqueado, comprueba que cada imagen usada es del curso y reescribe sus datos. Las imágenes de un borrador solo las trae su autor. Se sirven con `nosniff` y una CSP que impide abrirlas como página, y el texto alternativo se muestra siempre como texto |
 | IV. Actividades extensibles | con excepciones (ver "Excepciones a la constitución") | No hay tipo nuevo: las imágenes son una capacidad de cinco tipos y del curso. Cambian sus validadores, componentes y formularios, y además piezas comunes: el reproductor (precarga y reintento), el núcleo del editor (subidas, peso, imágenes perdidas) y componentes compartidos |
 | V. Estados explícitos | sí | Cada imagen tiene cargando, cargada y no cargó (con reintento); el campo de imagen, vacío, subiendo, con imagen, error y perdida; guardar espera a las subidas. Las pantallas que cargan datos no cambian de estados |
 | VI. Dependencias justificadas | sí | Solo `expo-image` en el móvil, en "Dependencias nuevas". El backend y la web, sin paquetes: `express.raw`, `node:crypto`, `node:zlib`, `createImageBitmap`, `OffscreenCanvas` e `ImageDecoder` ya están |
@@ -149,9 +149,9 @@ dos clientes con el mismo nombre.
   - `prisma/migrations/<fecha>_f13_imagenes/migration.sql`: la que genera
     `prisma migrate dev`, más a mano los `CHECK` de `formato`, `ancho`, `alto` y `peso`
     (data-model.md).
-  - `src/validacion/imagenes.ts`, nuevo: `leerImagen(bytes)` → `{ formato, ancho, alto }`
-    o `null` (research.md, punto 3) y `comprobarImagenSubida(bytes, tipo)`, que lanza el
-    `ErrorApi` de cada caso.
+  - `src/validacion/imagenes.ts`, nuevo: `leerImagen(bytes)` → `{ formato, ancho, alto,
+    sinPreparar }` o `null` (research.md, punto 3) y `comprobarImagenSubida(bytes, tipo)`,
+    que lanza el `ErrorApi` de cada caso.
   - `src/validacion/actividades.ts`: `validarImagenActividad(valor, campo)`, las formas de
     imagen en `validarTeoria` (con `contarMarcasImagen`), `validarOpcion` y
     `compararOpciones`, `validarPareja` y `validarEmparejar` (una forma por columna),

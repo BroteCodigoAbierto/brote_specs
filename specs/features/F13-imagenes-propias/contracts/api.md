@@ -30,8 +30,8 @@ Content-Type: image/webp
   cuenta es el de los bytes (research.md, punto 3).
 - Lo lee `express.raw` con `limit` de 10 MB, solo en esta ruta.
 
-**Orden**: sesión (401) → tamaño del cuerpo (413) → formato y lectura (400) → peso del GIF
-y lados (400) → curso (404 y 403) → espacio (400).
+**Orden**: sesión (401) → tamaño del cuerpo (413) → formato y lectura (400) → peso del GIF,
+lados y datos ocultos (400) → curso (404 y 403) → espacio (400).
 
 | Estado | Cuerpo | Cuándo |
 |---|---|---|
@@ -43,6 +43,7 @@ y lados (400) → curso (404 y 403) → espacio (400).
 | `400` | `{ error: "No se pudo leer la imagen. Elige otra." }` | Los bytes no son una imagen de los cuatro formatos, o su cabecera está cortada |
 | `400` | `{ error: "Un GIF puede pesar hasta 5 MB." }` | GIF de más de 5 MB |
 | `400` | `{ error: "La imagen puede medir hasta 1600 px por lado." }` | JPEG, PNG o WebP de más de 1600 px de ancho o de alto (la web nunca lo manda) |
+| `400` | `{ error: "La imagen trae datos ocultos o una animación. Súbela desde el editor de Brote." }` | JPEG con un bloque `APP1` (EXIF o XMP) o `APP13` (IPTC); PNG con un bloque `eXIf`, `tEXt`, `zTXt`, `iTXt` o `acTL` (animado); WebP con un bloque `EXIF`, `XMP ` o `ANIM`. La web nunca lo manda: vuelve a codificar cada foto (research.md, punto 4). Los GIF no se revisan |
 | `404` | `{ error: "Este curso ya no existe. Tus cambios no se guardaron." }` | El curso no existe o es de otro |
 | `403` | `{ error: "Este curso está publicado y no se puede editar. Tus cambios no se guardaron." }` | Publicado |
 | `403` | `{ error: "Este curso está en revisión y no se puede editar. Tus cambios no se guardaron." }` | En revisión |

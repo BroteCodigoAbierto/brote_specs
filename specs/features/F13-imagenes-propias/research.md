@@ -35,7 +35,7 @@ manual ya están decididos (`docs/decisiones/`).
 
 ## 3. Leer una imagen en el servidor sin paquetes
 
-- **Decisión**: `src/servicios/imagenes/leerImagen.ts` reconoce el formato por sus
+- **Decisión**: `leerImagen` (`src/validacion/imagenes.ts`) reconoce el formato por sus
   primeros bytes y saca el ancho y el alto de su cabecera:
   - PNG: la firma `89 50 4E 47 0D 0A 1A 0A` y el bloque `IHDR`.
   - JPEG: `FF D8 FF` y el primer marcador `SOF0` a `SOF15` (menos `C4`, `C8` y `CC`).
@@ -45,6 +45,18 @@ manual ya están decididos (`docs/decisiones/`).
 - **Reglas**: el formato real manda sobre el `Content-Type`. Un JPEG, PNG o WebP de más de
   1600 px por lado se rechaza: la web siempre los reduce (punto 4), así que solo llega uno
   así si alguien salta la web.
+- **Datos ocultos y animación** (principio III: la spec dice que una foto se guarda sin
+  ellos, y el servidor no lo deja solo en manos de la web): `leerImagen` también dice si la
+  imagen los trae, recorriendo sus bloques, y el servidor la rechaza con
+  `imagenSinPreparar`. Se buscan:
+  - JPEG: los segmentos `APP1` (EXIF, donde van la ubicación, la cámara y la orientación, y
+    XMP) y `APP13` (IPTC), antes del primer `SOS`;
+  - PNG: los bloques `eXIf`, `tEXt`, `zTXt` e `iTXt` (texto y XMP) y `acTL` (APNG);
+  - WebP: los bloques `EXIF`, `XMP ` y `ANIM`.
+  La web nunca los manda: `convertToBlob` solo escribe la imagen. Los GIF no se revisan:
+  se suben tal cual y no son fotos. Se descartó borrar esos bloques en el servidor: es más
+  código (en WebP hay que reescribir el encabezado `VP8X` y el tamaño del `RIFF`) para algo
+  que el editor ya hace.
 - **Seguridad**: la imagen se guarda y se sirve tal cual, sin interpretarla. Al servirla
   van `X-Content-Type-Options: nosniff` y `Content-Security-Policy: default-src 'none';
   sandbox`, así que un archivo raro nunca se abre como página.

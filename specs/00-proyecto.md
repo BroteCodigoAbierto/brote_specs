@@ -49,15 +49,16 @@ dispositivos. Cada curso decide si usa gamificación.
 | F10 | Cursar sin conexión | no | sí |
 | F11 | Actividades de relacionar: emparejar, clasificar, ordenar y banco de palabras | sí | sí |
 | F12 | Actividades de código y terminal: reto de código, terminal simulada y grafo de commits | sí | sí |
-| F13 | Imágenes y audio propios en los cursos | sí | sí |
-| F14 | Actividad de voz: escuchar y repetir | sí | sí |
+| F13 | Imágenes propias en los cursos | sí | sí |
+| F14 | Actividad de voz: escuchar y repetir, con audio propio | sí | sí |
 | F15 | Sonidos y vibración al responder y al terminar | sí | sí |
 
 Orden: F01 → F02 → F03 → F04 → F05 → F06 → F11 → F12 → F13 → F14 → F07 →
 F15 → F09 → F08 → F10 (decidido el 2026-11-03).
 
-En F13 el autor sube los archivos desde el editor (web); en el móvil solo se
-ven y se escuchan.
+En F13 el autor sube las imágenes desde el editor (web); en el móvil solo se
+ven. El audio propio pasó a F14 (decidido el 2026-11-07): sin una actividad de
+audio, F13 no podría validarlo.
 
 ## Catálogo de actividades
 
@@ -74,9 +75,10 @@ prueba.
 | Voz | escuchar y repetir | F14 |
 
 F05 hace el editor completo con los tipos básicos, y su paleta ya agrupa los
-cuatro grupos. F13 agrega imágenes a la teoría y a las opciones de la opción
-múltiple, y audio propio para escuchar y repetir (sin él, se usa voz
-sintetizada). F15 aplica a todas las actividades y se puede apagar.
+cuatro grupos. F13 agrega imágenes a la teoría, a la opción múltiple (pregunta y
+opciones), a emparejar, clasificar y ordenar, y a la portada del curso. F14 sube
+el audio propio de escuchar y repetir como F13 sube las imágenes (sin él, se usa
+voz sintetizada). F15 aplica a todas las actividades y se puede apagar.
 
 ## Funcionalidades futuras
 

@@ -71,6 +71,7 @@ en los dos y en estas tablas.
 | `vidrioSuave` | `rgba(238,240,255,0.66)` | `rgba(46,42,92,0.55)` | Vidrio teñido (campos, zonas secundarias) |
 | `vidrioOpaco` | `#FCFCFF` | `#1B1A33` | Sustituto del vidrio sin transparencia |
 | `vidrioBorde` | `rgba(255,255,255,0.90)` | `rgba(255,255,255,0.10)` | Borde luminoso del vidrio |
+| `fondoVisor` | `rgba(10,9,26,0.94)` | `rgba(10,9,26,0.94)` | Fondo del visor de una imagen (F13), igual en los dos modos |
 
 **Código** (F03): el panel de código es oscuro también en modo claro, así que
 estos tokens valen lo mismo en los dos modos. Contraste comprobado contra su
@@ -147,6 +148,12 @@ En la web los tamaños van en `rem` (16 px = 1 rem).
 - Editor (solo web): `anchoPaleta` 240 px y `anchoInspector` 440 px. Por debajo
   de 1024 px, el lienzo apila sus tres zonas.
 - En el móvil, margen lateral de pantalla: espacio `6` (20 px).
+- Imágenes (F13): `mosaicoOpcion` 144 px, el mínimo de un mosaico de opción (en la web,
+  rejilla de `minmax(144px, 1fr)`; en el móvil, tantas columnas de al menos 144 px como
+  quepan y nunca menos de dos: en un teléfono de 360 px, dos de 154); `mosaicoElemento`
+  88 px, los mosaicos de clasificar y ordenar y los lugares de ordenar con imagen;
+  `miniatura` 48 px, las imágenes de la barra inferior; y `altoImagenMax`, la mitad del
+  alto de la pantalla, el máximo de una imagen de la teoría o de la pregunta.
 
 ### 2.4 Sombras y desenfoque
 
@@ -213,7 +220,7 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | `EstadoVacio` | `icono`, `titulo`, `texto`, `accion` | Icono en círculo de vidrio, título y texto centrados |
 | `ErrorCarga` | `mensaje`, `alReintentar` | `EstadoVacio` con icono de nube tachada y botón "Reintentar" |
 | `Insignia` | `tono` (`neutro`, `primario`, `brote`, `acento`), `icono` | Píldora chica con icono para metadatos ("6 lecciones") |
-| `PortadaCurso` | `idCurso`, `titulo`, `tamano` (`tarjeta`, `detalle`) | Degradado + inicial; brillo superior |
+| `PortadaCurso` | `idCurso`, `titulo`, `tamano` (`tarjeta`, `detalle`) | Degradado + inicial; brillo superior. `idPortada` (F13): con una imagen, `ImagenCurso` `cubrir` que llena la portada; mientras carga, el color de la generada sin la inicial; si no carga, la generada completa |
 | `TarjetaCurso` | `curso`, `avance` | `Superficie` con portada, título (2 líneas), autor, descripción (3 líneas) e `Insignia` de lecciones. Web: portada arriba (16:9) en rejilla; móvil: portada cuadrada a la izquierda. Con `avance` (`{ completadas, total }`, F04), en lugar de la descripción y la insignia muestra `AvanceCurso`: es la tarjeta de "Mis cursos" y "Sigue aprendiendo" |
 | `Marca` | `tamano` (`normal`, `grande`) | Ver "Marca" abajo |
 | Encabezado (web, en `Layout`) | — | Píldora de vidrio pegajosa: `Marca` a la izquierda, `MenuCuenta` (avatar, nombre y menú) a la derecha. Entre los dos (F04), el enlace "Mi panel" con `LayoutDashboard`: tiene el aspecto del `Boton` `fantasma` chico (es un enlace, con estilos propios y los mismos tokens); la página activa lo pone en `primario`. En pantallas angostas queda solo el icono, con su nombre accesible |
@@ -221,8 +228,8 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | Volver (detalle) | — | `Boton` `enlace` chico con `ArrowLeft` y "Cursos"; regresa a la pantalla anterior con su estado |
 | `BarraProgreso` | `actual`, `total`, `etiqueta`, `textoValor` | Barra de la lección (sección 6) y del avance de un curso. Web: `role="progressbar"` con `aria-label={etiqueta}` y `aria-valuetext={textoValor}`; móvil: `accessibilityRole="progressbar"` con las mismas etiquetas. Las dos props son opcionales (F04): sin ellas, "Progreso de la lección" y "Actividad {n} de {total}" (o "Lección completada") |
 | `AvanceCurso` | `completadas`, `total` | Avance de un curso (F04): "{c} de {t} lecciones" (con `t = 1`, "lección") en `cuerpoChico` seminegrita y debajo `BarraProgreso` con `etiqueta` "Avance del curso" y `textoValor` "{c} de {t} lecciones completadas". Con el curso terminado, además una `Insignia` `brote` con `CircleCheck` "Curso terminado" |
-| `BarraRespuesta` | `estado` (`neutro`, `correcto`, `incorrecto`), `titulo`, `detalle`, `textoBoton`, `deshabilitado`, `alPulsar` | Barra inferior fija de cada actividad, con el `Boton` primario a ancho completo. `correcto`: fondo `broteSuave`, título en `broteFuerte` con `CircleCheck`; `incorrecto`: fondo `errorSuave`, título en `error` con `CircleX`. Anuncia el cambio (`aria-live` / `accessibilityLiveRegion`) y, al dejar de ser `neutro`, pasa el foco al botón. El `detalle` se desplaza a partir de 11rem en la web y del 35 % del alto de la pantalla en el móvil; el título y el botón quedan fijos (F11). `enfocar` (F11, solo en la web, porque en el móvil no hay teclado): al ponerse en `true`, pasa el foco al botón. `codigo` (F12): un comando o el nombre de un commit, entre el título y el detalle, en `codigo` y sin panel (la barra ya tiene su color), respetando sus espacios y partiendo las líneas largas; va en la misma zona que el `detalle` y se desplaza con él. En el móvil, el anuncio lo lee entre el título y el detalle |
-| `OpcionRespuesta` | `estado` (`normal`, `seleccionada`, `correcta`, `incorrecta`), `texto` o `simbolo`, `numero` (solo web), `deshabilitada`, `alElegir` | Opción de la sección 6 (radio). Con `simbolo`, mosaico cuadrado con el símbolo en `display` |
+| `BarraRespuesta` | `estado` (`neutro`, `correcto`, `incorrecto`), `titulo`, `detalle`, `textoBoton`, `deshabilitado`, `alPulsar` | Barra inferior fija de cada actividad, con el `Boton` primario a ancho completo. `correcto`: fondo `broteSuave`, título en `broteFuerte` con `CircleCheck`; `incorrecto`: fondo `errorSuave`, título en `error` con `CircleX`. Anuncia el cambio (`aria-live` / `accessibilityLiveRegion`) y, al dejar de ser `neutro`, pasa el foco al botón. El `detalle` se desplaza a partir de 11rem en la web y del 35 % del alto de la pantalla en el móvil; el título y el botón quedan fijos (F11). `enfocar` (F11, solo en la web, porque en el móvil no hay teclado): al ponerse en `true`, pasa el foco al botón. `codigo` (F12): un comando o el nombre de un commit, entre el título y el detalle, en `codigo` y sin panel (la barra ya tiene su color), respetando sus espacios y partiendo las líneas largas; va en la misma zona que el `detalle` y se desplaza con él. En el móvil, el anuncio lo lee entre el título y el detalle. `lineas` (F13): una lista de líneas cuyas partes son un texto o una imagen; cada imagen es una `MiniaturaImagen` seguida de su texto alternativo, en una fila. Va en la zona que se desplaza, como el `detalle`, y el anuncio lee el texto alternativo (o "Imagen") |
+| `OpcionRespuesta` | `estado` (`normal`, `seleccionada`, `correcta`, `incorrecta`), `texto` o `simbolo`, `numero` (solo web), `deshabilitada`, `alElegir` | Opción de la sección 6 (radio). Con `simbolo`, mosaico cuadrado con el símbolo en `display`. `imagen` (F13): mosaico cuadrado (al menos `mosaicoOpcion`) con `MosaicoImagen` y los bordes y colores de siempre; el número (web) es una insignia de 22 px arriba a la izquierda y el icono de correcta o incorrecta, otra arriba a la derecha. Con un GIF, el `BotonPausa` es hermano del botón, no va dentro |
 | `BloqueCodigo` | `codigo`, `lenguaje`, `diff` | Panel `codigoFondo`, radio `medio`, `codigo` 14/22. Una fila por línea; las de diff (`+`, `-`, `@@`) con sus colores. Se desplaza hacia los lados en vez de cortar líneas. `lenguaje` (F12): la etiqueta del lenguaje de `CampoCodigo`, arriba a la derecha (sin ella con `otro`). `diff` (F12, por defecto `true`): con `false`, todas las líneas se ven normales, sin colores de diff |
 | `CampoCodigo` | `valor`, `alCambiar`, `lenguaje`, `soloLectura`, `etiqueta` (nombre accesible) | Campo de código del reto (F12). Panel `codigoFondo`, radio `medio`, con la etiqueta del lenguaje arriba a la derecha: píldora `codigoEtiquetaFondo` con el nombre en `nota` `codigoTenue` (sin ella con `otro`). El texto en `codigo` 14/22, `codigoTexto`, con el cursor `codigoCursor`; en solo lectura, `codigoTenue`. Sin corrector, autocorrección ni mayúsculas automáticas, y todo cambio pasa por `textoTecleado`, así que las comillas, `--` y `...` quedan como se escribieron. Nombre accesible: `etiqueta` y el lenguaje (si no es `otro`). **Web**: un `textarea` sin ajuste de línea (las líneas largas se desplazan hacia los lados), de al menos 6 filas y que crece con el código, con Tab, Mayús+Tab y Esc (sección 6, "Teclado"); debajo, "Tab agrega dos espacios. Para salir del campo, pulsa Esc y luego Tab." en `nota` `textoSuave`, enlazado como descripción del campo, que desaparece en solo lectura. Foco: anillo `primario` en el panel. **Móvil**: de 6 a 12 líneas y, con más, se desplaza por dentro |
 | `PanelTerminal` | `salidaPrevia`, `carpeta`, `comando`, `alCambiar`, `alEnviar`, `soloLectura`, `salida` | Terminal simulada (F12). Panel `codigoFondo`, radio `medio`, `codigo` 14/22. Arriba, la salida previa en `codigoTexto`; luego la línea del comando: la carpeta en `codigoTenue`, `$` en `codigoCursor` y el comando, con el cursor `codigoCursor`, que pasa a la línea siguiente si no cabe; y debajo, `salida`. La salida previa y `salida` respetan sus saltos de línea, sangría y tabulaciones, y parten las líneas largas. Pulsar en cualquier parte del panel enfoca la línea (en el móvil, abre el teclado). Enter (la tecla de enviar en el móvil) llama a `alEnviar` solo con algo escrito. Nombre accesible: "Comando", con la carpeta como descripción. Foco: anillo `primario` en el panel |
@@ -231,11 +238,17 @@ Existen con el mismo nombre y las mismas props en los dos clientes (web en
 | `CampoEspacio` | `valor`, `alCambiar`, `estado` (`normal`, `correcto`, `incorrecto`), `esperada`, `etiqueta`, `deshabilitado` | Campo en línea con el texto, de radio `chico`; bordes y fondos como las opciones. `esperada` va a su lado en `nota` `broteFuerte` |
 | `Dialogo` (web) | `abierto`, `titulo`, `texto`, `textoConfirmar`, `textoCancelar`, `alConfirmar`, `alCancelar` | `<dialog>` modal: `Superficie` sólida, radio `enorme`, título `titulo2`, botones `secundario` (cancelar, con el foco) y `peligro` (confirmar). Esc cancela. En el móvil, la misma confirmación es `Alert.alert` nativo, con cancelar como `cancel` y confirmar como `destructive` |
 | `ResultadoLeccion` | `titulo`, `aciertos`, `preguntas`, `alVolver`, `guardado`, `alReintentar` | Fin de lección (sección 6). `guardado` (F04) es el estado del progreso, en una zona entre los aciertos y el botón que anuncia sus cambios (`aria-live="polite"` / `accessibilityLiveRegion="polite"`): `"guardando"` ("Guardando tu progreso…" en `nota` `textoSuave` con un indicador chico, y "Volver al curso" con `enviando`); `"guardado"` (`CircleCheck` y "Progreso guardado" en `nota` `broteFuerte`); `"error"` y `"sinConexion"` (`Aviso` `error` con su texto y `Boton` `secundario` chico "Reintentar" → `alReintentar`); `"noDisponible"` (`Aviso` `error` sin "Reintentar") |
-| `ElementoRespuesta` | `texto`, `estado` (como `OpcionRespuesta`), `forma` (`tarjeta`, `compacta`), `marca`, `atenuada`, `resaltada`, `deshabilitada`, `etiqueta`, `alPulsar` | Elemento que se mueve o se une (F11). Los colores de `OpcionRespuesta`, con icono al comprobar. `tarjeta`: 56 px de alto, radio `medio`. `compacta`: 44 px, radio `medio` y no `pildora`, porque el texto puede ocupar varias líneas. `marca`: número en un círculo `primarioSuave`. En el móvil, con `marca`, el icono de correcto o incorrecto va chico (14 px) como insignia en la esquina superior derecha del círculo, sobre un círculo `vidrioOpaco`, y no al borde: en las columnas de emparejar no le quita ancho al texto. `atenuada`: opacidad 0.4. `resaltada`: borde `primario` y fondo `primarioSuave`, sin sombra. Respeta la sangría. En la web acepta `propsOrigen` y `propsDestino`; en el móvil se envuelve en `Arrastrable` y `DestinoArrastre` |
-| `LugarElemento` | `numero`, `enLinea`, `estado` (`normal`, `correcto`, `incorrecto`), `esperada`, `resaltado`, `etiqueta`, `children` | Donde se coloca un `ElementoRespuesta` (F11). Vacío: borde punteado de 2 px en `bordeFuerte`. `numero`: lugar de ordenar, a la izquierda. `enLinea`: espacio del banco, dentro del texto. `esperada` va al lado en `nota` `broteFuerte`, como en `CampoEspacio`. En la web acepta `propsDestino`; en el móvil se envuelve en `DestinoArrastre` |
+| `ElementoRespuesta` | `texto`, `estado` (como `OpcionRespuesta`), `forma` (`tarjeta`, `compacta`), `marca`, `atenuada`, `resaltada`, `deshabilitada`, `etiqueta`, `alPulsar` | Elemento que se mueve o se une (F11). Los colores de `OpcionRespuesta`, con icono al comprobar. `tarjeta`: 56 px de alto, radio `medio`. `compacta`: 44 px, radio `medio` y no `pildora`, porque el texto puede ocupar varias líneas. `marca`: número en un círculo `primarioSuave`. En el móvil, con `marca`, el icono de correcto o incorrecto va chico (14 px) como insignia en la esquina superior derecha del círculo, sobre un círculo `vidrioOpaco`, y no al borde: en las columnas de emparejar no le quita ancho al texto. `atenuada`: opacidad 0.4. `resaltada`: borde `primario` y fondo `primarioSuave`, sin sombra. Respeta la sangría. En la web acepta `propsOrigen` y `propsDestino`; en el móvil se envuelve en `Arrastrable` y `DestinoArrastre`. `imagen` y `forma` `mosaico` (F13): cuadrado de `mosaicoElemento`, o del ancho de su columna en emparejar, con `MosaicoImagen`; la `marca` arriba a la izquierda y el icono arriba a la derecha. Con un GIF, el `BotonPausa` es hermano del elemento y no empieza el arrastre |
+| `LugarElemento` | `numero`, `enLinea`, `estado` (`normal`, `correcto`, `incorrecto`), `esperada`, `resaltado`, `etiqueta`, `children` | Donde se coloca un `ElementoRespuesta` (F11). Vacío: borde punteado de 2 px en `bordeFuerte`. `numero`: lugar de ordenar, a la izquierda. `enLinea`: espacio del banco, dentro del texto. `esperada` va al lado en `nota` `broteFuerte`, como en `CampoEspacio`. En la web acepta `propsDestino`; en el móvil se envuelve en `DestinoArrastre`. `mosaico` (F13): vacío, mide `mosaicoElemento`, con su borde punteado |
 | `ZonaElementos` | `titulo`, `resaltada`, `etiqueta`, `alPulsar`, `children` | `Superficie` `suave` que agrupa elementos: los sin colocar, el banco o una categoría (F11). Sigue visible aunque esté vacía. Con `titulo`, es una categoría: el título es el botón y toda la zona se puede pulsar. En la web acepta `propsDestino`; en el móvil se envuelve en `DestinoArrastre` |
 | `TextoConEspacios` (móvil) | `texto`, `dibujarEspacio` | Dibuja las líneas de un texto con espacios, porque en el móvil no se puede poner una vista dentro de un `Text`. Lo usan completar espacios y banco de palabras (F11). En la web no hace falta: los espacios van dentro del texto |
 | `CapaArrastre` (móvil) | `arrastre` | La copia flotante que sigue al dedo, con `pointerEvents="none"` y `sombraElevada`. La dibuja `MarcoActividad` fuera de su `ScrollView` (F11). En la web, esa copia la dibuja el navegador |
+| `ImagenCurso` | `imagen`, `ajuste` (`contener`, `cubrir`), `quieta`, `pausada`, `etiqueta` | La base de toda imagen de un curso (F13): la trae con la sesión y reserva su lugar con la proporción de `ancho` y `alto`. Cargando: fondo `vidrioSuave`. No cargó: `ImageOff` de 24 px en `textoTenue` y la `etiqueta` (el texto alternativo) o "No se pudo cargar la imagen" en `nota` `textoSuave`, centrados. Un GIF anima salvo con `quieta` o `pausada`. Se vuelve a pedir sola (web: al cambiar de actividad; móvil: al volver la conexión) |
+| `BotonPausa` | `pausada`, `alPulsar` | El de un GIF (F13): círculo de 44 px `vidrioOpaco` con `sombraSuave` e icono `Pause` o `Play` de 20 px en `texto`, en la esquina inferior izquierda, a espacio 3 del borde. Nombre: "Pausar animación" o "Reanudar animación". Nunca va dentro de otro botón |
+| `ImagenAmpliable` | `imagen` | La imagen de la teoría y de la pregunta (F13): un botón con `ImagenCurso` `contener`, radio `medio`, tan ancho como la actividad o como la imagen (lo menor), sin pasar de `altoImagenMax`, centrado. Abre `VisorImagen`. Nombre: el texto alternativo o "Imagen", y que se puede ampliar. Con un GIF, su `BotonPausa`; con "reducir movimiento", empieza en pausa |
+| `VisorImagen` | `imagen`, `abierto`, `alCerrar` | La imagen a pantalla completa (F13), sobre `fondoVisor`, `contener` con margen espacio 5, y "Cerrar" (`X`) arriba a la derecha con el aspecto de `BotonPausa`. Un GIF lleva su `BotonPausa`, en el estado que tenía. Se anuncia como "Imagen ampliada". Web: `<dialog>` modal; Esc y pulsar el fondo lo cierran y el foco vuelve a la imagen. Móvil: `Modal` con pellizcar (de 1 a 4 veces) y arrastrar; el botón de volver de Android lo cierra |
+| `MosaicoImagen` | `imagen`, `quieta` | Cuadro con fondo `vidrioSuave` y `ImagenCurso` `contener` con relleno espacio 2 (F13). Llena el cuadro que le dé quien lo usa: lo que sobra se ve con su fondo, también detrás de un PNG transparente |
+| `MiniaturaImagen` | `imagen` | `miniatura` (48 px), radio `chico`, fondo `vidrioOpaco`, `ImagenCurso` `contener` `quieta` (F13). Decorativa: el texto alternativo va a su lado |
 
 ### Editor (solo web)
 
@@ -261,6 +274,9 @@ los dos clientes".
 | `Dialogo` (cambia) | `enviando` | Pone `enviando` en el botón de confirmar. Solo en la web |
 | `ResultadoLeccion` (cambia) | `textoVolver` | Por defecto, "Volver al curso". Solo en la web |
 | `BarraRespuesta` (cambia) | — | Dentro de un `AmbitoActividad` va en línea, no fija. Solo en la web |
+| `CampoImagen` | `id`, `etiqueta`, `valor`, `alCambiar`, `alElegirArchivo`, `error`, `soloFotos`, `conTextoAlternativo`, `deshabilitado` | El campo de una imagen (F13). Vacío: `Boton` `secundario` chico "Elegir imagen" con `ImagePlus` y la nota de formatos en `nota` `textoSuave`. Subiendo: un `IndicadorCarga` chico y "Subiendo imagen…". Con imagen: `ImagenCurso` de 96 px, "{ancho} × {alto} px · {peso}" en `nota`, "Cambiar" y "Quitar" (`fantasma` chico) y, con `conTextoAlternativo`, un `CampoTexto` "Texto alternativo" con su ayuda. El error, debajo, como en `CampoTexto`. El `<input type="file">` acepta `image/*` y está oculto |
+| `VistaPortada` | `idCurso`, `titulo`, `portada` | La portada en el mapa (F13): dos `PortadaCurso` lado a lado, en tarjeta (16:9) y en detalle (cuadrada) |
+| `PesoImagenes` | `peso`, `maximo`, `texto` | "{texto}: {x} de {máximo} MB" en `nota` `textoSuave` (F13); si pasa del máximo, en `error` con `CircleAlert` |
 
 **Iconos**: [Lucide](https://lucide.dev), `lucide-react` en la web y
 `lucide-react-native` en el móvil. Trazo 2, tamaño 20 (16 en insignias, 24 en
@@ -404,6 +420,21 @@ son la base para todas las actividades; cada spec de actividad las concreta.
 - **Grafo de commits** (F12): la consigna y `DiagramaCommits`. Los commits se eligen como
   opciones; al comprobar se marcan como ellas. La barra inferior lleva el nombre del
   commit correcto en `codigo` (si falló) y la explicación en `detalle`.
+- **Imágenes** (F13):
+  - **Teoría**: cada `[imagen]` del texto es una `ImagenAmpliable`, sola entre párrafos;
+    una marca a la mitad de un párrafo lo parte en dos.
+  - **Opción múltiple**: la imagen de la pregunta, `ImagenAmpliable`, entre la pregunta y
+    el código. Las opciones de imagen, en una rejilla de mosaicos de `mosaicoOpcion`.
+  - **Relacionar**: emparejar con mosaicos del ancho de su columna, que siguen lado a lado;
+    clasificar y ordenar con mosaicos de `mosaicoElemento`, en filas que se acomodan solas.
+  - **Imagen que no carga**: el estado "no cargó" de `ImagenCurso`; la actividad se
+    responde igual. **GIF**: se mueve solo, con `BotonPausa`; con "reducir movimiento",
+    quieto en su primer cuadro. Pausar no cuenta como haber hecho algo.
+  - **Al fallar**: las imágenes de la respuesta correcta, como `MiniaturaImagen` en las
+    `lineas` de `BarraRespuesta`.
+  - **Visor**: tocar una imagen de la teoría o de la pregunta abre `VisorImagen`; los
+    mosaicos no se amplían, porque tocarlos los elige. Abrirlo no cuenta como haber hecho
+    algo.
 - **Arrastrar** (F11): la copia que sigue al dedo lleva `sombraElevada`. El origen va
   `atenuada` y el destino, `resaltada`. Al soltar fuera no hay animación de regreso,
   con o sin "reducir movimiento": la copia desaparece y el elemento ya está en su
@@ -435,6 +466,9 @@ son la base para todas las actividades; cada spec de actividad las concreta.
     una, de arriba abajo; Enter o la barra espaciadora eligen el commit con el foco.
   - Al comprobar la terminal o el grafo, el foco pasa a "Continuar"; en el reto, como
     en la pregunta abierta, a la autoevaluación y, al autoevaluarse, a "Continuar".
+  Con imágenes (F13), Tab llega a cada `ImagenAmpliable` y a cada `BotonPausa`, y Enter o
+  la barra espaciadora los pulsan; en la opción múltiple, las teclas 1 a 9 siguen eligiendo
+  los mosaicos según su lugar en pantalla.
 - **Vista previa** (web, F05): la actividad real en un recuadro, dentro de
   `AmbitoActividad`. No toma el foco al actualizarse, sus teclas solo actúan con
   el foco dentro y su barra de respuesta va en línea.
@@ -446,7 +480,8 @@ son la base para todas las actividades; cada spec de actividad las concreta.
   `MessageSquareText`, Emparejar `Link2`, Clasificar `Columns3`, Ordenar
   `ArrowDownUp`, Banco de palabras `WholeWord`, Reto de código `Code`, Terminal
   simulada `SquareTerminal`, Grafo de commits `GitGraph`, Escuchar y repetir
-  `Mic`.
+  `Mic`. Imágenes (F13): `ImageOff` (no cargó), `Pause` y `Play` (GIF), `X` (cerrar el
+  visor) e `ImagePlus` (elegir imagen).
 
 ## 7. Accesibilidad (checklist de cada pantalla)
 

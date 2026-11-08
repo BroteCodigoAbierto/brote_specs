@@ -1,7 +1,7 @@
 # Continuar con Brote
 
 Guía para que una sesión nueva, sin contexto, siga el trabajo. Describe el estado del
-2026-11-06: antes de actuar, compáralo con `git log`, con `gh pr list` y con el `tasks.md` de la
+2026-11-08: antes de actuar, compáralo con `git log`, con `gh pr list` y con el `tasks.md` de la
 feature.
 
 Lee también `CLAUDE.md`, `.specify/memory/constitution.md` y `docs/flujo-trabajo.md`. Si algo
@@ -28,17 +28,17 @@ implementación**, y al terminar deja esta guía al día (ver "Al cerrar un chat
 
 | Sesión | Qué hace | Sección |
 |---|---|---|
-| Siguiente | Terminar F13: implementar desde T045 | "Dónde vamos" |
-| Después, una por feature | F14, F07, F15, F09, F08 y F10, en ese orden | "Las features que siguen" |
-| Cuando él pueda | Validar F12 (web y móvil) y lo que falta de F11 | "Qué hacer con `valida`" y "Chat: cerrar F11" |
-| Cuando él diga `push` | Subir e integrar, F11 primero | "Integrar (`push`)" |
+| Siguiente | F14 completa | "Las features que siguen" |
+| Después, una por feature | F07, F15, F09, F08 y F10, en ese orden | "Las features que siguen" |
+| Cuando él pueda | Validar F13 y F12 (web y móvil) y lo que falta de F11 | "Qué hacer con `valida`", "Dónde vamos" y "Chat: cerrar F11" |
+| Cuando él diga `push` | Subir e integrar: F11, luego F12, luego F13 | "Integrar (`push`)" |
 
 **Mensaje para abrir una sesión de feature** (cambia `F0X`; la guía al día está en la rama de la
 última feature mientras F11 no esté en `dev`):
 
 ```text
 En ~/github/organizations/brote/brote_specs: git fetch y cámbiate a la rama de la última
-feature (hoy feature/F12-actividades-codigo-terminal). Lee continuar.md y haz F0X completa,
+feature (hoy feature/F13-imagenes-propias). Lee continuar.md y haz F0X completa,
 como dice "Las features que siguen": te autorizo a correr tú /speckit-specify,
 /speckit-clarify, /speckit-plan, /speckit-tasks, /speckit-analyze y /speckit-implement, en
 ese orden. Pregúntame las decisiones de producto una por una. Sin push.
@@ -88,28 +88,40 @@ continuar.md y haz `valida` de F0X.
     ni `tema.ts`, que el plan sí lista en "Estilos" y "Tema". No estorba.
 - **Orden que sigue**: F12 → F13 → F14 → F07 → F15 → F09 → F08 → F10 (`specs/00-proyecto.md`).
 
-- **F13 (en curso, 2026-11-07)**: rama `feature/F13-imagenes-propias` en los cuatro repos (sale de
-  la de F12), nada subido. Spec (90 criterios), aclaraciones, plan, tareas y análisis hechos
-  (decisión 0016: imágenes en PostgreSQL). **Implementadas T001 a T044**: contrato 0.10.0,
-  `docs/diseno.md`, backend completo (B1 a B8 del quickstart pasan con curl) y la base de la web
-  con sus componentes de imagen. **Falta**: T045 a T068 (web: OpcionRespuesta, ElementoRespuesta,
-  BarraRespuesta, PortadaCurso, las cinco actividades, el reproductor y el editor), T069 a T090
-  (móvil; T075 pide el iPhone en la mano) y T091 a T094 (cierre). `npm run tipos` de la web y del
-  móvil no pasa hasta T067 y T088 (contrato nuevo).
+- **F13 (implementada, 2026-11-08)**: imágenes propias (el audio propio pasó a F14). Rama
+  `feature/F13-imagenes-propias` en los cuatro repos (sale de la de F12), **nada subido**. Spec (90
+  criterios), aclaraciones, plan, tareas, análisis e implementación hechos (decisión 0016:
+  imágenes en PostgreSQL; contrato 0.10.0; `expo-image` en el móvil). **92 de 94 tareas**: faltan
+  T075 (en el iPhone: que `stopAnimating` deja el cuadro actual, `startAnimating` sigue desde ahí,
+  `autoplay={false}` muestra el primer cuadro y la imagen llega con el token; se anota en
+  `research.md`, punto 10) y el recorrido en el iPhone de T090 (las lecciones 13 a 18 de
+  "Actividades de prueba", con el visor, la pausa y el arrastre). `contrato:revisar`, `tipos` y
+  `lint` en los tres repos, `build` en la web y `npx expo export --platform ios` pasan. **0 de 90
+  criterios validados**; B1 a B8 del quickstart pasaron con curl al implementar el backend, pero
+  no se marcaron (eso es de `valida`).
+  - Lo que se decidió al analizar (2026-11-07): el servidor rechaza una foto (JPEG, PNG o WebP)
+    que todavía traiga EXIF, XMP o IPTC, o un PNG o WebP animado: el editor ya los limpia, así
+    que solo pasa si alguien sube sin él (spec, "Validaciones", "Fotos").
+  - En el móvil, el botón de pausa de un GIF que se arrastra va al lado del gesto de
+    `Arrastrable`, no dentro: así pulsarlo, aunque sea largo, nunca empieza a arrastrar.
+  - Para validar: el quickstart prepara los archivos con `npm run imagenes:validacion` (sección
+    1.2, usa `sips`) y bloquea o retrasa las imágenes con `npm run proxy:validacion` (sección 1.4),
+    los dos en el backend. La web y Expo van contra el proxy (`:3001`).
   - Los `/speckit-*` solo corren si el usuario pega el comando (las skills traen
     `disable-model-invocation`); en esta Mac no hay `psql` (el quickstart usa `docker compose
-    exec`), y la base va en Docker Desktop (`docker compose up -d` en el backend).
+    exec`), ni Xcode (no hay simulador de iOS), y la base va en Docker Desktop (`docker compose up
+    -d` en el backend).
 
-**Lo siguiente**: seguir F13 con `/speckit-implement` desde T045 (las tareas ya marcadas no se
-repiten).
+**Lo siguiente**: F14 completa (escuchar y repetir, con audio propio), con el mensaje de "Una
+sesión por feature". Su rama sale de `feature/F13-imagenes-propias`.
 Aparte, cuando él pueda:
 
-1. `valida` de F12 en la web: el backend ya pasó (V01 y V78 a V83, 7 de 86, commit
-   `F12: validación (7 de 86 criterios, el backend)`); falta la web, y para eso Chrome necesita la
+1. `valida` de F13 y de F12 en la web: de F12, el backend ya pasó (V01 y V78 a V83, 7 de 86,
+   commit `F12: validación (7 de 86 criterios, el backend)`); falta la web. Chrome necesita la
    extensión de Claude conectada (el 2026-11-06 no lo estaba). Los de móvil se quedan sin marcar.
 2. Con el teléfono en la mano, una sola sesión: lo que falta de F11 ("Chat: cerrar F11"), T047 y
-   T055 de F12, y los criterios de móvil de F12.
-3. `push`: primero F11 y después F12.
+   T055 de F12, T075 y T090 de F13, y los criterios de móvil de F12 y F13.
+3. `push`: primero F11, después F12 y después F13.
 
 ## Cómo trabajar con el usuario
 
@@ -368,11 +380,13 @@ implementación:
 
 Lo que ya se sabe de cada una (`specs/00-proyecto.md`):
 
-- **F13**, imágenes y audio propios: el autor los sube desde el editor (web); en el móvil solo se
-  ven y se escuchan. Agrega imágenes a la teoría y a las opciones de la opción múltiple, y audio
-  propio para escuchar y repetir.
-- **F14**, escuchar y repetir: sin audio propio usa voz sintetizada. En el prototipo era
-  `listen_and_repeat` (`expected_text`, `lang?`, `audio?`).
+- **F13**, imágenes propias: implementada (ver "Dónde vamos"). El audio propio pasó a F14.
+- **F14**, escuchar y repetir, con audio propio: el autor lo sube desde el editor (web), con la
+  misma forma de subir archivos que las imágenes de F13 (lo dijo el usuario el 2026-11-07); si
+  también se guarda en PostgreSQL se decide en su plan, porque la decisión 0016 es de las
+  imágenes. En el móvil solo se escucha. Sin
+  audio propio usa voz sintetizada. En el prototipo era `listen_and_repeat` (`expected_text`,
+  `lang?`, `audio?`).
 - **F07**, importar y exportar un curso en JSON (solo web). Ahí se decide cómo se convierten los
   cursos del prototipo.
 - **F15**, sonidos y vibración: aplica a todas las actividades y se puede apagar.

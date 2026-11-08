@@ -204,7 +204,7 @@ el idioma de un curso.
 - [X] T073 [specs] Integrar [data-model.md](./data-model.md) a `specs/02-modelo-datos.md`, como dice su sección "Al cerrar": la entidad **Audio**, lo que cambia en **Curso** (`idioma`, `pesoArchivos`), **Leccion** (`audios`, `idioma`, 25 MB de archivos) y **Actividad** (`escucharRepetir`, los once tipos que califican, ya sin tipos pendientes, y el título "Actividad (F03, F05, F11, F12, F13, F14)"), y en "Entidades previstas" lo que ya no aplica
 - [X] T074 [specs] Integrar "Cambios a la navegación" de [plan.md](./plan.md) a `specs/01-navegacion.md`: en "Salir de una lección", escuchar y grabarse no cuentan como haber hecho algo y comprobar sí; en el móvil, "Abrir ajustes" sale a los ajustes del teléfono y, al volver, la lección sigue como estaba
 - [X] T075 [P] [specs] En `specs/00-proyecto.md`, "Catálogo de actividades": los 13 tipos ya están, y el idioma del curso llegó con F14
-- [ ] T076 [specs] `npm run contrato:revisar`: las tres copias coinciden con la oficial. `npm run tipos` y `npm run lint` en los tres repos de código y `npm run build` en la web
+- [X] T076 [specs] `npm run contrato:revisar`: las tres copias coinciden con la oficial. `npm run tipos` y `npm run lint` en los tres repos de código y `npm run build` en la web
 - [ ] T077 [specs] Revisar que `specs/features/F14-escuchar-repetir/spec.md` coincide con lo que se construyó; si algo cambió, actualizarla, junto con lo que T066 haya anotado en `research.md`
 
 ---

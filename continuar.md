@@ -28,7 +28,7 @@ implementación**, y al terminar deja esta guía al día (ver "Al cerrar un chat
 
 | Sesión | Qué hace | Sección |
 |---|---|---|
-| Siguiente | F13 de la spec a la implementación | "Las features que siguen" |
+| Siguiente | Terminar F13: implementar desde T045 | "Dónde vamos" |
 | Después, una por feature | F14, F07, F15, F09, F08 y F10, en ese orden | "Las features que siguen" |
 | Cuando él pueda | Validar F12 (web y móvil) y lo que falta de F11 | "Qué hacer con `valida`" y "Chat: cerrar F11" |
 | Cuando él diga `push` | Subir e integrar, F11 primero | "Integrar (`push`)" |
@@ -88,7 +88,20 @@ continuar.md y haz `valida` de F0X.
     ni `tema.ts`, que el plan sí lista en "Estilos" y "Tema". No estorba.
 - **Orden que sigue**: F12 → F13 → F14 → F07 → F15 → F09 → F08 → F10 (`specs/00-proyecto.md`).
 
-**Lo siguiente**: la sesión de F13, de la spec a la implementación ("Una sesión por feature").
+- **F13 (en curso, 2026-11-07)**: rama `feature/F13-imagenes-propias` en los cuatro repos (sale de
+  la de F12), nada subido. Spec (90 criterios), aclaraciones, plan, tareas y análisis hechos
+  (decisión 0016: imágenes en PostgreSQL). **Implementadas T001 a T044**: contrato 0.10.0,
+  `docs/diseno.md`, backend completo (B1 a B8 del quickstart pasan con curl) y la base de la web
+  con sus componentes de imagen. **Falta**: T045 a T068 (web: OpcionRespuesta, ElementoRespuesta,
+  BarraRespuesta, PortadaCurso, las cinco actividades, el reproductor y el editor), T069 a T090
+  (móvil; T075 pide el iPhone en la mano) y T091 a T094 (cierre). `npm run tipos` de la web y del
+  móvil no pasa hasta T067 y T088 (contrato nuevo).
+  - Los `/speckit-*` solo corren si el usuario pega el comando (las skills traen
+    `disable-model-invocation`); en esta Mac no hay `psql` (el quickstart usa `docker compose
+    exec`), y la base va en Docker Desktop (`docker compose up -d` en el backend).
+
+**Lo siguiente**: seguir F13 con `/speckit-implement` desde T045 (las tareas ya marcadas no se
+repiten).
 Aparte, cuando él pueda:
 
 1. `valida` de F12 en la web: el backend ya pasó (V01 y V78 a V83, 7 de 86, commit

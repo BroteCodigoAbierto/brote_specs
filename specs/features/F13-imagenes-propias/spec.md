@@ -102,10 +102,12 @@ Lo nuevo o lo que cambia respecto de F05 y F11:
 
 Los demás campos, sus límites y lo que responde el alumno no cambian.
 
-### Límite del curso
+### Límites del curso y de la lección
 
-Las imágenes de un curso pesan, entre todas, hasta 200 MB, con el peso con que se
-guardaron (ya reducidas). Ver "Espacio del curso" en "Validaciones".
+Las imágenes de un curso pesan, entre todas, hasta 200 MB, y las que usa una lección,
+hasta 25 MB, con el peso con que se guardaron (ya reducidas). Una imagen que se usa en
+varios lugares cuenta una vez. Ver "Espacio del curso" y "Peso de la lección" en
+"Validaciones".
 
 ## Flujo principal
 
@@ -129,6 +131,18 @@ Todo lugar donde va una imagen tiene un campo de imagen, con el mismo funcionami
 7. Elegir, cambiar y quitar una imagen o escribir su texto alternativo son cambios sin
    guardar, como cualquier otro: cuentan al pulsar "Guardar lección" o, en la portada,
    "Guardar cambios" (F05).
+
+### Cuánto pesan las imágenes (editor, web)
+
+- **En el lienzo**, junto a "Guardar lección", se lee "Imágenes de esta lección: {x} de
+  25 MB", con el peso de las imágenes que usa la lección en pantalla, guardada o no. Cambia
+  al momento al elegir, cambiar o quitar una imagen. Si pasa de 25 MB, se ve en el color
+  de error, con un icono. Una lección sin imágenes no lo muestra.
+- **En el mapa del curso**, en los datos del curso, se lee "Imágenes del curso: {x} de
+  200 MB", contado como "Espacio del curso" (ver "Validaciones"). Se actualiza al abrir el
+  mapa y al guardar sus datos. Un curso sin imágenes no lo muestra.
+- {x} va en MB con un decimal ("12.4"), redondeado hacia arriba, para que nunca diga que
+  cabe algo que no cabe.
 
 ### Teoría
 
@@ -262,14 +276,18 @@ opciones y de elementos no se amplían: tocarlos los elige, como en F03 y F11.
 
 ### Cargar las imágenes al cursar
 
-1. Al abrir una lección, Brote empieza a traer todas sus imágenes, sin esperarlas para
-   mostrar la primera actividad (F03).
+1. Al abrir una lección, Brote empieza a traer todas sus imágenes, de todas sus
+   actividades, sin esperarlas para mostrar la primera (F03). Así, si después se pierde
+   la conexión, lo que ya llegó se sigue viendo en las actividades que siguen.
 2. Mientras una imagen carga, su lugar ya tiene el tamaño que tendrá, con un fondo
    suave, para que nada salte al llegar.
 3. Si no se puede cargar (sin conexión o sin servidor), en su lugar se ve un icono de
    imagen rota y su texto alternativo o, sin él, "No se pudo cargar la imagen". La
    actividad se responde igual.
-4. Una portada que no carga se ve como la generada.
+4. Las que no cargaron se vuelven a pedir solas, sin que el alumno haga nada: en el
+   móvil, cuando vuelve la conexión; en la web, cada vez que pasa a otra actividad. Al
+   llegar, aparecen en su lugar.
+5. Una portada que no carga se ve como la generada.
 
 ### Vista previa y probar la lección
 
@@ -352,6 +370,10 @@ como un alumno.
     usan en ninguna parte del curso se borran y dejan de contar. Al eliminar una lección,
     también las suyas; al eliminar el curso, todas.
   - Una imagen que se subió y nunca se guardó se borra sola un día después de subirla.
+- **Peso de la lección**: al guardar o probar una lección cuyas imágenes pasan de 25 MB,
+  no se guarda ni se abre la prueba, y aparece el aviso "Las imágenes de esta lección
+  pesan más de 25 MB. Quita alguna." (como el de actividades incompletas, F05). Lo
+  capturado sigue en pantalla.
 - **Quién sube**: solo el autor de un borrador sube imágenes a ese curso. Si el curso
   está en revisión, publicado o ya no existe, la imagen no se sube y se ve el mensaje de
   F05 y F06 para ese caso.
@@ -363,7 +385,8 @@ como un alumno.
   subieron a ese mismo curso. Para usar la misma imagen en otro curso, se sube otra vez.
 - **El servidor comprueba todo**, al subir y cada vez que se guarda una lección o los
   datos del curso: el formato real del archivo (no su nombre), su peso, que un JPEG, PNG
-  o WebP no pase de 1600 px por lado, el espacio del curso, quién sube, que cada imagen
+  o WebP no pase de 1600 px por lado, el espacio del curso, el peso de la lección, quién
+  sube, que cada imagen
   usada exista y sea de ese curso, que la portada no sea GIF, que haya una imagen por
   marca y las reglas de arriba. Si algo no cumple, rechaza el cambio y no guarda nada,
   como en F05.
@@ -380,7 +403,7 @@ cambian (F03). Dentro de una actividad, cada imagen tiene sus estados:
 - **Cargando**: su lugar, ya de su tamaño, con un fondo suave.
 - **Cargada**: la imagen.
 - **No cargó**: el icono de imagen rota y su texto alternativo, o "No se pudo cargar la
-  imagen".
+  imagen", hasta que se vuelve a pedir y llega.
 - **GIF**: moviéndose, con "Pausar", o quieto, con "Reanudar".
 - **Ampliada**: el visor sobre la lección.
 
@@ -397,11 +420,14 @@ No cambia (F05, F11, F12), salvo en el campo de imagen:
   vacío.
 - **Imagen que ya no está**: "Esta imagen ya no está. Elige otra." (ver "Casos de
   error").
+- **Peso de la lección**: "Imágenes de esta lección: {x} de 25 MB" junto a "Guardar
+  lección", en el color de error si pasa de 25 MB, y el aviso al guardar o probar.
 
 ### Mapa del curso (web)
 
 No cambia (F05, F06), salvo la portada: vacía, con la portada generada; subiendo; con
-imagen, con sus dos vistas; y error al subir. Guardar los datos sigue igual.
+imagen, con sus dos vistas; y error al subir. Guardar los datos sigue igual. Con
+imágenes, los datos muestran "Imágenes del curso: {x} de 200 MB".
 
 ### Catálogo, detalle, "Mi panel" y "Mis cursos" (web y móvil)
 
@@ -416,8 +442,8 @@ generada completa.
 - Cuando el curso se publica, el alumno ve esas imágenes en la web y en el móvil, como
   en la vista previa, y responde las actividades de imagen igual que las de texto. Cada
   una suma su pregunta como siempre (F04).
-- Las imágenes que nadie usa ya no ocupan espacio, y un curso nunca pasa de 200 MB de
-  imágenes.
+- Las imágenes que nadie usa ya no ocupan espacio, un curso nunca pasa de 200 MB de
+  imágenes y una lección, de 25 MB.
 - El curso "Actividades de prueba" tiene una portada y las lecciones de imágenes de
   "Supuestos".
 
@@ -461,7 +487,6 @@ generada completa.
 - SVG, HEIC, AVIF, BMP, TIFF y otros formatos, y animaciones que no sean GIF.
 - Pie de foto visible, y un texto alternativo largo aparte.
 - Ampliar mosaicos, miniaturas o portadas, y acercar con un gesto en la web.
-- Saber cuánto espacio usa el curso antes de llegar al límite.
 - Revisar si una imagen es inapropiada: lo ve el administrador al aprobar el curso, como
   el resto del contenido (decisión 0014).
 - Descargar las imágenes para cursar sin conexión (F10), e importar y exportar cursos
@@ -645,8 +670,14 @@ generada completa.
   alternativo, "No se pudo cargar la imagen".
 - [ ] [web, móvil] Un mosaico que no cargó muestra su texto alternativo y se puede elegir
   y comprobar.
-- [ ] [móvil] Con la lección abierta y las imágenes ya cargadas, sin conexión las
-  imágenes se siguen viendo y la lección se termina como en F03.
+- [ ] [móvil] Si las imágenes de "Opción múltiple con imágenes" no cargaron al abrirla
+  porque se cayó la conexión, al volver la conexión aparecen solas en su lugar.
+- [ ] [web] Si las imágenes de "Opción múltiple con imágenes" no cargaron al abrirla y
+  después el servidor vuelve a responder, al pasar a la siguiente actividad sus imágenes
+  se ven.
+- [ ] [web, móvil] Si abro "Relacionar con imágenes", espero unos segundos en la primera
+  actividad y apago el servidor (en el móvil, quito la conexión), las imágenes de las
+  actividades siguientes se ven al llegar a ellas y la lección se termina como en F03.
 
 ### Accesibilidad y teclado
 
@@ -667,6 +698,18 @@ generada completa.
   tiene 200 MB de imágenes. Quita alguna y guarda para hacer espacio.".
 - [ ] [web] En ese curso, al quitar una imagen ya guardada y guardar la lección, la misma
   imagen que no cabía ahora se sube.
+- [ ] [web] En la lección pesada, con seis GIF de 5 MB, "Guardar lección" y "Probar
+  lección" muestran "Las imágenes de esta lección pesan más de 25 MB. Quita alguna." y
+  no guardan ni abren la prueba. Al quitar dos GIF, se guarda.
+- [ ] [web] Una misma imagen usada en dos actividades de la lección cuenta una vez en
+  los 25 MB.
+- [ ] [web] En el lienzo de una lección con imágenes, junto a "Guardar lección" se lee
+  "Imágenes de esta lección: {x} de 25 MB", que sube al elegir una imagen y baja al
+  quitarla, sin guardar. En la lección pesada se ve en el color de error, con su icono, y
+  en una lección sin imágenes no aparece.
+- [ ] [web] El mapa de un borrador con imágenes muestra "Imágenes del curso: {x} de 200
+  MB"; el del curso casi lleno, un número cercano a 200, que baja al quitar una imagen,
+  guardar la lección y volver al mapa.
 - [ ] [backend] Una imagen que se sube y no se guarda en ninguna parte se borra un día
   después de subirla.
 - [ ] [backend] Al eliminar una lección se borran sus imágenes que no se usan en otra
@@ -677,8 +720,9 @@ generada completa.
   publicado, un archivo que no es imagen aunque se llame `.png`, un JPEG de más de 1600
   px por lado y un GIF de más de 5 MB.
 - [ ] [backend] El servidor rechaza guardar una lección con una imagen de otro curso, una
-  imagen que no existe, una teoría con más imágenes que marcas, o mosaicos de una
-  columna con imágenes y textos mezclados. No guarda nada.
+  imagen que no existe, imágenes de más de 25 MB entre todas, una teoría con más imágenes
+  que marcas, o mosaicos de una columna con imágenes y textos mezclados. No guarda
+  nada.
 - [ ] [backend] El servidor rechaza una portada GIF o de otro curso al guardar los datos
   del curso.
 - [ ] [backend] Las imágenes de un borrador solo las trae su autor; las de un curso
@@ -718,8 +762,8 @@ generada completa.
     imágenes.
   - Emparejar: cada columna es de textos o de imágenes.
   - Clasificar y ordenar: los elementos son todos textos o todos imágenes.
-- **Leccion** (F02, F05): no cambia; al guardarla se comprueban sus imágenes, y las que
-  dejó de usar se borran si nada más las usa.
+- **Leccion** (F02, F05): no cambia; al guardarla se comprueban sus imágenes (que pesen
+  hasta 25 MB entre todas), y las que dejó de usar se borran si nada más las usa.
 - **Progreso** (F04): no cambia.
 
 ## Supuestos
@@ -753,8 +797,8 @@ generada completa.
   son dibujos simples hechos para las pruebas, no fotos. El quickstart trae además los
   archivos para subir: la foto de 4000 × 3000 px, la de 800 × 600, el PNG transparente,
   la foto de lado, la foto con ubicación, el GIF de 2 MB, el archivo de 11 MB, el GIF de
-  6 MB, el SVG, el HEIC, el texto con extensión `.png` y lo que llena un curso casi hasta
-  los 200 MB.
+  6 MB, el SVG, el HEIC, el texto con extensión `.png`, lo que llena un curso casi hasta
+  los 200 MB y una lección pesada, con seis GIF de 5 MB.
 - Los cursos del prototipo no traían imágenes, así que no cambian y siguen con su
   portada generada.
 - Las imágenes son de un curso, no de una actividad: así, quitar una imagen de un lugar no
@@ -784,3 +828,29 @@ generada completa.
 - Al cerrar la feature se actualizan `specs/02-modelo-datos.md` (la entidad Imagen, la
   portada del curso y las actividades con imágenes) y `specs/01-navegacion.md` (el visor
   de imágenes se abre sobre la lección y el botón de volver de Android lo cierra).
+
+## Aclaraciones
+
+### Sesión 2026-11-07
+
+Decididas con el usuario antes de la spec (ver "Descripción original"): el audio propio
+pasa a F14; dónde van las imágenes; varias en la teoría con una marca en el texto; las
+opciones y los elementos de imagen, solo la imagen, completa en un mosaico; cada columna
+de emparejar de texto o de imágenes; el texto alternativo opcional; las miniaturas en la
+barra al fallar; reducir las fotos a 1600 px y los GIF tal cual, hasta 5 MB; el botón de
+pausa de los GIF; 200 MB por curso; y ampliar la imagen de la teoría y de la pregunta.
+
+Decididas al aclarar la spec:
+
+- P: ¿La portada del curso puede ser un GIF? → R: No. La portada es JPEG, PNG o WebP; los
+  GIF van dentro de las lecciones, donde tienen su botón de pausa.
+- P: ¿Cuándo trae el alumno las imágenes de una lección? → R: Todas al abrirla, sin
+  esperarlas: si después se pierde la conexión, lo que ya llegó se sigue viendo.
+- P: Si una imagen no cargó, ¿se vuelve a intentar? → R: Sí, sola: en el móvil, al volver
+  la conexión; en la web, al pasar a otra actividad.
+- P: ¿Hay un límite de peso de imágenes por lección? → R: Sí, 25 MB entre todas sus
+  imágenes, comprobado al guardar y al probar la lección, porque el alumno las trae todas
+  al abrirla.
+- P: ¿El autor ve cuánto lleva usado de los dos límites? → R: Sí: el lienzo muestra
+  "Imágenes de esta lección: {x} de 25 MB" junto a "Guardar lección", al momento, y el
+  mapa, "Imágenes del curso: {x} de 200 MB" en los datos del curso.

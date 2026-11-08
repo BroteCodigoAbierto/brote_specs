@@ -54,5 +54,9 @@
   usuario), así que una pestaña vieja o lo recuperado después de expirar la sesión puede
   traer una imagen que ya no está: "Casos de error" lo cubre con "Esta imagen ya no está.
   Elige otra.".
-- 84 criterios. Los archivos para subir y el curso casi lleno los prepara el quickstart
-  del plan.
+- `/speckit-clarify` (2026-11-07), cinco preguntas: la portada no admite GIF, el alumno
+  trae todas las imágenes al abrir la lección, las que no cargaron se vuelven a pedir
+  solas, una lección tiene hasta 25 MB de imágenes y el editor muestra cuánto se lleva
+  usado de los dos límites. La lista sigue pasando completa.
+- 90 criterios. Los archivos para subir, el curso casi lleno y la lección pesada los
+  prepara el quickstart del plan.

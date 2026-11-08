@@ -506,7 +506,7 @@ generada completa.
 - [ ] [backend] "Actividades de prueba" tiene portada y, al final, las lecciones "Teoría
   con imágenes", "Opción múltiple con imágenes", "Relacionar con imágenes", "GIF",
   "Imágenes al límite" e "Imágenes con etiquetas", en ese orden, sin que cambien de lugar
-  sus 14 lecciones anteriores.
+  sus 12 lecciones anteriores.
 - [ ] [web, móvil] Las actividades sin imágenes de los cuatro cursos del prototipo se ven
   igual que antes de esta feature, y esos cursos se ven con su portada generada.
 

@@ -25,3 +25,4 @@ mismo y para poder explicar el proyecto.
 | [0013](0013-flujo-de-ramas.md) | Ramas feature → dev → main con PR | Aceptada |
 | [0014](0014-publicacion-con-revision.md) | Publicación con revisión manual | Aceptada |
 | [0015](0015-sistema-de-diseno-vidrio.md) | Sistema de diseño de vidrio, compartido por web y móvil | Aceptada |
+| [0016](0016-imagenes-en-postgresql.md) | Imágenes de los cursos en PostgreSQL | Aceptada |

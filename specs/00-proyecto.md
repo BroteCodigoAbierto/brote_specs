@@ -62,7 +62,8 @@ audio, F13 no podría validarlo.
 
 ## Catálogo de actividades
 
-Las actividades del MVP son los 13 tipos del prototipo (`docs/prototipo.md`).
+Las actividades del MVP son los 13 tipos del prototipo (`docs/prototipo.md`), y con F14
+ya están todos.
 Según el principio IV, cada feature que agrega un tipo trae su reproductor en
 la web y el móvil, su formulario del editor y sus actividades en los cursos de
 prueba.
@@ -78,7 +79,8 @@ F05 hace el editor completo con los tipos básicos, y su paleta ya agrupa los
 cuatro grupos. F13 agrega imágenes a la teoría, a la opción múltiple (pregunta y
 opciones), a emparejar, clasificar y ordenar, y a la portada del curso. F14 sube
 el audio propio de escuchar y repetir como F13 sube las imágenes (sin él, se usa
-voz sintetizada). F15 aplica a todas las actividades y se puede apagar.
+voz sintetizada) y agrega el idioma del curso, el de esa voz. F15 aplica a todas las
+actividades y se puede apagar.
 
 ## Funcionalidades futuras
 

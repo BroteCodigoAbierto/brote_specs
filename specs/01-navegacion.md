@@ -132,6 +132,11 @@ El visor de una imagen (F13) se abre sobre la lección, sin ruta propia. Con él
 abierto, el botón de volver de Android lo cierra a él y no a la lección. Abrirlo,
 cerrarlo o pausar un GIF no cuenta como haber hecho algo.
 
+En escuchar y repetir (F14), escuchar la frase y grabarse no cuentan como haber hecho
+algo; comprobar, sí. En el móvil, "Abrir ajustes" (con el permiso del micrófono negado)
+sale a los ajustes del teléfono y, al volver a Brote, la lección sigue como estaba, sin
+pedir confirmación.
+
 ## Salir con cambios sin guardar (F05)
 
 En el lienzo y en los datos del curso, con cambios sin guardar, salir pide

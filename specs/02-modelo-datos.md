@@ -63,7 +63,7 @@ Cerrar sesión borra la fila de ese dispositivo; las demás siguen.
 Detalle de las cuatro tablas en
 [`features/F01-crear-cuenta/data-model.md`](./features/F01-crear-cuenta/data-model.md).
 
-### Curso (F02, F05, F06, F13)
+### Curso (F02, F05, F06, F13, F14)
 
 Curso creado por un usuario, que es su autor. Tabla `curso`; en el contrato
 viaja como `ResumenCurso` (catálogo), `DetalleCurso` (detalle), `CursoDelAutor`
@@ -82,7 +82,8 @@ viaja como `ResumenCurso` (catálogo), `DetalleCurso` (detalle), `CursoDelAutor`
 | `autor` | `id_autor` | texto | sí | → `user.id`, sin borrado en cascada (borrar cuentas está fuera del MVP). En el contrato, `{ id, nombre }` con el nombre actual del usuario |
 | `cantidadLecciones` | — | entero | sí | No se guarda: se cuenta al responder |
 | `idPortada` (`ResumenCurso`, `CursoDelAutor`) · `portada` (`CursoEnEditor`) | `id_portada` | texto | no | → `imagen.id`, de este mismo curso y no GIF (lo comprueba el servicio). `ON DELETE SET NULL`. `portada` es la **Imagen** completa (el editor muestra su tamaño y su peso); las tarjetas solo reciben su id (F13) |
-| `pesoImagenes` (`CursoEnEditor`) | — | entero | sí | No se guarda: la suma de `peso` de sus imágenes, en bytes. Hasta 200 MB (`LIMITES_IMAGENES.pesoCursoMax`), comprobado al subir (F13) |
+| `idioma` (`DetalleCurso`, `CursoEnEditor`) | `idioma` | texto | sí | Uno de `IDIOMAS_CURSO`: `es`, `en`, `fr`, `pt`, `de`, `it`, `ja`, `zh` o `ko`. Por defecto `es` (los cursos de antes de F14 quedaron así). `CHECK` `curso_idioma_valido`. Es el de la voz que lee las frases de escuchar y repetir; no ordena ni filtra el catálogo, y `ResumenCurso` no lo trae. Se cambia en los datos del curso del mapa (`CuerpoDatosCurso.idioma?`, sin él no cambia) (F14) |
+| `pesoArchivos` (`CursoEnEditor`) | — | entero | sí | No se guarda: la suma de `peso` de sus imágenes y sus audios, usados o no, en bytes. Hasta 200 MB (`LIMITES_ARCHIVOS.pesoCursoMax`), comprobado al subir cualquiera de los dos (F13; antes `pesoImagenes`, F14) |
 | — | `creado_en` | fecha | sí | Por defecto, el momento de crearlo. Desempata el orden |
 | — | `actualizado_en` | fecha | sí | Ordena "Cursos que creé". Se actualiza también al cambiar sus lecciones |
 
@@ -108,9 +109,9 @@ viaja como `ResumenCurso` (catálogo), `DetalleCurso` (detalle), `CursoDelAutor`
   ve si su imagen no carga (F13). Regla en
   [`features/F02-explorar-catalogo/research.md`](./features/F02-explorar-catalogo/research.md),
   punto 7.
-- Eliminar un curso borra también sus imágenes (F13).
+- Eliminar un curso borra también sus imágenes (F13) y sus audios (F14).
 
-### Leccion (F02, F05, F13)
+### Leccion (F02, F05, F13, F14)
 
 Lección ordenada dentro de un curso. Tabla `leccion`; en el contrato,
 `ResumenLeccion`, y en el editor, `LeccionEnMapa` y `LeccionEnEditor`.
@@ -124,10 +125,13 @@ Lección ordenada dentro de un curso. Tabla `leccion`; en el contrato,
 | `actividades` | `actividades` | JSONB | sí | Lista de **Actividad** en el orden de la lección (F03). Por defecto `[]`. Solo se escribe después de `validarActividades`. En el contrato viaja en `DetalleLeccion`; `ResumenLeccion` y el detalle del curso no la traen. Hasta 50 actividades |
 | `version` | `version` | entero | sí | Por defecto 1. Sube 1 cada vez que se guarda la lección, para detectar una versión más nueva. Agregarla, reordenar o renumerar no la cambian. Solo viaja en `LeccionEnEditor` |
 | — | `imagenes` | lista de textos (`text[]`) | sí | Por defecto `{}`. Los ids de las imágenes que usan sus actividades, sin repetir. Lo escribe `guardarLeccion` con las actividades; no viaja por la API (F13) |
+| — | `audios` | lista de textos (`text[]`) | sí | Lo mismo con los audios (F14) |
+| `idioma` (`DetalleLeccion`, `LeccionEnEditor`) | — | texto | sí | No se guarda: el `idioma` de su curso, para la voz y los lectores de pantalla (F14) |
 | — | `creado_en`, `actualizado_en` | fecha | sí | |
 
-- Las imágenes que usan sus actividades pesan, entre todas y sin repetir, hasta
-  25 MB (`LIMITES_IMAGENES.pesoLeccionMax`). Lo comprueba `guardarLeccion` (F13).
+- Los archivos que usan sus actividades, imágenes y audios, pesan entre todos y sin
+  repetir hasta 25 MB (`LIMITES_ARCHIVOS.pesoLeccionMax`). Lo comprueba `guardarLeccion`
+  (F13, F14).
 
 Detalle de las dos tablas, la migración y la búsqueda en
 [`features/F02-explorar-catalogo/data-model.md`](./features/F02-explorar-catalogo/data-model.md).
@@ -164,7 +168,36 @@ Archivo de imagen de un curso: la portada o una imagen de sus actividades. Tabla
   si la dejó de usar y nada más del curso la usa; un día después de `subida_en` si nada
   la usa; y con su curso.
 
-### Actividad (F03, F05, F11, F12, F13)
+### Audio (F14)
+
+Archivo de audio de un curso: el de la frase de un escuchar y repetir. Tabla `audio`; en
+el contrato, `Audio` (sin los bytes). Sigue las reglas de **Imagen**.
+
+| Campo (contrato) | Columna (`audio`) | Tipo | Obligatorio | Reglas |
+|---|---|---|---|---|
+| `id` | `id` | texto | sí | UUID v7, lo genera la base |
+| — | `id_curso` | texto | sí | → `curso.id`; se borra con el curso |
+| — | `huella` | texto | sí | SHA-256 de `datos` (el audio ya limpio), en hexadecimal. **Única** por curso (`id_curso`, `huella`) |
+| `formato` | `formato` | texto | sí | `mp3`, `m4a` o `wav` (`FORMATOS_AUDIO`) |
+| `duracion` | `duracion` | entero | sí | En milisegundos, mayor que 0 y hasta 30 049 (30 s redondeados a décimas, `LIMITES_AUDIOS.duracionMax`) |
+| `peso` | `peso` | entero | sí | En bytes, igual a la longitud de `datos`. Hasta 5 MB (`LIMITES_AUDIOS.pesoMax`) |
+| — | `datos` | bytes (`bytea`) | sí | El audio sin sus datos ocultos. Solo lo lee `GET /audios/:idAudio` (decisión 0017) |
+| — | `subida_en` | fecha | sí | Por defecto, el momento de subirlo. Se renueva si se sube otra vez el mismo audio |
+
+- **Restricción** `audio_valido` (`CHECK`): el formato, la duración y el peso de arriba.
+- Al subirlo, el servidor lee el formato real y la duración de los bytes, y le quita los
+  datos ocultos sin volver a comprimir el sonido: de un MP3 quedan solo sus cuadros; de un
+  WAV, `fmt ` y `data`; de un M4A, la pista de sonido sin `udta`, `meta` ni las demás
+  pistas. Solo acepta lo que se oye en todos los clientes: MP3 de capa III, WAV PCM entero
+  de 1 o 2 canales, de 8, 16 o 24 bits y de 8 000 a 48 000 Hz, y M4A con una sola pista de
+  AAC. El nombre del archivo no se guarda.
+- **Se usa** si su id está en `audios` de alguna lección del curso (un audio no es
+  portada). Se oye si el curso está publicado, o si quien lo pide es su autor; si no, da la
+  misma respuesta que uno que no existe.
+- **Se borra**: al guardar o eliminar una lección, si la dejó de usar y nada más del curso
+  lo usa; un día después de `subida_en` si nada lo usa; y con su curso.
+
+### Actividad (F03, F05, F11, F12, F13, F14)
 
 Ejercicio o bloque de teoría de una lección. No tiene tabla ni `id`: es un
 elemento de `leccion.actividades`, y su lugar en la lista es su orden. En el
@@ -220,6 +253,9 @@ su forma: el backend la valida antes de guardarla.
 | | `head` | `{ rama }` o `{ commit }` | no | Un solo campo: un índice en `ramas` o en `commits` |
 | | `respuesta` | entero | sí | Índice en `commits` |
 | | `explicacion` | texto | no | Si está, no vacía, de hasta 500 |
+| `escucharRepetir` | `frase` | texto | sí | No vacía, de una línea, de hasta 200 (`fraseMax`). Se guarda recortada (F14) |
+| | `mostrarTexto` | booleano | sí | `true`: el alumno ve la frase desde el inicio; `false`: al comprobar, o en cuanto se sabe que no se puede oír |
+| | `audio` | `Audio` | no | Un **Audio** del mismo curso; al guardar, el servidor reescribe `formato`, `duracion` y `peso` con los de la base. Sin él, la frase se lee con la voz del dispositivo en el idioma del curso |
 
 - "No vacío": recortado, tiene al menos un carácter. Un campo que el tipo no
   tiene se rechaza. "De una línea": sin `\n` ni `\r` (F12).
@@ -235,9 +271,9 @@ su forma: el backend la valida antes de guardarla.
   con la lección (ver Progreso), y F08 decide si eso basta para los puntos.
 - Qué tipos son preguntas lo dice `CALIFICA_ACTIVIDAD` en el contrato (F04):
   `opcionMultiple`, `completarEspacios`, `preguntaAbierta`, `emparejar`,
-  `clasificar`, `ordenar`, `bancoPalabras`, `retoCodigo`, `terminalSimulada` y
-  `grafoCommits`, diez en total. Con esa constante cuentan las preguntas el backend y
-  los dos clientes.
+  `clasificar`, `ordenar`, `bancoPalabras`, `retoCodigo`, `terminalSimulada`,
+  `grafoCommits` y `escucharRepetir` (F14: se acierta si el alumno elige "Lo dije bien"),
+  once en total. Con esa constante cuentan las preguntas el backend y los dos clientes.
 - En el banco de palabras tiene que haber una forma de llenar todos los espacios
   usando cada ficha una sola vez; una ficha se compara por su texto exacto. Sin
   consigna, los clientes usan `CONSIGNA_POR_DEFECTO` (F11).
@@ -258,8 +294,8 @@ su forma: el backend la valida antes de guardarla.
   `HEAD` se rechaza respetando las mayúsculas: `head` sí vale (F12).
 - El código inicial, la solución y las salidas se guardan tal como se escribieron, con
   su sangría (F12).
-- Falta un tipo del prototipo, escuchar y repetir, que llega con F14. El glosario de
-  cada actividad llega con F09.
+- Con escuchar y repetir (F14) están los 13 tipos del prototipo. Su `lang` por actividad
+  no pasó: el idioma es del curso. El glosario de cada actividad llega con F09.
 - Las longitudes cuentan caracteres Unicode. Los límites están en
   `LIMITES_ACTIVIDADES` (F05).
 
@@ -271,6 +307,8 @@ Los de código y terminal, en
 [`features/F12-actividades-codigo-terminal/data-model.md`](./features/F12-actividades-codigo-terminal/data-model.md).
 Las imágenes, en
 [`features/F13-imagenes-propias/data-model.md`](./features/F13-imagenes-propias/data-model.md).
+Escuchar y repetir, los audios y el idioma del curso, en
+[`features/F14-escuchar-repetir/data-model.md`](./features/F14-escuchar-repetir/data-model.md).
 
 ### Progreso (F04)
 
@@ -316,7 +354,6 @@ spec de cada feature.
 
 | Entidad | Qué representa | Feature |
 |---|---|---|
-| Actividad: escuchar y repetir | El último tipo del prototipo | F14 |
-| Curso: lo que falta | El idioma (F07) y la configuración de gamificación (F08) | F07, F08 |
+| Curso: lo que falta | La configuración de gamificación (el idioma llegó con F14) | F08 |
 | Puntos / Insignia | Recompensas de un usuario en un curso | F08 |
 | EntradaGlosario | Término y definición, derivados de lecciones completadas o agregados por el alumno | F09 |

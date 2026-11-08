@@ -67,7 +67,9 @@ feature está en `specs/`; por qué se eligió cada pieza está en
 
 El prototipo guardaba cada curso como una carpeta de archivos JSON. En Brote:
 
-- **Curso, lección, usuario, progreso, puntos**: tablas relacionales.
+- **Curso, lección, usuario, progreso, puntos**: tablas relacionales. Cada **curso** tiene
+  un idioma (F14), uno de `IDIOMAS_CURSO`: el de la voz que lee las frases de escuchar y
+  repetir, y con el que se marcan para los lectores de pantalla.
 - **Actividades de una lección**: una columna JSONB con la lista de
   actividades, porque hay muchos tipos con formas distintas. El backend valida
   cada actividad contra su tipo del contrato antes de guardarla.
@@ -76,6 +78,12 @@ El prototipo guardaba cada curso como una carpeta de archivos JSON. En Brote:
   `POST /editor/cursos/:idCurso/imagenes` y las sirve en `GET /imagenes/:idImagen`, con los
   permisos del curso: las de un borrador, solo a su autor. Las actividades y la portada las
   apuntan por su id.
+- **Audios** (F14): como las imágenes, sus bytes van en PostgreSQL, en la tabla `audio`
+  (decisión 0017), y se guardan sin sus datos ocultos (título, artista, carátula, el lugar
+  de una nota de voz): el servidor los quita al recibirlos, sin volver a comprimir el
+  sonido. La API los recibe en `POST /editor/cursos/:idCurso/audios` y los sirve en
+  `GET /audios/:idAudio`, con los permisos del curso. Imágenes y audios comparten el
+  espacio del curso (200 MB) y el peso de la lección (25 MB).
 - **Importar/exportar**: el formato JSON de un curso completo es parte del
   contrato, para poder moverlo entre instancias de Brote (y para migrar los
   cursos del prototipo, que están en `referencia/cursos-prototipo/`).

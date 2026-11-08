@@ -60,7 +60,7 @@ ls $ARCH
 
 | Archivo | Qué es |
 |---|---|
-| `foto-4000x3000.jpg` | JPEG de 4000 × 3000 px, de unos 2 MB |
+| `foto-4000x3000.jpg` | JPEG de 4000 × 3000 px, de unos 3 MB |
 | `foto-800x600.jpg` | JPEG de 800 × 600 px |
 | `transparente.png` | PNG de 600 × 600 px con un círculo sobre fondo transparente, sin bloques de texto |
 | `figura.png` | PNG de 400 × 400 px con un cuadrado, sin bloques de texto (para curl) |
@@ -69,21 +69,23 @@ ls $ARCH
 | `con-ubicacion.jpg` | JPEG con ubicación (19.43° N, 99.13° O) y el modelo de cámara "Brote Cam" en su EXIF |
 | `gif-2mb.gif` | GIF animado de unos 2 MB |
 | `gif-6mb.gif` | GIF animado de unos 6 MB |
-| `gif-5mb-1.gif` a `gif-5mb-6.gif` | Seis GIF distintos, de 4.9 MB cada uno |
+| `gif-5mb-1.gif` a `gif-5mb-6.gif` | Seis GIF distintos, de 4.8 MB cada uno (seis pasan de 25 MB; cuatro, no) |
 | `grande-11mb.jpg` | JPEG de 11 MB |
 | `dibujo.svg`, `foto.heic` | Formatos que no se aceptan |
 | `texto.png` | Un archivo de texto con extensión `.png` |
 
 ### 1.3 Atajos
 
-`bd`, `idCurso` e `idLeccion` son los de F03 y F12.
+`bd`, `idCurso` e `idLeccion` son los de F03 y F12, pero sin `psql`: en la Mac no está
+instalado, así que van por el contenedor de la base (`compose.yaml` del backend). Donde las
+secciones de abajo dicen `psql ... <<< "..."`, usa `bd <<< "..."`.
 
 ```bash
 API=http://localhost:3000
 J='Content-Type: application/json'
-bd() { psql -X -q postgresql://brote:brote@localhost:5432/brote; }
-idCurso() { psql -X -q -t -A postgresql://brote:brote@localhost:5432/brote <<< "SELECT id FROM curso WHERE titulo = '$1';"; }
-idLeccion() { psql -X -q -t -A postgresql://brote:brote@localhost:5432/brote <<< "SELECT l.id FROM leccion l JOIN curso c ON c.id = l.id_curso WHERE c.titulo = '$1' AND l.posicion = $2;"; }
+bd() { docker compose -f ~/github/organizations/brote/brote_backend_express/compose.yaml exec -T postgres psql -X -q -t -A -U brote brote; }
+idCurso() { bd <<< "SELECT id FROM curso WHERE titulo = '$1';"; }
+idLeccion() { bd <<< "SELECT l.id FROM leccion l JOIN curso c ON c.id = l.id_curso WHERE c.titulo = '$1' AND l.posicion = $2;"; }
 entrar() { curl -s -o /dev/null -c $1.txt -X POST $API/sesiones -H "$J" -d "{\"correo\":\"$1@brote.test\",\"contrasena\":\"brote12345\"}"; }
 subir() { curl -s -w ' %{http_code}\n' -b $1.txt -X POST $API/editor/cursos/$2/imagenes -H "Content-Type: $3" --data-binary @$4; }
 

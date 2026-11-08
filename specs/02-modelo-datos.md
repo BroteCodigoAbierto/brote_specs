@@ -63,7 +63,7 @@ Cerrar sesión borra la fila de ese dispositivo; las demás siguen.
 Detalle de las cuatro tablas en
 [`features/F01-crear-cuenta/data-model.md`](./features/F01-crear-cuenta/data-model.md).
 
-### Curso (F02, F05, F06)
+### Curso (F02, F05, F06, F13)
 
 Curso creado por un usuario, que es su autor. Tabla `curso`; en el contrato
 viaja como `ResumenCurso` (catálogo), `DetalleCurso` (detalle), `CursoDelAutor`
@@ -81,6 +81,8 @@ viaja como `ResumenCurso` (catálogo), `DetalleCurso` (detalle), `CursoDelAutor`
 | `revisionRechazada` | — | booleano | sí | No se guarda: `revision = "rechazada"`. Sin motivo también es `true` |
 | `autor` | `id_autor` | texto | sí | → `user.id`, sin borrado en cascada (borrar cuentas está fuera del MVP). En el contrato, `{ id, nombre }` con el nombre actual del usuario |
 | `cantidadLecciones` | — | entero | sí | No se guarda: se cuenta al responder |
+| `idPortada` (`ResumenCurso`, `CursoDelAutor`) · `portada` (`CursoEnEditor`) | `id_portada` | texto | no | → `imagen.id`, de este mismo curso y no GIF (lo comprueba el servicio). `ON DELETE SET NULL`. `portada` es la **Imagen** completa (el editor muestra su tamaño y su peso); las tarjetas solo reciben su id (F13) |
+| `pesoImagenes` (`CursoEnEditor`) | — | entero | sí | No se guarda: la suma de `peso` de sus imágenes, en bytes. Hasta 200 MB (`LIMITES_IMAGENES.pesoCursoMax`), comprobado al subir (F13) |
 | — | `creado_en` | fecha | sí | Por defecto, el momento de crearlo. Desempata el orden |
 | — | `actualizado_en` | fecha | sí | Ordena "Cursos que creé". Se actualiza también al cambiar sus lecciones |
 
@@ -100,13 +102,15 @@ viaja como `ResumenCurso` (catálogo), `DetalleCurso` (detalle), `CursoDelAutor`
   y se retiró, el progreso de sus alumnos se borra con él.
 - Orden del catálogo: el título sin mayúsculas, acentos ni signos al inicio
   ("¿", "¡"); luego `creado_en` y luego `id`.
-- **La portada no se guarda**: cada cliente la calcula (la inicial del título
-  sobre uno de 8 colores elegido por el `id`), así que no cambia si se corrige
-  el título. Regla en
+- **La portada generada no se guarda**: un curso sin `id_portada` la muestra, y
+  cada cliente la calcula (la inicial del título sobre uno de 8 colores elegido
+  por el `id`), así que no cambia si se corrige el título. También es la que se
+  ve si su imagen no carga (F13). Regla en
   [`features/F02-explorar-catalogo/research.md`](./features/F02-explorar-catalogo/research.md),
   punto 7.
+- Eliminar un curso borra también sus imágenes (F13).
 
-### Leccion (F02, F05)
+### Leccion (F02, F05, F13)
 
 Lección ordenada dentro de un curso. Tabla `leccion`; en el contrato,
 `ResumenLeccion`, y en el editor, `LeccionEnMapa` y `LeccionEnEditor`.
@@ -119,7 +123,11 @@ Lección ordenada dentro de un curso. Tabla `leccion`; en el contrato,
 | `posicion` | `posicion` | entero | sí | 1, 2, 3, ... dentro del curso, sin huecos. **Única** por curso. Se renumera al reordenar y al eliminar, en dos pasos, porque el índice único se comprueba fila por fila (research de F05, punto 3) |
 | `actividades` | `actividades` | JSONB | sí | Lista de **Actividad** en el orden de la lección (F03). Por defecto `[]`. Solo se escribe después de `validarActividades`. En el contrato viaja en `DetalleLeccion`; `ResumenLeccion` y el detalle del curso no la traen. Hasta 50 actividades |
 | `version` | `version` | entero | sí | Por defecto 1. Sube 1 cada vez que se guarda la lección, para detectar una versión más nueva. Agregarla, reordenar o renumerar no la cambian. Solo viaja en `LeccionEnEditor` |
+| — | `imagenes` | lista de textos (`text[]`) | sí | Por defecto `{}`. Los ids de las imágenes que usan sus actividades, sin repetir. Lo escribe `guardarLeccion` con las actividades; no viaja por la API (F13) |
 | — | `creado_en`, `actualizado_en` | fecha | sí | |
+
+- Las imágenes que usan sus actividades pesan, entre todas y sin repetir, hasta
+  25 MB (`LIMITES_IMAGENES.pesoLeccionMax`). Lo comprueba `guardarLeccion` (F13).
 
 Detalle de las dos tablas, la migración y la búsqueda en
 [`features/F02-explorar-catalogo/data-model.md`](./features/F02-explorar-catalogo/data-model.md).
@@ -128,7 +136,35 @@ Lo que agrega el editor, en
 Los estados de un curso, en
 [`features/F06-publicar-curso/data-model.md`](./features/F06-publicar-curso/data-model.md).
 
-### Actividad (F03, F05, F11, F12)
+### Imagen (F13)
+
+Archivo de imagen de un curso: la portada o una imagen de sus actividades. Tabla
+`imagen`; en el contrato, `Imagen` (sin los bytes), y dentro de una actividad,
+`ImagenActividad` (la `Imagen` y su texto alternativo).
+
+| Campo (contrato) | Columna (`imagen`) | Tipo | Obligatorio | Reglas |
+|---|---|---|---|---|
+| `id` | `id` | texto | sí | UUID v7, lo genera la base |
+| — | `id_curso` | texto | sí | → `curso.id`; se borra con el curso |
+| — | `huella` | texto | sí | SHA-256 de `datos`, en hexadecimal. **Única** por curso (`id_curso`, `huella`): el mismo archivo subido dos veces al mismo curso es la misma imagen |
+| `formato` | `formato` | texto | sí | `jpeg`, `png`, `webp` o `gif` (`FORMATOS_IMAGEN`) |
+| `ancho`, `alto` | `ancho`, `alto` | entero | sí | En px, mayores que 0. Sin GIF, hasta 1600 (`LIMITES_IMAGENES.ladoMax`) |
+| `peso` | `peso` | entero | sí | En bytes, igual a la longitud de `datos`. Hasta 10 MB; un GIF, hasta 5 MB |
+| — | `datos` | bytes (`bytea`) | sí | El archivo tal como se subió. Solo lo lee `GET /imagenes/:idImagen` (decisión 0016) |
+| — | `subida_en` | fecha | sí | Por defecto, el momento de subirla. Se renueva si se sube otra vez el mismo archivo |
+
+- **Restricción** `imagen_valida` (`CHECK`): el formato, las medidas y el peso de arriba.
+- Al subirla, el servidor lee el formato real del archivo (no el que dice el cliente) y
+  rechaza una foto con datos ocultos (EXIF, XMP o IPTC) o animada (PNG o WebP). El nombre
+  del archivo no se guarda.
+- **Se usa** si su id está en `imagenes` de alguna lección del curso o es su
+  `curso.id_portada`. Se ve si el curso está publicado, o si quien la pide es su autor;
+  si no, da la misma respuesta que una que no existe.
+- **Se borra**: al guardar una lección, al cambiar la portada o al eliminar una lección,
+  si la dejó de usar y nada más del curso la usa; un día después de `subida_en` si nada
+  la usa; y con su curso.
+
+### Actividad (F03, F05, F11, F12, F13)
 
 Ejercicio o bloque de teoría de una lección. No tiene tabla ni `id`: es un
 elemento de `leccion.actividades`, y su lugar en la lista es su orden. En el
@@ -138,26 +174,28 @@ su forma: el backend la valida antes de guardarla.
 | Tipo (`tipo`) | Campo | Tipo | Obligatorio | Reglas |
 |---|---|---|---|---|
 | `teoria` | `titulo` | texto | no | Si está, no vacío, de hasta 100. Se guarda recortado |
-| | `texto` | texto | sí | No vacío, de hasta 5000. Párrafos separados por un renglón en blanco |
+| | `texto` | texto | sí | No vacío, de hasta 5000. Párrafos separados por un renglón en blanco. De 0 a 5 marcas `[imagen]` (`MARCA_IMAGEN`, `imagenesTeoriaMax`), escritas así; al cursar, cada una parte su párrafo y su imagen va en ese lugar (F13) |
 | | `codigo` | texto | no | Si está, no vacío, de hasta 2000. Las líneas con `+`, `-` o `@@` se leen como diff |
 | | `puntosClave` | lista de textos | no | Si está, de 1 a 10; cada uno no vacío, de hasta 200 |
+| | `imagenes` | lista de `ImagenActividad` | no | Una por marca, en orden. Sin marcas, no está (F13) |
 | `tarjeta` | `frente` | texto | sí | No vacío, de hasta 200 |
 | | `reverso` | texto | sí | No vacío, de hasta 1000 |
 | `opcionMultiple` | `pregunta` | texto | sí | No vacía, de hasta 500 |
+| | `imagen` | `ImagenActividad` | no | La de la pregunta (F13) |
 | | `codigo` | texto | no | Igual que en `teoria` |
-| | `opciones` | lista de `{ texto }` o `{ simbolo }` | sí | Entre 2 y 9, todas de texto o todas de símbolo. Cada texto no vacío, de hasta 200; cada símbolo, de hasta 4. No se repiten: se comparan recortadas, respetando las mayúsculas |
+| | `opciones` | lista de `{ texto }`, `{ simbolo }` o `{ imagen }` | sí | Entre 2 y 9, **todas de la misma forma**. Cada texto no vacío, de hasta 200; cada símbolo, de hasta 4. No se repiten: los textos se comparan recortados, respetando las mayúsculas, y las imágenes por su id (F13) |
 | | `correcta` | entero | sí | Índice en `opciones`: exactamente una correcta |
 | `completarEspacios` | `texto` | texto | sí | De hasta 2000, con 1 a 20 `___` (`MARCA_ESPACIO`) |
 | | `espacios` | lista de `{ aceptadas }` | sí | Uno por cada `___`. De 1 a 10 aceptadas por espacio, no vacías y de hasta 100 caracteres; la primera es la que se muestra como esperada |
 | `preguntaAbierta` | `pregunta` | texto | sí | No vacía, de hasta 500 |
 | | `solucion` | texto | sí | No vacía, de hasta 2000 |
 | `emparejar` | `consigna` | texto | no | Si está, no vacía, de hasta 500 |
-| | `parejas` | lista de `{ izquierda, derecha }` | sí | Entre 3 y 8, en el orden del autor. Cada texto no vacío, de hasta 200. No se repite en su columna |
+| | `parejas` | lista de `{ izquierda, derecha }` | sí | Entre 3 y 8, en el orden del autor. Cada lado es un texto o una `ImagenActividad`, y toda una columna es de textos o de imágenes (F13). Cada texto no vacío, de hasta 200. No se repite en su columna |
 | `clasificar` | `consigna` | texto | no | Si está, no vacía, de hasta 500 |
 | | `categorias` | lista de textos | sí | Entre 2 y 4, en el orden del autor. Cada una no vacía, de hasta 100. No se repiten |
-| | `elementos` | lista de `{ texto, categoria }` | sí | Entre 2 y 12. `texto`, no vacío, de hasta 100, sin repetirse. `categoria`, índice en `categorias`. Toda categoría tiene al menos un elemento |
+| | `elementos` | lista de `{ texto, categoria }` o `{ imagen, categoria }` | sí | Entre 2 y 12, todos de la misma forma (F13). `texto`, no vacío, de hasta 100; ni un texto ni una imagen se repiten. `categoria`, índice en `categorias`. Toda categoría tiene al menos un elemento |
 | `ordenar` | `consigna` | texto | sí | No vacía, de hasta 500 |
-| | `elementos` | lista de textos | sí | Entre 3 y 10, **en el orden correcto**. Cada uno no vacío, de hasta 200. No se repiten |
+| | `elementos` | lista de textos o de `ImagenActividad` | sí | Entre 3 y 10, **en el orden correcto**, todos de la misma forma (F13). Cada texto no vacío, de hasta 200. No se repiten |
 | `bancoPalabras` | `consigna` | texto | no | Si está, no vacía, de hasta 500 |
 | | `texto` | texto | sí | De hasta 2000, con 1 a 10 `___` (`MARCA_ESPACIO`) |
 | | `fichas` | lista de textos | sí | Entre 2 y 20. Cada una no vacía, de hasta 100. Se guardan recortadas. **Se pueden repetir** |
@@ -185,6 +223,12 @@ su forma: el backend la valida antes de guardarla.
 
 - "No vacío": recortado, tiene al menos un carácter. Un campo que el tipo no
   tiene se rechaza. "De una línea": sin `\n` ni `\r` (F12).
+- Toda imagen de una actividad es una `ImagenActividad`: el `id` de una **Imagen** del
+  mismo curso (al guardar, el servidor reescribe `formato`, `ancho`, `alto` y `peso` con
+  los de la base) y un `textoAlternativo` opcional que, si está, es no vacío, de una
+  línea, de hasta 200 (`textoAlternativoMax`), y se guarda recortado. Una actividad con
+  imágenes cuenta igual que una de texto, y una sin imágenes tiene la misma forma que
+  antes de F13. El banco de palabras no lleva imágenes (F13).
 - Las respuestas viajan al cliente, que califica sin volver a pedir nada
   (research de F03, punto 2). Por eso el servidor no puede confiar en los
   aciertos que mande el cliente: F04 solo comprueba que el resultado cuadre
@@ -225,6 +269,8 @@ Los tipos de relacionar, en
 [`features/F11-actividades-relacionar/data-model.md`](./features/F11-actividades-relacionar/data-model.md).
 Los de código y terminal, en
 [`features/F12-actividades-codigo-terminal/data-model.md`](./features/F12-actividades-codigo-terminal/data-model.md).
+Las imágenes, en
+[`features/F13-imagenes-propias/data-model.md`](./features/F13-imagenes-propias/data-model.md).
 
 ### Progreso (F04)
 

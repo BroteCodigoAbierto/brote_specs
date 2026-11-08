@@ -128,6 +128,10 @@ confirmación: "¿Salir de la lección?", "Perderás tu avance en esta lección.
 (web) y el botón o gesto de atrás del teléfono (móvil). Recargar la página o
 cerrar la app no la piden.
 
+El visor de una imagen (F13) se abre sobre la lección, sin ruta propia. Con él
+abierto, el botón de volver de Android lo cierra a él y no a la lección. Abrirlo,
+cerrarlo o pausar un GIF no cuenta como haber hecho algo.
+
 ## Salir con cambios sin guardar (F05)
 
 En el lienzo y en los datos del curso, con cambios sin guardar, salir pide

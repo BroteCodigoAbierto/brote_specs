@@ -190,6 +190,9 @@ manual ya están decididos (`docs/decisiones/`).
 - **Por confirmar en el teléfono** (como el teclado en F12): que `stopAnimating` deja el
   cuadro actual y `startAnimating` sigue desde ahí, y que `autoplay={false}` muestra el
   primer cuadro. Si no, se anota aquí y en la spec.
+- **Estado al implementar** (2026-11-08): `npx expo install` dejó `expo-image` ~58.0.18.
+  Lo de arriba sigue sin confirmar en el teléfono (T075, con el usuario). Mientras, el
+  móvil compila (`npm run tipos`, `npm run lint` y `npx expo export --platform ios`).
 - Todas las imágenes del móvil usan `expo-image`, no solo los GIF, para tener una sola
   caché y una sola forma de mandar el token.
 

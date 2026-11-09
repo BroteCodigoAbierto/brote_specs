@@ -288,7 +288,10 @@ degradado índigo → violeta, seguido de "Brote" en `titulo3` peso 800.
 - **Lección completada en la lista** (F04): el círculo del número pasa a
   `broteSuave` con el número en `broteFuerte`, y antes de la flecha van un
   `CircleCheck` `broteFuerte` y, si la lección tiene preguntas, "{a} de {p}
-  aciertos" en `nota` `textoSuave`. El color no es la única pista: el icono
+  aciertos" en `nota` `textoSuave`. En el móvil, "{a} de {p} aciertos" va en
+  una segunda línea, debajo del título, y el `CircleCheck` se queda antes de la
+  flecha: en una sola fila, el título se partía a media palabra en un teléfono
+  de 375 px. El color no es la única pista: el icono
   y el nombre accesible, "{n}. {título}, completada" y, si hay, ", {a} de
   {p} aciertos".
 - **Página personal** ("Mi panel", web, F04): título `titulo1` y una sección

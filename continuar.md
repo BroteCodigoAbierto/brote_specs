@@ -1,7 +1,7 @@
 # Continuar con Brote
 
 Guía para que una sesión nueva, sin contexto, siga el trabajo. Describe el estado del
-2026-11-08: antes de actuar, compáralo con `git log`, con `gh pr list` y con el `tasks.md` de la
+2026-11-09: antes de actuar, compáralo con `git log`, con `gh pr list` y con el `tasks.md` de la
 feature.
 
 Lee también `CLAUDE.md`, `.specify/memory/constitution.md` y `docs/flujo-trabajo.md`. Si algo
@@ -11,9 +11,10 @@ de aquí los contradice, mandan ellos.
 `brote_specs` (la última feature, que trae F11, F12 y F13). En `dev` y en las ramas anteriores hay
 versiones viejas: no las sigas.
 
-El usuario trabaja en su Mac, con un iPhone 12 mini para probar el móvil. Las sesiones se abren
-en `~/github/organizations/brote/brote_specs` (los repos de código son hermanos; ver
-`docs/flujo-trabajo.md`).
+El usuario trabaja en su Mac, con un iPhone 12 mini para probar el móvil, y también en una
+computadora con Linux, donde no se puede probar el móvil (ver "Notas de las herramientas"). Las
+sesiones se abren en `~/github/organizations/brote/brote_specs` (los repos de código son
+hermanos; ver `docs/flujo-trabajo.md`).
 
 ## Una sesión para cada cosa
 
@@ -74,7 +75,7 @@ Desktop por iPhone Mirroring, como dice "Probar en el iPhone".
 | F04, arreglo: aciertos debajo del título en el móvil | — | Validado en el iPhone | specs #9 · — · — · móvil #9 |
 | F11, actividades de relacionar | 59 de 59 | **103 de 108** | #10 · #8 · #9 · #10 |
 | F12, código y terminal | 53 de 55 | **79 de 86** | #11 · #9 · #10 · #11 |
-| F13, imágenes propias | 92 de 94 | **0 de 90** | #12 · #10 · #11 · #12 |
+| F13, imágenes propias | 92 de 94 | **51 de 90** | #12 · #10 · #11 · #12 |
 | F14, escuchar y repetir | 74 de 77 | **0 de 82** | #13 · #11 · #12 · #13 |
 
 - **Contrato**: 0.11.0 en la rama de F14 (F11 lo dejó en 0.8.0, F12 en 0.9.0 y F13 en 0.10.0).
@@ -94,10 +95,16 @@ Desktop por iPhone Mirroring, como dice "Probar en el iPhone".
     Ahora se prueba en las lecciones 9 y 10 de "Actividades de prueba" (spec, `tasks.md` y
     quickstart).
   - Faltan T047 y T055, y 7 criterios: ver "Sesión con el teléfono en la mano".
-- **F13**: implementada; falta `valida` completo (0 de 90) y T075 y el recorrido de T090 en el
-  iPhone. Para validar: el quickstart prepara los archivos con `npm run imagenes:validacion`
-  (sección 1.2, usa `sips`) y bloquea o retrasa las imágenes con `npm run proxy:validacion`
-  (sección 1.4), los dos en el backend; la web y Expo van contra el proxy (`:3001`). Lo que se
+- **F13**: `valida` del 2026-11-09, en una computadora con Linux (Fedora): backend con curl y
+  web en Chrome. **51 de 90**: todos los de backend y los solo de web. Los 39 que faltan son
+  `[web, móvil]` o `[móvil]`: la web ya pasó en casi todos (lista en "F13: lo que falta"), pero
+  falta el iPhone, que desde Linux no se puede (iPhone Mirroring es de macOS). Faltan también
+  T075 y el recorrido de T090 en el iPhone. Al validar se corrigió: en el visor de la web, pulsar
+  lo oscuro a los lados de la imagen no lo cerraba (el `<img>` ocupa todo el marco con
+  `object-fit: contain`); y en el quickstart, el paso de V75. Para validar: el quickstart prepara
+  los archivos con `npm run imagenes:validacion` (sección 1.2, usa `sips`; en Linux, con el
+  sustituto de "Notas de las herramientas") y bloquea o retrasa las imágenes con
+  `npm run proxy:validacion` (sección 1.4); la web y Expo van contra el proxy (`:3001`). Lo que se
   decidió al analizar: el servidor rechaza una foto con EXIF, XMP o IPTC, o un PNG o WebP animado
   (el editor ya los limpia); en el móvil, el botón de pausa de un GIF que se arrastra va al lado
   del gesto de `Arrastrable`, no dentro.
@@ -278,6 +285,23 @@ Los commits que hagas en una copia quedan en su rama. Al terminar: apaga todo,
 `git worktree remove --force` cada copia (revisa antes que no tenga cambios sin commit), borra la
 base con `DROP DATABASE`, y fusiona la rama hacia adelante en la cadena.
 
+## F13: lo que falta
+
+Sin marcar, con lo que ya se vio en la web (Chrome en Linux) el 2026-11-09:
+
+| Criterios | Web | Falta |
+|---|---|---|
+| V02, V24 a V28, V31 a V34, V39 a V43, V51, V53, V54, V56 a V58, V61 a V65, V68, V88, V89 | Pasan (V32 y V89 a 360 px en un `iframe`; V42 con arrastre sintético) | El móvil, en el iPhone |
+| V44, V50, V60, V66 | — | Solo móvil |
+| V55 | Sin probar: "reducir movimiento" es un ajuste del sistema | Web y móvil |
+| V69 a V71 | Las etiquetas ARIA están bien; sin lector de pantalla real | VoiceOver en web y móvil |
+| V73 | Modo oscuro y claro bien; "reducir transparencia" sin probar | Web y móvil |
+| V52 | Pasa | El móvil |
+
+Visto en la web y **pendiente de que él decida**: las figuras de contorno de los datos de prueba y
+las barras de los extremos del panorama son azul marino (30, 27, 58), así que en modo oscuro casi
+no se ven sobre el mosaico (V25, V41 y V73). En modo claro se ven bien.
+
 ## F11: lo que se vio al validar
 
 Lo que falta validar está en "Sesión con el teléfono en la mano". Datos útiles: `spec.md`,
@@ -405,6 +429,21 @@ Valida la feature cuyas tareas están hechas y sus criterios sin marcar. La guí
   se versiona): levanta la base, la API y la web en segundo plano y Expo al frente; Ctrl+C apaga
   lo que levantó. Lo que ya corre en su puerto lo usa tal cual.
 
+**En Linux (Fedora)**
+
+- Desde el 2026-11-09 también se trabaja en una computadora con Linux: hay Chrome con la extensión,
+  PostgreSQL local en el 5432 (usuario, clave y base `brote`), `psql`, `ss`, ImageMagick y
+  `wl-copy` (para pegar: `printf ... | wl-copy` y Ctrl+V). No hay `sips` ni `afconvert`, ni iPhone
+  Mirroring: el móvil no se puede validar desde aquí.
+- Para `npm run imagenes:validacion`, un `sips` falso en el scratchpad, al frente del `PATH`, que
+  convierte con `magick "$in" -quality 92 "$fmt:$out"` y, para `heic` (ImageMagick no lo escribe),
+  pone una caja `ftyp` de HEIC delante del PNG: basta para "formato no aceptado".
+- `file_upload` de Chrome no acepta más de 10 MB: sirve los archivos desde un `node` con CORS en
+  el scratchpad y ponlos en el `input` con `DataTransfer` y un evento `change`. Anótalo en la V.
+- Sin DevTools no se puede desactivar la caché: para probar imágenes que no cargan, vuelve a
+  sembrar con el proxy ya en `bloquear` (los ids cambian). Ojo: muchas lecciones comparten las
+  mismas figuras, y una lección precarga las de sus actividades.
+
 **API**
 
 - La primera petición después de arrancarla es lenta. Haz una antes de medir tiempos, o usa esperas
@@ -478,7 +517,7 @@ vamos"). Cada cuerpo dice qué cambia, cuántos criterios pasaron y qué falta. 
 - **Orden**: F04 cuando sea; F11, luego F12, luego F13, luego F14. Cada rama trae a las anteriores,
   así que el PR de F12 muestra también los commits de F11 hasta que F11 esté en `dev`.
 - **Cuándo**: F11 y F12 están casi validadas (lo que falta es del teléfono en la mano y va en el
-  PR); F13 y F14 todavía no tienen `valida`.
+  PR); F13 tiene la web validada y le falta el iPhone; F14 todavía no tiene `valida`.
 - **Si hay commits nuevos** en una rama, `git push` y el PR se actualiza solo. Actualiza también su
   cuerpo si cambió lo validado (`gh pr edit N --body-file ...`).
 - **Después de fusionar** una feature, en cada repo: `git checkout dev && git pull --ff-only`, y en

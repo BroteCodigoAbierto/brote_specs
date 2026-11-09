@@ -304,7 +304,7 @@ actividad. Para los de "Actividades de prueba", corre antes L1 y abre su lecció
 |---|---|---|
 | [web, móvil] Resultado | En "Tu primer commit", acierta las cuatro terminales y falla clasificar | "Acertaste 4 de 5" |
 | [web, móvil] Progreso | Vuelve al curso | La lección 2 dice "4 de 5 aciertos" |
-| [web, móvil] Salir | En "Ramas: trabajar en paralelo", pasa la teoría y, sin escribir, pulsa la X. Vuelve, escribe `git` y pulsa la X; elige "Seguir aquí". Repite eligiendo un commit en el grafo | Sin escribir, sale directo. Con algo escrito, "¿Salir de la lección?", y "Seguir aquí" deja `git`. Con un commit elegido, también pide confirmación |
+| [web, móvil] Salir | Corre L1. En "Actividades de prueba", 9, sin escribir, pulsa la X. Vuelve, escribe `ls` y pulsa la X; elige "Seguir aquí". En la lección 10, elige un commit del primer grafo y pulsa la X | Sin escribir, sale directo. Con algo escrito, "¿Salir de la lección?", y "Seguir aquí" deja `ls`. Con un commit elegido, también pide confirmación. (En "Ramas" no sirve: su primera terminal va después de una teoría, y pasar de la primera actividad ya pide confirmación, F03) |
 | [web, móvil] Empezar de nuevo | En "Condicionales y operadores", escribe en el reto, sal con "Salir" y abre otra vez la lección | Empieza desde la primera actividad, y el reto tiene otra vez su código inicial |
 
 ### Paleta y bloques

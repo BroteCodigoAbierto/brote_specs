@@ -469,38 +469,38 @@ No cambia (F05), salvo:
 
 - [x] [backend] Los cuatro cursos de prueba tienen, entre todos, 13 retos de código (3
   en C y 10 en CSS), 12 terminales simuladas y 1 grafo de commits.
-- [ ] [web, móvil] "Tu primer commit" (Git esencial, 2) muestra, en este orden: teoría,
+- [x] [web, móvil] "Tu primer commit" (Git esencial, 2) muestra, en este orden: teoría,
   cuatro terminales y clasificar.
-- [ ] [web, móvil] "Ramas: trabajar en paralelo" (Git esencial, 4) muestra, en este
+- [x] [web, móvil] "Ramas: trabajar en paralelo" (Git esencial, 4) muestra, en este
   orden: teoría, terminal, grafo, teoría, terminal y terminal.
-- [ ] [web, móvil] "Patrones comunes con Flexbox" (Examen unidad 1, 11) muestra, en este
+- [x] [web, móvil] "Patrones comunes con Flexbox" (Examen unidad 1, 11) muestra, en este
   orden: teoría, opción múltiple, reto, reto, ordenar, reto, tarjeta y pregunta
   abierta.
 
 ### Reto de código
 
-- [ ] [web, móvil] En "Condicionales y operadores" (Programación en C sencilla, 2), el
+- [x] [web, móvil] En "Condicionales y operadores" (Programación en C sencilla, 2), el
   reto muestra "Escribe una función 'esPar' en C que reciba un entero y devuelva 1 si
   es par, 0 si no.", la etiqueta "C" y el campo con `int esPar(int n) {`, una línea con
   dos espacios y `}`. "Comprobar" está deshabilitado.
-- [ ] [web, móvil] El panel es oscuro en modo claro y en modo oscuro, con letra
+- [x] [web, móvil] El panel es oscuro en modo claro y en modo oscuro, con letra
   monoespaciada y el cursor en verde.
-- [ ] [web, móvil] Al escribir en el campo, "Comprobar" se habilita. Si borro lo que
+- [x] [web, móvil] Al escribir en el campo, "Comprobar" se habilita. Si borro lo que
   escribí y el código queda igual al inicial, se deshabilita.
 - [ ] [web, móvil] Al comprobar, mi código queda de solo lectura y aparece "Solución de
   referencia" con la etiqueta "C" y `return n % 2 == 0;` con su sangría, y "¿La
   tuviste bien?" con "La tuve bien" y "No la tuve".
-- [ ] [web, móvil] Con "La tuve bien", la barra dice "¡Correcto!" y la pregunta cuenta
+- [x] [web, móvil] Con "La tuve bien", la barra dice "¡Correcto!" y la pregunta cuenta
   como acertada; con "No la tuve", dice "A repasar" y cuenta como fallada.
-- [ ] [web, móvil] En "flex: 1 y el tamaño de los elementos" (Examen unidad 1, 8), el
+- [x] [web, móvil] En "flex: 1 y el tamaño de los elementos" (Examen unidad 1, 8), el
   código inicial muestra sus tres bloques, `.layout`, `.sidebar` y `.main`, separados
   por líneas en blanco, y la etiqueta "CSS".
-- [ ] [web, móvil] En "Actividades de prueba", el reto de SQL sin código inicial empieza
+- [x] [web, móvil] En "Actividades de prueba", el reto de SQL sin código inicial empieza
   con el campo vacío y "Comprobar" deshabilitado. Su solución, con una línea `--
   Todos los alumnos`, se ve sin colores, igual que las demás líneas.
-- [ ] [web, móvil] En "Actividades de prueba", el reto con lenguaje "Otro" no muestra
+- [x] [web, móvil] En "Actividades de prueba", el reto con lenguaje "Otro" no muestra
   etiqueta.
-- [ ] [web, móvil] En "Actividades de prueba", en el reto al límite, una línea más ancha
+- [x] [web, móvil] En "Actividades de prueba", en el reto al límite, una línea más ancha
   que el panel se lee completa en el campo y en la solución.
 - [x] [web] Con el cursor al final de la segunda línea, Tab mete dos espacios más y
   Mayús+Tab los quita. Con tres líneas seleccionadas, Tab mete dos espacios al inicio de cada una, y
@@ -518,35 +518,35 @@ No cambia (F05), salvo:
 
 ### Terminal simulada
 
-- [ ] [web, móvil] En "Tu primer commit" (Git esencial, 2), la primera terminal muestra
+- [x] [web, móvil] En "Tu primer commit" (Git esencial, 2), la primera terminal muestra
   "Estás en una carpeta con un proyecto nuevo. Conviértela en un repositorio Git.", la
   salida previa `README.md` e `index.html` en dos líneas y, debajo, `~/proyectos/mi-app
   $` con el cursor. "Comprobar" está deshabilitado.
-- [ ] [web, móvil] La terminal es oscura en modo claro y en modo oscuro, con el cursor en
+- [x] [web, móvil] La terminal es oscura en modo claro y en modo oscuro, con el cursor en
   verde. Al pulsar en cualquier parte de ella, el cursor queda en la línea del comando
   (en el móvil, se abre el teclado).
-- [ ] [web, móvil] Con el comando vacío o solo con espacios, "Comprobar" está
+- [x] [web, móvil] Con el comando vacío o solo con espacios, "Comprobar" está
   deshabilitado y Enter no hace nada.
-- [ ] [web, móvil] Al escribir `git init` y pulsar Enter (en el móvil, la tecla de enviar
+- [x] [web, móvil] Al escribir `git init` y pulsar Enter (en el móvil, la tecla de enviar
   del teclado), la terminal muestra debajo `Initialized empty Git repository in
   ~/proyectos/mi-app/.git/` y la barra dice "¡Correcto!". El comando ya no se puede
   cambiar y el botón dice "Continuar".
-- [ ] [web, móvil] `  git   init  ` también es correcto.
-- [ ] [web, móvil] `Git init` es incorrecto: la terminal no muestra nada más, y la barra
+- [x] [web, móvil] `  git   init  ` también es correcto.
+- [x] [web, móvil] `Git init` es incorrecto: la terminal no muestra nada más, y la barra
   muestra "Respuesta correcta:" con `git init` y, debajo, "El comando que inicializa un
   repositorio es "git init".".
-- [ ] [web, móvil] En la cuarta terminal de esa lección, `git commit -m "Primer commit"`
+- [x] [web, móvil] En la cuarta terminal de esa lección, `git commit -m "Primer commit"`
   y `git commit -m 'Primer commit'` son correctos. `git commit -m Primer commit` es
   incorrecto, y la barra muestra `git commit -m "Primer commit"`.
-- [ ] [web, móvil] En la segunda terminal de esa lección, al acertar, la salida respeta
+- [x] [web, móvil] En la segunda terminal de esa lección, al acertar, la salida respeta
   sus líneas en blanco y la sangría de `README.md` e `index.html`.
-- [ ] [web, móvil] En "Remotos: compartir tu trabajo" (Git esencial, 5), al escribir
+- [x] [web, móvil] En "Remotos: compartir tu trabajo" (Git esencial, 5), al escribir
   `git clone https://github.com/usuario/mi-app.git` el comando se lee completo mientras
   lo escribo, y la salida al acertar se lee completa, sin desplazarse hacia los lados.
-- [ ] [web, móvil] En "Actividades de prueba", la terminal sin carpeta, salida previa,
+- [x] [web, móvil] En "Actividades de prueba", la terminal sin carpeta, salida previa,
   salida al acertar ni pista muestra solo `$` y el cursor. Al acertar, solo queda el
   comando y "¡Correcto!"; al fallar, la barra muestra solo el comando esperado.
-- [ ] [web, móvil] Al pegar `git init` con un salto de línea al final, no se comprueba:
+- [x] [web, móvil] Al pegar `git init` con un salto de línea al final, no se comprueba:
   el comando queda en su línea hasta que pulso Enter.
 - [ ] [móvil] En la terminal, el teclado no corrige palabras ni pone mayúscula al
   empezar, y `"` y `'` quedan rectas.
@@ -557,29 +557,29 @@ No cambia (F05), salvo:
 
 ### Grafo de commits
 
-- [ ] [web, móvil] En "Ramas: trabajar en paralelo" (Git esencial, 4), el grafo muestra
+- [x] [web, móvil] En "Ramas: trabajar en paralelo" (Git esencial, 4), el grafo muestra
   "Hiciste dos commits en main (c1, c2). Luego creaste la rama feature en c2 e
   hiciste ahí un commit más (c3). ¿A qué commit apunta main ahora mismo?", y `c1`,
   `c2` y `c3` en una fila, de izquierda a derecha, unidos por líneas, con la etiqueta
   `feature` en `c3` y sin HEAD. "Comprobar" está deshabilitado.
-- [ ] [web, móvil] Al pulsar `c3` queda elegido; al pulsar `c2`, la elección pasa a
+- [x] [web, móvil] Al pulsar `c3` queda elegido; al pulsar `c2`, la elección pasa a
   `c2`. "Comprobar" se habilita con el primero.
-- [ ] [web, móvil] Con `c2`, al comprobar queda marcado como correcto y la barra dice
+- [x] [web, móvil] Con `c2`, al comprobar queda marcado como correcto y la barra dice
   "¡Correcto!" y, debajo, "Crear y moverte a una rama nueva no mueve main: se queda
   apuntando a c2, el commit desde el que creaste feature. El nuevo commit c3 solo
   existe en feature.".
-- [ ] [web, móvil] Con `c3`, al comprobar `c3` queda incorrecto y `c2` correcto, y la
+- [x] [web, móvil] Con `c3`, al comprobar `c3` queda incorrecto y `c2` correcto, y la
   barra muestra "Respuesta correcta: c2" y la explicación. Ya no puedo elegir otro
   commit.
-- [ ] [web, móvil] En "Actividades de prueba", en el grafo con un merge, `c1`, `c2`, `c3`
+- [x] [web, móvil] En "Actividades de prueba", en el grafo con un merge, `c1`, `c2`, `c3`
   y `c5` van en la primera fila, con "HEAD → main" en `c5`, y `c4` va en la segunda,
   debajo de `c3`, con `feature`. `c5` está unido a `c3` y a `c4`.
-- [ ] [web, móvil] En "Actividades de prueba", en el grafo de una rama ya borrada, el
+- [x] [web, móvil] En "Actividades de prueba", en el grafo de una rama ya borrada, el
   commit sin rama va en una segunda fila, debajo del commit de la primera fila que
   está en su misma columna.
-- [ ] [web, móvil] En "Actividades de prueba", en el grafo con HEAD en un commit, la
+- [x] [web, móvil] En "Actividades de prueba", en el grafo con HEAD en un commit, la
   etiqueta "HEAD", sin flecha, va en ese commit, a la mitad de la fila.
-- [ ] [web, móvil] En "Actividades de prueba", en el grafo sin explicación, la barra
+- [x] [web, móvil] En "Actividades de prueba", en el grafo sin explicación, la barra
   muestra solo "¡Correcto!" o "Respuesta correcta: {commit}".
 - [ ] [móvil] En un teléfono de 360 px de ancho, el grafo al límite de "Actividades de
   prueba" (10 commits, 6 columnas y 4 ramas con nombres de 20 caracteres, una con
@@ -601,19 +601,19 @@ No cambia (F05), salvo:
   código" con su lenguaje (y en la web, con el texto sobre Tab), la terminal como
   "Comando" con su carpeta, y cada commit con su nombre, sus padres, sus ramas y HEAD y
   si está elegido, correcto o incorrecto.
-- [ ] [web, móvil] Lo correcto y lo incorrecto del grafo llevan icono además de color.
+- [x] [web, móvil] Lo correcto y lo incorrecto del grafo llevan icono además de color.
 
 ### Resultado y salir
 
-- [ ] [web, móvil] En "Tu primer commit" (Git esencial, 2), acertando las cuatro
+- [x] [web, móvil] En "Tu primer commit" (Git esencial, 2), acertando las cuatro
   terminales y fallando clasificar, al terminar veo "Acertaste 4 de 5".
-- [ ] [web, móvil] Al volver al curso, esa lección muestra "4 de 5 aciertos".
-- [ ] [web, móvil] En "Actividades de prueba", en la terminal mínima (la primera actividad
+- [x] [web, móvil] Al volver al curso, esa lección muestra "4 de 5 aciertos".
+- [x] [web, móvil] En "Actividades de prueba", en la terminal mínima (la primera actividad
   de su lección), sin haber escrito nada la X lleva directo al detalle del curso. Después
   de escribir, pide confirmación, y "Seguir aquí" me deja con lo que escribí. En el grafo
   con un merge (también el primero de su lección), elegir un commit también pide
   confirmación al salir.
-- [ ] [web, móvil] En "Condicionales y operadores", después de escribir en el reto,
+- [x] [web, móvil] En "Condicionales y operadores", después de escribir en el reto,
   confirmar la salida y abrir otra vez la lección empieza desde la primera actividad, y
   el reto tiene otra vez su código inicial.
 
@@ -686,7 +686,7 @@ No cambia (F05), salvo:
 - [x] [web] Una lección con los tres tipos se guarda y, al recargar, sigue igual, con sus
   datos y en su orden. El código inicial y la solución conservan su sangría y sus líneas
   en blanco. Un campo opcional vacío no se guarda.
-- [ ] [web, móvil] Armo una lección con los tres tipos, un administrador publica el
+- [x] [web, móvil] Armo una lección con los tres tipos, un administrador publica el
   curso, y un alumno la cursa de principio a fin: en la web y en el móvil se ve igual
   que en la vista previa y su resultado cuenta las tres preguntas.
 - [x] [backend] Guardar, sin pasar por un cliente, un reto sin consigna, sin solución o
@@ -708,13 +708,13 @@ No cambia (F05), salvo:
 
 ### Contenido
 
-- [ ] [web, móvil] En "Actividades de prueba", la lección con `<b>hola</b>` y `<script>`
+- [x] [web, móvil] En "Actividades de prueba", la lección con `<b>hola</b>` y `<script>`
   en los textos de una actividad de cada tipo (también un commit llamado `<b>` y una
   rama `<script>`) los muestra tal cual, también en la barra inferior, sin negritas y
   sin ejecutar nada.
 - [x] [web] Con esos textos, el formulario, el bloque y la vista previa los muestran tal
   cual.
-- [ ] [web, móvil] Las actividades de "Actividades de prueba" con los límites más altos
+- [x] [web, móvil] Las actividades de "Actividades de prueba" con los límites más altos
   (código y solución de 2000 caracteres, 10 comandos y salidas de 2000, y el grafo al
   límite) se pueden responder de principio a fin, con los textos completos.
 

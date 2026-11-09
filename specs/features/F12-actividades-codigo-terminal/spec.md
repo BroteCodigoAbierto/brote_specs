@@ -487,7 +487,7 @@ No cambia (F05), salvo:
   monoespaciada y el cursor en verde.
 - [x] [web, móvil] Al escribir en el campo, "Comprobar" se habilita. Si borro lo que
   escribí y el código queda igual al inicial, se deshabilita.
-- [ ] [web, móvil] Al comprobar, mi código queda de solo lectura y aparece "Solución de
+- [x] [web, móvil] Al comprobar, mi código queda de solo lectura y aparece "Solución de
   referencia" con la etiqueta "C" y `return n % 2 == 0;` con su sangría, y "¿La
   tuviste bien?" con "La tuve bien" y "No la tuve".
 - [x] [web, móvil] Con "La tuve bien", la barra dice "¡Correcto!" y la pregunta cuenta

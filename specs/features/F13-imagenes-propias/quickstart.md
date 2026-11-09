@@ -366,7 +366,7 @@ En "Actividades de prueba", 16.
 | Criterio | Pasos | Esperado |
 |---|---|---|
 | [web] Curso lleno | En "Casi lleno" (C2), en la teoría de "Una", agrega otra marca y elige `gif-2mb.gif` | "Este curso ya tiene 200 MB de imágenes. Quita alguna y guarda para hacer espacio." |
-| [web] Hacer espacio | Quita `gif-5mb-1.gif` y su marca de la teoría, guarda y vuelve a elegir `gif-2mb.gif` en la otra marca | Se sube |
+| [web] Hacer espacio | Quita `gif-5mb-1.gif` y las dos marcas de la teoría (con un grupo vacío no se guarda), guarda, agrega una marca y vuelve a elegir `gif-2mb.gif` | Se sube |
 | [web] Lección pesada | En "Imágenes", "Pesada": una teoría con 5 marcas y una opción múltiple con imagen de pregunta, con `gif-5mb-1` a `gif-5mb-6`; "Guardar lección" y "Probar lección"; quita dos y guarda | El aviso "Las imágenes de esta lección pesan más de 25 MB. Quita alguna." en los dos; después, "Lección guardada" |
 | [web] Repetida cuenta una vez | En "Pesada", usa `gif-5mb-1` en dos actividades | El peso de la lección sube 4.9 MB una sola vez |
 | [web] Peso de la lección | En "Pesada", mira junto a "Guardar lección"; quita una imagen; abre "Una" sin imágenes | "Imágenes de esta lección: {x} de 25 MB", que baja al quitar; en rojo con icono si pasa de 25; en "Una", no aparece |

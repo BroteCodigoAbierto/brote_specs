@@ -505,7 +505,7 @@ generada completa.
 
 ### Cursos de prueba
 
-- [ ] [backend] "Actividades de prueba" tiene portada y, al final, las lecciones "Teoría
+- [x] [backend] "Actividades de prueba" tiene portada y, al final, las lecciones "Teoría
   con imágenes", "Opción múltiple con imágenes", "Relacionar con imágenes", "GIF",
   "Imágenes al límite" e "Imágenes con etiquetas", en ese orden, sin que cambien de lugar
   sus 12 lecciones anteriores.
@@ -514,52 +514,52 @@ generada completa.
 
 ### Subir imágenes (editor)
 
-- [ ] [web] En un borrador, el campo de imagen vacío muestra "Elegir imagen" y "JPEG,
+- [x] [web] En un borrador, el campo de imagen vacío muestra "Elegir imagen" y "JPEG,
   PNG o WebP de hasta 10 MB, o GIF de hasta 5 MB.".
-- [ ] [web] Al elegir la foto de 4000 × 3000 px, el campo muestra "Subiendo imagen…" y
+- [x] [web] Al elegir la foto de 4000 × 3000 px, el campo muestra "Subiendo imagen…" y
   luego la imagen, "1600 × 1200 px" con su peso, "Cambiar", "Quitar" y "Texto
   alternativo" con su ayuda.
-- [ ] [web] Al elegir la imagen de 800 × 600 px, se guarda de 800 × 600 px: una imagen
+- [x] [web] Al elegir la imagen de 800 × 600 px, se guarda de 800 × 600 px: una imagen
   más chica no se agranda.
-- [ ] [web] El PNG con fondo transparente, ya subido, sigue transparente en la vista
+- [x] [web] El PNG con fondo transparente, ya subido, sigue transparente en la vista
   previa.
-- [ ] [web] La foto tomada de lado se ve derecha en el campo y en la vista previa.
-- [ ] [web] La foto con ubicación se guarda sin ella ni el modelo de la cámara.
-- [ ] [web] El GIF de 2 MB se sube con su mismo peso y tamaño, y se mueve en la vista
+- [x] [web] La foto tomada de lado se ve derecha en el campo y en la vista previa.
+- [x] [web] La foto con ubicación se guarda sin ella ni el modelo de la cámara.
+- [x] [web] El GIF de 2 MB se sube con su mismo peso y tamaño, y se mueve en la vista
   previa.
-- [ ] [web] El archivo de 11 MB muestra "La imagen puede pesar hasta 10 MB." y el GIF de
+- [x] [web] El archivo de 11 MB muestra "La imagen puede pesar hasta 10 MB." y el GIF de
   6 MB, "Un GIF puede pesar hasta 5 MB.". El campo se queda como estaba.
-- [ ] [web] El SVG y el HEIC muestran "Elige una imagen JPEG, PNG, WebP o GIF.", y el
+- [x] [web] El SVG y el HEIC muestran "Elige una imagen JPEG, PNG, WebP o GIF.", y el
   texto con extensión `.png`, "No se pudo leer la imagen. Elige otra.".
-- [ ] [web] Con una imagen en el campo, "Cambiar" y elegir el archivo de 11 MB muestra
+- [x] [web] Con una imagen en el campo, "Cambiar" y elegir el archivo de 11 MB muestra
   su error y deja la imagen anterior. "Cambiar" con otra válida la reemplaza.
-- [ ] [web] "Quitar" deja el campo vacío, sin confirmación, y aparece "Cambios sin
+- [x] [web] "Quitar" deja el campo vacío, sin confirmación, y aparece "Cambios sin
   guardar".
-- [ ] [web] Mientras se sube una imagen, "Guardar lección" y "Probar lección" están
+- [x] [web] Mientras se sube una imagen, "Guardar lección" y "Probar lección" están
   deshabilitados con "Espera a que terminen de subir las imágenes.", y se puede seguir
   escribiendo en otro campo.
-- [ ] [web] El texto alternativo no deja escribir más de 200 caracteres ni saltos de
+- [x] [web] El texto alternativo no deja escribir más de 200 caracteres ni saltos de
   línea, y se guarda sin los espacios del inicio y del final.
-- [ ] [web] Una actividad con un campo de imagen vacío lleva "Incompleta" y, al guardar,
+- [x] [web] Una actividad con un campo de imagen vacío lleva "Incompleta" y, al guardar,
   el campo muestra "Elige una imagen.".
-- [ ] [web] Con el servidor apagado, subir una imagen muestra "No se pudo subir la
+- [x] [web] Con el servidor apagado, subir una imagen muestra "No se pudo subir la
   imagen. Inténtalo de nuevo." y lo demás sigue en pantalla.
-- [ ] [web] Con la sesión expirada, subir una imagen lleva a "Entrar" con "Tu sesión
+- [x] [web] Con la sesión expirada, subir una imagen lleva a "Entrar" con "Tu sesión
   terminó. Vuelve a entrar."; al entrar, la lección vuelve con sus cambios sin guardar y
   el campo de esa imagen como estaba antes.
-- [ ] [web] Después de guardar, al recargar la página, las imágenes y sus textos
+- [x] [web] Después de guardar, al recargar la página, las imágenes y sus textos
   alternativos siguen en sus campos.
 
 ### Teoría
 
-- [ ] [web] En el formulario de teoría, "Agregar imagen" escribe `[imagen]` donde está el
+- [x] [web] En el formulario de teoría, "Agregar imagen" escribe `[imagen]` donde está el
   cursor y aparece el grupo "Imagen 1"; con otra marca, "Imagen 2".
-- [ ] [web] Al borrar del texto una marca cuyo grupo no tiene imagen, el grupo
+- [x] [web] Al borrar del texto una marca cuyo grupo no tiene imagen, el grupo
   desaparece. Si tiene imagen, aparece "Hay más imágenes que marcas [imagen] en el
   texto. Quita las que sobran." y cada grupo muestra "Quitar imagen".
-- [ ] [web] Con 5 marcas, "Agregar imagen" se deshabilita; con 6 escritas a mano, al
+- [x] [web] Con 5 marcas, "Agregar imagen" se deshabilita; con 6 escritas a mano, al
   guardar aparece "El texto puede tener hasta 5 imágenes.".
-- [ ] [web] `[Imagen]` y `[ imagen ]` no cuentan como marcas y se ven como texto al
+- [x] [web] `[Imagen]` y `[ imagen ]` no cuentan como marcas y se ven como texto al
   cursar.
 - [ ] [web, móvil] En "Teoría con imágenes", "Imágenes entre párrafos" muestra el primer
   párrafo, el panorama, el segundo párrafo partido en dos por la imagen chica, el tercer
@@ -574,10 +574,10 @@ generada completa.
 
 ### Opción múltiple
 
-- [ ] [web] "Tipo de opciones" tiene "Texto", "Símbolo" e "Imagen". Con "Imagen", cada
+- [x] [web] "Tipo de opciones" tiene "Texto", "Símbolo" e "Imagen". Con "Imagen", cada
   opción es un campo de imagen. Al pasar a "Texto" y volver a "Imagen", las imágenes
   siguen ahí.
-- [ ] [web] Dos opciones con el mismo archivo muestran "Esta imagen está repetida.".
+- [x] [web] Dos opciones con el mismo archivo muestran "Esta imagen está repetida.".
 - [ ] [web, móvil] En "Opción múltiple con imágenes", "¿Qué figura es esta?" muestra la
   imagen del círculo rojo debajo de la pregunta y las opciones de texto.
 - [ ] [web, móvil] En "¿Cuál es el cuadrado azul?", las cuatro opciones son mosaicos
@@ -588,17 +588,17 @@ generada completa.
   la miniatura del cuadrado y "Cuadrado azul".
 - [ ] [web, móvil] En "¿Cuál es el triángulo?", sin textos alternativos, al fallar la
   barra muestra solo la miniatura del triángulo.
-- [ ] [web] Con las teclas 1 a 4 se eligen los mosaicos según su lugar en pantalla, y
+- [x] [web] Con las teclas 1 a 4 se eligen los mosaicos según su lugar en pantalla, y
   cada mosaico muestra su número.
 
 ### Emparejar, clasificar y ordenar
 
-- [ ] [web] Emparejar tiene "Columna izquierda" y "Columna derecha", con "Texto" o
+- [x] [web] Emparejar tiene "Columna izquierda" y "Columna derecha", con "Texto" o
   "Imagen". Con "Imagen" a la izquierda, cada pareja tiene un campo de imagen a la
   izquierda y uno de texto a la derecha.
-- [ ] [web] Clasificar y ordenar tienen "Tipo de elementos", con "Texto" o "Imagen". Al
+- [x] [web] Clasificar y ordenar tienen "Tipo de elementos", con "Texto" o "Imagen". Al
   cambiarlo y volver, lo escrito y las imágenes siguen ahí.
-- [ ] [web] Dos imágenes iguales en la misma columna de emparejar, o dos elementos de
+- [x] [web] Dos imágenes iguales en la misma columna de emparejar, o dos elementos de
   imagen iguales, muestran "Esta imagen está repetida.". La misma imagen en las dos
   columnas se guarda.
 - [ ] [web, móvil] En "Relacionar con imágenes", el primer emparejar muestra las figuras a
@@ -619,16 +619,16 @@ generada completa.
 
 ### Portada
 
-- [ ] [web] En el mapa de un borrador sin portada, "Portada" muestra la portada generada y
+- [x] [web] En el mapa de un borrador sin portada, "Portada" muestra la portada generada y
   "Elegir imagen". Al subir una, muestra su vista 16:9 y su vista cuadrada, y "Guardar
   cambios" se habilita.
-- [ ] [web] Al guardar, "Cambios guardados"; la portada sigue al recargar y se ve en
+- [x] [web] Al guardar, "Cambios guardados"; la portada sigue al recargar y se ve en
   "Cursos que creé" y, con el curso enviado a revisión, en su mapa (F06).
-- [ ] [web] Al elegir un GIF para la portada aparece "La portada puede ser JPEG, PNG o
+- [x] [web] Al elegir un GIF para la portada aparece "La portada puede ser JPEG, PNG o
   WebP.".
-- [ ] [web] "Quitar" y "Guardar cambios" devuelven la portada generada en el mapa y en
+- [x] [web] "Quitar" y "Guardar cambios" devuelven la portada generada en el mapa y en
   "Cursos que creé".
-- [ ] [web] En el catálogo, la tarjeta de "Actividades de prueba" muestra su portada en
+- [x] [web] En el catálogo, la tarjeta de "Actividades de prueba" muestra su portada en
   16:9 con las tres franjas a la vista; en su detalle, cuadrada y recortada al centro,
   sin las franjas de los lados.
 - [ ] [móvil] En el catálogo y en el detalle, la portada de "Actividades de prueba" se ve
@@ -654,7 +654,7 @@ generada completa.
 
 - [ ] [web, móvil] Al tocar el panorama de "Imágenes entre párrafos", se abre sobre la
   lección, sobre fondo oscuro, completo y tan grande como cabe, con "Cerrar".
-- [ ] [web] "Cerrar", Esc y pulsar el fondo cierran el visor, y el foco vuelve a la
+- [x] [web] "Cerrar", Esc y pulsar el fondo cierran el visor, y el foco vuelve a la
   imagen. Con Tab, el foco no sale del visor mientras está abierto.
 - [ ] [móvil] En el visor, pellizcar acerca la imagen y, acercada, se mueve con un dedo.
   "Cerrar" la cierra y la lección sigue como estaba.
@@ -674,7 +674,7 @@ generada completa.
   y comprobar.
 - [ ] [móvil] Si las imágenes de "Opción múltiple con imágenes" no cargaron al abrirla
   porque se cayó la conexión, al volver la conexión aparecen solas en su lugar.
-- [ ] [web] Si las imágenes de "Opción múltiple con imágenes" no cargaron al abrirla y
+- [x] [web] Si las imágenes de "Opción múltiple con imágenes" no cargaron al abrirla y
   después el servidor vuelve a responder, al pasar a la siguiente actividad sus imágenes
   se ven.
 - [ ] [web, móvil] Si abro "Relacionar con imágenes", espero unos segundos en la primera
@@ -689,47 +689,47 @@ generada completa.
   alternativo y su estado; uno sin texto alternativo, como "Imagen {n}".
 - [ ] [web, móvil] El botón de un GIF se anuncia como "Pausar animación" o "Reanudar
   animación".
-- [ ] [web] Con Tab se llega a cada imagen ampliable y a cada botón de pausa, con foco
+- [x] [web] Con Tab se llega a cada imagen ampliable y a cada botón de pausa, con foco
   visible; Enter o la barra espaciadora abren la imagen o pausan el GIF.
 - [ ] [web, móvil] Las imágenes, los mosaicos, el botón de pausa y el visor se ven bien en
   modo oscuro y con "reducir transparencia".
 
 ### Límites del curso y servidor
 
-- [ ] [web] En el curso casi lleno, subir una imagen que no cabe muestra "Este curso ya
+- [x] [web] En el curso casi lleno, subir una imagen que no cabe muestra "Este curso ya
   tiene 200 MB de imágenes. Quita alguna y guarda para hacer espacio.".
-- [ ] [web] En ese curso, al quitar una imagen ya guardada y guardar la lección, la misma
+- [x] [web] En ese curso, al quitar una imagen ya guardada y guardar la lección, la misma
   imagen que no cabía ahora se sube.
-- [ ] [web] En la lección pesada, con seis GIF de 5 MB, "Guardar lección" y "Probar
+- [x] [web] En la lección pesada, con seis GIF de 5 MB, "Guardar lección" y "Probar
   lección" muestran "Las imágenes de esta lección pesan más de 25 MB. Quita alguna." y
   no guardan ni abren la prueba. Al quitar dos GIF, se guarda.
-- [ ] [web] Una misma imagen usada en dos actividades de la lección cuenta una vez en
+- [x] [web] Una misma imagen usada en dos actividades de la lección cuenta una vez en
   los 25 MB.
-- [ ] [web] En el lienzo de una lección con imágenes, junto a "Guardar lección" se lee
+- [x] [web] En el lienzo de una lección con imágenes, junto a "Guardar lección" se lee
   "Imágenes de esta lección: {x} de 25 MB", que sube al elegir una imagen y baja al
   quitarla, sin guardar. En la lección pesada se ve en el color de error, con su icono, y
   en una lección sin imágenes no aparece.
-- [ ] [web] El mapa de un borrador con imágenes muestra "Imágenes del curso: {x} de 200
+- [x] [web] El mapa de un borrador con imágenes muestra "Imágenes del curso: {x} de 200
   MB"; el del curso casi lleno, un número cercano a 200, que baja al quitar una imagen,
   guardar la lección y volver al mapa.
-- [ ] [backend] Una imagen que se sube y no se guarda en ninguna parte se borra un día
+- [x] [backend] Una imagen que se sube y no se guarda en ninguna parte se borra un día
   después de subirla.
-- [ ] [backend] Al eliminar una lección se borran sus imágenes que no se usan en otra
+- [x] [backend] Al eliminar una lección se borran sus imágenes que no se usan en otra
   parte del curso, y al eliminar el curso, todas.
-- [ ] [backend] Subir dos veces el mismo archivo al mismo curso da la misma imagen, que
+- [x] [backend] Subir dos veces el mismo archivo al mismo curso da la misma imagen, que
   cuenta una vez.
-- [ ] [backend] El servidor rechaza subir sin sesión, a un curso ajeno, en revisión o
+- [x] [backend] El servidor rechaza subir sin sesión, a un curso ajeno, en revisión o
   publicado, un archivo que no es imagen aunque se llame `.png`, un JPEG de más de 1600
   px por lado, un JPEG con su ubicación, un PNG animado y un GIF de más de 5 MB.
-- [ ] [backend] El servidor rechaza guardar una lección con una imagen de otro curso, una
+- [x] [backend] El servidor rechaza guardar una lección con una imagen de otro curso, una
   imagen que no existe, imágenes de más de 25 MB entre todas, una teoría con más imágenes
   que marcas, o mosaicos de una columna con imágenes y textos mezclados. No guarda
   nada.
-- [ ] [backend] El servidor rechaza una portada GIF o de otro curso al guardar los datos
+- [x] [backend] El servidor rechaza una portada GIF o de otro curso al guardar los datos
   del curso.
-- [ ] [backend] Las imágenes de un borrador solo las trae su autor; las de un curso
+- [x] [backend] Las imágenes de un borrador solo las trae su autor; las de un curso
   publicado, cualquier usuario con sesión, y sin sesión, nadie.
-- [ ] [web] Si quito una imagen y guardo en una pestaña, y en otra pestaña con la versión
+- [x] [web] Si quito una imagen y guardo en una pestaña, y en otra pestaña con la versión
   anterior elijo "Reemplazar", aparece "Revisa los datos marcados." y el campo muestra
   "Esta imagen ya no está. Elige otra.".
 
@@ -742,7 +742,7 @@ generada completa.
   de 8 parejas de imágenes, el clasificar de 12 mosaicos en 4 categorías y el ordenar de
   10 se ven completos en un teléfono de 360 px, desplazando la actividad, sin cortar ni
   encimar mosaicos.
-- [ ] [web] La vista previa del editor muestra las imágenes, los GIF con su pausa y el
+- [x] [web] La vista previa del editor muestra las imágenes, los GIF con su pausa y el
   visor igual que el reproductor, y "Probar lección" recorre "Relacionar con imágenes"
   como un alumno.
 

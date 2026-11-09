@@ -7,38 +7,40 @@ feature.
 Lee también `CLAUDE.md`, `.specify/memory/constitution.md` y `docs/flujo-trabajo.md`. Si algo
 de aquí los contradice, mandan ellos.
 
-**Desde el 2026-11-06 el usuario trabaja en su Mac, con un iPhone conectado para probar el
-móvil.** La computadora con Windows ya no se usa: lo que solo existía ahí (la spec y el plan de
-F12, el encargo `integrar-f11.md`) ya está en git o en esta guía.
+**La versión al día de esta guía está en la rama `feature/F14-escuchar-repetir`** de
+`brote_specs` (la última feature, que trae F11, F12 y F13). En `dev` y en las ramas anteriores hay
+versiones viejas: no las sigas.
 
-## Una sesión por feature
+El usuario trabaja en su Mac, con un iPhone 12 mini para probar el móvil. Las sesiones se abren
+en `~/github/organizations/brote/brote_specs` (los repos de código son hermanos; ver
+`docs/flujo-trabajo.md`).
 
-Desde el 2026-11-07 el usuario abre las sesiones en **Air, dentro de WebStorm**, en
-`~/github/organizations/brote/brote_specs` (los repos de código son hermanos; ver
-`docs/flujo-trabajo.md`). **Cada sesión hace una feature completa, de la spec a la
-implementación**, y al terminar deja esta guía al día (ver "Al cerrar un chat").
+## Una sesión para cada cosa
 
-- **Una sesión a la vez.** Todas trabajan sobre las mismas carpetas de los cuatro repos: si dos
-  corren juntas, se cambian la rama una a la otra. La siguiente se abre cuando la anterior hizo su
-  último commit.
-- **Validar va aparte**: necesita Chrome con la extensión de Claude y, para el móvil, el iPhone
-  en la mano. Se hace en una sesión de `valida` por feature, cuando él pueda.
-- **Las decisiones de producto y de diseño son del usuario.** La sesión se las pregunta a él, una
-  por una; nadie más las contesta por él.
+- **Una sesión a la vez sobre las carpetas de los repos.** Todas comparten las mismas carpetas:
+  si dos corren juntas, se cambian la rama una a la otra. Si necesitas otra rama mientras otra
+  sesión trabaja, usa una copia aparte con `git worktree` (ver "Validar una feature anterior").
+- **Cada feature nueva, completa en una sesión**: de la spec a la implementación ("Las features
+  que siguen").
+- **Validar va aparte**, una sesión de `valida` por feature: backend con curl, web en Chrome con
+  la extensión de Claude, y el móvil en el iPhone con una sesión de **Claude Desktop con computer
+  use** ("Probar en el iPhone").
+- **Las decisiones de producto y de diseño son del usuario.** Se le preguntan una por una, con la
+  recomendada primero; nadie más las contesta por él.
 
-| Sesión | Qué hace | Sección |
+| Sesión | Qué hace | Mensaje |
 |---|---|---|
-| Siguiente | F14 completa | "Las features que siguen" |
-| Después, una por feature | F07, F15, F09, F08 y F10, en ese orden | "Las features que siguen" |
-| Cuando él pueda | Validar F13 y F12 (web y móvil) y lo que falta de F11 | "Qué hacer con `valida`", "Dónde vamos" y "Chat: cerrar F11" |
-| Cuando él diga `push` | Subir e integrar: F11, luego F12, luego F13 | "Integrar (`push`)" |
+| Siguiente feature | F07 completa (luego F15, F09, F08 y F10, una por sesión) | "Mensaje para una feature" |
+| `valida` de F13 | Backend, web y móvil de F13 (0 de 90) | "Mensaje para validar" con F13 |
+| `valida` de F14 | Backend, web y móvil de F14 (0 de 82) | "Mensaje para validar" con F14 |
+| Teléfono en la mano | Lo que no se puede por iPhone Mirroring, de F11 a F14 | "Sesión con el teléfono en la mano" |
+| Fusionar | Los PRs ya están abiertos; los fusiona él, en orden | "Integrar" |
 
-**Mensaje para abrir una sesión de feature** (cambia `F0X`; la guía al día está en la rama de la
-última feature mientras F11 no esté en `dev`):
+**Mensaje para una feature** (cambia `F0X`):
 
 ```text
-En ~/github/organizations/brote/brote_specs: git fetch y cámbiate a la rama de la última
-feature (hoy feature/F13-imagenes-propias). Lee continuar.md y haz F0X completa,
+En ~/github/organizations/brote/brote_specs: git fetch y cámbiate a
+feature/F14-escuchar-repetir (o a dev, si ya tiene F14). Lee continuar.md y haz F0X completa,
 como dice "Las features que siguen": te autorizo a correr tú /speckit-specify,
 /speckit-clarify, /speckit-plan, /speckit-tasks, /speckit-analyze y /speckit-implement, en
 ese orden. Pregúntame las decisiones de producto una por una. Sin push.
@@ -47,81 +49,90 @@ ese orden. Pregúntame las decisiones de producto una por una. Sin push.
 **Mensaje para validar** (cambia `F0X`):
 
 ```text
-En ~/github/organizations/brote/brote_specs: git fetch y cámbiate a la rama de F0X. Lee
-continuar.md y haz `valida` de F0X.
+En ~/github/organizations/brote/brote_specs: git fetch y cámbiate a
+feature/F14-escuchar-repetir. Lee continuar.md y haz `valida` de F0X, en su propia rama (con
+copias aparte si hace falta, como dice "Validar una feature anterior"). El móvil, con Claude
+Desktop por iPhone Mirroring, como dice "Probar en el iPhone".
 ```
 
 ### Al cerrar un chat
 
-- Actualiza "Dónde vamos" y la sección de la feature: qué quedó hecho, qué sigue y el mensaje
-  para abrir el siguiente chat si cambió.
-- Haz commit en la rama de la feature (`F0X: guía al día`). La guía llega a `dev` con el PR de
-  `brote_specs` de cada feature.
+- Actualiza "Dónde vamos" y la sección de la feature: qué quedó hecho y qué sigue.
+- Haz commit en la rama de la feature (`F0X: guía al día`) y fusiona hacia adelante la cadena de
+  ramas (F11 → F12 → F13 → F14 → la siguiente) en los repos que cambiaste, para que la última rama
+  tenga todo y esta guía al día.
 - Lo que se aprenda de las herramientas va en "Notas de las herramientas".
 
 ## Dónde vamos
 
 - **Hecho y fusionado en `dev`**: F01, F02, F03, F04, F05 y F06.
-- **F11 (en curso)**: rama `feature/F11-actividades-relacionar` en los cuatro repos, todo subido.
-  Los PRs no se sabe si existen (en Windows no había `gh`): compruébalo. Las 59 tareas están
-  hechas. **Validados 101 de 108 criterios** (2026-11-06, en el iPhone por iPhone Mirroring).
-  Los 7 que faltan necesitan el teléfono en la mano, y el usuario lo dejó en pausa (ver
-  "Chat: cerrar F11"). Hay commits locales sin subir en `brote_specs` y `brote_mobile_expo`.
-- **F12 (en curso)**: spec, plan, tareas, análisis e implementación hechos. Rama
-  `feature/F12-actividades-codigo-terminal` en los cuatro repos, **nada subido** (las de código no
-  tienen `origin` todavía). **53 de 55 tareas**: falta T047 (el teclado del iPhone en la terminal,
-  con el teléfono en la mano: iPhone Mirroring escribe con el teclado de la Mac y no sirve) y
-  T055, cuya revisión ya se hizo el 2026-11-06 (la spec coincide con lo construido) y solo espera
-  lo que T047 anote en `research.md`. `contrato:revisar` (0.9.0), `tipos` y `lint` en los tres
-  repos y `build` en la web pasan. **0 de 86 criterios validados.**
-  - **Coautor**: 25 commits locales de F12 llevan `Co-Authored-By`. El usuario decidió dejarlos así
-    (2026-11-06).
-  Lo que se decidió al analizar (2026-11-06):
-  - **Ramas**: el usuario eligió no esperar a F11. Las ramas de F12 en back, web y móvil salen de
-    `feature/F11-actividades-relacionar` (excepción a la decisión 0013, solo para F12: plan.md,
-    "Resumen"). Cuando F11 se fusione, cada rama de F12 hace `git merge origin/dev`, y sus PRs van
-    después de los de F11.
-  - **Comillas**: al comparar comandos y al buscar repetidos, `“ ”`, `‘ ’`, `—` y `…` del autor
-    cuentan como `"`, `'`, `--` y `...` (spec, "Aclaraciones", sesión 2026-11-06).
-  - Dos hallazgos bajos de redacción: el de "Commit Commit 3" en el selector de HEAD se evitó al
-    implementar (sin nombre dice "Commit 3"); "Excepciones" del plan sigue sin anotar `tokens.css`
-    ni `tema.ts`, que el plan sí lista en "Estilos" y "Tema". No estorba.
-- **Orden que sigue**: F12 → F13 → F14 → F07 → F15 → F09 → F08 → F10 (`specs/00-proyecto.md`).
+- **Todo lo demás está subido, con PRs abiertos a `dev`** (2026-11-08), sin fusionar. Cada rama
+  sale de la anterior, así que se fusionan en orden (ver "Integrar"):
 
-- **F13 (implementada, 2026-11-08)**: imágenes propias (el audio propio pasó a F14). Rama
-  `feature/F13-imagenes-propias` en los cuatro repos (sale de la de F12), **nada subido**. Spec (90
-  criterios), aclaraciones, plan, tareas, análisis e implementación hechos (decisión 0016:
-  imágenes en PostgreSQL; contrato 0.10.0; `expo-image` en el móvil). **92 de 94 tareas**: faltan
-  T075 (en el iPhone: que `stopAnimating` deja el cuadro actual, `startAnimating` sigue desde ahí,
-  `autoplay={false}` muestra el primer cuadro y la imagen llega con el token; se anota en
-  `research.md`, punto 10) y el recorrido en el iPhone de T090 (las lecciones 13 a 18 de
-  "Actividades de prueba", con el visor, la pausa y el arrastre). `contrato:revisar`, `tipos` y
-  `lint` en los tres repos, `build` en la web y `npx expo export --platform ios` pasan. **0 de 90
-  criterios validados**; B1 a B8 del quickstart pasaron con curl al implementar el backend, pero
-  no se marcaron (eso es de `valida`).
-  - Lo que se decidió al analizar (2026-11-07): el servidor rechaza una foto (JPEG, PNG o WebP)
-    que todavía traiga EXIF, XMP o IPTC, o un PNG o WebP animado: el editor ya los limpia, así
-    que solo pasa si alguien sube sin él (spec, "Validaciones", "Fotos").
-  - En el móvil, el botón de pausa de un GIF que se arrastra va al lado del gesto de
-    `Arrastrable`, no dentro: así pulsarlo, aunque sea largo, nunca empieza a arrastrar.
-  - Para validar: el quickstart prepara los archivos con `npm run imagenes:validacion` (sección
-    1.2, usa `sips`) y bloquea o retrasa las imágenes con `npm run proxy:validacion` (sección 1.4),
-    los dos en el backend. La web y Expo van contra el proxy (`:3001`).
-  - Los `/speckit-*` solo corren si el usuario pega el comando (las skills traen
-    `disable-model-invocation`); en esta Mac no hay `psql` (el quickstart usa `docker compose
-    exec`), ni Xcode (no hay simulador de iOS), y la base va en Docker Desktop (`docker compose up
-    -d` en el backend).
+| Feature | Tareas | Criterios | PRs (specs · back · web · móvil) |
+|---|---|---|---|
+| F04, arreglo: aciertos debajo del título en el móvil | — | Validado en el iPhone | specs #9 · — · — · móvil #9 |
+| F11, actividades de relacionar | 59 de 59 | **103 de 108** | #10 · #8 · #9 · #10 |
+| F12, código y terminal | 53 de 55 | **79 de 86** | #11 · #9 · #10 · #11 |
+| F13, imágenes propias | 92 de 94 | **0 de 90** | #12 · #10 · #11 · #12 |
+| F14, escuchar y repetir | 74 de 77 | **0 de 82** | #13 · #11 · #12 · #13 |
 
-**Lo siguiente**: F14 completa (escuchar y repetir, con audio propio), con el mensaje de "Una
-sesión por feature". Su rama sale de `feature/F13-imagenes-propias`.
-Aparte, cuando él pueda:
+- **Contrato**: 0.11.0 en la rama de F14 (F11 lo dejó en 0.8.0, F12 en 0.9.0 y F13 en 0.10.0).
+- **F04, arreglo** (rama `feature/F04-aciertos-bajo-el-titulo`, desde `dev`): en el detalle del
+  curso del móvil, "N de M aciertos" va en una segunda línea, debajo del título, porque en 375 px
+  el título se partía a media palabra ("Condicio / nales"). Lo eligió el usuario; está en
+  `docs/diseno.md`. Se puede fusionar cuando sea: no choca con F11 a F14.
+- **F11**: lo que falta, en "Sesión con el teléfono en la mano". El 2026-11-08 pasaron V51 y V65
+  en el iPhone, con la app de la rama de F12 (que trae F11 completa).
+- **F12**: validada el 2026-11-08: backend con curl, web en Chrome (teclado, portapapeles y clics
+  reales) y móvil por iPhone Mirroring. Al validar se corrigió:
+  - V08: en el móvil, la etiqueta del lenguaje de la "Solución de referencia" salía cortada (la
+    tapaba el código). Commit `F12: la etiqueta del lenguaje de la solución ya no queda tapada por
+    el código`.
+  - V51 pedía que en "Ramas" la X saliera directo sin haber escrito, y no se podía: su primera
+    terminal va después de una teoría, y pasar de la primera actividad ya pide confirmación (F03).
+    Ahora se prueba en las lecciones 9 y 10 de "Actividades de prueba" (spec, `tasks.md` y
+    quickstart).
+  - Faltan T047 y T055, y 7 criterios: ver "Sesión con el teléfono en la mano".
+- **F13**: implementada; falta `valida` completo (0 de 90) y T075 y el recorrido de T090 en el
+  iPhone. Para validar: el quickstart prepara los archivos con `npm run imagenes:validacion`
+  (sección 1.2, usa `sips`) y bloquea o retrasa las imágenes con `npm run proxy:validacion`
+  (sección 1.4), los dos en el backend; la web y Expo van contra el proxy (`:3001`). Lo que se
+  decidió al analizar: el servidor rechaza una foto con EXIF, XMP o IPTC, o un PNG o WebP animado
+  (el editor ya los limpia); en el móvil, el botón de pausa de un GIF que se arrastra va al lado
+  del gesto de `Arrastrable`, no dentro.
+- **F14**: implementada (audios en PostgreSQL, decisión 0017; `expo-speech`, `expo-audio` y
+  `expo-file-system` en el móvil; idioma del curso). Falta `valida` completo (0 de 82) y T066,
+  T072 (en el iPhone) y T077 (revisar la spec contra lo construido, con lo que anote T066). Para
+  validar: `npm run audios:validacion` (sección 1.2 del quickstart, usa `afconvert`) y
+  `npm run proxy:validacion` (sección 1.4, ahora también con `__modo/danar` para audios).
+- **Orden que sigue**: F07 → F15 → F09 → F08 → F10 (`specs/00-proyecto.md`). F07 sale de
+  `feature/F14-escuchar-repetir` mientras F11 a F14 no estén en `dev`.
 
-1. `valida` de F13 y de F12 en la web: de F12, el backend ya pasó (V01 y V78 a V83, 7 de 86,
-   commit `F12: validación (7 de 86 criterios, el backend)`); falta la web. Chrome necesita la
-   extensión de Claude conectada (el 2026-11-06 no lo estaba). Los de móvil se quedan sin marcar.
-2. Con el teléfono en la mano, una sola sesión: lo que falta de F11 ("Chat: cerrar F11"), T047 y
-   T055 de F12, T075 y T090 de F13, y los criterios de móvil de F12 y F13.
-3. `push`: primero F11, después F12 y después F13.
+**Lo siguiente**: cualquiera de las sesiones de la tabla de arriba. Si él no dice cuál, propón la
+siguiente feature (F07) o el `valida` de F13, y pregúntale.
+
+## Sesión con el teléfono en la mano
+
+Una sola sesión para todo lo que iPhone Mirroring no puede: el teclado del iPhone (Mirroring
+escribe con el de la Mac), gestos de varios dedos o de deslizar, VoiceOver y un ancho de 360 px.
+Él tiene el teléfono; tú le pasas una lista corta (qué hacer y qué debe ver) y marcas solo lo que
+te diga que pasó. Cada criterio en su rama (ver "Validar una feature anterior").
+
+| Feature | Qué | Notas |
+|---|---|---|
+| F11 | V53 (deslizar sin mantener pulsado), V54 (un segundo dedo no arrastra) | Lección 6 de "Actividades de prueba" |
+| F11 | V58 (reducir movimiento) y V64 (lector de pantalla), web y móvil | En la Mac, VoiceOver con Chrome; en el iPhone, Ajustes → Accesibilidad |
+| F11 | V57 (botón de atrás) | Solo Android y no tiene uno: se queda sin validar y así va en el PR (falta que lo confirme) |
+| F11 / F03 | Salir de una lección con el gesto de atrás (deslizar desde el borde izquierdo) | Regresión de F03 |
+| F12 | T047 y V18, V31, V32, V33 (el teclado del iPhone no corrige, no pone mayúsculas, deja `"`, `'`, `--` y `...` como se escriben) y V19 con el teclado abierto | Por Mirroring se vio que **iOS cambia dos espacios por un punto** en la terminal (`  git   init  ` → `git.  init`): T047 debe decir si pasa con el teclado del iPhone y, si pasa, preguntarle qué hacer. Anotar en `research.md`, punto 7 |
+| F12 | T055 | Revisar la spec con lo que anote T047 (lo demás ya se revisó) |
+| F12 | V42 (grafo al límite en 360 px) | En 375 pasó; hace falta un teléfono o emulador de 360 |
+| F12 | V47 (lector de pantalla), web y móvil | Las etiquetas ya están en el DOM |
+| F13 | T075 y el recorrido de T090 | Ver `tasks.md` de F13 |
+| F14 | T066 y T072 | Ver `tasks.md` de F14 (voz con el interruptor de silencio, grabar, altavoz) |
+
+Lo que sí se puede por Mirroring (casi todo lo demás del móvil) va en el `valida` de cada feature.
 
 ## Cómo trabajar con el usuario
 
@@ -155,7 +166,8 @@ Aparte, cuando él pueda:
 
 ## Preparar la Mac
 
-Una vez, al empezar el chat 1. Revisa antes qué hay: puede que la Mac ya tenga los repos o una
+Solo si la Mac está nueva (esta ya está preparada: repos, base en Docker Desktop, `gh` con
+sesión, PyYAML para Spec Kit en `~/.local/share/speckit-python`). Revisa antes qué hay: puede que la Mac ya tenga los repos o una
 base de otra vez.
 
 1. **Herramientas.** Comprueba `node -v` (24 o más, lo piden los `package.json`), `git`, `gh auth
@@ -197,8 +209,8 @@ base de otra vez.
    El iPhone y la Mac van en la misma red Wi-Fi. Si el iPhone no llega a la API, revisa el
    cortafuegos de macOS para `node`.
 7. **Spec Kit.** `.specify/feature.json` (git lo ignora) le dice a los `/speckit-*` qué feature
-   está activa. Para F12 debe decir
-   `{"feature_directory": "specs/features/F12-actividades-codigo-terminal"}`; créalo si falta.
+   está activa, por ejemplo
+   `{"feature_directory": "specs/features/F14-escuchar-repetir"}`; créalo si falta.
    `/speckit-specify` lo escribe solo en cada feature nueva. La CLI `specify` solo hace falta para
    reinstalar el preset (`docs/flujo-trabajo.md`).
 8. **Lo que no viaja con git**: los `.env`, `specs/metodologia.txt` y `pendientes.md`. Si él los
@@ -206,58 +218,72 @@ base de otra vez.
 
 ## Probar en el iPhone
 
-Tú no puedes tocar el teléfono. De mejor a peor:
+Claude Code en la terminal no tiene computer use: no puede ver ni tocar el iPhone. **Claude
+Desktop sí** (Ajustes → This computer → Computer use, encendido), y por **iPhone Mirroring**
+maneja el teléfono: un clic es un toque y el arrastre es con el botón sostenido. Así se validó el
+móvil de F11 y F12 el 2026-11-06 y el 2026-11-08.
 
-1. **Duplicación del iPhone** (iPhone Mirroring, macOS 15 o posterior e iOS 18): si este chat
-   tiene computer use, puedes ver y manejar el iPhone desde la Mac: un clic es un toque, y el
-   arrastre es con el botón sostenido. Antes de validar con ella, comprueba con un arrastre que
-   Expo Go la recibe como un dedo. Tiene un solo puntero, así que V54 (segundo dedo) no se puede.
-   Comprueba también si VoiceOver y el gesto de atrás funcionan ahí; si no, son para él.
-2. **Simulador de iOS** (Xcode): con `npx expo start`, la tecla `i` abre el proyecto en Expo Go
-   dentro del simulador. Sirve para lo que no depende de gestos; anótalo en la V como "(Validado
-   en el simulador de iOS, no en un teléfono.)".
-3. **Él, con el teléfono en la mano**: lo que no puedas hacer de ninguna forma. Pásale una lista
-   corta, con qué hacer y qué debe ver en cada punto, y marca solo lo que te diga que pasó.
+1. **Levanta tú** la API, la web y Expo de la rama que se valida (en el iPhone, la API va por la
+   IP de la Mac: `EXPO_PUBLIC_URL_API=http://$(ipconfig getifaddr en0):3000`). Comprueba que Expo
+   responde por la IP: `curl -H 'expo-platform: ios' -H 'Accept: application/expo+json'
+   http://<ip>:8081/` da 200 (sin esos encabezados se queda esperando, y es normal).
+2. **Escribe un encargo** en `~/Desktop/prompt-iphone-F0X.md`: qué no tocar (archivos, commits,
+   servidores), cómo abrir el proyecto, la cuenta de prueba y una línea por criterio ("qué hacer →
+   qué debe pasar"), con dónde está cada actividad. Pide que escriba los resultados en
+   `~/Desktop/resultados-iphone-F0X.md` conforme avance (`V05 ok`, `V21 falla: …` o `V18 no se puede
+   aquí`), y que al terminar le mande un mensaje a esta sesión con SendMessage (dale tu nombre de
+   `ListAgents`).
+3. **Pásale a él el mensaje para Claude Desktop**: abrir un chat de Claude Code con computer use y
+   pegar `Lee ~/Desktop/prompt-iphone-F0X.md y síguelo.` El iPhone va bloqueado y cerca de la Mac.
+4. **Lee los resultados** y marca lo que pasó, con la nota "(Móvil validado en un iPhone 12 mini por
+   iPhone Mirroring (computer use).)". Si algo falla, corrígelo, reinicia Expo (con `CI=1` no
+   recarga solo) y pídele por mensaje a esa sesión que lo vuelva a ver.
 
-En el iPhone, "reducir movimiento" está en Ajustes > Accesibilidad > Movimiento, y VoiceOver en
-Ajustes > Accesibilidad > VoiceOver. Los `console.log` del teléfono salen en la terminal de
-`npx expo start`.
+Lo que se aprendió:
 
-## Chat: cerrar F11
+- Expo Go no tiene "Enter URL manually": la sesión abre `exp://<ip>:8081` desde Safari del iPhone,
+  que ofrece abrirlo en Expo Go.
+- Expo Go pide que su cuenta sea la misma que la de Expo CLI en la Mac ("these accounts need to
+  match"). Cambiarla es iniciar sesión: lo hace él.
+- iPhone Mirroring necesita el iPhone bloqueado; si él lo usa, se corta.
+- Escribir en el iPhone necesita control de pantalla completa en Claude Desktop, y se aprueba en
+  su ventana: si nadie aprueba, caduca.
+- No se puede por Mirroring: el teclado del iPhone (escribe el de la Mac), un segundo dedo,
+  deslizar para desplazarse (el arrastre del ratón no lo es), el gesto de atrás y anchos distintos
+  al del teléfono (el 12 mini mide 375). Eso va a "Sesión con el teléfono en la mano".
+- Sí se puede: tocar, arrastrar con pulsación larga, mandar la app a segundo plano (Cmd+1 para ir a
+  inicio, Cmd+2 para volver), pegar desde la Mac (iOS pide permiso), modo claro y oscuro (Ajustes →
+  Pantalla y brillo) y reducir movimiento.
+- El botón flotante de Expo Go (engranaje) tapa a veces el borde derecho: no es de Brote.
 
-Valida en el iPhone lo que falta, deja la guía al día e integra cuando él diga `push`.
+Sin Claude Desktop, quedan el simulador de iOS (con Xcode, que esta Mac no tiene) o él con el
+teléfono en la mano, con una lista corta.
 
-### Lo que falta validar
+### Validar una feature anterior
 
-Validados 101 de 108 (commit `F11: validación (101 de 108 criterios)`): backend con curl, web en
-Chrome, y el móvil en Expo web y, el 2026-11-06, en el iPhone por iPhone Mirroring (otro chat de
-la app de Claude, con computer use, siguiendo un encargo). Cada V lleva su nota. El arrastre de
-la web (V44 a V52) pasó con eventos sintéticos: el arrastre real con el ratón no se probó, y va
-así en el PR. Sin marcar:
+Las ramas van en cadena y la Mac suele estar en la última. Para validar otra sin moverla (y sin
+pisar a otra sesión), haz copias aparte en el scratchpad:
 
-| Criterios | Qué falta |
-|---|---|
-| V51 (desplazarse sola) | En el iPhone, **en clasificar** (la segunda actividad de la lección 6 de "Actividades de prueba"). Se probó en emparejar, la primera, y pasó, pero el criterio es de clasificar |
-| V53 (deslizar sin mantener pulsado) | Con la mano: iPhone Mirroring no convierte un arrastre del ratón en deslizar |
-| V54 (segundo dedo) | Con la mano |
-| V57 (botón de atrás) | Solo Android, y no tiene uno. Propuesta: sin validar, anotado así en el PR (falta que él lo confirme) |
-| V58 (reducir movimiento) y V64 (lector de pantalla) | Él decidió saltar la accesibilidad por ahora. Si no se retoma, se anotan sin validar en el PR |
-| V65 (iconos) | Volver a verlo en el iPhone con el arreglo de abajo: en "Remotos" y en "align-items", equivocarse y comprobar; ninguna palabra se parte y la insignia se ve completa |
+```bash
+git -C ~/github/organizations/brote/<repo> worktree add <scratchpad>/<repo> <rama>   # los cuatro repos
+# npm ci en cada copia de código; .env propio en el backend con otro PUERTO (3100),
+# ORIGENES_PERMITIDOS con el puerto de la web (5273) y una base propia:
+docker exec brote_backend_express-postgres-1 psql -U brote -d brote -c "CREATE DATABASE brote_f0x"
+# DATABASE_URL=...localhost:5432/brote_f0x; migrate deploy, bd:generar y bd:sembrar en la copia
+npx vite --port 5273 --strictPort     # web, con VITE_URL_API=http://localhost:3100
+CI=1 npx expo start --lan --port 8181  # móvil, con EXPO_PUBLIC_URL_API=http://<ip>:3100
+```
 
-También queda, con la mano, la regresión de F03 de salir con el gesto de atrás (deslizar desde el
-borde izquierdo): en iPhone Mirroring no hizo nada, pero ahí no hay gestos de deslizar.
+Los commits que hagas en una copia quedan en su rama. Al terminar: apaga todo,
+`git worktree remove --force` cada copia (revisa antes que no tenga cambios sin commit), borra la
+base con `DROP DATABASE`, y fusiona la rama hacia adelante en la cadena.
 
-Para validarlos:
+## F11: lo que se vio al validar
 
-- `spec.md`, `tasks.md` y `quickstart.md` tienen los mismos 108 criterios, en el mismo orden.
-- Corre L1 del quickstart para publicar "Actividades de prueba" (V48 y V51 la usan), y retíralo al
-  terminar.
-- `research.md`, punto 3, tiene el resultado de T051: en un iPhone con Expo Go, el destino
-  resaltado es el que está bajo el dedo, soltar no dispara también el pulso y arrastrar hacia el
-  borde no sale de la lección.
-- Dónde está cada actividad: emparejar en "Remotos", clasificar en "Primeros pasos", ordenar en
-  "Condicionales" y banco de palabras en "Mis colores favoritos…"; la de V51 es la 6 de
-  "Actividades de prueba".
+Lo que falta validar está en "Sesión con el teléfono en la mano". Datos útiles: `spec.md`,
+`tasks.md` y `quickstart.md` tienen los mismos 108 criterios en el mismo orden; L1 del quickstart
+publica "Actividades de prueba"; emparejar está en "Remotos", clasificar en "Primeros pasos",
+ordenar en "Condicionales" y banco de palabras en "Mis colores favoritos…".
 
 Lo que se encontró al validar, ya corregido:
 
@@ -269,7 +295,7 @@ Lo que se encontró al validar, ya corregido:
   de insignia (14 px) en la esquina del número. Solo en el móvil (`docs/diseno.md`,
   `ElementoRespuesta`). Commits `F11: en el móvil, el icono de un elemento con número va de
   insignia` (specs) y `F11: con número, el icono de correcto o incorrecto va de insignia y no parte
-  el texto` (móvil). Falta verlo en el iPhone (V65).
+  el texto` (móvil). Pasó en el iPhone el 2026-11-08 (V65).
 
 Lo que se vio y no es defecto:
 
@@ -278,65 +304,6 @@ Lo que se vio y no es defecto:
 - El engranaje flotante que tapa las tarjetas es el botón de herramientas de Expo Go.
 - Una caída de la API, la web y Expo a media prueba fue porque se cerró WebStorm, donde corrían.
 
-Para levantar todo: `./correr` (o `./correr tunel`) en `~/github/organizations/brote`, fuera de los
-repos. Expo queda al frente y Ctrl+C apaga la API y la web.
-
-### Pasos
-
-1. **Preparar y levantar**: "Preparar la Mac".
-2. **Validar** la tabla de arriba, con "Probar en el iPhone". Si algo falla, corrígelo en el repo
-   que toca, con commit `F11: ...`, vuelve a probarlo y anótalo (el plan de F12 se apoya en
-   piezas de F11: ver "Chat: F12, tareas", paso 2).
-3. **Commit de la validación**: `F11: validación completa (108 criterios)`, o `F11: validación (N
-   de 108 criterios)` si algo queda sin validar.
-4. **Guía al día**, en la rama de F11, para que `dev` no diga que F11 sigue en curso: en "Dónde
-   vamos", F11 hecha (fusionada al aprobarse los PRs) y lo siguiente es el chat 2. Deja en esta
-   sección solo lo que no se validó. Commit `F11: guía al día para seguir con F12`.
-5. **Integrar**, solo cuando él diga `push`: "Integrar (`push`)". En `brote_specs` sube también
-   los commits nuevos. Si los PRs ya existen, actualízalos. En el cuerpo, lista lo que no se validó
-   tal cual (V57 y lo que se vio en Expo web o en el simulador).
-6. **Fusionar**: lo hace él. Después, en cada repo, `git checkout dev` y `git pull --ff-only`, y
-   comprueba que `brote_specs` en `dev` tiene `contrato/VERSION` en `0.8.0`.
-
-## Chat: F12, tareas (hecho el 2026-11-06)
-
-**Hecho el 2026-11-06** (commits `F12: tareas` y `F12: análisis (...)`). Se hizo con F11 todavía
-fuera de `dev`, por decisión del usuario (ver "Dónde vamos").
-
-**Precondición** (la original): F11 fusionada en `dev` en los cuatro repos.
-
-Lo que hay: en `specs/features/F12-actividades-codigo-terminal/` están `spec.md` (86 criterios,
-sin `[POR ACLARAR]`), `checklists/requisitos.md`, `plan.md`, `research.md`, `data-model.md`,
-`contracts/` y `quickstart.md`, en los commits `F12: spec` y `F12: plan`. Las decisiones de
-producto están en "Aclaraciones" de la spec. En resumen: el reto de código se autoevalúa, la
-terminal da un solo intento y la pista sale al fallar, y Brote acomoda el grafo solo. El plan sube
-el contrato a 0.9.0 y no agrega paquetes (`react-native-svg` ya está en el móvil).
-
-1. **Rama al día.** En `brote_specs`: `git checkout feature/F12-actividades-codigo-terminal` y
-   `git merge origin/dev`. La rama solo agrega la carpeta de F12, así que no debería haber
-   conflictos. Con eso ya tiene esta guía.
-2. **¿Cambió F11 al validarse?** El plan se escribió con F11 en estos commits: `brote_specs`
-   `dfff55c` (contrato 0.8.0), backend `829efd9`, web `ba79833` y móvil `e5e879d`. Mira qué cambió
-   desde entonces en lo que el plan usa:
-
-   ```bash
-   cd ~/github/organizations/brote
-   git -C brote_specs diff --stat dfff55c origin/dev -- contrato/
-   git -C brote_backend_express diff --stat 829efd9 origin/dev -- src/validacion/actividades.ts src/validacion/editor.ts scripts/actividades-prototipo.ts scripts/datos-prueba.ts
-   git -C brote_web_react diff --name-only ba79833 origin/dev | grep -E 'BarraRespuesta|BloqueCodigo|CampoSelector|ListaEditable|CampoTexto|CampoArea|MarcoActividad|useTeclasActividad|useEnfocarAlMontar|useEditorLeccion'
-   git -C brote_mobile_expo diff --name-only e5e879d origin/dev | grep -E 'BarraRespuesta|BloqueCodigo|CampoSelector|ListaEditable|CampoTexto|CampoArea|MarcoActividad'
-   ```
-
-   La spec también da por hecho que "Actividades de prueba" tiene 6 lecciones y que "Tu primer
-   commit" lleva clasificar (`scripts/datos-prueba.ts`). Si algo cambió, ajusta `plan.md`,
-   `research.md`, `contracts/` o el quickstart, y haz commit `F12: plan al día con F11`.
-3. **Feature activa**: `.specify/feature.json` apunta a la carpeta de F12 ("Preparar la Mac",
-   paso 7).
-4. **Tareas**: él corre `/speckit-tasks`. Commit `F12: tareas`.
-5. **Análisis**: recomiéndale `/speckit-analyze` (tres tipos y 86 criterios). Los hallazgos se
-   resuelven antes de implementar, con commit `F12: ...`.
-6. Al cerrar, el mensaje de la siguiente sesión (ver "Una sesión por feature").
-
 ## Chat: implementar
 
 `/speckit-implement`, en la misma sesión de la feature (o él, si la sesión no lo tiene
@@ -344,26 +311,23 @@ autorizado). Crea `feature/F0X-nombre` en cada repo de código que toca, desde l
 "Las features que siguen", paso 1 (en `brote_specs` ya existe), hace un commit por tarea en su
 repo, sin preguntar y sin push.
 
-**En F12**, mientras F11 no esté en `dev`, las ramas de código salen de
-`feature/F11-actividades-relacionar` (T006 a T008 de su `tasks.md`), y T001 trae a la rama de F12
-de `brote_specs` lo último de F11. Lo más incierto es el teclado del iPhone: T045 a T047 lo
-prueban con la terminal antes de hacer el reto y el grafo en el móvil. Si cambia el contrato: "Cuando cambia el contrato" de
+Si cambia el contrato: "Cuando cambia el contrato" de
 `docs/flujo-trabajo.md`. Al terminar, `npm run contrato:revisar`, `tipos` y `lint` en los tres
 repos y `build` en la web, y la guía al día.
 
 ## Chat: validar e integrar
 
-`valida` con el `quickstart.md` de la feature ("Qué hacer con `valida`"), con el móvil en el
-iPhone ("Probar en el iPhone"). Después, `push` cuando él lo diga ("Integrar"), y él fusiona.
-Después de fusionar, `git checkout dev` y `git pull --ff-only` en cada repo.
+`valida` con el `quickstart.md` de la feature ("Qué hacer con `valida`"), con el móvil por Claude
+Desktop ("Probar en el iPhone"). Lo que no se pueda por Mirroring, a "Sesión con el teléfono en la
+mano". Si los PRs ya existen, `git push` los actualiza ("Integrar").
 
 ## Las features que siguen
 
-F13 → F14 → F07 → F15 → F09 → F08 → F10. Cada una, en **una sola sesión**, de la spec a la
+F07 → F15 → F09 → F08 → F10. Cada una, en **una sola sesión**, de la spec a la
 implementación:
 
-1. **Ramas.** Mientras F11 y F12 no estén en `dev`, cada feature sale de la rama de la anterior,
-   en los cuatro repos (F13 de `feature/F12-actividades-codigo-terminal`, F14 de la de F13, y así).
+1. **Ramas.** Mientras F11 a F14 no estén en `dev`, cada feature sale de la rama de la anterior,
+   en los cuatro repos (F07 de `feature/F14-escuchar-repetir`, F15 de la de F07, y así).
    Cuando las anteriores se fusionen, cada rama hace `git merge origin/dev`. Con todo en `dev`, sale
    de `dev`. `/speckit-specify` no crea ramas: créala tú, en `brote_specs`, antes de correrlo, y
    apunta `.specify/feature.json` a la carpeta nueva si no lo hace solo.
@@ -380,13 +344,7 @@ implementación:
 
 Lo que ya se sabe de cada una (`specs/00-proyecto.md`):
 
-- **F13**, imágenes propias: implementada (ver "Dónde vamos"). El audio propio pasó a F14.
-- **F14**, escuchar y repetir, con audio propio: el autor lo sube desde el editor (web), con la
-  misma forma de subir archivos que las imágenes de F13 (lo dijo el usuario el 2026-11-07); si
-  también se guarda en PostgreSQL se decide en su plan, porque la decisión 0016 es de las
-  imágenes. En el móvil solo se escucha. Sin
-  audio propio usa voz sintetizada. En el prototipo era `listen_and_repeat` (`expected_text`,
-  `lang?`, `audio?`).
+- **F13** y **F14**: implementadas (ver "Dónde vamos").
 - **F07**, importar y exportar un curso en JSON (solo web). Ahí se decide cómo se convierten los
   cursos del prototipo.
 - **F15**, sonidos y vibración: aplica a todas las actividades y se puede apagar.
@@ -443,6 +401,10 @@ Valida la feature cuyas tareas están hechas y sus criterios sin marcar. La guí
 - Del 2026-11-05 al 2026-11-06 se trabajó en Windows (Podman en el 5433, `psql` de un PostgreSQL
   16, CRLF). Si vuelve a hacerlo, esas notas están en esta guía en el commit `dfff55c`.
 
+- `./correr` (o `./correr tunel`), en `~/github/organizations/brote` (fuera de los repos, no
+  se versiona): levanta la base, la API y la web en segundo plano y Expo al frente; Ctrl+C apaga
+  lo que levantó. Lo que ya corre en su puerto lo usa tal cual.
+
 **API**
 
 - La primera petición después de arrancarla es lenta. Haz una antes de medir tiempos, o usa esperas
@@ -474,6 +436,13 @@ Valida la feature cuyas tareas están hechas y sus criterios sin marcar. La guí
 - En Windows la ventana no bajaba de 657 px de ancho visible. Si no llegas al ancho que necesitas
   (400 px o el de un teléfono), carga la misma página en un `iframe` de ese ancho dentro de la
   pestaña: las media queries usan su ancho.
+- `resize_window` puede no cambiar el ancho visible (en esta Mac se quedó en 1536 px): usa el
+  `iframe`, con la misma ruta, y teclea dentro de él con clics de verdad.
+- Para el tema claro u oscuro sin tocar el sistema: `document.documentElement.dataset.tema =
+  'claro'` (o `'oscuro'`; `tokens.css` lo respeta).
+- Arrastre sintético en el editor: los hooks guardan lo arrastrado en el estado de React, así que
+  espera ~150 ms entre `dragstart`, `dragover` y `drop`, o no pasa nada.
+- Pegar de verdad: `printf 'git init\n' | pbcopy` y Cmd+V con la herramienta de teclado.
 - Para no repetir código en cada llamada, sirve un módulo de ayudas desde el scratchpad (un
   `node` con CORS en otro puerto) y cárgalo con `await import(...)`. Cada llamada tiene 45 s.
 
@@ -501,19 +470,31 @@ Valida la feature cuyas tareas están hechas y sus criterios sin marcar. La guí
 - Con textos largos, el icono de correcto o incorrecto se encoge a un punto (el `<svg>` toma
   `flex-shrink: 1`). En un teléfono no debería pasar: es V65.
 
-## Integrar (`push`)
+## Integrar
 
-1. Revisa con `gh pr list --head <rama> --state all -R BroteCodigoAbierto/<repo>` si los PRs ya
-   existen. Si un PR ya existe, actualízalo en vez de crear otro.
-2. `git push -u origin <rama>` en cada repo afectado.
-3. PR a `dev`, primero el de `brote_specs`, con el título "F0X: Nombre". Cuerpo: "Feature" con el
-   enlace a la spec, "Qué cambia en este repo" y "Criterios de aceptación cubiertos", más lo que no
-   se validó tal cual. En los de código, enlaza el PR de specs.
-4. Dale el comando para fusionar:
+Los PRs de F04 (arreglo), F11, F12, F13 y F14 se abrieron el 2026-11-08 (ver la tabla de "Dónde
+vamos"). Cada cuerpo dice qué cambia, cuántos criterios pasaron y qué falta. **Los fusiona él.**
 
-   ```bash
-   ! cd ~/github/organizations/brote && for r in brote_specs:N brote_backend_express:N brote_web_react:N brote_mobile_expo:N; do n=${r%:*}; gh pr merge ${r#*:} --merge -R BroteCodigoAbierto/$n && git -C $n checkout dev && git -C $n pull --ff-only; done
-   ```
+- **Orden**: F04 cuando sea; F11, luego F12, luego F13, luego F14. Cada rama trae a las anteriores,
+  así que el PR de F12 muestra también los commits de F11 hasta que F11 esté en `dev`.
+- **Cuándo**: F11 y F12 están casi validadas (lo que falta es del teléfono en la mano y va en el
+  PR); F13 y F14 todavía no tienen `valida`.
+- **Si hay commits nuevos** en una rama, `git push` y el PR se actualiza solo. Actualiza también su
+  cuerpo si cambió lo validado (`gh pr edit N --body-file ...`).
+- **Después de fusionar** una feature, en cada repo: `git checkout dev && git pull --ff-only`, y en
+  las ramas que siguen, `git merge origin/dev`.
+
+Para fusionar una feature en los cuatro repos (cambia los números):
+
+```bash
+! cd ~/github/organizations/brote && for r in brote_specs:10 brote_backend_express:8 brote_web_react:9 brote_mobile_expo:10; do n=${r%:*}; gh pr merge ${r#*:} --merge -R BroteCodigoAbierto/$n && git -C $n checkout dev && git -C $n pull --ff-only; done
+```
+
+Una feature nueva (F07 en adelante) abre sus PRs igual: `gh pr list --head <rama> --state all`
+para no repetir, `git push -u origin <rama>` y `gh pr create --base dev`, primero el de
+`brote_specs`, con el título "F0X: Nombre" y en el cuerpo "Feature" (enlace a la spec), "Qué
+cambia en este repo", "Criterios de aceptación cubiertos" (con lo que no se validó tal cual) y,
+en los de código, el enlace al PR de specs.
 
 ## Pendientes fuera de las features
 
@@ -522,6 +503,8 @@ Valida la feature cuyas tareas están hechas y sus criterios sin marcar. La guí
   (V37). De F05 y F06, varios criterios de móvil se vieron en Expo web, no en un teléfono.
 - `pendientes.md` ya estaba resuelto. Si está en la Mac, falta que él confirme si se borra.
 - Mover `correr` a este repo es opcional.
+- Visto al validar F12 en el iPhone: el título de una lección completada se partía a media palabra
+  en el detalle del curso. Arreglado en el PR de F04 (ver "Dónde vamos").
 - Al validar F11 se vieron dos cosas que no son de F11, para que él decida si se atienden: en la
   web, al desplazar una lección larga, la X y la barra de progreso quedan encima del contenido; y
   en "Funciones" la mezcla salió en el mismo orden 4 de 6 veces (el algoritmo, Fisher-Yates, está

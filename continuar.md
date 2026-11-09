@@ -32,7 +32,7 @@ hermanos; ver `docs/flujo-trabajo.md`).
 | Sesión | Qué hace | Mensaje |
 |---|---|---|
 | Siguiente feature | F07 completa (luego F15, F09, F08 y F10, una por sesión) | "Mensaje para una feature" |
-| `valida` de F13 | Backend, web y móvil de F13 (0 de 90) | "Mensaje para validar" con F13 |
+| Móvil de F13 | Lo que falta de F13 (51 de 90): el iPhone, en la Mac; ver "F13: lo que falta" | "Mensaje para validar" con F13 |
 | `valida` de F14 | Backend, web y móvil de F14 (0 de 82) | "Mensaje para validar" con F14 |
 | Teléfono en la mano | Lo que no se puede por iPhone Mirroring, de F11 a F14 | "Sesión con el teléfono en la mano" |
 | Fusionar | Los PRs ya están abiertos; los fusiona él, en orden | "Integrar" |
@@ -117,7 +117,13 @@ Desktop por iPhone Mirroring, como dice "Probar en el iPhone".
   `feature/F14-escuchar-repetir` mientras F11 a F14 no estén en `dev`.
 
 **Lo siguiente**: cualquiera de las sesiones de la tabla de arriba. Si él no dice cuál, propón la
-siguiente feature (F07) o el `valida` de F13, y pregúntale.
+siguiente feature (F07), el `valida` de F14 o, en la Mac, el móvil de F13, y pregúntale. Desde
+Linux no se puede validar el móvil: ahí solo backend y web.
+
+**Decisión pendiente** (preguntársela antes de tocar F13): en modo oscuro casi no se ven los
+contornos y las barras del panorama de los datos de prueba (ver "F13: lo que falta"). La
+recomendada es cambiar su color en las imágenes que crea `bd:sembrar`; la otra, dar fondo claro a
+los mosaicos de imagen (cambia `docs/diseno.md`).
 
 ## Sesión con el teléfono en la mano
 

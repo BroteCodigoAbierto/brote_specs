@@ -225,35 +225,35 @@ uno están en [quickstart.md](./quickstart.md), sección 3, en el mismo orden. S
 
 ### Cursos de prueba
 
-- [ ] V01 [backend] "Actividades de prueba" tiene portada y, al final, las lecciones "Teoría con imágenes", "Opción múltiple con imágenes", "Relacionar con imágenes", "GIF", "Imágenes al límite" e "Imágenes con etiquetas", en ese orden, sin que cambien de lugar sus 12 lecciones anteriores.
+- [X] V01 [backend] "Actividades de prueba" tiene portada y, al final, las lecciones "Teoría con imágenes", "Opción múltiple con imágenes", "Relacionar con imágenes", "GIF", "Imágenes al límite" e "Imágenes con etiquetas", en ese orden, sin que cambien de lugar sus 12 lecciones anteriores.
 - [ ] V02 [web, móvil] Las actividades sin imágenes de los cuatro cursos del prototipo se ven igual que antes de esta feature, y esos cursos se ven con su portada generada.
 
 ### Subir imágenes (editor)
 
-- [ ] V03 [web] En un borrador, el campo de imagen vacío muestra "Elegir imagen" y "JPEG, PNG o WebP de hasta 10 MB, o GIF de hasta 5 MB.".
-- [ ] V04 [web] Al elegir la foto de 4000 × 3000 px, el campo muestra "Subiendo imagen…" y luego la imagen, "1600 × 1200 px" con su peso, "Cambiar", "Quitar" y "Texto alternativo" con su ayuda.
-- [ ] V05 [web] Al elegir la imagen de 800 × 600 px, se guarda de 800 × 600 px: una imagen más chica no se agranda.
-- [ ] V06 [web] El PNG con fondo transparente, ya subido, sigue transparente en la vista previa.
-- [ ] V07 [web] La foto tomada de lado se ve derecha en el campo y en la vista previa.
-- [ ] V08 [web] La foto con ubicación se guarda sin ella ni el modelo de la cámara.
-- [ ] V09 [web] El GIF de 2 MB se sube con su mismo peso y tamaño, y se mueve en la vista previa.
-- [ ] V10 [web] El archivo de 11 MB muestra "La imagen puede pesar hasta 10 MB." y el GIF de 6 MB, "Un GIF puede pesar hasta 5 MB.". El campo se queda como estaba.
-- [ ] V11 [web] El SVG y el HEIC muestran "Elige una imagen JPEG, PNG, WebP o GIF.", y el texto con extensión `.png`, "No se pudo leer la imagen. Elige otra.".
-- [ ] V12 [web] Con una imagen en el campo, "Cambiar" y elegir el archivo de 11 MB muestra su error y deja la imagen anterior. "Cambiar" con otra válida la reemplaza.
-- [ ] V13 [web] "Quitar" deja el campo vacío, sin confirmación, y aparece "Cambios sin guardar".
-- [ ] V14 [web] Mientras se sube una imagen, "Guardar lección" y "Probar lección" están deshabilitados con "Espera a que terminen de subir las imágenes.", y se puede seguir escribiendo en otro campo.
-- [ ] V15 [web] El texto alternativo no deja escribir más de 200 caracteres ni saltos de línea, y se guarda sin los espacios del inicio y del final.
-- [ ] V16 [web] Una actividad con un campo de imagen vacío lleva "Incompleta" y, al guardar, el campo muestra "Elige una imagen.".
-- [ ] V17 [web] Con el servidor apagado, subir una imagen muestra "No se pudo subir la imagen. Inténtalo de nuevo." y lo demás sigue en pantalla.
-- [ ] V18 [web] Con la sesión expirada, subir una imagen lleva a "Entrar" con "Tu sesión terminó. Vuelve a entrar."; al entrar, la lección vuelve con sus cambios sin guardar y el campo de esa imagen como estaba antes.
-- [ ] V19 [web] Después de guardar, al recargar la página, las imágenes y sus textos alternativos siguen en sus campos.
+- [X] V03 [web] En un borrador, el campo de imagen vacío muestra "Elegir imagen" y "JPEG, PNG o WebP de hasta 10 MB, o GIF de hasta 5 MB.". (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V04 [web] Al elegir la foto de 4000 × 3000 px, el campo muestra "Subiendo imagen…" y luego la imagen, "1600 × 1200 px" con su peso, "Cambiar", "Quitar" y "Texto alternativo" con su ayuda. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V05 [web] Al elegir la imagen de 800 × 600 px, se guarda de 800 × 600 px: una imagen más chica no se agranda. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V06 [web] El PNG con fondo transparente, ya subido, sigue transparente en la vista previa. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V07 [web] La foto tomada de lado se ve derecha en el campo y en la vista previa. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V08 [web] La foto con ubicación se guarda sin ella ni el modelo de la cámara. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V09 [web] El GIF de 2 MB se sube con su mismo peso y tamaño, y se mueve en la vista previa. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V10 [web] El archivo de 11 MB muestra "La imagen puede pesar hasta 10 MB." y el GIF de 6 MB, "Un GIF puede pesar hasta 5 MB.". El campo se queda como estaba. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V11 [web] El SVG y el HEIC muestran "Elige una imagen JPEG, PNG, WebP o GIF.", y el texto con extensión `.png`, "No se pudo leer la imagen. Elige otra.". (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V12 [web] Con una imagen en el campo, "Cambiar" y elegir el archivo de 11 MB muestra su error y deja la imagen anterior. "Cambiar" con otra válida la reemplaza. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V13 [web] "Quitar" deja el campo vacío, sin confirmación, y aparece "Cambios sin guardar". (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V14 [web] Mientras se sube una imagen, "Guardar lección" y "Probar lección" están deshabilitados con "Espera a que terminen de subir las imágenes.", y se puede seguir escribiendo en otro campo. (Validado en Chrome en Linux con la API pausada con kill -STOP mientras subía, en vez de Slow 4G.)
+- [X] V15 [web] El texto alternativo no deja escribir más de 200 caracteres ni saltos de línea, y se guarda sin los espacios del inicio y del final. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V16 [web] Una actividad con un campo de imagen vacío lleva "Incompleta" y, al guardar, el campo muestra "Elige una imagen.". (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V17 [web] Con el servidor apagado, subir una imagen muestra "No se pudo subir la imagen. Inténtalo de nuevo." y lo demás sigue en pantalla. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V18 [web] Con la sesión expirada, subir una imagen lleva a "Entrar" con "Tu sesión terminó. Vuelve a entrar."; al entrar, la lección vuelve con sus cambios sin guardar y el campo de esa imagen como estaba antes. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V19 [web] Después de guardar, al recargar la página, las imágenes y sus textos alternativos siguen en sus campos. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
 
 ### Teoría
 
-- [ ] V20 [web] En el formulario de teoría, "Agregar imagen" escribe `[imagen]` donde está el cursor y aparece el grupo "Imagen 1"; con otra marca, "Imagen 2".
-- [ ] V21 [web] Al borrar del texto una marca cuyo grupo no tiene imagen, el grupo desaparece. Si tiene imagen, aparece "Hay más imágenes que marcas [imagen] en el texto. Quita las que sobran." y cada grupo muestra "Quitar imagen".
-- [ ] V22 [web] Con 5 marcas, "Agregar imagen" se deshabilita; con 6 escritas a mano, al guardar aparece "El texto puede tener hasta 5 imágenes.".
-- [ ] V23 [web] `[Imagen]` y `[ imagen ]` no cuentan como marcas y se ven como texto al cursar.
+- [X] V20 [web] En el formulario de teoría, "Agregar imagen" escribe `[imagen]` donde está el cursor y aparece el grupo "Imagen 1"; con otra marca, "Imagen 2". (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V21 [web] Al borrar del texto una marca cuyo grupo no tiene imagen, el grupo desaparece. Si tiene imagen, aparece "Hay más imágenes que marcas [imagen] en el texto. Quita las que sobran." y cada grupo muestra "Quitar imagen". (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V22 [web] Con 5 marcas, "Agregar imagen" se deshabilita; con 6 escritas a mano, al guardar aparece "El texto puede tener hasta 5 imágenes.". (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
+- [X] V23 [web] `[Imagen]` y `[ imagen ]` no cuentan como marcas y se ven como texto al cursar. (Validado en Chrome en Linux, con los archivos de la sección 1.2 hechos con ImageMagick en vez de sips, y puestos en el campo con DataTransfer, no con el selector de archivos.)
 - [ ] V24 [web, móvil] En "Teoría con imágenes", "Imágenes entre párrafos" muestra el primer párrafo, el panorama, el segundo párrafo partido en dos por la imagen chica, el tercer párrafo y, al final, sus puntos clave.
 - [ ] V25 [web, móvil] El panorama se ve completo, a lo ancho, con la marca de cada extremo a la vista y sin deformarse.
 - [ ] V26 [web, móvil] La imagen chica (120 × 80 px) se ve de su tamaño, centrada, sin agrandarse.
@@ -262,19 +262,19 @@ uno están en [quickstart.md](./quickstart.md), sección 3, en el mismo orden. S
 
 ### Opción múltiple
 
-- [ ] V29 [web] "Tipo de opciones" tiene "Texto", "Símbolo" e "Imagen". Con "Imagen", cada opción es un campo de imagen. Al pasar a "Texto" y volver a "Imagen", las imágenes siguen ahí.
-- [ ] V30 [web] Dos opciones con el mismo archivo muestran "Esta imagen está repetida.".
+- [X] V29 [web] "Tipo de opciones" tiene "Texto", "Símbolo" e "Imagen". Con "Imagen", cada opción es un campo de imagen. Al pasar a "Texto" y volver a "Imagen", las imágenes siguen ahí. (Validado en Chrome en Linux, con los archivos puestos en el campo con DataTransfer.)
+- [X] V30 [web] Dos opciones con el mismo archivo muestran "Esta imagen está repetida.". (Validado en Chrome en Linux, con los archivos puestos en el campo con DataTransfer.)
 - [ ] V31 [web, móvil] En "Opción múltiple con imágenes", "¿Qué figura es esta?" muestra la imagen del círculo rojo debajo de la pregunta y las opciones de texto.
 - [ ] V32 [web, móvil] En "¿Cuál es el cuadrado azul?", las cuatro opciones son mosaicos cuadrados del mismo tamaño, con la figura completa, y en un teléfono de 360 px van al menos dos por fila.
 - [ ] V33 [web, móvil] Al elegir el círculo y comprobar, el círculo se marca como incorrecto y el cuadrado como correcto, con su icono, y la barra muestra "Respuesta correcta:" con la miniatura del cuadrado y "Cuadrado azul".
 - [ ] V34 [web, móvil] En "¿Cuál es el triángulo?", sin textos alternativos, al fallar la barra muestra solo la miniatura del triángulo.
-- [ ] V35 [web] Con las teclas 1 a 4 se eligen los mosaicos según su lugar en pantalla, y cada mosaico muestra su número.
+- [X] V35 [web] Con las teclas 1 a 4 se eligen los mosaicos según su lugar en pantalla, y cada mosaico muestra su número. (Validado en Chrome en Linux; las teclas, con el teclado real.)
 
 ### Emparejar, clasificar y ordenar
 
-- [ ] V36 [web] Emparejar tiene "Columna izquierda" y "Columna derecha", con "Texto" o "Imagen". Con "Imagen" a la izquierda, cada pareja tiene un campo de imagen a la izquierda y uno de texto a la derecha.
-- [ ] V37 [web] Clasificar y ordenar tienen "Tipo de elementos", con "Texto" o "Imagen". Al cambiarlo y volver, lo escrito y las imágenes siguen ahí.
-- [ ] V38 [web] Dos imágenes iguales en la misma columna de emparejar, o dos elementos de imagen iguales, muestran "Esta imagen está repetida.". La misma imagen en las dos columnas se guarda.
+- [X] V36 [web] Emparejar tiene "Columna izquierda" y "Columna derecha", con "Texto" o "Imagen". Con "Imagen" a la izquierda, cada pareja tiene un campo de imagen a la izquierda y uno de texto a la derecha. (Validado en Chrome en Linux, con los archivos puestos en el campo con DataTransfer.)
+- [X] V37 [web] Clasificar y ordenar tienen "Tipo de elementos", con "Texto" o "Imagen". Al cambiarlo y volver, lo escrito y las imágenes siguen ahí. (Validado en Chrome en Linux, con los archivos puestos en el campo con DataTransfer.)
+- [X] V38 [web] Dos imágenes iguales en la misma columna de emparejar, o dos elementos de imagen iguales, muestran "Esta imagen está repetida.". La misma imagen en las dos columnas se guarda. (Validado en Chrome en Linux, con los archivos puestos en el campo con DataTransfer.)
 - [ ] V39 [web, móvil] En "Relacionar con imágenes", el primer emparejar muestra las figuras a la izquierda y sus nombres, mezclados, a la derecha, lado a lado también en el teléfono.
 - [ ] V40 [web, móvil] Al formar una pareja, el número de la pareja se ve en la esquina del mosaico y en el texto. Al fallar una, la barra muestra la miniatura de la figura, "→" y el nombre que le tocaba.
 - [ ] V41 [web, móvil] El emparejar de imagen con imagen une las figuras rellenas con las de contorno, y al fallar la barra muestra las dos miniaturas de cada pareja fallada.
@@ -284,11 +284,11 @@ uno están en [quickstart.md](./quickstart.md), sección 3, en el mismo orden. S
 
 ### Portada
 
-- [ ] V45 [web] En el mapa de un borrador sin portada, "Portada" muestra la portada generada y "Elegir imagen". Al subir una, muestra su vista 16:9 y su vista cuadrada, y "Guardar cambios" se habilita.
-- [ ] V46 [web] Al guardar, "Cambios guardados"; la portada sigue al recargar y se ve en "Cursos que creé" y, con el curso enviado a revisión, en su mapa (F06).
-- [ ] V47 [web] Al elegir un GIF para la portada aparece "La portada puede ser JPEG, PNG o WebP.".
-- [ ] V48 [web] "Quitar" y "Guardar cambios" devuelven la portada generada en el mapa y en "Cursos que creé".
-- [ ] V49 [web] En el catálogo, la tarjeta de "Actividades de prueba" muestra su portada en 16:9 con las tres franjas a la vista; en su detalle, cuadrada y recortada al centro, sin las franjas de los lados.
+- [X] V45 [web] En el mapa de un borrador sin portada, "Portada" muestra la portada generada y "Elegir imagen". Al subir una, muestra su vista 16:9 y su vista cuadrada, y "Guardar cambios" se habilita. (Validado en Chrome en Linux; la imagen puesta con DataTransfer.)
+- [X] V46 [web] Al guardar, "Cambios guardados"; la portada sigue al recargar y se ve en "Cursos que creé" y, con el curso enviado a revisión, en su mapa (F06). (Validado en Chrome en Linux; para verlo en revisión, el curso se pasó a revisión desde la base, no con el botón, porque su lección no tenía actividades.)
+- [X] V47 [web] Al elegir un GIF para la portada aparece "La portada puede ser JPEG, PNG o WebP.". (Validado en Chrome en Linux; la imagen puesta con DataTransfer.)
+- [X] V48 [web] "Quitar" y "Guardar cambios" devuelven la portada generada en el mapa y en "Cursos que creé". (Validado en Chrome en Linux; la imagen puesta con DataTransfer.)
+- [X] V49 [web] En el catálogo, la tarjeta de "Actividades de prueba" muestra su portada en 16:9 con las tres franjas a la vista; en su detalle, cuadrada y recortada al centro, sin las franjas de los lados. (Validado en Chrome en Linux; la imagen puesta con DataTransfer.)
 - [ ] V50 [móvil] En el catálogo y en el detalle, la portada de "Actividades de prueba" se ve cuadrada y recortada al centro.
 - [ ] V51 [web, móvil] Después de completar una lección de "Actividades de prueba", su portada se ve en "Sigue aprendiendo" (web) y en "Mis cursos" (móvil).
 - [ ] V52 [web, móvil] Con el servidor apagado después de cargar el catálogo, una portada que no había cargado se ve como la generada.
@@ -304,7 +304,7 @@ uno están en [quickstart.md](./quickstart.md), sección 3, en el mismo orden. S
 ### Ampliar
 
 - [ ] V58 [web, móvil] Al tocar el panorama de "Imágenes entre párrafos", se abre sobre la lección, sobre fondo oscuro, completo y tan grande como cabe, con "Cerrar".
-- [ ] V59 [web] "Cerrar", Esc y pulsar el fondo cierran el visor, y el foco vuelve a la imagen. Con Tab, el foco no sale del visor mientras está abierto.
+- [X] V59 [web] "Cerrar", Esc y pulsar el fondo cierran el visor, y el foco vuelve a la imagen. Con Tab, el foco no sale del visor mientras está abierto. (Validado en Chrome en Linux después de corregir que pulsar lo oscuro a los lados de la imagen no cerraba el visor: commit F13 de la web «en el visor, pulsar lo oscuro a los lados de la imagen también lo cierra».)
 - [ ] V60 [móvil] En el visor, pellizcar acerca la imagen y, acercada, se mueve con un dedo. "Cerrar" la cierra y la lección sigue como estaba.
 - [ ] V61 [web, móvil] La imagen de "¿Qué figura es esta?" también se amplía al tocarla, y tocar un mosaico de opción lo elige sin abrir el visor.
 - [ ] V62 [web, móvil] Abrir y cerrar el visor en la primera actividad no cuenta como haber hecho algo: salir no pide confirmación.
@@ -315,7 +315,7 @@ uno están en [quickstart.md](./quickstart.md), sección 3, en el mismo orden. S
 - [ ] V64 [web, móvil] Con el servidor apagado después de abrir la lección, una imagen que no había cargado muestra el icono de imagen rota y su texto alternativo; sin texto alternativo, "No se pudo cargar la imagen".
 - [ ] V65 [web, móvil] Un mosaico que no cargó muestra su texto alternativo y se puede elegir y comprobar.
 - [ ] V66 [móvil] Si las imágenes de "Opción múltiple con imágenes" no cargaron al abrirla porque se cayó la conexión, al volver la conexión aparecen solas en su lugar.
-- [ ] V67 [web] Si las imágenes de "Opción múltiple con imágenes" no cargaron al abrirla y después el servidor vuelve a responder, al pasar a la siguiente actividad sus imágenes se ven.
+- [X] V67 [web] Si las imágenes de "Opción múltiple con imágenes" no cargaron al abrirla y después el servidor vuelve a responder, al pasar a la siguiente actividad sus imágenes se ven. (Validado en Chrome en Linux; los mosaicos bloqueados con el proxy, después de volver a sembrar para que no estuvieran en caché, en vez de desactivar la caché en DevTools.)
 - [ ] V68 [web, móvil] Si abro "Relacionar con imágenes", espero unos segundos en la primera actividad y apago el servidor (en el móvil, quito la conexión), las imágenes de las actividades siguientes se ven al llegar a ellas y la lección se termina como en F03.
 
 ### Accesibilidad y teclado
@@ -323,31 +323,31 @@ uno están en [quickstart.md](./quickstart.md), sección 3, en el mismo orden. S
 - [ ] V69 [web, móvil] Con lector de pantalla, la imagen del círculo rojo se anuncia con su texto alternativo y que se puede ampliar.
 - [ ] V70 [web, móvil] Con lector de pantalla, un mosaico se anuncia con su texto alternativo y su estado; uno sin texto alternativo, como "Imagen {n}".
 - [ ] V71 [web, móvil] El botón de un GIF se anuncia como "Pausar animación" o "Reanudar animación".
-- [ ] V72 [web] Con Tab se llega a cada imagen ampliable y a cada botón de pausa, con foco visible; Enter o la barra espaciadora abren la imagen o pausan el GIF.
+- [X] V72 [web] Con Tab se llega a cada imagen ampliable y a cada botón de pausa, con foco visible; Enter o la barra espaciadora abren la imagen o pausan el GIF. (Validado en Chrome en Linux con Tab, Enter y la barra espaciadora reales.)
 - [ ] V73 [web, móvil] Las imágenes, los mosaicos, el botón de pausa y el visor se ven bien en modo oscuro y con "reducir transparencia".
 
 ### Límites del curso y servidor
 
-- [ ] V74 [web] En el curso casi lleno, subir una imagen que no cabe muestra "Este curso ya tiene 200 MB de imágenes. Quita alguna y guarda para hacer espacio.".
-- [ ] V75 [web] En ese curso, al quitar una imagen ya guardada y guardar la lección, la misma imagen que no cabía ahora se sube.
-- [ ] V76 [web] En la lección pesada, con seis GIF de 5 MB, "Guardar lección" y "Probar lección" muestran "Las imágenes de esta lección pesan más de 25 MB. Quita alguna." y no guardan ni abren la prueba. Al quitar dos GIF, se guarda.
-- [ ] V77 [web] Una misma imagen usada en dos actividades de la lección cuenta una vez en los 25 MB.
-- [ ] V78 [web] En el lienzo de una lección con imágenes, junto a "Guardar lección" se lee "Imágenes de esta lección: {x} de 25 MB", que sube al elegir una imagen y baja al quitarla, sin guardar. En la lección pesada se ve en el color de error, con su icono, y en una lección sin imágenes no aparece.
-- [ ] V79 [web] El mapa de un borrador con imágenes muestra "Imágenes del curso: {x} de 200 MB"; el del curso casi lleno, un número cercano a 200, que baja al quitar una imagen, guardar la lección y volver al mapa.
-- [ ] V80 [backend] Una imagen que se sube y no se guarda en ninguna parte se borra un día después de subirla.
-- [ ] V81 [backend] Al eliminar una lección se borran sus imágenes que no se usan en otra parte del curso, y al eliminar el curso, todas.
-- [ ] V82 [backend] Subir dos veces el mismo archivo al mismo curso da la misma imagen, que cuenta una vez.
-- [ ] V83 [backend] El servidor rechaza subir sin sesión, a un curso ajeno, en revisión o publicado, un archivo que no es imagen aunque se llame `.png`, un JPEG de más de 1600 px por lado, un JPEG con su ubicación, un PNG animado y un GIF de más de 5 MB.
-- [ ] V84 [backend] El servidor rechaza guardar una lección con una imagen de otro curso, una imagen que no existe, imágenes de más de 25 MB entre todas, una teoría con más imágenes que marcas, o mosaicos de una columna con imágenes y textos mezclados. No guarda nada.
-- [ ] V85 [backend] El servidor rechaza una portada GIF o de otro curso al guardar los datos del curso.
-- [ ] V86 [backend] Las imágenes de un borrador solo las trae su autor; las de un curso publicado, cualquier usuario con sesión, y sin sesión, nadie.
-- [ ] V87 [web] Si quito una imagen y guardo en una pestaña, y en otra pestaña con la versión anterior elijo "Reemplazar", aparece "Revisa los datos marcados." y el campo muestra "Esta imagen ya no está. Elige otra.".
+- [X] V74 [web] En el curso casi lleno, subir una imagen que no cabe muestra "Este curso ya tiene 200 MB de imágenes. Quita alguna y guarda para hacer espacio.". (Validado en Chrome en Linux; las imágenes puestas con DataTransfer y el relleno de C2 por SQL.)
+- [X] V75 [web] En ese curso, al quitar una imagen ya guardada y guardar la lección, la misma imagen que no cabía ahora se sube. (Validado en Chrome en Linux. El paso del quickstart no se puede tal cual: con un grupo de imagen vacío la lección no se guarda; se quitó la marca, se guardó y luego se agregó otra.)
+- [X] V76 [web] En la lección pesada, con seis GIF de 5 MB, "Guardar lección" y "Probar lección" muestran "Las imágenes de esta lección pesan más de 25 MB. Quita alguna." y no guardan ni abren la prueba. Al quitar dos GIF, se guarda. (Validado en Chrome en Linux; las imágenes puestas con DataTransfer y el relleno de C2 por SQL.)
+- [X] V77 [web] Una misma imagen usada en dos actividades de la lección cuenta una vez en los 25 MB. (Validado en Chrome en Linux; las imágenes puestas con DataTransfer y el relleno de C2 por SQL.)
+- [X] V78 [web] En el lienzo de una lección con imágenes, junto a "Guardar lección" se lee "Imágenes de esta lección: {x} de 25 MB", que sube al elegir una imagen y baja al quitarla, sin guardar. En la lección pesada se ve en el color de error, con su icono, y en una lección sin imágenes no aparece. (Validado en Chrome en Linux; las imágenes puestas con DataTransfer y el relleno de C2 por SQL.)
+- [X] V79 [web] El mapa de un borrador con imágenes muestra "Imágenes del curso: {x} de 200 MB"; el del curso casi lleno, un número cercano a 200, que baja al quitar una imagen, guardar la lección y volver al mapa. (Validado en Chrome en Linux; las imágenes puestas con DataTransfer y el relleno de C2 por SQL.)
+- [X] V80 [backend] Una imagen que se sube y no se guarda en ninguna parte se borra un día después de subirla.
+- [X] V81 [backend] Al eliminar una lección se borran sus imágenes que no se usan en otra parte del curso, y al eliminar el curso, todas.
+- [X] V82 [backend] Subir dos veces el mismo archivo al mismo curso da la misma imagen, que cuenta una vez.
+- [X] V83 [backend] El servidor rechaza subir sin sesión, a un curso ajeno, en revisión o publicado, un archivo que no es imagen aunque se llame `.png`, un JPEG de más de 1600 px por lado, un JPEG con su ubicación, un PNG animado y un GIF de más de 5 MB.
+- [X] V84 [backend] El servidor rechaza guardar una lección con una imagen de otro curso, una imagen que no existe, imágenes de más de 25 MB entre todas, una teoría con más imágenes que marcas, o mosaicos de una columna con imágenes y textos mezclados. No guarda nada.
+- [X] V85 [backend] El servidor rechaza una portada GIF o de otro curso al guardar los datos del curso.
+- [X] V86 [backend] Las imágenes de un borrador solo las trae su autor; las de un curso publicado, cualquier usuario con sesión, y sin sesión, nadie.
+- [X] V87 [web] Si quito una imagen y guardo en una pestaña, y en otra pestaña con la versión anterior elijo "Reemplazar", aparece "Revisa los datos marcados." y el campo muestra "Esta imagen ya no está. Elige otra.". (Validado en Chrome en Linux; las imágenes puestas con DataTransfer y el relleno de C2 por SQL.)
 
 ### Contenido
 
 - [ ] V88 [web, móvil] En "Imágenes con etiquetas", los textos alternativos con `<b>hola</b>` y `<script>` se ven tal cual en la barra inferior y en el lugar de una imagen que no carga, sin interpretarse.
 - [ ] V89 [web, móvil] En "Imágenes al límite", la opción múltiple de 9 mosaicos, el emparejar de 8 parejas de imágenes, el clasificar de 12 mosaicos en 4 categorías y el ordenar de 10 se ven completos en un teléfono de 360 px, desplazando la actividad, sin cortar ni encimar mosaicos.
-- [ ] V90 [web] La vista previa del editor muestra las imágenes, los GIF con su pausa y el visor igual que el reproductor, y "Probar lección" recorre "Relacionar con imágenes" como un alumno.
+- [X] V90 [web] La vista previa del editor muestra las imágenes, los GIF con su pausa y el visor igual que el reproductor, y "Probar lección" recorre "Relacionar con imágenes" como un alumno. (Validado en Chrome en Linux; vista previa y prueba recorridas.)
 
 ---
 

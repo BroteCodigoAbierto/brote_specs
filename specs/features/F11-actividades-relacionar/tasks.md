@@ -239,7 +239,7 @@ su línea, como en F05.
 - [X] V48 [web, móvil] En "Mis colores favoritos son ___ y ___.", arrastro una ficha al segundo espacio con el primero libre, y de ahí de vuelta al banco. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
 - [X] V49 [web, móvil] Mientras arrastro, el elemento sigue al puntero o al dedo, su lugar de origen se ve atenuado y el destino debajo se resalta. Al soltarlo fuera de cualquier destino vuelve a donde estaba y nada cambia. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
 - [X] V50 [web, móvil] Con un elemento seleccionado, al empezar a arrastrar otro la selección se quita. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
-- [ ] V51 [web, móvil] En "Actividades de prueba", en el clasificar de 12 elementos y 4 categorías, con la última categoría fuera de la vista, al acercar un elemento al borde de la pantalla esta se desplaza sola y puedo soltarlo en esa categoría.
+- [X] V51 [web, móvil] En "Actividades de prueba", en el clasificar de 12 elementos y 4 categorías, con la última categoría fuera de la vista, al acercar un elemento al borde de la pantalla esta se desplaza sola y puedo soltarlo en esa categoría. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado el 2026-11-08 en un iPhone 12 mini por iPhone Mirroring, con la app de la rama de F12, que trae F11 completa.)
 - [X] V52 [web, móvil] Después de "Comprobar", nada se puede arrastrar ni pulsar. (Web validada con eventos de arrastre sintéticos, no con el ratón. Móvil validado en un iPhone por iPhone Mirroring, con el puntero como dedo.)
 - [ ] V53 [móvil] Al deslizar el dedo sobre un elemento sin mantenerlo pulsado, la pantalla se desplaza y el elemento no se mueve.
 - [ ] V54 [móvil] Mientras arrastro, un segundo dedo no arrastra otro elemento.
@@ -253,7 +253,7 @@ su línea, como en F05.
 - [X] V62 [web] En clasificar, ordenar y banco, al devolver un elemento colocado el foco queda en ese elemento.
 - [X] V63 [web] En estos tipos, las teclas 1 a 9 no hacen nada.
 - [ ] V64 [web, móvil] Con un lector de pantalla, cada elemento anuncia su estado ("Seleccionado", "Pareja {n}", "En {categoría}", "Lugar {n}" o "Espacio {n}"), y se anuncia cada cambio al hacerlo.
-- [ ] V65 [web, móvil] Lo correcto y lo incorrecto llevan icono además de color.
+- [X] V65 [web, móvil] Lo correcto y lo incorrecto llevan icono además de color. (Móvil validado el 2026-11-08 en un iPhone 12 mini por iPhone Mirroring, con la insignia en la esquina del número, con la app de la rama de F12, que trae F11 completa.)
 - [X] V66 [web, móvil] En "Números del 1 al 5" (Japonés sencillo, 3), acertando emparejar y la opción múltiple, y fallando ordenar, al terminar veo "Acertaste 2 de 3": la tarjeta no cuenta. (Móvil validado en Expo web, no en un teléfono.)
 - [X] V67 [web, móvil] En esa lección, con dos parejas cruzadas y lo demás bien, emparejar cuenta como fallada. (Móvil validado en Expo web, no en un teléfono.)
 - [X] V68 [web, móvil] Al volver al curso, esa lección muestra "2 de 3 aciertos". (Móvil validado en Expo web, no en un teléfono.)

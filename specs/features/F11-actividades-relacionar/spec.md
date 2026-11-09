@@ -575,7 +575,7 @@ No cambia (F05), salvo:
   de cualquier destino vuelve a donde estaba y nada cambia.
 - [x] [web, móvil] Con un elemento seleccionado, al empezar a arrastrar otro la
   selección se quita.
-- [ ] [web, móvil] En "Actividades de prueba", en el clasificar de 12 elementos y 4
+- [x] [web, móvil] En "Actividades de prueba", en el clasificar de 12 elementos y 4
   categorías, con la última categoría fuera de la vista, al acercar un elemento al
   borde de la pantalla esta se desplaza sola y puedo soltarlo en esa categoría.
 - [x] [web, móvil] Después de "Comprobar", nada se puede arrastrar ni pulsar.
@@ -607,7 +607,7 @@ No cambia (F05), salvo:
 - [ ] [web, móvil] Con un lector de pantalla, cada elemento anuncia su estado
   ("Seleccionado", "Pareja {n}", "En {categoría}", "Lugar {n}" o "Espacio {n}"), y
   se anuncia cada cambio al hacerlo.
-- [ ] [web, móvil] Lo correcto y lo incorrecto llevan icono además de color.
+- [x] [web, móvil] Lo correcto y lo incorrecto llevan icono además de color.
 
 ### Resultado y salir
 

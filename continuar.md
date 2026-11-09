@@ -450,6 +450,11 @@ Valida la feature cuyas tareas están hechas y sus criterios sin marcar. La guí
   sembrar con el proxy ya en `bloquear` (los ids cambian). Ojo: muchas lecciones comparten las
   mismas figuras, y una lección precarga las de sus actividades.
 
+- **Al cambiar de rama, `npm install` en los tres repos de código**, y en el backend
+  `npx prisma migrate deploy`, `npm run bd:generar` y `npm run bd:sembrar`: cada feature agrega
+  dependencias (F14 trae `expo-audio`, y sin instalarla Expo falla con "Failed to resolve plugin
+  for module expo-audio") y datos de prueba.
+
 **API**
 
 - La primera petición después de arrancarla es lenta. Haz una antes de medir tiempos, o usa esperas

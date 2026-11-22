@@ -93,8 +93,10 @@ El prototipo guardaba cada curso como una carpeta de archivos JSON. En Brote:
 `borrador → en revisión → publicado`. El autor envía su curso a revisión desde la web,
 y puede retirarlo de revisión o, ya publicado, retirarlo del catálogo: vuelve a ser
 borrador y, para publicarlo otra vez, pasa de nuevo por revisión. Sus alumnos conservan
-el progreso. No hay pantalla de moderación en el MVP: un administrador aprueba, rechaza
-y retira directamente en la base de datos:
+el progreso. Un administrador (su correo en `CORREOS_ADMINISTRADORES` de la API) ve los
+cursos en revisión en "Mi panel", prueba sus lecciones y los aprueba o no ahí (decisión
+0018). Retirar sigue directamente en la base de datos, y aprobar y rechazar también se
+pueden hacer ahí:
 
 ```sql
 UPDATE curso SET publicado = true  WHERE id = '…';   -- aprobar

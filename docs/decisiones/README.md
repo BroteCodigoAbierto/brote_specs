@@ -23,7 +23,8 @@ mismo y para poder explicar el proyecto.
 | [0011](0011-estado-con-context.md) | Estado global con Context y useReducer | Aceptada |
 | [0012](0012-validacion-manual.md) | Validación manual, sin pruebas automáticas | Aceptada |
 | [0013](0013-flujo-de-ramas.md) | Ramas feature → dev → main con PR | Aceptada |
-| [0014](0014-publicacion-con-revision.md) | Publicación con revisión manual | Aceptada |
+| [0014](0014-publicacion-con-revision.md) | Publicación con revisión manual | Reemplazada en parte por 0018 |
 | [0015](0015-sistema-de-diseno-vidrio.md) | Sistema de diseño de vidrio, compartido por web y móvil | Aceptada |
 | [0016](0016-imagenes-en-postgresql.md) | Imágenes de los cursos en PostgreSQL | Aceptada |
 | [0017](0017-audios-en-postgresql.md) | Audios de los cursos en PostgreSQL | Aceptada |
+| [0018](0018-moderacion-en-mi-panel.md) | Moderación de cursos en "Mi panel" | Aceptada |

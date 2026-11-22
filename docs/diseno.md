@@ -271,12 +271,14 @@ los dos clientes".
 | `ListaEditable` | `filas`, `dibujarFila`, `alAgregar`, `alQuitar`, `textoAgregar`, `minimo`, `maximo`, `deshabilitada` | Filas con "Quitar" y un `Boton` `secundario` chico con `Plus` para agregar. La usan los puntos clave, las opciones y las respuestas aceptadas |
 | `BotonesOrden` | `alSubir`, `alBajar`, `esPrimero`, `esUltimo`, `etiqueta` | "Subir" (`ChevronUp`) y "Bajar" (`ChevronDown`), de 44 px. En los extremos usan `aria-disabled`, no `disabled`, para no perder el foco |
 | `TarjetaCursoAutor` | `curso` | `Superficie` con portada, título, `InsigniaEstadoCurso`, `Insignia` "Revisión no aprobada" si la hay, `Insignia` de lecciones y el texto de la acción: "Editar" en borrador y "Administrar" en los demás. Toda la tarjeta es un enlace al mapa |
+| `TarjetaCursoRevision` | `curso` | Un curso en "Cursos en revisión" (decisión 0018). Como `TarjetaCursoAutor`: `Superficie` que es enlace a su revisión, con portada, título, autor en `primario`, descripción, `Insignia` de lecciones y de fecha de envío (`CalendarClock`), y abajo el texto de la acción "Revisar" |
 | `InsigniaEstadoCurso` | `estado` | La `Insignia` de "Estado de un curso" (sección 5). La usan `TarjetaCursoAutor`, los datos del mapa y la pantalla de un curso que no se edita |
 | `Aviso` (cambia) | `titulo`, `icono` | `titulo` en seminegrita sobre el texto. `icono` reemplaza al del tono. Solo en la web |
 | `PaletaActividades` | `alAgregar`, `deshabilitada`, `arrastre` | Grupos en `seccion`, tipos como botones con icono. Sin registro: texto en `textoSuave`, icono en `textoTenue` e `Insignia` `neutro` "Próximamente" |
 | `BloqueActividad` | `numero`, `etiqueta`, `icono`, `resumen`, `incompleta`, `seleccionado`, `alSeleccionar`, `alEliminar`, orden | `Superficie` con asa `GripVertical` y un `<button>` con número, tipo y resumen en una línea, hermano de los botones de orden y de "Eliminar". Seleccionado: borde `primario` y fondo `primarioSuave`. Incompleta: `Insignia` `acento` con `CircleAlert` |
 | `VistaPrevia` | `actividad`, `idBloque`, `mensaje` | `Superficie` `suave` con "VISTA PREVIA" en `seccion` y "Reiniciar" (`RotateCcw`). Monta la actividad en `AmbitoActividad` |
 | `Dialogo` (cambia) | `enviando` | Pone `enviando` en el botón de confirmar. Solo en la web |
+| `Dialogo` (cambia, decisión 0018) | `varianteConfirmar`, `children` | `varianteConfirmar` `primario` cuando confirmar no pierde nada ("Aprobar"); por defecto `peligro`. `children` va entre el texto y los botones, para un campo (el motivo de "No aprobar") |
 | `ResultadoLeccion` (cambia) | `textoVolver` | Por defecto, "Volver al curso". Solo en la web |
 | `BarraRespuesta` (cambia) | — | Dentro de un `AmbitoActividad` va en línea, no fija. Solo en la web |
 | `CampoImagen` | `id`, `etiqueta`, `valor`, `alCambiar`, `alElegirArchivo`, `error`, `soloFotos`, `conTextoAlternativo`, `deshabilitado` | El campo de una imagen (F13). Vacío: `Boton` `secundario` chico "Elegir imagen" con `ImagePlus` y la nota de formatos en `nota` `textoSuave`. Subiendo: un `IndicadorCarga` chico y "Subiendo imagen…". Con imagen: `ImagenCurso` de 96 px, "{ancho} × {alto} px · {peso}" en `nota`, "Cambiar" y "Quitar" (`fantasma` chico) y, con `conTextoAlternativo`, un `CampoTexto` "Texto alternativo" con su ayuda. El error, debajo, como en `CampoTexto`. El `<input type="file">` acepta `image/*` y está oculto |
@@ -333,7 +335,17 @@ degradado índigo → violeta, seguido de "Brote" en `titulo3` peso 800.
   estados (cargando, vacío, error, con datos). Las tarjetas van en la
   rejilla de "Listas de tarjetas". Cada feature que agregue un bloque suma
   su sección. "Cursos que creé" (F05) lleva "Nuevo curso" (`Boton` primario
-  chico con `Plus`) a la derecha de su título.
+  chico con `Plus`) a la derecha de su título. "Cursos en revisión" (decisión
+  0018) solo la ve un administrador y va primero; al volver de una revisión, lo
+  que pasó se dice en un `Aviso` bajo su título (`exito` o `error`).
+- **Revisión de un curso** (web, decisión 0018): el diseño del detalle del curso. Arriba,
+  `Boton` `enlace` chico "Mi panel" con `ArrowLeft` y un `Aviso` `info` que dice que
+  está en revisión y que probar no cuenta como progreso. El encabezado agrega
+  `Insignia` "Da insignia" (`Medal`) si la da y la fecha de envío. Cada lección dice
+  "Probar" en `primario` y abre `ProbarLeccion` a pantalla completa, con "Volver a la
+  revisión". Al final, una `Superficie` "Decisión" con su ayuda y, a la derecha,
+  "No aprobar" (`secundario`, `X`) y "Aprobar" (primario, `Check`), cada uno con su
+  `Dialogo`; el de "No aprobar" lleva `CampoArea` "Motivo (opcional)".
 - **Estado de un curso** (F05, F06): "Borrador" con `Insignia` `neutro` y
   `PencilLine`; "En revisión" con `Insignia` `acento` y `Hourglass`; "Publicado"
   con `Insignia` `primario` y `Globe`. Aparte del estado, "Revisión no aprobada"

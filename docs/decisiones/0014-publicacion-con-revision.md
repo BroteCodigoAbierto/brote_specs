@@ -1,6 +1,6 @@
 # 0014. Publicación con revisión manual
 
-**Estado**: Aceptada · **Fecha**: 2026-10-14
+**Estado**: Reemplazada en parte por [0018](0018-moderacion-en-mi-panel.md) (aprobar desde "Mi panel") · **Fecha**: 2026-10-14
 
 ## Contexto
 

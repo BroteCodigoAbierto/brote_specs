@@ -29,10 +29,16 @@ Brote no se usa sin cuenta. En los dos clientes:
                           Continuar
 /panel                    "Mi panel": página personal, con       (F04, F05, F08)
                           "Sigue aprendiendo", "Mis insignias"
-                          y "Cursos que creé"
+                          y "Cursos que creé"; a un
+                          administrador, también "Cursos en      (decisión 0018)
+                          revisión"
 /editor/nuevo             Nuevo curso                            (F05)
 /editor/:idCurso          Mapa del curso: datos y lecciones;     (F05, F06)
                           en revisión o publicado, sus acciones
+/moderacion/:idCurso      Revisión de un curso (solo             (decisión 0018)
+                          administradores): sus datos, sus
+                          lecciones para probarlas, Aprobar y
+                          No aprobar
 *                         Página no encontrada (con sesión)      (F01)
 /cursos/:idCurso/lecciones/:idLeccion
                           Reproductor de la lección, a pantalla  (F03)
@@ -40,6 +46,10 @@ Brote no se usa sin cuenta. En los dos clientes:
 /editor/:idCurso/lecciones/:idLeccion
                           Lienzo de la lección, a pantalla       (F05)
                           completa, fuera del marco común
+/moderacion/:idCurso/lecciones/:idLeccion
+                          Probar una lección de un curso en      (decisión 0018)
+                          revisión, a pantalla completa; no
+                          registra progreso
 /glosario                 Glosario                               (F09) (prevista)
 ```
 
@@ -69,6 +79,10 @@ Brote no se usa sin cuenta. En los dos clientes:
 - En "Cursos que creé" (F05, F06), todas las tarjetas abren el mapa: "Editar" en un
   borrador y "Administrar" en uno en revisión o publicado. "Nuevo curso" lleva a
   `/editor/nuevo`; al crearlo, el mapa reemplaza esa entrada del historial.
+- En "Cursos en revisión" (decisión 0018), cada tarjeta abre su revisión. Ahí, "Mi
+  panel" vuelve a `/panel`; cada lección se abre para probarla y su X regresa a la
+  revisión. Al aprobar o no aprobar, se vuelve a `/panel`, que dice qué pasó; si el
+  curso ya no está en revisión, la página lo dice con un enlace a "Mi panel".
 - Del mapa, "Mi panel" vuelve a `/panel`, y cada lección abre su lienzo. Del
   lienzo, "Volver al curso" lleva al mapa.
 - "Probar lección" (F05) agrega una entrada de historial en la misma dirección,

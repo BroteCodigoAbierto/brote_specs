@@ -162,3 +162,8 @@ cambios; si entra otra cuenta, se descarta.
 | Mapa del curso | Lienzo de la lección | `idCurso`, `idLeccion`, en la dirección (F05) |
 | Mapa del curso | Detalle del curso | `idCurso`, en la dirección (F06) |
 | Lienzo de la lección | Probar lección | Nada: las actividades siguen en memoria. `state.probando` en el historial (F05) |
+
+## Apariencia en Cuenta
+
+Web: `/cuenta`, protegida por sesión, desde el menú del usuario. Móvil: pestaña
+Cuenta. Ambas incluyen SelectorTema (ver `features/temas/spec.md`).

@@ -17,7 +17,7 @@ cero. Por qué se eligió así está en
 1. **Vidrio sobre luz.** Las superficies son paneles translúcidos (vidrio
    esmerilado) sobre un fondo ambiental suave. El vidrio agrupa; el fondo
    respira. Nunca vidrio sobre vidrio más de dos niveles.
-2. **Una acción principal por pantalla.** Un solo botón primario (índigo). El
+2. **Una acción principal por pantalla.** Un solo botón primario (el color de acción de la paleta elegida). El
    resto son secundarios, fantasmas o enlaces.
 3. **El progreso es verde brote.** El lima se reserva para avance, aciertos y
    logros. No se usa para acciones ni para decorar.
@@ -105,6 +105,106 @@ mismo color 18 % más claro, con la inicial en blanco. Todas con contraste
 | `portada1` | `portada2` | `portada3` | `portada4` | `portada5` | `portada6` | `portada7` | `portada8` |
 |---|---|---|---|---|---|---|---|
 | `#4F46E5` índigo | `#7C3AED` violeta | `#4D7C0F` brote | `#C2410C` coral | `#1D4ED8` azul | `#0F766E` turquesa | `#BE185D` frambuesa | `#475569` pizarra |
+
+### 2.1.1 Paletas seleccionables en Cuenta
+
+Cuatro diseños: Original (los valores anteriores), Océano, Terracota y Ciruela.
+Cada uno tiene variantes claro y oscuro; el modo puede seguir al sistema.
+Se conservan tipografía, medidas, vidrio y colores semánticos de progreso,
+error, código y portadas. Los tokens no listados heredan Original del mismo modo.
+La selección es local al dispositivo y se aplica también fuera de Cuenta.
+
+`SelectorTema` en ambos clientes: título «Temas», descripción, cuatro opciones
+con nombre y descripción, y grupo «Modo» con Del sistema, Claro y Oscuro.
+Opciones de al menos 44 px, radio medio, relleno espacio 4, separación espacio 3;
+selección con borde primario, fondo primarioSuave e indicador de radio/check.
+Web usa radios nativos y una rejilla adaptable (opciones de al menos 16rem,
+o todo el ancho si hay menos espacio); móvil anuncia radio y estado marcado.
+El encabezado web permite envolver sus controles al ampliar el texto y el menú
+de cuenta no supera el ancho de la ventana menos los márgenes espacio 5. El contenedor es
+una Superficie con relleno espacio 6. Cuenta permite desplazarse con texto grande.
+Al guardar muestra estado; si falla, avisa que el cambio solo dura esta sesión.
+
+**Oceano**
+
+| Token | Claro | Oscuro |
+|---|---|---|
+| `primario` | `#036985` | `#68D5ED` |
+| `primarioHover` | `#075568` | `#9BE5F4` |
+| `primarioSuave` | `#E0F2F7` | `rgba(104,213,237,0.16)` |
+| `sobrePrimario` | `#FFFFFF` | `#062F3B` |
+| `texto` | `#15333F` | `#E5F4F9` |
+| `textoSuave` | `#486370` | `#A0BECA` |
+| `textoTenue` | `#748995` | `#688997` |
+| `borde` | `#D4E5EC` | `rgba(185,225,242,0.12)` |
+| `bordeFuerte` | `#B7CFDA` | `rgba(185,225,242,0.22)` |
+| `fondo` | `#F0F7FA` | `#081B25` |
+| `vidrio` | `rgba(248,253,255,0.76)` | `rgba(18,43,57,0.70)` |
+| `vidrioSuave` | `rgba(224,242,247,0.70)` | `rgba(26,63,80,0.60)` |
+| `vidrioOpaco` | `#F9FDFF` | `#112D3B` |
+| `acento` | `#DE8045` | `#FFB57E` |
+| `acentoSuave` | `#FFF0E4` | `rgba(255,181,126,0.14)` |
+| `sombraSuave` | `0px 8px 28px rgba(3,105,133,0.08)` | `0px 8px 28px rgba(0,0,0,0.35)` |
+| `sombraElevada` | `0px 16px 44px rgba(3,105,133,0.14), 0px 2px 6px rgba(3,105,133,0.05)` | `0px 16px 44px rgba(0,0,0,0.5)` |
+| `sombraBoton` | `0px 8px 18px rgba(3,105,133,0.28)` | `0px 8px 18px rgba(0,0,0,0.4)` |
+
+Fondo ambiental claro: `radial-gradient(ellipse at 0% 0%, rgba(3,105,133,0.18), transparent 55%), linear-gradient(160deg, #F0F7FA, #F9FDFF)`.
+
+Fondo ambiental oscuro: `radial-gradient(ellipse at 0% 0%, rgba(104,213,237,0.18), transparent 55%), linear-gradient(160deg, #081B25, #112D3B)`.
+
+**Terracota**
+
+| Token | Claro | Oscuro |
+|---|---|---|
+| `primario` | `#A44026` | `#FFB08C` |
+| `primarioHover` | `#85321D` | `#FFC6AC` |
+| `primarioSuave` | `#FBECE4` | `rgba(255,176,140,0.16)` |
+| `sobrePrimario` | `#FFFFFF` | `#402216` |
+| `texto` | `#3D2923` | `#FAEEE5` |
+| `textoSuave` | `#70564B` | `#CBB1A0` |
+| `textoTenue` | `#998174` | `#94786A` |
+| `borde` | `#EADBD1` | `rgba(244,218,195,0.12)` |
+| `bordeFuerte` | `#D6BEB0` | `rgba(244,218,195,0.22)` |
+| `fondo` | `#FAF5EF` | `#241711` |
+| `vidrio` | `rgba(255,251,245,0.76)` | `rgba(62,39,28,0.70)` |
+| `vidrioSuave` | `rgba(249,235,224,0.70)` | `rgba(85,51,34,0.60)` |
+| `vidrioOpaco` | `#FFFBF6` | `#38251C` |
+| `acento` | `#C58A30` | `#F2CD7B` |
+| `acentoSuave` | `#FFF2D8` | `rgba(242,205,123,0.14)` |
+| `sombraSuave` | `0px 8px 28px rgba(164,64,38,0.08)` | `0px 8px 28px rgba(0,0,0,0.35)` |
+| `sombraElevada` | `0px 16px 44px rgba(164,64,38,0.14), 0px 2px 6px rgba(164,64,38,0.05)` | `0px 16px 44px rgba(0,0,0,0.5)` |
+| `sombraBoton` | `0px 8px 18px rgba(164,64,38,0.28)` | `0px 8px 18px rgba(0,0,0,0.4)` |
+
+Fondo ambiental claro: `radial-gradient(ellipse at 0% 0%, rgba(164,64,38,0.18), transparent 55%), linear-gradient(160deg, #FAF5EF, #FFFBF6)`.
+
+Fondo ambiental oscuro: `radial-gradient(ellipse at 0% 0%, rgba(255,176,140,0.18), transparent 55%), linear-gradient(160deg, #241711, #38251C)`.
+
+**Ciruela**
+
+| Token | Claro | Oscuro |
+|---|---|---|
+| `primario` | `#893C86` | `#E7A2DF` |
+| `primarioHover` | `#702D6D` | `#F1C1EB` |
+| `primarioSuave` | `#F7EAF6` | `rgba(231,162,223,0.16)` |
+| `sobrePrimario` | `#FFFFFF` | `#3C1838` |
+| `texto` | `#38223C` | `#F7EAF7` |
+| `textoSuave` | `#6C5170` | `#C7A9CA` |
+| `textoTenue` | `#957C9A` | `#917096` |
+| `borde` | `#E8D9EB` | `rgba(239,208,243,0.12)` |
+| `bordeFuerte` | `#D3BBD7` | `rgba(239,208,243,0.22)` |
+| `fondo` | `#F9F3FA` | `#211324` |
+| `vidrio` | `rgba(255,249,255,0.76)` | `rgba(57,31,62,0.70)` |
+| `vidrioSuave` | `rgba(247,234,246,0.70)` | `rgba(78,40,82,0.60)` |
+| `vidrioOpaco` | `#FFFAFF` | `#331E38` |
+| `acento` | `#D4809A` | `#F4AEC0` |
+| `acentoSuave` | `#FCEBF1` | `rgba(244,174,192,0.14)` |
+| `sombraSuave` | `0px 8px 28px rgba(137,60,134,0.08)` | `0px 8px 28px rgba(0,0,0,0.35)` |
+| `sombraElevada` | `0px 16px 44px rgba(137,60,134,0.14), 0px 2px 6px rgba(137,60,134,0.05)` | `0px 16px 44px rgba(0,0,0,0.5)` |
+| `sombraBoton` | `0px 8px 18px rgba(137,60,134,0.28)` | `0px 8px 18px rgba(0,0,0,0.4)` |
+
+Fondo ambiental claro: `radial-gradient(ellipse at 0% 0%, rgba(137,60,134,0.18), transparent 55%), linear-gradient(160deg, #F9F3FA, #FFFAFF)`.
+
+Fondo ambiental oscuro: `radial-gradient(ellipse at 0% 0%, rgba(231,162,223,0.18), transparent 55%), linear-gradient(160deg, #211324, #331E38)`.
 
 ### 2.2 Tipografía
 

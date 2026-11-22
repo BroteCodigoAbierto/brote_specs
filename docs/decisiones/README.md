@@ -28,3 +28,4 @@ mismo y para poder explicar el proyecto.
 | [0016](0016-imagenes-en-postgresql.md) | Imágenes de los cursos en PostgreSQL | Aceptada |
 | [0017](0017-audios-en-postgresql.md) | Audios de los cursos en PostgreSQL | Aceptada |
 | [0018](0018-moderacion-en-mi-panel.md) | Moderación de cursos en "Mi panel" | Aceptada |
+| [0019](0019-catalogo-sin-cursos-completados.md) | El catálogo no muestra los cursos completados | Aceptada |

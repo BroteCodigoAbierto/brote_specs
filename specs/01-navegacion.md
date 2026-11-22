@@ -22,8 +22,10 @@ Brote no se usa sin cuenta. En los dos clientes:
 ```text
 /entrar                   Iniciar sesión                         (F01)
 /registro                 Crear cuenta                           (F01)
-/                         Catálogo de cursos publicados; la      (F02)
-                          búsqueda va en ?q= (p. ej. /?q=git)
+/                         Catálogo de cursos publicados, sin     (F02)
+                          los que ya completaste (decisión
+                          0019); la búsqueda va en ?q=
+                          (p. ej. /?q=git)
 /cursos/:idCurso          Detalle del curso, sus lecciones y el  (F02, F04)
                           avance del alumno, con Empezar /
                           Continuar

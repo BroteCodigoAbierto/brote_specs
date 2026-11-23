@@ -16,12 +16,12 @@ description: "Lista de tareas de F08 Insignias por curso completado"
 
 ## Fase 1: Preparación
 
-- [ ] T001 [specs] Agregar `InsigniaCurso` y `RespuestaInsignias`, `insigniaNueva: InsigniaCurso | null` en `RespuestaProgresoLeccion`, `daInsignia?: boolean` en `CuerpoDatosCurso` ("sin él no cambia; el POST sin él crea el curso sin insignia") y `daInsignia: boolean` en `CursoEnEditor`, como dice `contracts/contrato.md`, en `contrato/contrato.ts`; subir `contrato/VERSION` a 0.12.0
-- [ ] T002 [specs] Agregar `InsigniaCurso` (props `insignia`, `tamano` `lista` | `grande`) a la sección 4 de `docs/diseno.md`, y la prop `insignia` de `ResultadoLeccion`, como dice "Interfaz" en `plan.md`
-- [ ] T003 [back] Crear la rama `feature/F08-insignias-curso` desde `dev`
-- [ ] T004 [P] [web] Crear la rama `feature/F08-insignias-curso` desde `dev`
-- [ ] T005 [P] [movil] Crear la rama `feature/F08-insignias-curso` desde `dev`
-- [ ] T006 [specs] Copiar el contrato a los repos: `npm run contrato:copiar` en brote_specs (escribe `src/tipos/contrato.ts` de back, web y móvil; un commit por repo)
+- [X] T001 [specs] Agregar `InsigniaCurso` y `RespuestaInsignias`, `insigniaNueva: InsigniaCurso | null` en `RespuestaProgresoLeccion`, `daInsignia?: boolean` en `CuerpoDatosCurso` ("sin él no cambia; el POST sin él crea el curso sin insignia") y `daInsignia: boolean` en `CursoEnEditor`, como dice `contracts/contrato.md`, en `contrato/contrato.ts`; subir `contrato/VERSION` a 0.12.0
+- [X] T002 [specs] Agregar `InsigniaCurso` (props `insignia`, `tamano` `lista` | `grande`) a la sección 4 de `docs/diseno.md`, y la prop `insignia` de `ResultadoLeccion`, como dice "Interfaz" en `plan.md`
+- [X] T003 [back] Crear la rama `feature/F08-insignias-curso` desde `dev`
+- [X] T004 [P] [web] Crear la rama `feature/F08-insignias-curso` desde `dev`
+- [X] T005 [P] [movil] Crear la rama `feature/F08-insignias-curso` desde `dev`
+- [X] T006 [specs] Copiar el contrato a los repos: `npm run contrato:copiar` en brote_specs (escribe `src/tipos/contrato.ts` de back, web y móvil; un commit por repo)
 
 ---
 

@@ -63,7 +63,7 @@ Cerrar sesión borra la fila de ese dispositivo; las demás siguen.
 Detalle de las cuatro tablas en
 [`features/F01-crear-cuenta/data-model.md`](./features/F01-crear-cuenta/data-model.md).
 
-### Curso (F02, F05, F06, F13, F14)
+### Curso (F02, F05, F06, F08, F13, F14)
 
 Curso creado por un usuario, que es su autor. Tabla `curso`; en el contrato
 viaja como `ResumenCurso` (catálogo), `DetalleCurso` (detalle), `CursoDelAutor`
@@ -83,6 +83,7 @@ viaja como `ResumenCurso` (catálogo), `DetalleCurso` (detalle), `CursoDelAutor`
 | `cantidadLecciones` | — | entero | sí | No se guarda: se cuenta al responder |
 | `idPortada` (`ResumenCurso`, `CursoDelAutor`) · `portada` (`CursoEnEditor`) | `id_portada` | texto | no | → `imagen.id`, de este mismo curso y no GIF (lo comprueba el servicio). `ON DELETE SET NULL`. `portada` es la **Imagen** completa (el editor muestra su tamaño y su peso); las tarjetas solo reciben su id (F13) |
 | `idioma` (`DetalleCurso`, `CursoEnEditor`) | `idioma` | texto | sí | Uno de `IDIOMAS_CURSO`: `es`, `en`, `fr`, `pt`, `de`, `it`, `ja`, `zh` o `ko`. Por defecto `es` (los cursos de antes de F14 quedaron así). `CHECK` `curso_idioma_valido`. Es el de la voz que lee las frases de escuchar y repetir; no ordena ni filtra el catálogo, y `ResumenCurso` no lo trae. Se cambia en los datos del curso del mapa (`CuerpoDatosCurso.idioma?`, sin él no cambia) (F14) |
+| `daInsignia` (`CursoEnEditor`, `CuerpoDatosCurso?`) | `da_insignia` | booleano | sí | Por defecto `false`, también en los cursos de antes de F08. Si es `true`, quien complete el curso gana su **Insignia**. Lo cambia su autor en un borrador, con los datos del curso del mapa (`CuerpoDatosCurso.daInsignia?`, sin él no cambia; el `POST` sin él crea `false`). No viaja al catálogo ni al detalle (F08) |
 | `pesoArchivos` (`CursoEnEditor`) | — | entero | sí | No se guarda: la suma de `peso` de sus imágenes y sus audios, usados o no, en bytes. Hasta 200 MB (`LIMITES_ARCHIVOS.pesoCursoMax`), comprobado al subir cualquiera de los dos (F13; antes `pesoImagenes`, F14) |
 | — | `creado_en` | fecha | sí | Por defecto, el momento de crearlo. Desempata el orden |
 | — | `actualizado_en` | fecha | sí | Ordena "Cursos que creé". Se actualiza también al cambiar sus lecciones |
@@ -268,7 +269,8 @@ su forma: el backend la valida antes de guardarla.
 - Las respuestas viajan al cliente, que califica sin volver a pedir nada
   (research de F03, punto 2). Por eso el servidor no puede confiar en los
   aciertos que mande el cliente: F04 solo comprueba que el resultado cuadre
-  con la lección (ver Progreso), y F08 decide si eso basta para los puntos.
+  con la lección (ver Progreso). F08 no da puntos: la insignia sale de tener
+  completadas todas las lecciones del curso, sin recalificar.
 - Qué tipos son preguntas lo dice `CALIFICA_ACTIVIDAD` en el contrato (F04):
   `opcionMultiple`, `completarEspacios`, `preguntaAbierta`, `emparejar`,
   `clasificar`, `ordenar`, `bancoPalabras`, `retoCodigo`, `terminalSimulada`,
@@ -347,6 +349,32 @@ la fecha. Tabla `progreso`; en el contrato, `ProgresoLeccion` (dentro de cada
 Detalle, la migración y lo que viaja en el contrato en
 [`features/F04-registrar-progreso/data-model.md`](./features/F04-registrar-progreso/data-model.md).
 
+### Insignia (F08)
+
+Que un usuario completó un curso que daba insignia. Una por usuario y curso. Tabla
+`insignia`; en el contrato, `InsigniaCurso` (en `RespuestaProgresoLeccion.insigniaNueva` y en
+`RespuestaInsignias`).
+
+| Campo (contrato) | Columna (`insignia`) | Tipo | Obligatorio | Reglas |
+|---|---|---|---|---|
+| — | `id_usuario` | texto | sí | → `user.id`, `ON DELETE CASCADE`. Siempre el de la sesión: no viaja por la API |
+| `idCurso` | `id_curso` | texto | sí | → `curso.id`, `ON DELETE CASCADE`: eliminar el curso borra sus insignias |
+| `ganadaEn` | `ganada_en` | fecha (ISO 8601 en la API) | sí | Por defecto, el momento de crearla. Ordena "Mis insignias" (la más reciente primero; desempate por `idCurso`) |
+| `titulo`, `idPortada` | — | — | — | No se guardan: salen del curso al responder |
+
+- **Clave primaria** `(id_usuario, id_curso)`. **Índice** en `id_curso`.
+- Solo se crea al registrar una lección completada (F04) de un curso con `da_insignia =
+  true`, cuando el usuario tiene **Progreso** en todas las lecciones que el curso tiene hoy.
+  Se crea con `ON CONFLICT DO NOTHING`: si dos dispositivos terminan a la vez, queda una y
+  solo una respuesta la trae como nueva.
+- No se borra si el curso cambia `da_insignia`, agrega lecciones o deja de estar publicado.
+  "Mis insignias" incluye cursos no publicados; su portada puede no cargar y se ve la
+  generada.
+- Cada usuario lee solo sus insignias.
+
+Detalle y la migración (`f08_insignias`) en
+[`features/F08-insignias-curso/data-model.md`](./features/F08-insignias-curso/data-model.md).
+
 ## Entidades previstas
 
 Salen del prototipo (ver `docs/prototipo.md`). Sus campos se definen en la
@@ -354,6 +382,4 @@ spec de cada feature.
 
 | Entidad | Qué representa | Feature |
 |---|---|---|
-| Curso: lo que falta | La configuración de gamificación (el idioma llegó con F14) | F08 |
-| Puntos / Insignia | Recompensas de un usuario en un curso | F08 |
 | EntradaGlosario | Término y definición, derivados de lecciones completadas o agregados por el alumno | F09 |

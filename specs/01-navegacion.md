@@ -27,8 +27,9 @@ Brote no se usa sin cuenta. En los dos clientes:
 /cursos/:idCurso          Detalle del curso, sus lecciones y el  (F02, F04)
                           avance del alumno, con Empezar /
                           Continuar
-/panel                    "Mi panel": página personal, con       (F04, F05)
-                          "Sigue aprendiendo" y "Cursos que creé"
+/panel                    "Mi panel": página personal, con       (F04, F05, F08)
+                          "Sigue aprendiendo", "Mis insignias"
+                          y "Cursos que creé"
 /editor/nuevo             Nuevo curso                            (F05)
 /editor/:idCurso          Mapa del curso: datos y lecciones;     (F05, F06)
                           en revisión o publicado, sus acciones
@@ -89,8 +90,8 @@ Brote no se usa sin cuenta. En los dos clientes:
 (tabs)/mis-cursos         Pestaña "Mis cursos": cursos empezados (F04)
                           con su avance; los descargados llegan
                           con F10
-(tabs)/cuenta             Pestaña "Cuenta": nombre, correo y     (F01)
-                          "Cerrar sesión"
+(tabs)/cuenta             Pestaña "Cuenta": nombre, correo,      (F01, F08)
+                          "Mis insignias" y "Cerrar sesión"
 (tabs)/glosario           Glosario                               (F09) (prevista)
 curso/[idCurso]           Detalle del curso, en el Stack raíz,   (F02)
                           encima de las pestañas

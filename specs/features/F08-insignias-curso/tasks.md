@@ -62,10 +62,10 @@ description: "Lista de tareas de F08 Insignias por curso completado"
 
 ## Fase 5: Cierre
 
-- [ ] T025 [specs] Integrar `data-model.md` a `specs/02-modelo-datos.md` (Curso.`daInsignia`, entidad Insignia; quitar "Puntos / Insignia" de "Entidades previstas")
-- [ ] T026 [specs] Integrar "Mis insignias" (Mi panel y Cuenta) a `specs/01-navegacion.md`
-- [ ] T027 [specs] `npm run contrato:revisar`: todas las copias coinciden con la oficial
-- [ ] T028 [specs] Revisar que `spec.md` coincide con lo que se construyó; si algo cambió, actualizarla
+- [X] T025 [specs] Integrar `data-model.md` a `specs/02-modelo-datos.md` (Curso.`daInsignia`, entidad Insignia; quitar "Puntos / Insignia" de "Entidades previstas")
+- [X] T026 [specs] Integrar "Mis insignias" (Mi panel y Cuenta) a `specs/01-navegacion.md`
+- [X] T027 [specs] `npm run contrato:revisar`: todas las copias coinciden con la oficial
+- [X] T028 [specs] Revisar que `spec.md` coincide con lo que se construyó; si algo cambió, actualizarla
 
 ---
 

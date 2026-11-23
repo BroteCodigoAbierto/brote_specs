@@ -31,7 +31,7 @@ cursos interactivos (lecciones con actividades: opción múltiple, emparejar,
 completar espacios, terminal simulada, escuchar y repetir, ...) y cualquiera
 puede cursarlos. Los autores construyen sus cursos en un editor visual en la
 web; los alumnos cursan en web o en el teléfono, y su progreso los sigue entre
-dispositivos. Cada curso decide si usa gamificación.
+dispositivos. Cada autor decide si su curso da una insignia a quien lo complete.
 
 ## MVP
 
@@ -44,7 +44,7 @@ dispositivos. Cada curso decide si usa gamificación.
 | F05 | Crear y editar un curso (editor) | sí | no |
 | F06 | Enviar un curso a revisión y publicarlo | sí | no |
 | F07 | Importar y exportar un curso en JSON | sí | no |
-| F08 | Gamificación: puntos e insignias por curso | sí | sí |
+| F08 | Insignias por curso completado (el autor decide si su curso da insignia) | sí | sí |
 | F09 | Glosario | sí | sí |
 | F10 | Cursar sin conexión | no | sí |
 | F11 | Actividades de relacionar: emparejar, clasificar, ordenar y banco de palabras | sí | sí |

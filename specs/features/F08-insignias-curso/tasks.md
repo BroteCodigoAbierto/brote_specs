@@ -56,7 +56,7 @@ description: "Lista de tareas de F08 Insignias por curso completado"
 - [X] T021 [movil] Componente `InsigniaCurso` en `src/componentes/InsigniaCurso.tsx` (sigue `docs/diseno.md`, sección 4)
 - [X] T022 [movil] `useGuardarProgreso` expone `insignia` en `src/hooks/useGuardarProgreso.ts`; `ResultadoLeccion` con prop `insignia` en `src/componentes/ResultadoLeccion.tsx`; `src/app/leccion/[idCurso]/[idLeccion].tsx` se la pasa
 - [X] T023 [movil] Sección "Mis insignias" en `src/app/(tabs)/cuenta.tsx`: cargando, lista, vacío, error y sin conexión, con `useRecargarAlVolver` (sigue `docs/diseno.md`, secciones 4 y 5)
-- [ ] T024 [movil] Publicar la liga de Expo Go: `EXPO_PUBLIC_URL_API=https://brote-api.vercel.app npx eas-cli update --branch produccion --environment production` y actualizar la liga en `README.md`
+- [X] T024 [movil] Publicar la liga de Expo Go: `EXPO_PUBLIC_URL_API=https://brote-api.vercel.app npx eas-cli update --branch produccion --environment production` y actualizar la liga en `README.md`
 
 ---
 

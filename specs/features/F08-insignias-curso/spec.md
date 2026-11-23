@@ -101,7 +101,9 @@ El alumno no escribe nada: la insignia sale de terminar lecciones.
 
 - Curso en borrador: la opción se puede cambiar.
 - Curso en revisión o publicado: la opción se ve con su valor, pero no se puede
-  cambiar, igual que los demás datos del curso (F06).
+  cambiar, igual que los demás datos del curso (F06). Como en esos cursos el mapa
+  muestra la pantalla de un curso que no se edita, el valor va como texto, junto al
+  idioma: "Da una insignia a quien lo complete" o "No da insignia a quien lo complete".
 - Guardando: la opción no se puede cambiar mientras se guardan los datos del
   curso.
 

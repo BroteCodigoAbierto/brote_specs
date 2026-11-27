@@ -540,3 +540,21 @@ son la base para todas las actividades; cada spec de actividad las concreta.
 3. Luego el componente en los dos clientes, con las mismas props.
 4. El plan de cada feature (`/speckit-plan`) dice qué componentes usa y cuáles
    crea; las tareas de interfaz citan la sección de este documento que siguen.
+
+## 9. Variante visual opcional (decisión 0020)
+
+El diseño predeterminado y oficial de Brote sigue siendo **Liquid Glass (`vidrio`)**:
+superficies translúcidas con desenfoque sobre fondo ambiental.
+
+De forma opcional, la persona puede elegir desde el menú de cuenta (web) o desde
+"Cuenta" (móvil) la variante **`editorial`** (guardada en `"pref.aspecto"`):
+
+- Mantiene exactamente los mismos tokens y colores de marca (`primario`, `brote`,
+  `acento`, `error`), pero reduce la transparencia y el desenfoque de las tarjetas
+  (`vidrio` más sólido, borde nítido, radios ligeramente más estructurados y fondo
+  ambiental más sereno), pensada para sesiones largas de lectura o estudio en
+  escuelas y universidades.
+- En la web se activa mediante `data-variante="editorial"` sobre `:root` en
+  `src/estilos/tokens.css`. Sin el atributo (o con `"vidrio"`), la interfaz no
+  cambia respecto al diseño Liquid Glass original.
+
